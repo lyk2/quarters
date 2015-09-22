@@ -1,0 +1,43 @@
+\documentclass[12pt]{article}
+
+\usepackage{xcolor} % for different colour comments
+
+%% Comments
+\newif\ifcomments\commentstrue
+
+\ifcomments
+\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\else
+\newcommand{\authornote}[3]{}
+\newcommand{\todo}[1]{}
+\fi
+
+\newcommand{\wss}[1]{\authornote{magenta}{SS}{#1}}
+\newcommand{\ds}[1]{\authornote{blue}{ND}{#1}}
+
+\begin{document}
+
+\title{Problem Statement for quarters} 
+\author{James Anthony, Wenqiang Chen, Carolyn Chong, Kevin Ly}
+\date{\today}
+	
+\maketitle
+
+Home sweet home. It is a saying we all want to be said at the end of a long day. Home is where memories are made and belongings are kept. As such, the care and conditions of a home are important aspects that landlords and tenants should be able to communicate about with ease. \\
+
+But how many times has an email been lost, a verbal cry for help been neglected, or a notice on the door been ignored? Both parties are left feeling frustrated and forgotten due to a messy inbox or an unreliable phone. It is a problem rooted in the inefficient communication tools currently used by landlords and tenants. In other words, it is the age-old game of cat and mouse.\\
+ 
+A common complaint of tenants is that they do not see their maintenance issues being addressed right away. Or perhaps another tenant keeps leaving their dirty dishes in the sink. Or someone has yet to pay their portion of the internet bill. The list goes on\ldots \\
+
+On the other end, landlords are faced with a challenge when it comes to prioritizing issues and inquiries, organizing documents and contracts, and collecting payments. Tenants are their customers and it's up to the landlord to keep them comfortable and content with the hopes of increasing their odds of retaining long-term clients.\\
+
+A software platform is needed to serve both sides of the rental coin that improves and simplifies communication and accountability.
+
+
+
+
+\wss{This is an example comment.  You can turn comments off by replacing
+  commentstrue by commentsfalse.}
+
+\end{document}
