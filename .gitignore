@@ -1,0 +1,7 @@
+*.log
+*.gz
+Documents/Problem Statement/quarters_ProblemStatement.tex.bak
+*.aux
+*.bak
+Documents/Problem Statement/quarters_ProblemStatement.pdf
+*.toc
