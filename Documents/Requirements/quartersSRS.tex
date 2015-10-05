@@ -81,23 +81,45 @@ handle requests from both parties and give a detailed status of the household.
 \subsection{Mandated Constraints} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{description}
   \item[Solution Constraints] \hfill \\
-    This specifies constraints on the way that the problem must be solved.
-    Describe the mandated technology or solution. You should also explain the
-    reason for using the technology. The constraints are treated as a type of
-    requirement.
+    Description: Landlords and tenants shall communicate through a discussion
+    board. \\
+    Rationale: Landlords and tenants will not need to communicate via email,
+    text message, or phone. \\
+    Fit criterion: All communications conducted via quarters discussion
+    board will be instant and accessible by all members of the group. \\
+    \\
+    Description: Property concerns will be brought to the attention of the
+    landlord by issuing a maintenance ticket. \\
+    Rationale: Tenants will not email, text, or phone their landlord in order
+    to inform them about property related issues. \\
+    Fit criterion: Tenants will have the option to pay rent/bills through
+    paypal via the payment portal. \\
+    \\
+    Description: Tenants will be able to make payments through PayPal
+    Rationale: Landlords will be able to offer a payment method other than
+    post-dated cheques. \\
+    Fit criterion: Landlords receive rent/itility payments on time through
+    PayPal from tenants who have agreed to use the service. \\
   \item[Implementation Environment of the Current System] \hfill \\
-    N/A
+    See ER diagram.
   \item[Partner or Collaborative Applications] \hfil \\
     \begin{itemize}
-    \item Facebook? (login with facebook?)
-    \item Paypal (payment via paypal)
+    \item Facebook Login: Provides users with the option to sign up via Facebook
+    \item Google Sig-In: Provides users with the option to sign up via Google
+    \item PayPal Payments: Provides users with the options to make payments
+          via PayPal
     \end{itemize}
   \item[Off-the-Shelf Software] \hfill \\
-    N/A
+    \begin{itemize}
+    \item MySQL
+    \item ExpressJS
+    \item AngularJS
+    \item NodeJS
+    \end{itemize}
   \item[Anticipated Workplace Environment] \hfill \\
     \begin{itemize}
-    \item Home
-    \item Mobile
+    \item Home: Website must display properly on desktop and laptop computers
+    \item Mobile: Website must display properly on mobile browsers
     \end{itemize}
   \item[Schedule Constraints] \hfill \\
     \begin{itemize}
@@ -108,7 +130,7 @@ handle requests from both parties and give a detailed status of the household.
   \item[Budget Constraints] \hfill \\
     N/A
   \item[Enterprise Constraints] \hfill \\
-    ???
+    N/A
 \end{description}
 \subsection{Naming Conventions and Terminology} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{description}
