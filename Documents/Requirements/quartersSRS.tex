@@ -200,11 +200,12 @@ Landlord are responsible for the following actions:
   \end{itemize}
 \end{description}  
 
-\section{Functional Requirements} \cc{this section probs needs to be completed as a group}
+\section{Functional Requirements} 
 \subsection{The Scope of the Work}
 \subsubsection{The Current Situation}
 There is currently no existing software platform that attempts to simplify and document communication between landlords and tenants. A web application is needed to serve as a centralized management solution that will benefit both types of users. The web application will include document storage, in-app payment, a calendar, instant messaging, and discussion boards.  
 \subsubsection{The Context of the Work} 
+See Figure 1.
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[auto, node distance=4cm,>=latex']
@@ -225,24 +226,44 @@ There is currently no existing software platform that attempts to simplify and d
 \end{figure}
 
 \subsubsection{Work Partitioning} 
+See Table 1.
 \begin{table}
-\centering
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Event Name}  & \textbf{Input and Output} & \textbf{Summary} \\ 
 \hline
-1. User requests & IN vs OUT & Description. \\ 
+1. User logs in. & \mbox{User ID (IN)} \linebreak User password (IN) & User logs in to app. \\ 
 \hline
-2. asdf & asdf & asdf \\
+2. User logs out. & User ID (IN) & User logs out from server. \\
+\hline
+3. User creates house. & \mbox{User ID (IN)} \linebreak House name (IN) & Landlord inputs the house address into system. The system then saves the house in the database. \\
+\hline
+4. User joins house. & \mbox{User ID (IN)} \linebreak House name (IN) & User selects a house to join. The system adds the user to the house. \\
+\hline
+5. User uploads file. & \mbox{User ID (IN)} \linebreak File (IN) & User adds a file to be visible to house. The system then saves the file in the database directory. \\
+\hline
+6. User submits maintenance request. & \mbox{User ID (IN)} \linebreak \mbox{Request (IN)} \linebreak Request (OUT) & User that is tenant submits a maintenance request to be received by landlord. \\
+\hline
+7. User adds chore. & \mbox{User ID (IN)} \linebreak \mbox{Chore (IN)} \linebreak Calendar (OUT) & User submits a chore to be completed and displayed on the Calendar. \\
+\hline
+8. User initiates chat with other user. & \mbox{User ID (IN)} \linebreak \mbox{User ID (IN)} \linebreak Chat (OUT) & User creates chat window with other user. \\
+\hline
+9. User sends instant message. & \mbox{User ID (IN)} \linebreak \mbox{Message (IN)} \linebreak Chat (OUT) & User submits a chore to be completed and displayed on the Calendar. \\
+\hline
+10. User adds post. & \mbox{User ID (IN)} \linebreak \mbox{Post (IN)} \linebreak Discussion Board (OUT) & User adds post to discussion board. \\
+\hline
+11. User comments on post. & \mbox{User ID (IN)} \linebreak \mbox{Comment (IN)} \linebreak Discussion Board (OUT) & User comments on post on discussion board. \\
+\hline
+12. User transfers funds. & Record of Transaction (OUT) & User transfers funds to another user using third-party software. A record of the transaction is displayed. \\
 \hline
 \end{tabular}
 \caption{Work Partitioning}
 \end{table}
 
 \subsection{Business Data Model and Data Dictionary}
-\subsubsection{Business Data Model}
-\subsubsection{Data Dictionary}
+N/A.
 \subsection{The Scope of the Product}
+
 \subsubsection{Product Boundary}
 \subsubsection{Product Use Case Table}
 \subsection{Functional Requirements}
@@ -256,11 +277,13 @@ There is currently no existing software platform that attempts to simplify and d
       \textbf{Fit Criterion:} \\
       \tab{\textbf{Customer Satisfaction:} 
       \tab{\textbf{Customer Dissatisfaction:}}
+      
+
 
 \section{Nonfunctional Requirements}
 \subsection{Look and Feel Requirements}
 \subsubsection{Appearance Requirements}
-The interface of the web application shall be attractive and intuitive for an adult audience. A sampling of potential users shall, without prompting or enticement, create a login within one week of their first encounter with the application. 
+The interface of the web application shall be attractive and intuitive for a young adult and adult audience. A sampling of potential users shall, without prompting or enticement, create a login within one week of their first encounter with the application. 
 \subsubsection{Style Requirements}
 The web application shall appear professional and secure. After their first encounter with the application, 70 percent of potential users shall agree they feel they can trust the application. 
 \subsection{Usability and Humanity Requirements}
@@ -295,18 +318,18 @@ The web application shall be expected to operate as long as there exists a housi
 \subsubsection{Expected Physical Environment}
 The web application shall be used by users who may be distracted because they are simultaneously completing and managing several other tasks. 
 \subsubsection{Requirements for Interfacing with Adjacent Systems}
-The web application shall work on the last four releases of the five most popular web browsers. The web application shall interface with PayPal to handle monetary transactions between users. The web application shall interface with Google Sign-In and Facebook Login to enable users to login with pre-existing social media accounts. The details of the communication standards/protocols will be outlined in the Design Document after implementation is completed.
+The web application shall work on the last three releases of the five most popular web browsers (Chrome, Firefox, Internet Explorer, Opera, Safari). The web application shall interface with PayPal to handle monetary transactions between users. The web application shall interface with Google Sign-In and Facebook Login to enable users to login with pre-existing social media accounts. The details of the communication standards/protocols will be outlined in the Design Document after implementation is completed.
 \subsubsection{Productization Requirements}
 The web application shall be accessible on the World Wide Web.
 \subsubsection{Release Requirements}
-The initial release of the web application will be in February 2016. The final release will be in April 2016.
+The initial release of the web application will be in February 2016. The next release will be in April 2016. Subsequent releases will be made on an annual basis.
 \subsection{Maintainability and Support Requirements}
 \subsubsection{Maintenance Requirements}
 The web application shall be able to be maintained by developers who are not the original developers.
 \subsubsection{Supportability Requirements}
 N/A.
 \subsubsection{Adaptability Requirements}
-The web application is expected to run on web browsers on mobile phones, tablets, laptops and desktop computers.
+The web application is expected to run on web browsers on mobile phones, tablets and desktop computers.
 \subsection{Security Requirements}
 \subsubsection{Access Requirements}
 Only the user has access to edit their own personal stored information and choose what information of their profile is visible to other users. Users have access to view other users' profiles. Only landlords can \cc{add}. Only tenants can \cc{add}. Only the landlords and tenants belonging to the same property can view the property's group and add content to the property's group.
