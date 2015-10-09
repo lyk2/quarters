@@ -7,6 +7,7 @@
 \usetikzlibrary{shapes,arrows}
 \usepackage{float}
 \usepackage{tabto}
+\usepackage{longtable}
 
 %% Comments
 \newif\ifcomments\commentstrue
@@ -240,8 +241,7 @@ See Figure 1.
 
 \subsubsection{Work Partitioning} 
 See Table 1.
-\begin{table}
-\begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
+\begin{longtable}{|p{5cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Event Name}  & \textbf{Input and Output} & \textbf{Summary} \\ 
 \hline
@@ -277,9 +277,8 @@ See Table 1.
 \hline
 16. User transfers funds. & Record of Transaction (OUT) & User transfers funds to another user using third-party software. A record of the transaction is displayed. \\
 \hline
-\end{tabular}
 \caption{Work Partitioning}
-\end{table}
+\end{longtable}
 
 \subsection{Business Data Model and Data Dictionary}
 N/A.
