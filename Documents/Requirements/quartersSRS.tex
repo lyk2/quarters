@@ -24,17 +24,25 @@
 \newcommand{\cc}[1]{\authornote{orange}{CC}{#1}}
 
 %% Diagram formatting
-\tikzstyle{block} = [draw, fill=blue!20, rectangle, minimum height=3em, minimum width=6em, text centered]
+\tikzstyle{block} = [draw, fill=blue!20, rectangle, minimum height=3em, minimum 
+width=6em, text centered]
 \tikzstyle{line} = [draw, -stealth', thick]
-\tikzstyle{block2} = [draw, fill=blue!20, rectangle, minimum height=1em, minimum width=2em, text centered]
-\tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzstyle{block2} = [draw, fill=blue!20, rectangle, minimum height=1em, minimum 
+width=2em, text centered]
+\tikzstyle{arrow} = [thick,-,>=stealth]
+\tikzstyle{block3} = [draw, draw=black, fill=orange!20, rectangle, minimum 
+height=3em, minimum width=6em, text centered]
+
+
+
  
 
 
 \begin{document}
 
 \title{Software Requirements Specifications for Quarters} 
-\author{James Anthony (1135089)\\ Wenqiang Chen(1155437)\\ Carolyn Chong (1139105)\\ Kevin Ly (1144604)}
+\author{James Anthony (1135089)\\ Wenqiang Chen(1155437)\\ Carolyn Chong 
+(1139105)\\ Kevin Ly (1144604)}
 \date{\today}
 \maketitle
 
@@ -58,17 +66,17 @@ This document makes use of the Volere Template for all of its organization.
 \section{Project Drivers}
 \subsection{The Purpose of the Project}
 \subsubsection{Project Background}
-Communication, the idea of exchanging information between one party to another 
-one is an important aspect of people's everyday lives. With the introduction 
-of Internet and cellular devices people's capacity to communicate has vastly 
-increased, however this information hardly centralized. Landlords and their 
-tenants commonly communicate via email or test messages, but a response is not 
-guaranteed or the reply is hard to retrace.This lack of centralized 
+Communication is the exchanging of information between one party to another 
+one. It is an important aspect of people's everyday lives. With the introduction 
+of the Internet and cellular devices people's capacity to communicate has vastly 
+increased, however, this information has hardly centralized. Landlords and their 
+tenants commonly communicate via email or text messages, but a response is not 
+guaranteed or the reply is hard to retrace. This lack of centralized 
 information may introduce discrepancies between the two parties and hardships 
-upon getting documents and other vital data.
+upon getting documents and other vital information.\\
 
-Developing a new software platform to serve as an intermediate between 
-landlords and tenants  as a centralized hub of information will improve 
+\noindent Developing a new software platform to serve as an intermediate between 
+landlords and tenants to act as a centralized hub of information will improve 
 the quality of communication and create a more functional living environment 
 for the occupants.
 
@@ -81,59 +89,56 @@ handle requests from both parties and give a detailed status of the household.
 \subsubsection {The Client}
   N/A
 \subsubsection {The Customer}
-This platform is targeted at tenants, and landlords as they will be the 
+This platform is targeted for tenants and landlords as they will be the 
 primary users of the software. With this implementation, tenants will be 
 able to communicate efficiently with each other and their landlord. This target 
 audience will require an easy to learn service that is robust enough to handle 
 any cases that occur.
 \subsubsection {Other Stakeholders}
-There are an abundant of other stakeholders than can provide valuable insight 
-towards the product. \\
-These people/organizations include:\\
+There are several other stakeholders than can provide valuable insight 
+to the product. These people and organizations include:
 \begin{itemize}
-\item Business analyst can collect the potential data, and complete data 
-analyze on it.
-\item Plumbers, and electricians can also provide information directly to 
+\item Business analysts can collect and analyse the potential data.
+\item Plumbers and electricians can provide information directly to the main 
+stakeholders with respect to 
 solving maintenance issues in the house.
 \item Legal experts can protect the users and developers from unlawful acts.
 \item Developers are required to create and test the platform.
-\item Marketing Experts can provide beneficial tactics on how to advertise.
+\item Marketing experts can suggest advertising strategies.
 \end{itemize}
 
 \subsection{Users of the Product}
-There are two key users that will be using this platform where these users are 
-critical to the product, thus the requirements generated is heavily influenced 
-by tenants and landlords.\\
+There are two key users of the product: tenants and landlords. \\ \\
 Tenants are responsible for the following actions:
 \begin{enumerate}
 \item Communicate information to other tenants when needed
-\item To complete the chores assigned to them
-\item Report issues in the house via the ticketing system
-\item Be on time with payments
+\item Complete the chores assigned to them
+\item Report maintenance issues in the house via the ticketing system
+\item Be punctual with payments
 \item Ensure the rules outlined for the house are followed
 \end{enumerate}
 Landlord are responsible for the following actions:
 \begin{enumerate}
-\item Communicate information in regards to the house to the tenants
-\item Actively engage in discussion questions
-\item Diligently completing maintenance requests
-\item Be adequately available when issues arise
+\item Communicate information regarding the house to the tenants
+\item Respond to tenant questions and inquiries
+\item Complete maintenance requests within a timely manner
+\item Be available when issues arise
 \end{enumerate}
 
 
 \section{Project Constraints}
-\subsection{Mandated Constraints} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Mandated Constraints} 
 \begin{description}
   \item[Solution Constraints] \hfill \\
     Description: Landlords and tenants shall communicate through a discussion
     board. \\
     Rationale: Landlords and tenants will not need to communicate via email,
     text message, or phone. \\
-    Fit criterion: All communications conducted via quarters discussion
+    Fit criterion: All communications conducted via the product's discussion
     board will be instant and accessible by all members of the group. \\
     \\
     Description: Property concerns will be brought to the attention of the
-    landlord by issuing a maintenance ticket. \\
+    landlord by issuing a maintenance request. \\
     Rationale: Tenants will not email, text, or phone their landlord in order
     to inform them about property related issues. \\
     Fit criterion: Tenants will have the option to pay rent/bills through
@@ -144,19 +149,20 @@ Landlord are responsible for the following actions:
     post-dated cheques. \\
     Fit criterion: Landlords receive rent/utility payments on time through
     PayPal from tenants who have agreed to use the service. \\
-  \item[Implementation Environment of the Current System] \hfill \\
+  \item[Implementation Environment of the Current System] \hfill 
     \begin{itemize}
       \item See off-the-shelf software and collaborative applications
-      \item Server: Intel i3-4430 running Ubuntu Server
+      \item Server: Intel i3-4430 running Ubuntu Server \\
     \end{itemize}
-  \item[Partner or Collaborative Applications] \hfil \\
+  \item[Partner or Collaborative Applications] \hfil 
     \begin{itemize}
-    \item Facebook Login: Provides users with the option to sign up via Facebook.
+    \item Facebook Login: Provides users with the option to sign up via 
+Facebook.
     \item Google Sign-In: Provides users with the option to sign up via Google.
-    \item PayPal Payments: Provides users with the options to make payments
-          via PayPal.
+    \item PayPal Payments: Provides users with the option to make payments
+          via PayPal. \\
     \end{itemize}
-  \item[Off-the-Shelf Software] \hfill \\
+  \item[Off-the-Shelf Software] \hfill 
     \begin{itemize}
     \item PostgreSQL: An object-relational database management system (ORDMBS)
       with an emphasis on extensibility and on standards-compliance.
@@ -166,14 +172,14 @@ Landlord are responsible for the following actions:
     \item NodeJS: An open-source, cross-platform run-time environment for
       developing server-side web applications.
     \item Bootstrap: A free and open-source collection of tools for creating
-      websites and web applications.
+      websites and web applications. \\
     \end{itemize}
-  \item[Anticipated Workplace Environment] \hfill \\
+  \item[Anticipated Workplace Environment] \hfill 
     \begin{itemize}
     \item Home: Website must display properly on desktop and laptop computers.
-    \item Mobile: Website must display properly on mobile browsers.
+    \item Mobile: Website must display properly on mobile browsers. \\
     \end{itemize}
-  \item[Schedule Constraints] \hfill \\
+  \item[Schedule Constraints] \hfill 
     \begin{itemize}
     \item Proof of Concept Demonstration, November 16-27
     \item Revision 0 Demonstration, February 1-12
@@ -184,9 +190,9 @@ Landlord are responsible for the following actions:
   \item[Enterprise Constraints] \hfill \\
     N/A
 \end{description}
-\subsection{Naming Conventions and Terminology} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Naming Conventions and Terminology} 
 \begin{description}
-  \item[Glossary of All Terms] \hfill \\
+  \item[Glossary of All Terms] \hfill 
     \begin{itemize}
     \item Landlord: A person who owns or runs a boarding house, inn, or similar
       establishment.
@@ -199,15 +205,15 @@ Landlord are responsible for the following actions:
       completing.
     \end{itemize}
 \end{description}
-\subsection{Relevant Facts and Assumptions} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Relevant Facts and Assumptions} 
 \begin{description}
-  \item[Relevant Facts] \hfill \\
+  \item[Relevant Facts] \hfill 
   \begin{itemize}
     \item Facebook Login is a secure form of account management.
     \item Google Sign-In is a secure form of account management.
-    \item PayPal is a secure method of making online payments.
+    \item PayPal is a secure method of making online payments. \\
   \end{itemize}
-  \item[Assumptions] \hfill \\
+  \item[Assumptions] \hfill 
   \begin{itemize}
   \item  It is assumed that both landlords and tenants will be capable of using
     web applications for communication, planning, and payments.
@@ -217,7 +223,12 @@ Landlord are responsible for the following actions:
 \section{Functional Requirements} 
 \subsection{The Scope of the Work}
 \subsubsection{The Current Situation}
-There is currently no existing software platform that attempts to simplify and document communication between landlords and tenants. A web application is needed to serve as a centralized management solution that will benefit both types of users. The web application will include document storage, in-app payment, a calendar, instant messaging, and discussion boards.  
+There is currently no existing software platform that attempts to simplify and 
+document communication between landlords and tenants. A web application is 
+needed to serve as a centralized management solution that will benefit both 
+types of users. The web application will include document storage, in-app 
+payment, a chore calendar, maintenance ticketing, instant messaging, and a 
+discussion board.  
 \subsubsection{The Context of the Work} 
 See Figure 1.
 \begin{figure}[H]
@@ -233,7 +244,8 @@ See Figure 1.
 \path [line](webapp) edge[bend right] node [left] {app output} (user);
 \path [line](webapp) edge[bend right] node [right] {applicaton action} (server);
 \path [line](server) edge[bend right] node [left] {action result} (webapp);
-\path [line](server) edge[bend right] node [right] {user info request} (database);
+\path [line](server) edge[bend right] node [right] {user info request} 
+(database);
 \path [line](database) edge[bend right] node [left] {user info sent} (server);
 \end{tikzpicture}
 \caption{Work Context Diagram}
@@ -245,37 +257,63 @@ See Table 1.
 \hline
 \textbf{Event Name}  & \textbf{Input and Output} & \textbf{Summary} \\ 
 \hline
-1. User creates account. & \mbox{User Name (IN)} \linebreak \mbox{User ID (IN)} \linebreak \mbox{User Password (IN)} \linebreak User Email (IN) & User creates an account. The system then adds the account to the database. \\ 
+1. User creates account. & \mbox{User Name (IN)} \linebreak \mbox{User ID (IN)} 
+\linebreak \mbox{User Password (IN)} \linebreak User Email (IN) & User creates 
+an account. The system then adds the account to the database. \\ 
 \hline
-2. User deletes account. & \mbox{User ID (IN)} \linebreak \mbox{User Password (IN)} & User deletes their account. The system then removes the account from the database. \\ 
+2. User deletes account. & \mbox{User ID (IN)} \linebreak \mbox{User Password 
+(IN)} & User deletes their account. The system then removes the account from the 
+database. \\ 
 \hline
-3. User logs in. & \mbox{User ID (IN)} \linebreak User password (IN) & User logs in to app. \\ 
+3. User logs in. & \mbox{User ID (IN)} \linebreak User password (IN) & User logs 
+in to app. \\ 
 \hline
 4. User logs out. & User ID (IN) & User logs out from server. \\
 \hline
-5. User creates house. & \mbox{User ID (IN)} \linebreak House name (IN) & Landlord inputs the house address into system. The system then saves the house in the database. \\
+5. User creates house. & \mbox{User ID (IN)} \linebreak House name (IN) & User 
+inputs the house address into system. The system then saves the house in the 
+database. \\
 \hline
-6. User joins house. & \mbox{User ID (IN)} \linebreak House name (IN) & User selects a house to join. The system adds the user to the house. \\
+6. User joins house. & \mbox{User ID (IN)} \linebreak House name (IN) & User 
+selects a house to join. The system adds the user to the house. \\
 \hline
-7. User leaves house. & \mbox{User ID (IN)} \linebreak House name (IN) & User selects a house to leave. The system removes the user from the house. \\
+7. User leaves house. & \mbox{User ID (IN)} \linebreak House name (IN) & User 
+selects a house to leave. The system removes the user from the house. \\
 \hline
-8. User uploads file. & \mbox{User ID (IN)} \linebreak File (IN) & User adds a file to be visible to house. The system then saves the file in the database directory. \\
+8. User uploads file. & \mbox{User ID (IN)} \linebreak File (IN) & User adds a 
+file to be visible to house. The system then saves the file in the database 
+directory. \\
 \hline
-9. User submits maintenance request. & \mbox{User ID (IN)} \linebreak \mbox{Request (IN)} \linebreak Request (OUT) & User that is tenant submits a maintenance request to be received by landlord. \\
+9. User submits maintenance request. & \mbox{User ID (IN)} \linebreak 
+\mbox{Request (IN)} \linebreak Request (OUT) & User that is tenant submits a 
+maintenance request to be received by landlord. \\
 \hline
-10. User updates maintenance request. & \mbox{User ID (IN)} \linebreak \mbox{Request (IN)} \linebreak Request (OUT) & User that is landlord completes a maintenance request. \\
+10. User updates maintenance request. & \mbox{User ID (IN)} \linebreak 
+\mbox{Request (IN)} \linebreak Request (OUT) & User that is landlord completes a 
+maintenance request. \\
 \hline
-11. User adds chore. & \mbox{User ID (IN)} \linebreak \mbox{Chore (IN)} \linebreak Calendar (OUT) & User submits a chore to be completed and displayed on the Calendar. \\
+11. User adds chore. & \mbox{User ID (IN)} \linebreak \mbox{Chore (IN)} 
+\linebreak Calendar (OUT) & User submits a chore to be completed and displayed 
+on the Calendar. \\
 \hline
-12. User initiates chat with other user. & \mbox{User ID (IN)} \linebreak \mbox{User ID (IN)} \linebreak Chat (OUT) & User creates chat window with other user. \\
+12. User initiates chat with other user. & \mbox{User ID (IN)} \linebreak 
+\mbox{User ID (IN)} \linebreak Chat (OUT) & User creates chat window with other 
+user. \\
 \hline
-13. User sends instant message. & \mbox{User ID (IN)} \linebreak \mbox{Message (IN)} \linebreak Chat (OUT) & User submits a chore to be completed and displayed on the Calendar. \\
+13. User sends instant message. & \mbox{User ID (IN)} \linebreak \mbox{Message 
+(IN)} \linebreak Chat (OUT) & User submits a chore to be completed and displayed 
+on the Calendar. \\
 \hline
-14. User adds post. & \mbox{User ID (IN)} \linebreak \mbox{Post (IN)} \linebreak Discussion Board (OUT) & User adds post to discussion board. \\
+14. User adds post. & \mbox{User ID (IN)} \linebreak \mbox{Post (IN)} \linebreak 
+Discussion Board (OUT) & User adds post to discussion board. \\
 \hline
-15. User comments on post. & \mbox{User ID (IN)} \linebreak \mbox{Comment (IN)} \linebreak Discussion Board (OUT) & User comments on post on discussion board. \\
+15. User comments on post. & \mbox{User ID (IN)} \linebreak \mbox{Comment (IN)} 
+\linebreak Discussion Board (OUT) & User comments on post on discussion board. 
+\\
 \hline
-16. User transfers funds. & Record of Transaction (OUT) & User transfers funds to another user using third-party software. A record of the transaction is displayed. \\
+16. User transfers funds. & Record of Transaction (OUT) & User transfers funds 
+to another user using third-party software. A record of the transaction is 
+displayed. \\
 \hline
 \caption{Work Partitioning}
 \end{longtable}
@@ -284,30 +322,31 @@ See Table 1.
 N/A.
 
 \subsection{The Scope of the Product}
+\subsubsection{Product Boundary}
 See Figure 2.
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[auto, node distance=1cm,>=latex']
 % Place nodes  
-\node [block2](account){Creates Account};
-\node [block2, below of=account](delete){Deletes Account};
-\node [block2, below of=delete](login){Login};
-\node [block2, below of=login](logout){Logout};
-\node [block2, below of=logout](create){Creates House};
-\node [block2, below of=create](join){Joins House};
-\node [block2, below of=join](leave){Leaves House};
-\node [block2, below of=leave](upload){Uploads File};
-\node [block2, below of=upload](submit){Submits Maintenance Request};
-\node [block2, below of=submit](update){Updates Maintenance Request};
-\node [block2, below of=update](chore){Adds Chore};
-\node [block2, below of=chore](chat){Initiates Chat};
-\node [block2, below of=chat](message){Sends Message};
-\node [block2, below of=message](post){Adds Post};
-\node [block2, below of=post](comment){Adds Comment};
-\node [block2, below of=comment](funds){Creates Record of Transaction};
-\node [block, left of=submit, xshift=-5cm](user){User};
-\node [block, right of=join, xshift=6cm](database){Database};
-\node [block, right of=message, xshift=6cm](server){Web Server};
+\node [block2](account){1. Creates Account};
+\node [block2, below of=account](delete){2. Deletes Account};
+\node [block2, below of=delete](login){3. Login};
+\node [block2, below of=login](logout){4. Logout};
+\node [block2, below of=logout](create){5. Creates House};
+\node [block2, below of=create](join){6. Joins House};
+\node [block2, below of=join](leave){7. Leaves House};
+\node [block2, below of=leave](upload){8. Uploads File};
+\node [block2, below of=upload](submit){9. Submits Maintenance Request};
+\node [block2, below of=submit](update){10. Updates Maintenance Request};
+\node [block2, below of=update](chore){11. Adds Chore};
+\node [block2, below of=chore](chat){12. Initiates Chat};
+\node [block2, below of=chat](message){13. Sends Message};
+\node [block2, below of=message](post){14. Adds Post};
+\node [block2, below of=post](comment){15. Adds Comment};
+\node [block2, below of=comment](funds){16. Creates Record of Transaction};
+\node [block3, left of=submit, xshift=-6cm](user){User};
+\node [block3, right of=join, xshift=6cm](database){Database};
+\node [block3, right of=message, xshift=6cm](server){Web Server};
 
 % Place lines
 \draw [arrow] (user.east) -- (account.west);
@@ -361,201 +400,237 @@ See Figure 2.
 \draw [arrow] (server.west) -- (comment.east);
 \draw [arrow] (server.west) -- (funds.east);
 
-
 \end{tikzpicture}
 \caption{Product Use Case Diagram}
 \end{figure}
-\subsubsection{Product Boundary}
-\subsubsection{Product Use Case Table}
+
 \subsection{Functional and Data Requirements}
 \subsubsection{Functional and Data Requirements}
 \NumTabs{5}
 \textbf{Requirement \#:} 1 
-      \tab{\textbf{Requirement Type:} 9}
-      \tab{\textbf{Event/Use Case:}} \\
+      \tab{\textbf{Event/Use Case:} 5} 
+      \tab{\textbf{Priority:} 5} \\
       \textbf{Description:} User creates a house within the application. \\
       \textbf{Rationale:} To allow users to self-organize and communicate. \\
       \textbf{Fit Criterion:} A house object is created in the database, with
       the creator as its initial tenant. \\
-      \tab{\textbf{Customer Satisfaction:} 
-      \tab{\textbf{Customer Dissatisfaction:}}\\ \\
       
 \textbf{Requirement \#:} 2 
-      \tab{\textbf{Requirement Type:} 9}
-      \tab{\textbf{Event/Use Case:}} \\
+      \tab{\textbf{Event/Use Case:} 6}
+      \tab{\textbf{Priority:} 5} \\
       \textbf{Description:} User joins a house. \\
       \textbf{Rationale:} To allow multiple users to join house groups which
       have already been created. \\
       \textbf{Fit Criterion:} The user is added to the list of tenants
       associated with the house they are joining. \\
-      \tab{\textbf{Customer Satisfaction:} 
-      \tab{\textbf{Customer Dissatisfaction:}}\\ \\
 
 \textbf{Requirement \#:} 3 
-      \tab{\textbf{Requirement Type:} 9}
-      \tab{\textbf{Event/Use Case:}} \\
+      \tab{\textbf{Event/Use Case:} 8}
+      \tab{\textbf{Priority:} 3} \\
       \textbf{Description:} User uploads a file. \\
       \textbf{Rationale:} To allow users to share documents. \\
       \textbf{Fit Criterion:} The file that is uploaded is added to the set of
       files associated with that house. \\
-      \tab{\textbf{Customer Satisfaction:} 
-      \tab{\textbf{Customer Dissatisfaction:}\\ \\
 
 \textbf{Requirement \#:} 4
-      \tab{\textbf{Requirement Type:} 9}
-      \tab{\textbf{Event/Use Case:}} \\
+      \tab{\textbf{Event/Use Case:} 8}
+      \tab{\textbf{Priority:} 3} \\
       \textbf{Description:} User downloads a file. \\
-      \textbf{Rationale:} To allow users retrieve and save documents that have
+      \textbf{Rationale:} To allow users to retrieve and save documents that 
+have
       been uploaded by other users in their house. \\
       \textbf{Fit Criterion:} The file selected by the user is downloaded to
       their machine. \\
-      \tab{\textbf{Customer Satisfaction:} 
-      \tab{\textbf{Customer Dissatisfaction:}\\ \\
 
 \textbf{Requirement \#:} 5
-      \tab{\textbf{Requirement Type:} 9}
-      \tab{\textbf{Event/Use Case:}} \\
+      \tab{\textbf{Event/Use Case:}}
+      \tab{\textbf{Priority:} 2} \\
       \textbf{Description:} Users shall be able to specify which other users
-      are able to view content that they post or upload. \\
+      are able to view content that they post or uploaded. \\
       \textbf{Rationale:} To allow users to share content and communicate
       privately and keep sensitive data safe. \\
       \textbf{Fit Criterion:} Content shall only be visible to those who the
       creator has specified are able to view it. \\
-      \tab{\textbf{Customer Satisfaction:} 
-      \tab{\textbf{Customer Dissatisfaction:}\\ \\
 
 \textbf{Requirement \#:} 6
-      \tab{\textbf{Requirement Type:} 9}
-      \tab{\textbf{Event/Use Case:}} \\
+      \tab{\textbf{Event/Use Case:} 9}
+      \tab{\textbf{Priority:} 4} \\
       \textbf{Description:} Tenants shall be able to create maintenance
       requests. \\
       \textbf{Rationale:} To allow tenants to inform their landlord of property
-      related work that needs to be done. \\
+      related work that needs to be completed. \\
       \textbf{Fit Criterion:} Landlords shall be able to view a list of current
       maintenance requests as soon as they are created by their tenants.\\
-      \tab{\textbf{Customer Satisfaction:} 
-      \tab{\textbf{Customer Dissatisfaction:}\\ \\
           
 \textbf{Requirement \#:} 7
-      \tab{\textbf{Requirement Type:} 9}
-      \tab{\textbf{Event/Use Case:} \\
-      \textbf{Description: }{User Login} \\
-      \textbf{Rationale: }{All users should be able to securely login} \\
-      \textbf{Fit Criterion: }{Upon passing proper credentials, user completes the login process} \\
-      \tab{\textbf{Customer Satisfaction:}
-      \tab{\textbf{Customer Dissatisfaction:}} \\ \\
+      \tab{\textbf{Event/Use Case:} 3}
+      \tab{\textbf{Priority:} 5} \\
+      \textbf{Description: }{User login.} \\
+      \textbf{Rationale: }{All users should be able to securely login.} \\
+      \textbf{Fit Criterion: }{Upon passing proper credentials, user completes 
+the login process.} \\
 
 \textbf{Requirement \#:} 8
-      \tab{\textbf{Requirement Type:} 9}
-      \tab{\textbf{Event/Use Case:} \\
-      \textbf{Description: }{Account registration} \\
-      \textbf{Rationale: }{Potential users may register an account using Facebook, Google Plus, or registering with Quarters directly} \\
-      \textbf{Fit Criterion: }{Registering should be a one step process, with email verification to confirm identities} \\
-      \tab{\textbf{Customer Satisfaction:}
-      \tab{\textbf{Customer Dissatisfaction:}} \\ \\
+      \tab{\textbf{Event/Use Case:} 1}
+      \tab{\textbf{Priority:} 4} \\
+      \textbf{Description: }{Account registration.} \\
+      \textbf{Rationale: }{Potential users may register an account using 
+Facebook, Google Plus, or registering with Quarters directly.} \\
+      \textbf{Fit Criterion: }{Registering should be a one-step process, with 
+email verification to confirm identity.} \\
         
 \textbf{Requirement \#:} 9
-      \tab{\textbf{Requirement Type:} 9}
-      \tab{\textbf{Event/Use Case:} \\
-      \textbf{Description: }{Bulletin Board} \\
-      \textbf{Rationale: }{Users are able to post and view information, and comment on others post to enhance communications.} \\
-      \textbf{Fit Criterion: }{Posts on the bulletin should be sorted by date, and viewable by the designated user} \\
-      \tab{\textbf{Customer Satisfaction:}
-      \tab{\textbf{Customer Dissatisfaction:}} \\ \\
+      \tab{\textbf{Event/Use Case:} 14,15} 
+      \tab{\textbf{Priority:} 4}\\
+      \textbf{Description: }{Bulletin board.} \\
+      \textbf{Rationale: }{Users are able to post and view information, and 
+comment on other posts to enhance communications.} \\
+      \textbf{Fit Criterion: }{Posts on the bulletin should be sorted 
+chronologically, and viewable by the designated user.} \\
         
 \textbf{Requirement \#:} 10
-      \tab{\textbf{Requirement Type:} 9}
-      \tab{\textbf{Event/Use Case:} \\
-      \textbf{Description: }{Multiple Resolution compatibility} \\
-      \textbf{Rationale: }{Users may have different devices with different screen resolutions, the application should be able to support all types} \\
-      \textbf{Fit Criterion: }{Web platform should support mobile screens to desktop screens both horizontal and vertical layouts} \\
-      \tab{\textbf{Customer Satisfaction:}
-      \tab{\textbf{Customer Dissatisfaction:}}   \\ \\
+      \tab{\textbf{Event/Use Case:}
+      \tab{\textbf{Priority:} 5} \\
+      \textbf{Description: }{Multiple resolution compatibility.} \\
+      \textbf{Rationale: }{Users may have different devices with different 
+screen resolutions. The application should be able to support all types.} \\
+      \textbf{Fit Criterion: }{Web platform should support mobile screens and 
+desktop screens, including both horizontal and vertical layouts.} \\
         
 \textbf{Requirement \#:} 11
-      \tab{\textbf{Requirement Type:} 9}
-      \tab{\textbf{Event/Use Case:} \\
-      \textbf{Description: }{House Management} \\
-      \textbf{Rationale: }{Administrator should be able to determine which users can access the house} \\
-      \textbf{Fit Criterion: }{Administrators can add, edit and remove users from a house} \\
-      \tab{\textbf{Customer Satisfaction:}
-      \tab{\textbf{Customer Dissatisfaction:}} \\ \\
+      \tab{\textbf{Event/Use Case:} 6}
+      \tab{\textbf{Priority:} 5} \\
+      \textbf{Description: }{House management.} \\
+      \textbf{Rationale: }{Administrator should be able to determine which users 
+can access the house.} \\
+      \textbf{Fit Criterion: }{Administrators can add, edit and remove users 
+from a house.} \\
         
 \textbf{Requirement \#:} 12
-      \tab{\textbf{Requirement Type:} 9}
-      \tab{\textbf{Event/Use Case:} \\
-      \textbf{Description: }{Financial Platform} \\
-      \textbf{Rationale: }{Payments between user may be processed with in the platform} \\
-      \textbf{Fit Criterion: }{Payments are secure and logged. Payer and payee with be notified upon payment completion} \\
-      \tab{\textbf{Customer Satisfaction:}
-      \tab{\textbf{Customer Dissatisfaction:}} \\ \\
+      \tab{\textbf{Event/Use Case:} 16}
+      \tab{\textbf{Priority:} 3} \\
+      \textbf{Description: }{Financial platform.} \\
+      \textbf{Rationale: }{Payments between user may be processed within the 
+platform.} \\
+      \textbf{Fit Criterion: }{Payments are secure and logged. Payer and payee 
+will be notified upon payment completion.} \\
         
 \textbf{Requirement \#:} 13
-      \tab{\textbf{Requirement Type:} 9}
-      \tab{\textbf{Event/Use Case:} \\
-      \textbf{Description: }{Calendar Platform for Events} \\
-      \textbf{Rationale: }{Events tied to the house can be made in the calendar platform. Chores and other cyclic events can be created here.} \\
-      \textbf{Fit Criterion: }{Calendar format should be based off the standardized ICS structure. This format should be deployable to other calendar management software. This platform should support the creation, deletion and modifications to an event.} \\
-      \tab{\textbf{Customer Satisfaction:}
-      \tab{\textbf{Customer Dissatisfaction:}} \\ \\
+      \tab{\textbf{Event/Use Case:} 11}
+      \tab{\textbf{Priority:} 3} \\
+      \textbf{Description: }{Calendar platform.} \\
+      \textbf{Rationale: }{Events tied to the house can be made in the calendar 
+platform. Chores and other repeating events can be created here.} \\
+      \textbf{Fit Criterion: }{Calendar format should be based off the 
+standardized ICS structure. This format should be deployable to other calendar 
+management software. This platform should support the creation, deletion and 
+modifications to an event.} \\
         
 \section{Nonfunctional Requirements}
 \subsection{Look and Feel Requirements}
 \subsubsection{Appearance Requirements}
-The interface of the web application shall be attractive and intuitive for a young adult and adult audience. A sampling of potential users shall, without prompting or enticement, create a login within one week of their first encounter with the application. 
+The interface of the web application shall be attractive and intuitive for a 
+young adult and adult audience. A sampling of potential users shall, without 
+prompting or enticement, create a login within one week of their first encounter 
+with the application. 
 \subsubsection{Style Requirements}
-The web application shall appear professional and secure. After their first encounter with the application, 70 percent of potential users shall agree they feel they can trust the application. 
+The web application shall appear professional and secure. After their first 
+encounter with the application, 70 percent of potential users shall agree they 
+feel they can trust the application. 
 \subsection{Usability and Humanity Requirements}
 \subsubsection{Ease of Use Requirements}
-The web application shall be easy for young adults and adults to use. The application shall be used by users with no prior training. A casual user should be able to use the application with the same ease of a frequent user. The application shall make the users want to use it. A test panel of current landlords and their tenants shall be able to successfully create a user account and use the application's functions without guidance within their first encounter.
+The web application shall be easy for young adults and adults to use. The 
+application shall be used by users with no prior training. A casual user should 
+be able to use the application with the same ease of a frequent user. The 
+application shall make the users want to use it. A test panel of current 
+landlords and their tenants shall be able to successfully create a user account 
+and use the application's functions without guidance within their first 
+encounter.
 \subsubsection{Personalization and Internationalization Requirements}
-The web application shall be available in the English language (EN-US), and use Canadian currency (CAD \$) and the metric system. The interface and functions of the web application shall be personalized for the type of user, either landlord or tenant.
+The web application shall be available in the English language (EN-US),  use 
+Canadian currency (CAD \$), ICS Calendar format, and the metric system.
 \subsubsection{Learning Requirements}
-The web application shall be easy for young adults and adults to learn. The web application shall be constructed so that all of its functionality is apparent upon first encountering it. A brief tour of the web application shall be presented as an option to first time visitors of the site. A test panel of current landlords and their tenants shall be able to successfully create a user account and use the application's functions productively without guidance within their first encounter.
+The web application shall be easy for young adults and adults to learn. The web 
+application shall be constructed so that all of its functionality is apparent 
+upon first encountering it. A brief tour of the web application shall be 
+presented as an option to first time visitors of the site. A test panel of 
+current landlords and their tenants shall be able to successfully create a user 
+account and use the application's functions productively without guidance within 
+their first encounter.
 \subsubsection{Understandability and Politeness Requirements}
-The web application shall use symbols, icons, and words that are naturally understandable by the user community. 
+The web application shall use symbols, icons, and words that are naturally 
+understandable by the user community. 
 \subsubsection{Accessibility Requirements}
-The web application shall rely on the web browser's accessibility features to make it available to the disabled.
+The web application shall rely on the web browser's accessibility features to 
+make it available to the disabled.
 \subsection{Performance Requirements}
 \subsubsection{Speed and Latency Requirements}
-The speed of the web application depends on the speed of the user's operating system and internet connection.
+The speed of the web application depends on the speed of the user's operating 
+system and internet connection.
 \subsubsection{Safety-Critical Requirements}
 N/A.
 \subsubsection{Precision or Accuracy Requirements}
-The web application shall keep accurate time by working in UTC. All monetary amounts shall be accurate to two decimal places. 
+The web application shall keep accurate time by working in UTC. All monetary 
+amounts shall be accurate to two decimal places. 
 \subsubsection{Reliability and Availability Requirements}
-The web application shall be available for use 24 hours per day, 365 days per year.
+The web application shall be available for use 24 hours per day, 365 days per 
+year.
 \subsubsection{Robustness or Fault-Tolerance Requirements}
-The web application shall successfully display an error message to the user should an incorrect username/password combination be input, or in the event of one of its features crashing.  
+The web application shall successfully display an error message to the user 
+should an incorrect username/password combination be input, or in the event of 
+one of its features crashing.  
 \subsubsection{Capacity Requirements}
 The web application shall cater to 100 simultaneous users. 
 \subsubsection{Scalability or Extensibility Requirements}
-The web application shall be capable of expanding to nearby cities within two years of its launch.
+The web application shall be capable of expanding to nearby cities within two 
+years of its launch.
 \subsubsection{Longevity Requirements}
-The web application shall be expected to operate as long as there exists a housing rental market.
+The web application shall be expected to operate as long as there exists a 
+housing rental market.
 \subsection{Operational and Environmental Requirements}
 \subsubsection{Expected Physical Environment}
-The web application shall be used by users who may be distracted because they are simultaneously completing and managing several other tasks. 
+The web application shall be used by users who may be distracted because they 
+are simultaneously completing and managing several other tasks. 
 \subsubsection{Requirements for Interfacing with Adjacent Systems}
-The web application shall work on the last three releases of the five most popular web browsers (Chrome, Firefox, Internet Explorer, Opera, Safari). The web application shall interface with PayPal to handle monetary transactions between users. The web application shall interface with Google Sign-In and Facebook Login to enable users to login with social media accounts. The details of the communication standards/protocols will be outlined in the Design Document after implementation is completed.
+The web application shall work on the last three releases of the five most 
+popular web browsers (Chrome, Firefox, Internet Explorer, Opera, Safari). The 
+web application shall interface with PayPal to handle monetary transactions 
+between users. The web application shall interface with Google Sign-In and 
+Facebook Login to enable users to login with social media accounts. The details 
+of the communication standards/protocols will be outlined in the Design Document 
+after implementation is completed.
 \subsubsection{Productization Requirements}
 The web application shall be accessible on the World Wide Web.
 \subsubsection{Release Requirements}
-The initial release of the web application will be in February 2016. The next release will be in April 2016. Subsequent releases will be made on an annual basis.
+The initial release of the web application will be in February 2016. The next 
+release will be in April 2016. Subsequent releases will be made on an annual 
+basis.
 \subsection{Maintainability and Support Requirements}
 \subsubsection{Maintenance Requirements}
-The web application shall be able to be maintained by developers who are not the original developers.
+The web application shall be able to be maintained by developers who are not the 
+original developers.
 \subsubsection{Supportability Requirements}
 N/A.
 \subsubsection{Adaptability Requirements}
-The web application is expected to run on web browsers on mobile phones, tablets and desktop computers.
+The web application is expected to run on web browsers on mobile phones, tablets 
+and desktop computers.
 \subsection{Security Requirements}
 \subsubsection{Access Requirements}
-Only the user has access to edit their own personal stored information and choose what information of their profile is visible to other users. Users have access to view other users' profiles. Only the landlords and tenants belonging to the same property can view the property's group and add content to the property's group.
+Only the user has access to edit their own personal stored information and 
+choose what information of their profile is visible to other users. Users have 
+access to view other users' profiles. Only the landlords and tenants belonging 
+to the same property can view the property's group and add content to the 
+property's group.
 \subsubsection{Integrity Requirements}
-The web application shall prevent incorrect data from being introduced and protect itself from unwanted attacks by unauthorized users. The web application shall have a back-up of its stored data on an alternate server.
+The web application shall prevent incorrect data from being introduced and 
+protect itself from unwanted attacks by unauthorized users. The web application 
+shall have a back-up of its stored data on an alternate server.
 \subsubsection{Privacy Requirements}
-The web application shall make its users aware of its information practices before collecting data from them. The web application shall use a third-party interface to store credit card information and perform secure monetary transactions between users.
+The web application shall make its users aware of its information practices 
+before collecting data from them. The web application shall authorize account 
+registration of users using social media accounts. The web application shall use 
+a third-party interface to store credit card information and perform secure 
+monetary transactions between users.
 \subsubsection{Audit Requirements}
 N/A.
 \subsubsection{Immunity Requirements}
@@ -572,19 +647,21 @@ N/A.
 \section{Project Issues}
 \subsection{Open Issues}
 \begin{itemize}
-  \item Size of the user group is uncertain, may need to upgrade hardware in the future to accommodate more user
-  \item User interface has yet to be designed
-  \item Browser compatibility
-  \item Methods to store documents, database vs locally on server
+  \item Size of the user group is uncertain, therefore a hardware upgrade may be 
+required in the future to accommodate the user.
+  \item User interface has yet to be designed.
+  \item Browser compatibility.
+  \item Methods to store documents, eg. database vs locally on server
 \end{itemize}
 
 \subsection{Off the Shelf Solutions}
 \subsubsection{Ready-Made Products}
 No ready-made products exist with the same functionalities. 
 \subsubsection{Reusable Components}
-Facebook and Google accounts can be used for sign-in and connecting members in the house
+Facebook and Google accounts can be used for sign-in and connecting members in 
+the house.
 \subsubsection{Products That Can Be Copied}
-Not applicable
+N/A
 \subsection{New Problems}
 \subsubsection{Effects on the Current Environment}
 N/A
@@ -592,27 +669,29 @@ N/A
 N/A
 \subsubsection{Potential User Problems}
 N/A
-\subsubsection{Limitations in the anticipated Implementation environment That May Inhibit the New Product}
-Old browsers are not compatible with the system
+\subsubsection{Limitations in the anticipated Implementation environment That 
+May Inhibit the New Product}
+Old browsers are not compatible with the product.
 \subsubsection{Follow-Up Problems}
 \begin{itemize}
-  \item User abusing the system
-  \item User uploading sensitive data 
+  \item User abusing the system.
+  \item User uploading sensitive data.
 \end{itemize}
 
 \subsection{Tasks}
 \subsubsection{Project Planning}
 \begin{itemize}
-  \item Present requirement document to supervisor for feedback
-  \item Development prototype for demo purpose
-  \item Refine and develop more features
+  \item Present requirement document to supervisor for feedback.
+  \item Develop prototype for demo purpose
+  \item Refine and develop more features.
 \end{itemize}
 \subsubsection{Planning of the Development Phases}
 \begin{itemize}
-    \item Design the database together
-    \item Design a generalized UI
-    \item Design back-end of the application
-    \item Split application into different modules for assign one module to each member
+    \item Design the database together.
+    \item Design a generalized UI.
+    \item Design back-end of the application.
+    \item Split application into different modules and assign one module to each 
+member for completion.
     
 \end{itemize}
 \subsection{Migration to New Product}
@@ -623,31 +702,32 @@ N/A
 N/A
 \subsection{Risks}
 \begin{itemize}
-  \item Legal issue with online payment
-  \item Not able to get enough user
-  \item Certain features may not be compatible with the hardware
-  \item Project becomes too complicated and not able to meet deadlines
+  \item Security/legal issues with online payment.
+  \item Not able to get enough user.
+  \item Certain features may not be compatible with the hardware.
+  \item Project becomes too complicated and not able to meet deadlines.
 \end{itemize}
 \subsection{Costs}
 \begin{itemize}
-  \item Domain cost and web server cost, if we decide to go live
-  \item Approximately 7 months of development time
+  \item Domain costs and web server costs, if we decide to go live.
+  \item Approximately 7 months of development time.
 \end{itemize}
 \subsection{User Documentation and Training}
 \subsubsection{User Documentation Requirements}
 \begin{itemize}
-  \item A help guide will be included
-  \item FAQ section
-  \item Tour of the website is shown for first time user
+  \item A help guide will be included.
+  \item FAQ section.
+  \item Tour of the website is shown for first time user.
 \end{itemize}
 \subsubsection{Training Requirements}
-No training is required for the user. When they visit for the first time they will be given a tour. 
+No training is required for the user. When they visit for the first time they 
+will be given a tour. 
 \subsection{Waiting Room}
-The next release will include the following feature
+The next release will include the following features:
 \begin{itemize}
-	\item Separate module for housing advertisement
-	\item Ability to attach picture and files in discussion board
-	\item Notification either through email or text messages (for urgent events)
+	\item Separate module for housing advertisements.
+	\item Ability to attach pictures and files in discussion board.
+	\item Notifications either through email or text messages (for urgent events).
 \end{itemize}
 \subsection{Ideas for Solutions}
 \begin{itemize}
@@ -657,3 +737,4 @@ The next release will include the following feature
 \end{itemize}
 
 \end{document}
+
