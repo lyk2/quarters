@@ -188,6 +188,9 @@ Landlord are responsible for the following actions:
     \item Landlord: A person who owns or runs a boarding house, inn, or similar
       establishment.
     \item Tenant: A person who occupies land or property rented from a landlord.
+    \item House: In the context of this project, a house functions as a set
+      which contains one or more users and stores information about the
+      physical property, the users, and data added by those users.
     \end{itemize}
 \end{description}
 \subsection{Relevant Facts and Assumptions} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -271,20 +274,41 @@ N/A.
 
 \subsubsection{Product Boundary}
 \subsubsection{Product Use Case Table}
-\subsection{Functional Requirements}
-\subsubsection{Functional Requirements}
+\subsection{Functional and Data Requirements}
+\subsubsection{Functional and Data Requirements}
 \NumTabs{5}
 \textbf{Requirement \#:} 1 
       \tab{\textbf{Requirement Type:} 9}
       \tab{\textbf{Event/Use Case:}} \\
-      \textbf{Description:} \\
-      \textbf{Rationale:} \\
-      \textbf{Fit Criterion:} \\
+      \textbf{Description:} User creates a house within the application. \\
+      \textbf{Rationale:} To allow users to self-organise and communicate. \\
+      \textbf{Fit Criterion:} A house object is created in the database, with
+      the creator as its initial tenent. \\
       \tab{\textbf{Customer Satisfaction:} 
       \tab{\textbf{Customer Dissatisfaction:}}
       
+\textbf{Requirement \#:} 2 
+      \tab{\textbf{Requirement Type:} 9}
+      \tab{\textbf{Event/Use Case:}} \\
+      \textbf{Description:} User joins a house. \\
+      \textbf{Rationale:} To allow multiple users to join house groups which
+      have already been created. \\
+      \textbf{Fit Criterion:} The user is added to the list of tenants
+      associated with the house they are joining. \\
+      \tab{\textbf{Customer Satisfaction:} 
+      \tab{\textbf{Customer Dissatisfaction:}}
 
-
+\textbf{Requirement \#:} 3 
+      \tab{\textbf{Requirement Type:} 9}
+      \tab{\textbf{Event/Use Case:}} \\
+      \textbf{Description:} User joins a house. \\
+      \textbf{Rationale:} To allow multiple users to join house groups which
+      have already been created. \\
+      \textbf{Fit Criterion:} The user is added to the list of tenants
+      associated with the house they are joining. \\
+      \tab{\textbf{Customer Satisfaction:} 
+      \tab{\textbf{Customer Dissatisfaction:}
+      
 \section{Nonfunctional Requirements}
 \subsection{Look and Feel Requirements}
 \subsubsection{Appearance Requirements}
