@@ -25,13 +25,15 @@
 %% Diagram formatting
 \tikzstyle{block} = [draw, fill=blue!20, rectangle, minimum height=3em, minimum width=6em, text centered]
 \tikzstyle{line} = [draw, -stealth', thick]
+\tikzstyle{block2} = [draw, fill=blue!20, rectangle, minimum height=1em, minimum width=2em, text centered]
+\tikzstyle{arrow} = [thick,->,>=stealth]
  
 
 
 \begin{document}
 
 \title{Software Requirements Specifications for Quarters} 
-\author{James Anthony (1135089)\\ Wenqiang Chen()\\ Carolyn Chong (1139105)\\ Kevin Ly()}
+\author{James Anthony (1135089)\\ Wenqiang Chen(1155437)\\ Carolyn Chong (1139105)\\ Kevin Ly (1144604)}
 \date{\today}
 \maketitle
 
@@ -232,29 +234,37 @@ See Table 1.
 \hline
 \textbf{Event Name}  & \textbf{Input and Output} & \textbf{Summary} \\ 
 \hline
-1. User logs in. & \mbox{User ID (IN)} \linebreak User password (IN) & User logs in to app. \\ 
+1. User creates account. & \mbox{User Name (IN)} \linebreak \mbox{User ID (IN)} \linebreak \mbox{User Password (IN)} \linebreak User Email (IN) & User creates an account. The system then adds the account to the database. \\ 
 \hline
-2. User logs out. & User ID (IN) & User logs out from server. \\
+2. User deletes account. & \mbox{User ID (IN)} \linebreak \mbox{User Password (IN)} & User deletes their account. The system then removes the account from the database. \\ 
 \hline
-3. User creates house. & \mbox{User ID (IN)} \linebreak House name (IN) & Landlord inputs the house address into system. The system then saves the house in the database. \\
+3. User logs in. & \mbox{User ID (IN)} \linebreak User password (IN) & User logs in to app. \\ 
 \hline
-4. User joins house. & \mbox{User ID (IN)} \linebreak House name (IN) & User selects a house to join. The system adds the user to the house. \\
+4. User logs out. & User ID (IN) & User logs out from server. \\
 \hline
-5. User uploads file. & \mbox{User ID (IN)} \linebreak File (IN) & User adds a file to be visible to house. The system then saves the file in the database directory. \\
+5. User creates house. & \mbox{User ID (IN)} \linebreak House name (IN) & Landlord inputs the house address into system. The system then saves the house in the database. \\
 \hline
-6. User submits maintenance request. & \mbox{User ID (IN)} \linebreak \mbox{Request (IN)} \linebreak Request (OUT) & User that is tenant submits a maintenance request to be received by landlord. \\
+6. User joins house. & \mbox{User ID (IN)} \linebreak House name (IN) & User selects a house to join. The system adds the user to the house. \\
 \hline
-7. User adds chore. & \mbox{User ID (IN)} \linebreak \mbox{Chore (IN)} \linebreak Calendar (OUT) & User submits a chore to be completed and displayed on the Calendar. \\
+7. User leaves house. & \mbox{User ID (IN)} \linebreak House name (IN) & User selects a house to leave. The system removes the user from the house. \\
 \hline
-8. User initiates chat with other user. & \mbox{User ID (IN)} \linebreak \mbox{User ID (IN)} \linebreak Chat (OUT) & User creates chat window with other user. \\
+8. User uploads file. & \mbox{User ID (IN)} \linebreak File (IN) & User adds a file to be visible to house. The system then saves the file in the database directory. \\
 \hline
-9. User sends instant message. & \mbox{User ID (IN)} \linebreak \mbox{Message (IN)} \linebreak Chat (OUT) & User submits a chore to be completed and displayed on the Calendar. \\
+9. User submits maintenance request. & \mbox{User ID (IN)} \linebreak \mbox{Request (IN)} \linebreak Request (OUT) & User that is tenant submits a maintenance request to be received by landlord. \\
 \hline
-10. User adds post. & \mbox{User ID (IN)} \linebreak \mbox{Post (IN)} \linebreak Discussion Board (OUT) & User adds post to discussion board. \\
+10. User updates maintenance request. & \mbox{User ID (IN)} \linebreak \mbox{Request (IN)} \linebreak Request (OUT) & User that is landlord completes a maintenance request. \\
 \hline
-11. User comments on post. & \mbox{User ID (IN)} \linebreak \mbox{Comment (IN)} \linebreak Discussion Board (OUT) & User comments on post on discussion board. \\
+11. User adds chore. & \mbox{User ID (IN)} \linebreak \mbox{Chore (IN)} \linebreak Calendar (OUT) & User submits a chore to be completed and displayed on the Calendar. \\
 \hline
-12. User transfers funds. & Record of Transaction (OUT) & User transfers funds to another user using third-party software. A record of the transaction is displayed. \\
+12. User initiates chat with other user. & \mbox{User ID (IN)} \linebreak \mbox{User ID (IN)} \linebreak Chat (OUT) & User creates chat window with other user. \\
+\hline
+13. User sends instant message. & \mbox{User ID (IN)} \linebreak \mbox{Message (IN)} \linebreak Chat (OUT) & User submits a chore to be completed and displayed on the Calendar. \\
+\hline
+14. User adds post. & \mbox{User ID (IN)} \linebreak \mbox{Post (IN)} \linebreak Discussion Board (OUT) & User adds post to discussion board. \\
+\hline
+15. User comments on post. & \mbox{User ID (IN)} \linebreak \mbox{Comment (IN)} \linebreak Discussion Board (OUT) & User comments on post on discussion board. \\
+\hline
+16. User transfers funds. & Record of Transaction (OUT) & User transfers funds to another user using third-party software. A record of the transaction is displayed. \\
 \hline
 \end{tabular}
 \caption{Work Partitioning}
@@ -262,8 +272,89 @@ See Table 1.
 
 \subsection{Business Data Model and Data Dictionary}
 N/A.
-\subsection{The Scope of the Product}
 
+\subsection{The Scope of the Product}
+See Figure 2.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[auto, node distance=1cm,>=latex']
+% Place nodes  
+\node [block2](account){Creates Account};
+\node [block2, below of=account](delete){Deletes Account};
+\node [block2, below of=delete](login){Login};
+\node [block2, below of=login](logout){Logout};
+\node [block2, below of=logout](create){Creates House};
+\node [block2, below of=create](join){Joins House};
+\node [block2, below of=join](leave){Leaves House};
+\node [block2, below of=leave](upload){Uploads File};
+\node [block2, below of=upload](submit){Submits Maintenance Request};
+\node [block2, below of=submit](update){Updates Maintenance Request};
+\node [block2, below of=update](chore){Adds Chore};
+\node [block2, below of=chore](chat){Initiates Chat};
+\node [block2, below of=chat](message){Sends Message};
+\node [block2, below of=message](post){Adds Post};
+\node [block2, below of=post](comment){Adds Comment};
+\node [block2, below of=comment](funds){Creates Record of Transaction};
+\node [block, left of=submit, xshift=-5cm](user){User};
+\node [block, right of=join, xshift=5cm](database){Database};
+\node [block, right of=message, xshift=5cm](server){Web Server};
+
+% Place lines
+\draw [arrow] (user) -- (account);
+\draw [arrow] (user) -- (delete);
+\draw [arrow] (user) -- (login);
+\draw [arrow] (user) -- (logout);
+\draw [arrow] (user) -- (create);
+\draw [arrow] (user) -- (join);
+\draw [arrow] (user) -- (leave);
+\draw [arrow] (user) -- (upload);
+\draw [arrow] (user) -- (submit);
+\draw [arrow] (user) -- (update);
+\draw [arrow] (user) -- (chore);
+\draw [arrow] (user) -- (chat);
+\draw [arrow] (user) -- (message);
+\draw [arrow] (user) -- (post);
+\draw [arrow] (user) -- (comment);
+\draw [arrow] (user) -- (funds);
+
+\draw [arrow] (database) -- (account);
+\draw [arrow] (database) -- (delete);
+\draw [arrow] (database) -- (login);
+\draw [arrow] (database) -- (logout);
+\draw [arrow] (database) -- (create);
+\draw [arrow] (database) -- (join);
+\draw [arrow] (database) -- (leave);
+\draw [arrow] (database) -- (upload);
+\draw [arrow] (database) -- (submit);
+\draw [arrow] (database) -- (update);
+\draw [arrow] (database) -- (chore);
+\draw [arrow] (database) -- (chat);
+\draw [arrow] (database) -- (message);
+\draw [arrow] (database) -- (post);
+\draw [arrow] (database) -- (comment);
+\draw [arrow] (database) -- (funds);
+
+\draw [arrow] (server) -- (account);
+\draw [arrow] (server) -- (delete);
+\draw [arrow] (server) -- (login);
+\draw [arrow] (server) -- (logout);
+\draw [arrow] (server) -- (create);
+\draw [arrow] (server) -- (join);
+\draw [arrow] (server) -- (leave);
+\draw [arrow] (server) -- (upload);
+\draw [arrow] (server) -- (submit);
+\draw [arrow] (server) -- (update);
+\draw [arrow] (server) -- (chore);
+\draw [arrow] (server) -- (chat);
+\draw [arrow] (server) -- (message);
+\draw [arrow] (server) -- (post);
+\draw [arrow] (server) -- (comment);
+\draw [arrow] (server) -- (funds);
+
+
+\end{tikzpicture}
+\caption{Product Use Case Diagram}
+\end{figure}
 \subsubsection{Product Boundary}
 \subsubsection{Product Use Case Table}
 \subsection{Functional Requirements}
