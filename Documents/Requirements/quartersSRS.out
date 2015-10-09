@@ -20,8 +20,13 @@
 \BOOKMARK [2][-]{subsection.3.3}{The Scope of the Product}{section.3}% 20
 \BOOKMARK [3][-]{subsubsection.3.3.1}{Product Boundary}{subsection.3.3}% 21
 \BOOKMARK [3][-]{subsubsection.3.3.2}{Product Use Case Table}{subsection.3.3}% 22
+<<<<<<< HEAD
 \BOOKMARK [2][-]{subsection.3.4}{Functional Requirements}{section.3}% 23
 \BOOKMARK [3][-]{subsubsection.3.4.1}{Functional Requirements}{subsection.3.4}% 24
+=======
+\BOOKMARK [2][-]{subsection.3.4}{Functional and Data Requirements}{section.3}% 23
+\BOOKMARK [3][-]{subsubsection.3.4.1}{Functional and Data Requirements}{subsection.3.4}% 24
+>>>>>>> origin/master
 \BOOKMARK [1][-]{section.4}{Nonfunctional Requirements}{}% 25
 \BOOKMARK [2][-]{subsection.4.1}{Look and Feel Requirements}{section.4}% 26
 \BOOKMARK [3][-]{subsubsection.4.1.1}{Appearance Requirements}{subsection.4.1}% 27
