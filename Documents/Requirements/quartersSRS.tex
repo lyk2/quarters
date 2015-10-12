@@ -71,7 +71,7 @@ one. It is an important aspect of people's everyday lives. With the introduction
 of the Internet and cellular devices people's capacity to communicate has vastly 
 increased, however, this information has hardly centralized. Landlords and their 
 tenants commonly communicate via email or text messages, but a response is not 
-guaranteed or the reply is hard to retrace. This lack of centralized 
+guaranteed or the reply is hard to retrace. \ds{Not with emails} This lack of centralized 
 information may introduce discrepancies between the two parties and hardships 
 upon getting documents and other vital information.\\
 
@@ -87,7 +87,7 @@ handle requests from both parties and give a detailed status of the household.
 
 \subsection{The Client, the Customer, and Other Stakeholders}
 \subsubsection {The Client}
-  N/A
+  N/A 
 \subsubsection {The Customer}
 This platform is targeted for tenants and landlords as they will be the 
 primary users of the software. With this implementation, tenants will be 
@@ -102,11 +102,14 @@ to the product. These people and organizations include:
 \item Plumbers and electricians can provide information directly to the main 
 stakeholders with respect to 
 solving maintenance issues in the house.
+\ds{Why only plumbers and electricians?}
 \item Legal experts can protect the users and developers from unlawful acts.
+\ds{I don't think this belongs. Can you be more specific?}
 \item Developers are required to create and test the platform.
-\item Marketing experts can suggest advertising strategies.
+\item Marketing experts can suggest advertising strategies. 
+\ds{Incredibly vague}
 \end{itemize}
-
+\ds{Where does your supervisor come in?}
 \subsection{Users of the Product}
 There are two key users of the product: tenants and landlords. \\ \\
 Tenants are responsible for the following actions:
@@ -128,8 +131,11 @@ Landlord are responsible for the following actions:
 
 \section{Project Constraints}
 \subsection{Mandated Constraints} 
+\ds{How are any of these constraints? Constraints are typically given by your client
+	due to their existing technological infrastructure. These are all requirements.
+	If these constraints have been mandated from the beginning, \emph{explain why}} 
 \begin{description}
-  \item[Solution Constraints] \hfill \\
+ \item[Solution Constraints] \hfill \\
     Description: Landlords and tenants shall communicate through a discussion
     board. \\
     Rationale: Landlords and tenants will not need to communicate via email,
@@ -142,7 +148,8 @@ Landlord are responsible for the following actions:
     Rationale: Tenants will not email, text, or phone their landlord in order
     to inform them about property related issues. \\
     Fit criterion: Tenants will have the option to pay rent/bills through
-    PayPal via the payment portal. \\
+    PayPal via the payment portal.
+    \ds{I think you put this in the wrong place.} \\
     \\
     Description: Tenants will be able to make payments through PayPal
     Rationale: Landlords will be able to offer a payment method other than
@@ -152,9 +159,12 @@ Landlord are responsible for the following actions:
   \item[Implementation Environment of the Current System] \hfill 
     \begin{itemize}
       \item See off-the-shelf software and collaborative applications
-      \item Server: Intel i3-4430 running Ubuntu Server \\
+      \item Server: Intel i3-4430 running Ubuntu Server
+      \ds{If you already have the server, then a solution constraint could
+      		be that the software must run on that server} \\
     \end{itemize}
   \item[Partner or Collaborative Applications] \hfil 
+	\ds{Why are any of these constraints?}
     \begin{itemize}
     \item Facebook Login: Provides users with the option to sign up via 
 Facebook.
@@ -163,6 +173,7 @@ Facebook.
           via PayPal. \\
     \end{itemize}
   \item[Off-the-Shelf Software] \hfill 
+  \ds{Are you going to be using these exclusively? Why are you constrained to using them?}
     \begin{itemize}
     \item PostgreSQL: An object-relational database management system (ORDMBS)
       with an emphasis on extensibility and on standards-compliance.
@@ -289,7 +300,9 @@ directory. \\
 maintenance request to be received by landlord. \\
 \hline
 10. User updates maintenance request. & \mbox{User ID (IN)} \linebreak 
-\mbox{Request (IN)} \linebreak Request (OUT) & User that is landlord completes a 
+\mbox{Request (IN)} \linebreak Request (OUT) & User that is landlord 
+\ds{Why can't tenants update maintenance requests?}
+completes a 
 maintenance request. \\
 \hline
 11. User adds chore. & \mbox{User ID (IN)} \linebreak \mbox{Chore (IN)} 
@@ -302,7 +315,8 @@ user. \\
 \hline
 13. User sends instant message. & \mbox{User ID (IN)} \linebreak \mbox{Message 
 (IN)} \linebreak Chat (OUT) & User submits a chore to be completed and displayed 
-on the Calendar. \\
+on the Calendar. 
+\ds {The summary is wrong}\\
 \hline
 14. User adds post. & \mbox{User ID (IN)} \linebreak \mbox{Post (IN)} \linebreak 
 Discussion Board (OUT) & User adds post to discussion board. \\
@@ -318,6 +332,9 @@ displayed. \\
 \caption{Work Partitioning}
 \end{longtable}
 
+\ds{You mentioned previously that ``Electricians and Plumbers" could do things,
+	but they aren't mentioned anywhere in the work partition}
+	
 \subsection{Business Data Model and Data Dictionary}
 N/A.
 
@@ -401,6 +418,10 @@ See Figure 2.
 \draw [arrow] (server.west) -- (funds.east);
 
 \end{tikzpicture}
+
+\ds{You have multiple types of users, thus you should show how they each
+	interact with the system.}
+
 \caption{Product Use Case Diagram}
 \end{figure}
 
@@ -504,7 +525,9 @@ desktop screens, including both horizontal and vertical layouts.} \\
       \textbf{Rationale: }{Administrator should be able to determine which users 
 can access the house.} \\
       \textbf{Fit Criterion: }{Administrators can add, edit and remove users 
-from a house.} \\
+from a house.} 
+\ds{Who are the administrators? Are they developers of ``Quarters" or landlords?}
+\\
         
 \textbf{Requirement \#:} 12
       \tab{\textbf{Event/Use Case:} 16}
@@ -525,6 +548,10 @@ platform. Chores and other repeating events can be created here.} \\
 standardized ICS structure. This format should be deployable to other calendar 
 management software. This platform should support the creation, deletion and 
 modifications to an event.} \\
+
+\ds{How does a landlord end up on a house?}
+\ds{You have not covered the entirety of your use cases. Where are the rest of
+	your requirements?}
         
 \section{Nonfunctional Requirements}
 \subsection{Look and Feel Requirements}
@@ -533,10 +560,15 @@ The interface of the web application shall be attractive and intuitive for a
 young adult and adult audience. A sampling of potential users shall, without 
 prompting or enticement, create a login within one week of their first encounter 
 with the application. 
+\ds{The last sentence does not belong.}
+
 \subsubsection{Style Requirements}
 The web application shall appear professional and secure. After their first 
 encounter with the application, 70 percent of potential users shall agree they 
 feel they can trust the application. 
+\ds{You shouldn't keep copy/pasting examples from the template. They don't
+	necessarily apply}
+
 \subsection{Usability and Humanity Requirements}
 \subsubsection{Ease of Use Requirements}
 The web application shall be easy for young adults and adults to use. The 
@@ -549,6 +581,7 @@ encounter.
 \subsubsection{Personalization and Internationalization Requirements}
 The web application shall be available in the English language (EN-US),  use 
 Canadian currency (CAD \$), ICS Calendar format, and the metric system.
+\ds{Why EN-US instead of Canadian or British English?}
 \subsubsection{Learning Requirements}
 The web application shall be easy for young adults and adults to learn. The web 
 application shall be constructed so that all of its functionality is apparent 
@@ -560,13 +593,16 @@ their first encounter.
 \subsubsection{Understandability and Politeness Requirements}
 The web application shall use symbols, icons, and words that are naturally 
 understandable by the user community. 
+\ds{What does ``naturally understandable" mean?}
 \subsubsection{Accessibility Requirements}
 The web application shall rely on the web browser's accessibility features to 
 make it available to the disabled.
+\ds{So you are not implementing any explicit accessibility options?}
 \subsection{Performance Requirements}
 \subsubsection{Speed and Latency Requirements}
 The speed of the web application depends on the speed of the user's operating 
 system and internet connection.
+\ds{This is not a requirement}
 \subsubsection{Safety-Critical Requirements}
 N/A.
 \subsubsection{Precision or Accuracy Requirements}
@@ -579,11 +615,16 @@ year.
 The web application shall successfully display an error message to the user 
 should an incorrect username/password combination be input, or in the event of 
 one of its features crashing.  
+\ds{There should be error-related functional requirements as well. When the
+error message occurs, what happens? Does the program stop or can the user 
+continue performing tasks?}
 \subsubsection{Capacity Requirements}
 The web application shall cater to 100 simultaneous users. 
+
 \subsubsection{Scalability or Extensibility Requirements}
 The web application shall be capable of expanding to nearby cities within two 
 years of its launch.
+\ds{Will the capacity requirements change with expansion?}
 \subsubsection{Longevity Requirements}
 The web application shall be expected to operate as long as there exists a 
 housing rental market.
@@ -591,6 +632,7 @@ housing rental market.
 \subsubsection{Expected Physical Environment}
 The web application shall be used by users who may be distracted because they 
 are simultaneously completing and managing several other tasks. 
+\ds{That is not a physical environment}
 \subsubsection{Requirements for Interfacing with Adjacent Systems}
 The web application shall work on the last three releases of the five most 
 popular web browsers (Chrome, Firefox, Internet Explorer, Opera, Safari). The 
@@ -604,13 +646,16 @@ The web application shall be accessible on the World Wide Web.
 \subsubsection{Release Requirements}
 The initial release of the web application will be in February 2016. The next 
 release will be in April 2016. Subsequent releases will be made on an annual 
-basis.
+basis. \ds{For how long? Can you guarantee it?}
 \subsection{Maintainability and Support Requirements}
 \subsubsection{Maintenance Requirements}
 The web application shall be able to be maintained by developers who are not the 
 original developers.
+\ds{That is not a good requirement.}
 \subsubsection{Supportability Requirements}
-N/A.
+N/A. 
+\ds{You may want to include supportability requirements}
+
 \subsubsection{Adaptability Requirements}
 The web application is expected to run on web browsers on mobile phones, tablets 
 and desktop computers.
@@ -631,6 +676,8 @@ before collecting data from them. The web application shall authorize account
 registration of users using social media accounts. The web application shall use 
 a third-party interface to store credit card information and perform secure 
 monetary transactions between users.
+
+\ds{Is data stored securely? Is it tamper-proof?}
 \subsubsection{Audit Requirements}
 N/A.
 \subsubsection{Immunity Requirements}
@@ -703,7 +750,7 @@ N/A
 \subsection{Risks}
 \begin{itemize}
   \item Security/legal issues with online payment.
-  \item Not able to get enough user.
+  \item Not able to get enough user. \ds{``users"}
   \item Certain features may not be compatible with the hardware.
   \item Project becomes too complicated and not able to meet deadlines.
 \end{itemize}
@@ -735,6 +782,7 @@ The next release will include the following features:
   \item NodeJS and ExpressJS for server side.
   \item AngularJS and Bootstrap for front end.
 \end{itemize}
+\ds{Are these ideas for solutions or constraints? You put them in both places.}
 
 \end{document}
 
