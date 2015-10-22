@@ -1,0 +1,97 @@
+\documentclass[12pt]{article}
+
+
+%%Packages Used
+\usepackage{xcolor} % for different colour comments
+\usepackage[hidelinks]{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{float}
+\usepackage{tabto}
+\usepackage{longtable}
+\usepackage{full page}
+
+%% Comments
+\newif\ifcomments\commentstrue
+\ifcomments
+\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\else
+\newcommand{\authornote}[3]{}
+\newcommand{\todo}[1]{}
+\fi
+\newcommand{\wss}[1]{\authornote{magenta}{SS}{#1}}
+\newcommand{\ds}[1]{\authornote{blue}{DS}{#1}}
+\newcommand{\kly}[1]{\authornote{green}{KL}{#1}}
+\newcommand{\cc}[1]{\authornote{orange}{CC}{#1}}
+
+
+\begin{document}
+
+\title{Proof of Concept Demonstration Plan for Quarters} 
+\author{James Anthony (1135089)\\ Wenqiang Chen(1155437)\\ Carolyn Chong 
+(1139105)\\ Kevin Ly (1144604)}
+\date{\today}
+\maketitle
+
+\pagebreak
+
+\textbf{Identify the most significant risks}
+\begin{enumerate}
+
+\item Will a part of the implementation be difficult?
+\begin{itemize}
+\item Learning all of the software.
+\item Ensuring privacy of user information with respect to the server/client.
+\item Reliability of server.
+\item Interfacing the payment system.
+\item Multilayer notifications.
+\item File storage and serving.
+\item Designing an effective UI.
+\item Designing an effective database schema.
+\end{itemize}
+
+\item Will testing be difficult?
+\begin{itemize}
+\item Generating and automating all possible test cases.
+\item Compiling all test suites into an easily accessible page.
+\item Designing effective qualitative tests for our UI.
+\end{itemize}
+
+\item Is a required library difficult to install?
+\begin{itemize}
+\item N/A.
+\end{itemize}
+
+\item Will portability be a concern?
+\begin{itemize}
+\item Ensuring it is both desktop and mobile compliant.
+\item Ensuring it is compatible on different web browsers.
+\end{itemize}
+
+\item Will the project size/scope be feasible? Etc.
+\begin{itemize}
+\item Implementing all of the desired features. \\
+\end{itemize}
+
+\end{enumerate}
+
+
+\textbf{Describe what you will demonstrate to show the risks can
+be overcome.}
+
+\begin{itemize}
+\item Testing will be critical to help us address our risks from Part 1. The only way to determine if something does not work or does something it is not supposed to is via testing. 
+\item Using test subjects to test our UI. 
+\item Creating an easily expandable web framework.
+\item We may have to prioritize designing for specific web browsers as well as for the desktop or mobile if one or the other is too challenging.
+\item We may have to prioritize which features of our web application to implement if time becomes a constraint.
+\end{itemize}
+
+
+
+ 
+
+
+\end{document}
+

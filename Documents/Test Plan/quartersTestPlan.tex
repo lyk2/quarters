@@ -14,13 +14,14 @@
 \usepackage{siunitx}
 \usepackage{booktabs}
 \usepackage{hyperref}
+\usepackage{xcolor} % for different colour comments
 
 %\usepackage{refcheck}
 
 \hypersetup{
     bookmarks=true,         % show bookmarks bar?
       colorlinks=true,       % false: boxed links; true: colored links
-    linkcolor=red,          % color of internal links (change box color with linkbordercolor)
+    linkcolor=black,          % color of internal links (change box color with linkbordercolor)
     citecolor=green,        % color of links to bibliography
     filecolor=magenta,      % color of file links
     urlcolor=cyan           % color of external links
@@ -86,7 +87,7 @@
 
 \begin{document}
 
-\title{Software Requirements Specifications for Quarters} 
+\title{Test Plan for Quarters} 
 \author{James Anthony (1135089)\\ Wenqiang Chen(1155437)\\ Carolyn Chong 
 (1139105)\\ Kevin Ly (1144604)}
 \date{\today}
@@ -125,40 +126,38 @@ The Test Plan is designed to propose the approach, constraints, and scheduling r
 This test plan for Quarters supports the following objectives:
 
 \begin{enumerate}
-\item To detail the activities required to prepare for and support the tests.
-\item To communicate to all responsible individuals the tasks they are to perform and the schedule to be followed in performing the tasks.
-\item To define the sources of information used to prepare the test plan.
-\item To define the test tools and environment needed to conduct the tests.
+\item[a.] To detail the activities required to prepare for and support the tests.
+\item[b.] To communicate to all responsible individuals the tasks they are to perform and the schedule to be followed in performing the tasks.
+\item[c.] To define the sources of information used to prepare the test plan.
+\item[d.] To define the test tools and environment needed to conduct the tests.
 \end{enumerate}
 
 
 %1.2 Scope
-\subsection{Scope}
-This test plan presents a schema for testing the functionality of Quarters. Its objective is to show \cc{something}. 
+\subsection{Scope} 
+This test plan presents a schema for testing the functionality of Quarters. Its objective is to test that users are able to successfully access the web pages and the application's features, as well as test Quarters' ability to handle error cases. \\
 
-This Revision 0 Test Plan serves to organize testing activities. The documentation at this current stage does not attempt to present detailed testing information as this information will be included in subsequent test reports, as well as the final test plan.
+\noindent This Revision 0 Test Plan serves to organize testing activities. The documentation at this current stage does not attempt to present detailed testing information as this information will be included in subsequent test reports, as well as the final test plan.
+
 
 %1.3 Constraints
 \subsection{Constraints}
+The principal constraint regarding the testing of Quarters is time as Quarters is to be delivered by April 2015. Within this time frame development and documentation must be completed, in addition to testing. Another constraint is human resources, as this project is limited to four developers to complete all components under the advisory of a supervisor.
+
+%1.4 Acronyms and Definitions
+\subsection{Acronyms and Definitions}
 
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{l l} 
   \toprule		
-  \textbf{symbol} & \textbf{description}\\
+  \textbf{Acronym} & \textbf{Description}\\
   \midrule 
-  QA		&Quality assurance\\
   SRS		&Software requirements specification\\
-  V\&V		& Verification and validation\\
-  V\&VP 	& Verification and validation plan\\
-  V\&VR 	& Verification and validation report\\
-  PCM		& Phase change material\\
-  SWHS		& Solar Water Heating System\\
-  $\epsilon$& $10^{-2}$\\
+  PoC		&Proof of Concept\\
   \bottomrule
 \end{tabular}\\
 
-%1.4 Acronyms and Definitions
-\subsection{Acronyms and Definitions}
+
 The following sections provide more detail about the V\&V of a solar water heating
  simulator. Information about the testing process is provided, and the software specifications
 that were discussed in the SRS document are stated.  The evaluation process that will be followed during 
