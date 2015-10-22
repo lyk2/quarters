@@ -29,6 +29,17 @@ router.get('/status', function(req, res, next) {
 	});
 });
 
+router.get('/htop', function(req, res, next) {
+	var exec = require('child_process').exec,
+    child;
+
+	child = exec('htop',
+	  function (error, stdout, stderr) {
+	    res.send(stdout);
+	});
+});
+
+
 
 
 module.exports = router;
