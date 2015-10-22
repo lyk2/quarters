@@ -5,7 +5,7 @@ var sys = require('util');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+	res.send("dev tools");
 });
 
 /* GET users listing. */
@@ -15,7 +15,7 @@ router.get('/update', function(req, res, next) {
 
 	child = exec('quarters-web update',
 	  function (error, stdout, stderr) {
-	    res.send(stdout);
+	    res.render('dev', {content : stdout});
 	});
 });
 
@@ -25,7 +25,7 @@ router.get('/status', function(req, res, next) {
 
 	child = exec('quarters-web status',
 	  function (error, stdout, stderr) {
-	    res.send(stdout);
+	    res.render('dev', {content : stdout});
 	});
 });
 
