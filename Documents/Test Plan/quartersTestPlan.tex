@@ -13,6 +13,8 @@
 \usepackage{fullpage}
 \newcounter{rowcount}
 \setcounter{rowcount}{0}
+\usepackage [autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
 
 \hypersetup{
     bookmarks=true,         % show bookmarks bar?
@@ -81,10 +83,12 @@ This document makes use of the Software Test Plan (STP) Template for all of its 
 
 %Plans for Automated Testing
 \section{Plans for Automated Testing}
+Though some tests may be done manually for the PoC Demo, all tests will be automated for the Final Demo in April. We will write our own test scripts.
 
 
 %Plans for Unit Testing
 \section{Plans for Unit Testing}
+QUnit will be used for unit testing. QUnit is a Javascript unit testing framework.
 
 
 %System Tests
@@ -109,26 +113,30 @@ This document makes use of the Software Test Plan (STP) Template for all of its 
 
 
 %4.1 User Registration
-\subsection{User Registration} \cc{Should I include Google/Facebook?}\\
+\subsection{User Registration} 
 \textbf{Test Type:} Functional/Static/Dynamic/Manual/Automated. \\
 \textbf{Test Factors:} Correctness, Reliability. \\
-\textbf{Tools Used:} Selenium, Google reCAPTCHA. \\
-\textbf{Schedule:} Begin static testing November 6. Complete manual dynamic tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. \\
+\textbf{Tools Used:} Google reCAPTCHA. \\
+\textbf{Schedule:} Begin static testing November 6. Complete manual dynamic tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. Testing for creating an account with Google or Facebook will be completed for the Final Demo April 1. \\
 \textbf{Team Member Responsible:} \\
-\textbf{Methodology:} The main objective of user registration is to create a user account to be used for login. Users must use a valid email address and pass a user identification procedure. This ensures the user is human and prevents spam and automated scripts from accessing the application and abusing its services. Testing is manual and automated. Manual testing involves people manually going through the registration process in real-time as a user. Automated testing involves systemically attempting SQL injections to test for valid and invalid registrations. Google reCAPTCHA validates that users are legitimate.
+\textbf{Methodology:} The main objective of user registration is to create a user account to be used for login. Users must use a valid email address and pass a user identification procedure. This ensures the user is human and prevents spam and automated scripts from accessing the application and abusing its services. Alternatively, a user can create an account using an existing Google or Facebook account. Testing is manual and automated. Manual testing involves people manually going through the registration process in real-time as a user. Automated testing involves systemically attempting SQL injections to test for valid and invalid registrations. Google reCAPTCHA validates that users are legitimate.
 
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.1.1 & Registration page. Empty fields. & Valid values entered and passes reCAPTCHA test. & Redirected to registration confirmation page. Correct user values are displayed. User values are correctly stored in database. \\ 
+4.1.1 & Registration page. Empty fields. & Valid values entered and passes reCAPTCHA test. & User values are correctly stored in database. Redirected to application home page.  \\ 
 \hline
-4.1.2 & Registration page. Empty fields. & Empty field(s). & Stays on the same page. Error message appears. Empty field is highlighted. \\
+4.1.2 & Registration page. Empty fields. & Empty field(s). & Stays on the same page. Error message appears: "Missing field". Empty field is highlighted. \\
 \hline
-4.1.3 & Registration page. Empty fields. & Invalid email address. & Stays on the same page. Error message appears. Email field is highlighted. \\
+4.1.3 & Registration page. Empty fields. & Invalid email address. & Stays on the same page. Error message appears: "Invalid email". Email field is highlighted. \\
 \hline
-4.1.4 & Registration page. Empty fields. & Email address already stored in database. & Stays on the same page. Error message appears. Email field is highlighted. \\
+4.1.4 & Registration page. Empty fields. & Email address already stored in database. & Stays on the same page. Error message appears: "An account with this email has already been created". Email field is highlighted. \\
 \hline
-4.1.5 & Registration page. Empty fields. & Fails reCAPTCHA test. & Stays on the same page. Error message appears. Test field is highlighted. \\
+4.1.5 & Registration page. Empty fields. & Fails reCAPTCHA test. & Stays on the same page. reCAPTCHA error message appears. Test field is highlighted. \\
+\hline
+4.1.6 & Registration page. Empty fields. & Selects Register with Google Account. & User values are correctly stored in database. Redirected to application main page. \\
+\hline
+4.1.7 & Registration page. Empty fields. & Selects Register with Facebook Account. & User values are correctly stored in database. Redirected to application main page. \\
 \hline
 \end{longtable}
 
@@ -138,8 +146,8 @@ This document makes use of the Software Test Plan (STP) Template for all of its 
 \subsection{User Login}
 \textbf{Test Type:} Functional/Static/Dynamic/Manual/Automated. \\
 \textbf{Test Factors:} Correctness, Reliability. \\
-\textbf{Tools Used:} Selenium. \\
-\textbf{Schedule:} Begin static testing November 6. Complete manual dynamic tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. \\
+\textbf{Tools Used:} \\
+\textbf{Schedule:} Begin static testing November 6. Complete manual dynamic tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. Testing for logging in with a Google or Facebook account will be completed for the Final Demo April 1. \\
 \textbf{Team Member Responsible:} \\
 \textbf{Methodology:} The main objective of user login is to ensure a secure process where only valid users are allowed to enter the application. Testing involves authenticating users against an existing database to determine if they are valid users or not. Testing is manual and automated. Manual testing involves people manually going through the login process in real-time as a user. Automated testing involves systemically attempting SQL injections to test for valid and invalid logins.
 
@@ -148,11 +156,15 @@ This document makes use of the Software Test Plan (STP) Template for all of its 
 \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
 4.2.1 & Login page. Empty username and password fields. & Valid username and password combination. & Redirected to application main page. \\ 
 \hline
-4.2.2 & Login page. Empty username and password fields. & Invalid username. & Stays on the same page. Error message appears. Fields are highlighted. \\
+4.2.2 & Login page. Empty username and password fields. & Invalid username. & Stays on the same page. Error message appears: "Invalid username". Fields are highlighted. \\
 \hline
-4.2.3 & Login page. Empty username and password fields. & Valid username and invalid password. & Stays on the same page. Error message appears. Password field is highlighted. \\
+4.2.3 & Login page. Empty username and password fields. & Valid username and invalid password. & Stays on the same page. Error message appears: "Incorrect password". Password field is highlighted. \\
 \hline
-4.2.4 & Login page. Empty username and password fields. & Empty username and/or password fields. & Stays on the same page. Error message appears. Fields are highlighted. \\
+4.2.4 & Login page. Empty username and password fields. & Empty username and/or password fields. & Stays on the same page. Error message appears: "Missing field". Fields are highlighted. \\
+\hline
+4.2.5 & Login page. Empty username and password fields. & Selects Log in with Google Account & Redirected to application main page. \\ 
+\hline
+4.2.6 & Login page. Empty username and password fields. & Selects Log in with Facebook Account. & Redirected to application main page. \\ 
 \hline
 \end{longtable}
 
@@ -163,18 +175,18 @@ This document makes use of the Software Test Plan (STP) Template for all of its 
 \textbf{Test Type:} Functional/Static/Dynamic/Manual/Automated. \\
 \textbf{Test Factors:} Learnability, Reliability. \\
 \textbf{Tools Used:} \cc{todo}. \\
-\textbf{Schedule:} Begin static testing November 6. Complete manual dynamic tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. \\
+\textbf{Schedule:} Begin static testing November 6. Complete manual dynamic tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. Tests for the syncing of a user's personal calendar will be completed for the Final Demo April 1. \\
 \textbf{Team Member Responsible:} \\
-\textbf{Methodology:} The Calendar feature allows users to add/delete events and chores to a shared Calendar between members of a house. This shared Calendar can be synched with a user's personal Calendar. Testing is manual and automated. Manual testing involves a person manually going through the process of adding/deleting an event or chore to the Calendar in real-time as a user, and then checking if those updates are properly synched with the user's personal Calendar. Automated testing involves \cc{todo}. \cc{Unit Testing?}.
+\textbf{Methodology:} The Calendar feature allows users to add/delete events and chores to a shared Calendar between members of a house. This shared Calendar can be synched with a user's personal Calendar. Testing is manual and automated. Manual testing involves a person manually going through the process of adding/deleting an event or chore to the Calendar in real-time as a user, and then checking if those updates are properly synched with the user's personal Calendar. Automated testing involves unit testing each possible input.
 
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
 4.3.1 & Calendar page. Empty form. & Add event/chore. Correct values entered in fields. & Form closes. Event/chore is added to database. Event/chore is updated on Calendar. \\ 
 \hline
-4.3.2 & Calendar page. Empty form. & Add event/chore. Incorrect values entered in fields. & Form remains open. Error message appears. Incorrect fields are highlighted. \\
+4.3.2 & Calendar page. Empty form. \cc{check} & Add event/chore. Incorrect values entered in fields. & Form remains open. Error message appears. Incorrect fields are highlighted. \\
 \hline
-4.3.3 & Calendar page. Empty form. & Add event/chore. Empty field(s). & Form remains open. Error message appears. Empty fields are highlighted. \\
+4.3.3 & Calendar page. Empty form. & Add event/chore. Empty field(s). & Form remains open. Error message appears: "Missing field". Empty fields are highlighted. \\
 \hline
 4.3.4 & Calendar page. & Click button to delete event/chore.  & Event/chore is removed from database. Event/chore is no longer displayed on Calendar. \\
 \hline
