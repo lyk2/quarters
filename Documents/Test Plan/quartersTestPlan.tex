@@ -45,7 +45,7 @@
 \author{James Anthony (anthonjb)\\ Wenqiang Chen (chenw25)\\ Carolyn Chong 
 (chongce)\\ Kevin Ly (lyk2)}
 \date{\today}
-	
+  
 \maketitle
 
 \pagebreak
@@ -71,10 +71,10 @@ This document makes use of the Software Test Plan (STP) Template for all of its 
 \section{Acronyms and Definitions}
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{l l} 
-  \toprule		
+  \toprule    
   \textbf{Acronym} & \textbf{Description}\\
   \midrule 
-  PoC		&Proof of Concept\\
+  PoC   &Proof of Concept\\
   \bottomrule
 \end{tabular}\\
 
@@ -180,7 +180,85 @@ This document makes use of the Software Test Plan (STP) Template for all of its 
 \hline
 \end{longtable}
 
+%4.4 Maintenance Ticketing System
+\subsection{Maintenance Tracking}
+\textbf{Test Type:} Functional/Static/Dynamic/Manual/Automated. \\
+\textbf{Test Factors:} Correctness, Reliablility. \\
+\textbf{Tools Used:} QUnit, Chron Scripts. \\
+\textbf{Schedule:} Begin static testing November 6. Complete manual dynamic tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. \\
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} The maintenance tracking system allows tenants to create maintenance requests, where the landlord then responds and updates with further information. This portions of this system is restricted based on the user type; tenants cannot modify maintenance ticket properties. This component will be tested using unit test for functionality, with automated testing to ensure the permissions are handled properly. Static database checkers will be used in conjunction with the automated test cases to check for proper database modifications.
 
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+4.4.1 & Quarters Web Application & Open maintenance system & Maintenance system opens and shows new maintenance tickets with existing tickets in chronological\\ 
+\hline
+4.3.2 & Maintenance System. & Clicks on maintenance ticket & Inner dialog opens displaying all properties in a maintenance ticket. \\
+\hline
+4.3.3 & Maintenance System & Entering a search query or adding a filter & sort and filter maintenance tickets and reveal only successful tickets. \\
+\hline
+4.3.4 & Maintenance Ticket Window & Modifying properties of a ticket & save icon appears in dialog to confirm changes\\
+\hline
+4.3.5 & Maintenance Ticket Window & Saving ticket properties & window will close, and database will be updated to reflect changes\\
+\hline
+4.3.6 & Maintenance Ticket Window & Deleting Ticket & confirmation window will appear, upon deletion confirmation: close window and remove data from database\\
+\hline
+4.3.7 & Maintenance System & click on create new request & Opens a new ticket window\\
+\hline
+4.3.8 & New Maintenance ticket window & click on create empty fields & window will remain opening, prompt will display error message\\
+\hline
+4.3.9 & New Maintenance ticket window & Click on create, required fields filled & window closes, database will be updated with new ticket\\
+\hline
+4.3.10 & New Maintenance ticket window & click on cancel with fields filled & window remains open, prompt will ask for confirmation on close\\
+\hline
+4.3.11 & Confirmation Prompt & click on OK & closes prompt and dialog \\
+\hline
+4.3.10 & Confirmation Prompt & click on cancel & closes prompt, dialog remains open\\
+\hline
+\end{longtable}
+
+%4.5 Calendar
+\subsection{House Management}
+\textbf{Test Type:} Functional/Static/Dynamic/Manual/Automated. \\
+\textbf{Test Factors:} Learnability, Reliability. \\
+\textbf{Tools Used:} \cc{todo}. \\
+\textbf{Schedule:} Begin static testing November 6. Complete manual dynamic tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. \\
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} House management system is the feature which allows user to view and modify information in regards to the house and create and delete houses. Unit tests can be created for each function in the feature which will be included in the automated testing sequence.
+
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+4.5.1 & House Management, not admin user & Click modify information & Nothing\\ 
+\hline
+4.5.2 & House Management, admin user & Click modify information & input fields become editable \\
+\hline
+4.5.3 & House Management, admin & modify information fields & save button opens, discard changes appears. \\
+\hline
+4.5.4 & House Management, any user & click on View Documents  & redirects to new page showing all uploaded documents in House \\
+\hline
+4.5.5 & House Documents, any user & clicks on a document & retrieves documents and initiates file transfer\\
+\hline
+4.5.6 & House Documents, admin & clicks on Add Documents & upload window opens for user upload, file will be transfer to server and information is updated in database\\
+\hline
+4.5.7 & House Documents, admin & clicks on delete document & prompt opens\\
+\hline
+4.5.8 & deletion prompt, admin & clicks on yes & prompt closed, file is removed from display, database is updated\\
+\hline
+4.5.9 & deletion prompt, admin & clicks on no & prompt closed\\
+\hline
+4.5.10 & House Management, any user & clicks on view members & shows all memebers of the house and their role\\
+\hline
+4.5.11 & House Management, admin, members list visible & clicks on add member & Dialog will appear\\
+\hline
+4.5.12 & Member Dialog, admin, fields empty & clicks on ok & prompt opens, notifying missing fields \\
+\hline
+4.5.13 & Member Dialog, admin, fields complete & clicks on ok & window closes, new user is notified, database is updated, member status pending\\
+\hline
+4.5.14 & Member Dialog, admin, & clicks on cancel & window closes\\
+\hline
+\end{longtable}
 
 
 
