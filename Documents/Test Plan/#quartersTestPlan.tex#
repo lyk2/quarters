@@ -1,0 +1,281 @@
+\documentclass[12pt]{article}
+
+
+\usepackage{graphicx}
+\usepackage{colortbl}
+\usepackage{xr}
+\usepackage{longtable}
+\usepackage{xfrac}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{xcolor} % for different colour comments
+\usepackage{fullpage}
+\newcounter{rowcount}
+\setcounter{rowcount}{0}
+\usepackage [autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
+
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+      colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+%% Comments
+\newif\ifcomments\commentstrue
+\ifcomments
+\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\else
+\newcommand{\authornote}[3]{}
+\newcommand{\todo}[1]{}
+\fi
+\newcommand{\wss}[1]{\authornote{magenta}{SS}{#1}}
+\newcommand{\ds}[1]{\authornote{blue}{DS}{#1}}
+\newcommand{\kly}[1]{\authornote{green}{KL}{#1}}
+\newcommand{\cc}[1]{\authornote{orange}{CC}{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{Test Plan for Quarters} 
+\author{James Anthony (anthonjb)\\ Wenqiang Chen (chenw25)\\ Carolyn Chong 
+(chongce)\\ Kevin Ly (lyk2)}
+\date{\today}
+  
+\maketitle
+
+\pagebreak
+
+\tableofcontents
+
+\section*{Revision History}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Date}  & \textbf{Comments} \\ \hline
+October 21, 2015 & Created first draft. \\ 
+\hline
+\end{tabular}
+
+\section*{Template}
+This document makes use of the Software Test Plan (STP) Template for all of its organization.
+
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Acronyms and Definitions
+\section{Acronyms and Definitions}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{l l} 
+  \toprule    
+  \textbf{Acronym} & \textbf{Description}\\
+  \midrule 
+  PoC   &Proof of Concept\\
+  \bottomrule
+\end{tabular}\\
+
+
+%Plans for Automated Testing
+\section{Plans for Automated Testing}
+Though some tests may be done manually for the PoC Demo, all tests will be automated for the Final Demo in April. We will write our own test scripts.
+
+
+%Plans for Unit Testing
+\section{Plans for Unit Testing}
+QUnit will be used for unit testing. QUnit is a Javascript unit testing framework.
+
+
+%System Tests
+\section{System Tests}
+
+%Template
+\cc{Use this as a template. Create a new subsection for each feature to be tested.}\\
+\textbf{Test Type:} Structural/Functional/Unit, Static/Dynamic, Manual/Automated. \\
+\textbf{Test Factors:} Correctness/Learnability/Maintainability/Reliability. \\
+\textbf{Tools Used:} unit testing framework, code coverage metrics, static checkers, automated testing, load testing (like JMeter), etc. \\ 
+\textbf{Schedule:} PoC Demo November 16 / Final Demo April 1. \\
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} The "how".
+
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+4. & & &  \\ 
+\hline
+\end{longtable}
+
+
+
+%4.1 User Registration
+\subsection{User Registration} 
+\textbf{Test Type:} Functional/Static/Dynamic/Manual/Automated. \\
+\textbf{Test Factors:} Correctness, Reliability. \\
+\textbf{Tools Used:} Google reCAPTCHA. \\
+\textbf{Schedule:} Begin static testing November 6. Complete manual dynamic tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. Testing for creating an account with Google or Facebook will be completed for the Final Demo April 1. \\
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} The main objective of user registration is to create a user account to be used for login. Users must use a valid email address and pass a user identification procedure. This ensures the user is human and prevents spam and automated scripts from accessing the application and abusing its services. Alternatively, a user can create an account using an existing Google or Facebook account. Testing is manual and automated. Manual testing involves people manually going through the registration process in real-time as a user. Automated testing involves systemically attempting SQL injections to test for valid and invalid registrations. Google reCAPTCHA validates that users are legitimate.
+
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+4.1.1 & Registration page. Empty fields. & Valid values entered and passes reCAPTCHA test. & User values are correctly stored in database. Redirected to application home page.  \\ 
+\hline
+4.1.2 & Registration page. Empty fields. & Empty field(s). & Stays on the same page. Error message appears: "Missing field". Empty field is highlighted. \\
+\hline
+4.1.3 & Registration page. Empty fields. & Invalid email address. & Stays on the same page. Error message appears: "Invalid email". Email field is highlighted. \\
+\hline
+4.1.4 & Registration page. Empty fields. & Email address already stored in database. & Stays on the same page. Error message appears: "An account with this email has already been created". Email field is highlighted. \\
+\hline
+4.1.5 & Registration page. Empty fields. & Fails reCAPTCHA test. & Stays on the same page. reCAPTCHA error message appears. Test field is highlighted. \\
+\hline
+4.1.6 & Registration page. Empty fields. & Selects Register with Google Account. & User values are correctly stored in database. Redirected to application main page. \\
+\hline
+4.1.7 & Registration page. Empty fields. & Selects Register with Facebook Account. & User values are correctly stored in database. Redirected to application main page. \\
+\hline
+\end{longtable}
+
+
+
+%4.2 User Login
+\subsection{User Login}
+\textbf{Test Type:} Functional/Static/Dynamic/Manual/Automated. \\
+\textbf{Test Factors:} Correctness, Reliability. \\
+\textbf{Tools Used:} \\
+\textbf{Schedule:} Begin static testing November 6. Complete manual dynamic tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. Testing for logging in with a Google or Facebook account will be completed for the Final Demo April 1. \\
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} The main objective of user login is to ensure a secure process where only valid users are allowed to enter the application. Testing involves authenticating users against an existing database to determine if they are valid users or not. Testing is manual and automated. Manual testing involves people manually going through the login process in real-time as a user. Automated testing involves systemically attempting SQL injections to test for valid and invalid logins.
+
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+4.2.1 & Login page. Empty username and password fields. & Valid username and password combination. & Redirected to application main page. \\ 
+\hline
+4.2.2 & Login page. Empty username and password fields. & Invalid username. & Stays on the same page. Error message appears: "Invalid username". Fields are highlighted. \\
+\hline
+4.2.3 & Login page. Empty username and password fields. & Valid username and invalid password. & Stays on the same page. Error message appears: "Incorrect password". Password field is highlighted. \\
+\hline
+4.2.4 & Login page. Empty username and password fields. & Empty username and/or password fields. & Stays on the same page. Error message appears: "Missing field". Fields are highlighted. \\
+\hline
+4.2.5 & Login page. Empty username and password fields. & Selects Log in with Google Account & Redirected to application main page. \\ 
+\hline
+4.2.6 & Login page. Empty username and password fields. & Selects Log in with Facebook Account. & Redirected to application main page. \\ 
+\hline
+\end{longtable}
+
+
+
+%4.3 Calendar
+\subsection{Calendar}
+\textbf{Test Type:} Functional/Static/Dynamic/Manual/Automated. \\
+\textbf{Test Factors:} Learnability, Reliability. \\
+\textbf{Tools Used:} \cc{todo}. \\
+\textbf{Schedule:} Begin static testing November 6. Complete manual dynamic tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. Tests for the syncing of a user's personal calendar will be completed for the Final Demo April 1. \\
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} The Calendar feature allows users to add/delete events and chores to a shared Calendar between members of a house. This shared Calendar can be synched with a user's personal Calendar. Testing is manual and automated. Manual testing involves a person manually going through the process of adding/deleting an event or chore to the Calendar in real-time as a user, and then checking if those updates are properly synched with the user's personal Calendar. Automated testing involves unit testing each possible input.
+
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+4.3.1 & Calendar page. Empty form. & Add event/chore. Correct values entered in fields. & Form closes. Event/chore is added to database. Event/chore is updated on Calendar. \\ 
+\hline
+4.3.2 & Calendar page. Empty form. \cc{check} & Add event/chore. Incorrect values entered in fields. & Form remains open. Error message appears. Incorrect fields are highlighted. \\
+\hline
+4.3.3 & Calendar page. Empty form. & Add event/chore. Empty field(s). & Form remains open. Error message appears: "Missing field". Empty fields are highlighted. \\
+\hline
+4.3.4 & Calendar page. & Click button to delete event/chore.  & Event/chore is removed from database. Event/chore is no longer displayed on Calendar. \\
+\hline
+\end{longtable}
+
+%4.4 Maintenance Ticketing System
+\subsection{Maintenance Tracking}
+\textbf{Test Type:} Functional/Static/Dynamic/Manual/Automated. \\
+\textbf{Test Factors:} Correctness, Reliablility. \\
+\textbf{Tools Used:} QUnit, Chron Scripts. \\
+\textbf{Schedule:} Begin static testing November 6. Complete manual dynamic tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. \\
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} The maintenance tracking system allows tenants to create maintenance requests, where the landlord then responds and updates with further information. This portions of this system is restricted based on the user type; tenants cannot modify maintenance ticket properties. This component will be tested using unit test for functionality, with automated testing to ensure the permissions are handled properly. Static database checkers will be used in conjunction with the automated test cases to check for proper database modifications.
+
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+4.4.1 & Quarters Web Application & Open maintenance system & Maintenance system opens and shows new maintenance tickets with existing tickets in chronological\\ 
+\hline
+4.3.2 & Maintenance System. & Clicks on maintenance ticket & Inner dialog opens displaying all properties in a maintenance ticket. \\
+\hline
+4.3.3 & Maintenance System & Entering a search query or adding a filter & sort and filter maintenance tickets and reveal only successful tickets. \\
+\hline
+4.3.4 & Maintenance Ticket Window & Modifying properties of a ticket & save icon appears in dialog to confirm changes\\
+\hline
+4.3.5 & Maintenance Ticket Window & Saving ticket properties & window will close, and database will be updated to reflect changes\\
+\hline
+4.3.6 & Maintenance Ticket Window & Deleting Ticket & confirmation window will appear, upon deletion confirmation: close window and remove data from database\\
+\hline
+4.3.7 & Maintenance System & click on create new request & Opens a new ticket window\\
+\hline
+4.3.8 & New Maintenance ticket window & click on create empty fields & window will remain opening, prompt will display error message\\
+\hline
+4.3.9 & New Maintenance ticket window & Click on create, required fields filled & window closes, database will be updated with new ticket\\
+\hline
+4.3.10 & New Maintenance ticket window & click on cancel with fields filled & window remains open, prompt will ask for confirmation on close\\
+\hline
+4.3.11 & Confirmation Prompt & click on OK & closes prompt and dialog \\
+\hline
+4.3.10 & Confirmation Prompt & click on cancel & closes prompt, dialog remains open\\
+\hline
+\end{longtable}
+
+%4.5 Calendar
+\subsection{House Management}
+\textbf{Test Type:} Functional/Static/Dynamic/Manual/Automated. \\
+\textbf{Test Factors:} Learnability, Reliability. \\
+\textbf{Tools Used:} \cc{todo}. \\
+\textbf{Schedule:} Begin static testing November 6. Complete manual dynamic tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. \\
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} House management system is the feature which allows user to view and modify information in regards to the house and create and delete houses. Unit tests can be created for each function in the feature which will be included in the automated testing sequence.
+
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+4.5.1 & House Management, not admin user & Click modify information & Nothing\\ 
+\hline
+4.5.2 & House Management, admin user & Click modify information & input fields become editable \\
+\hline
+4.5.3 & House Management, admin & modify information fields & save button opens, discard changes appears. \\
+\hline
+4.5.4 & House Management, any user & click on View Documents  & redirects to new page showing all uploaded documents in House \\
+\hline
+4.5.5 & House Documents, any user & clicks on a document & retrieves documents and initiates file transfer\\
+\hline
+4.5.6 & House Documents, admin & clicks on Add Documents & upload window opens for user upload, file will be transfer to server and information is updated in database\\
+\hline
+4.5.7 & House Documents, admin & clicks on delete document & prompt opens\\
+\hline
+4.5.8 & deletion prompt, admin & clicks on yes & prompt closed, file is removed from display, database is updated\\
+\hline
+4.5.9 & deletion prompt, admin & clicks on no & prompt closed\\
+\hline
+4.5.10 & House Management, any user & clicks on view members & shows all memebers of the house and their role\\
+\hline
+4.5.11 & House Management, admin, members list visible & clicks on add member & Dialog will appear\\
+\hline
+4.5.12 & Member Dialog, admin, fields empty & clicks on ok & prompt opens, notifying missing fields \\
+\hline
+4.5.13 & Member Dialog, admin, fields complete & clicks on ok & window closes, new user is notified, database is updated, member status pending\\
+\hline
+4.5.14 & Member Dialog, admin, & clicks on cancel & window closes\\
+\hline
+\end{longtable}
+
+
+
+
+
+
+
+\end{document}
