@@ -323,6 +323,80 @@ QUnit will be used for unit testing. QUnit is a Javascript unit testing framewor
     \hline
 \end{longtable}
 
+%Administrative File Storage
+\subsection{Administrative File Storage}
+\textbf{Test Type:} Mantual/Automated. \\
+\textbf{Test Factors:} Correctness, Security, Reliability. \\
+\textbf{Tools Used:} \\
+\textbf{Schedule:} After proof of concept.
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} A script can be used to test the process of uploading and downloading multiple files of different types and sizes.
 
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+  \hline
+  \textbf{Test Case} & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+  0.0.0 & 0 files in storage. & User tries to upload a file of size $s$, where $s \le$ max file size. & Successful file upload.\\
+  \hline
+  0.0.1 & 0 files in storage. & User tries to upload a file of size $s$, where $s$ > max file size. & Error message indicating file has not been uploaded.\\
+  \hline
+  0.1.0 & $n$ files in storage. & User tries to upload a file of size $s$, where $s \le$ total remaining space. & Successful file upload.\\
+  \hline
+  0.1.1 & $n$ files in storage. & User tries to upload a file of size $s$, where $s$ > total remaining space. & Error message indicating file has not been uploaded.\\
+  \hline
+  0.1.2 & $n$ files in storage. & User tries to upload a file with an invalid type. & Error message indicating file has not been uploaded.\\
+  \hline
+  0.1.3 & $n$ files in storage. & User requests to download a file. & Successful file download.\\
+  \hline
+  0.1.4 & $n$ files in storage. & Connection interrupted while download is in progress. & Error message indicating file has not been downloaded.\\
+  \hline
+\end{longtable}
 
+%Bulletin Board
+\subsection{Bulletin Board}
+\textbf{Test Type:} Mantual/Automated. \\
+\textbf{Test Factors:} Correctness, Reliability. \\
+\textbf{Tools Used:} \\
+\textbf{Schedule:} After proof of concept.
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} A script can be used to test the process of posting on the discussion board, and commenting on existing posts.
+
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+  \hline
+  \textbf{Test Case} & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+  1.0.0 & No posts on bulletin board. & A post with 0 characters & Empty post is disgarded and not added to bulletin board.\\
+  \hline
+  1.0.1 & No posts on bulletin board. & A post with $n$ characters, where $n > 0$. & Bulletin board is updated with the post of $n$ characters.\\
+  \hline
+  1.1.0 & $p$ posts on bulletin board, where $p$ > 0. & A post with 0 characters & Empty post is disgarded and not added to bulletin board.\\
+  \hline
+  1.1.1 & $p$ posts on bulletin board, where $p$ > 0. & A post with $n$ characters, where $n > 0$. & Bulletin board is updated with the post of $n$ characters.\\
+  \hline
+  1.1.2 & $p$ posts on bulletin board, where $p$ > 0. & A comment with 0 characters on an existing post p. & Empty comment is disgarded and not added to bulletin board.\\
+  \hline
+  1.1.3 & $p$ posts on bulletin board, where $p$ > 0. & A comment with $n$ characters where $n > 0$, on an existing post $p_i$. & Comment is added to the list of comments associated with post $p_i$.\\
+  \hline
+\end{longtable}
+  
+%Finance
+\subsection{Finance}
+\textbf{Test Type:} Manual\\
+\textbf{Test Factors:} Security, Correctness, Reliability. \\
+\textbf{Tools Used:} \\
+\textbf{Schedule:} After proof of concept.
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} Tests cann be performed by having one user add payment deadlines, and having another user send arbitrarty amounts of money via PayPal. Speed and accuracy of transactions can be tracked. Transaction records can be manually evaluated for correctness.
+
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+  \hline
+  \textbf{Test Case} & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+  2.0.0 & No payments due. & User initiates PayPal transaction. & Error message indicating that no payments are due the current time.\\
+  \hline
+  2.0.1 & No payments due. & User posts payment request with some deadline. & New payment deadline added.\\
+  \hline
+  2.1.0 & Payment due. & User initiates PayPal transaction. & Transaction is handled by PayPal. All users involved are notified of the completed payment. Deadline is removed from list of current payments due.\\
+  \hline
+  2.1.1 & Payment due. & Payment has not been completed, and deadline has passed. & All users involved are notified that the deadline has passed. Deadline is marked as past due, and users will continue to be notified until either the payment has been completed, or the due payment is removed.\\
+  \hline
+  2.1.2 & Payment due. & User who posted the original due payment removes the request. & Payment request is removed from the list of due payments.\\
+  \hline
 \end{document}
