@@ -62,7 +62,7 @@ October 21, 2015 & Created first draft. \\
 \end{tabular}
 
 \section*{Template}
-This document makes use of the Software Test Plan (STP) Template for all of its organization.
+This document makes use of the Validation, Verification and Testing Plan Template, and "Integrated Stroke Test Plan" for all of its organization.
 
 \pagebreak
 
@@ -82,34 +82,34 @@ This document makes use of the Software Test Plan (STP) Template for all of its 
 
 %Plans for Automated Testing
 \section{Plans for Automated Testing}
-All tests that will be automated will be completed for the Final Demo April 1. We will automate testing for every feature, except financing, notification and chat. We will also test the integrity of the database using automated testing. We will also check if every page is reachable, to ensure there are no un-handled HTTP errors. We plan to run automated tests on a weekly basis, every Sunday night. Automated testing tools include Grunt, SinonJS and custom Python scripts. 
+All tests that will be automated will be completed for the Final Demo April 1. We will automate testing for every feature, except financing, notification and chat. We will also test the integrity of the database using automated testing. We will also check if every page is reachable, to ensure there are no unhandled HTTP errors. We plan to run automated tests on a weekly basis, every Sunday night. Automated testing tools include Grunt, SinonJS and custom Python scripts. 
 
 %Plans for Unit Testing
 \section{Plans for Unit Testing}
-All unit tests will be automated. Unit tests will be created as features are developed. They will be separated by module. Since the majority of modules will be Javascript, we will be using QUnit. 
+All unit tests will be automated. Unit tests will be created as features are developed. They will be separated by module. Since the majority of modules will be Javascript, we will be using QUnit. QUnit is a Javascript unit testing framework. 
+
 
 %System Tests
 \section{System Tests}
-
 
 %4.1 User Registration
 \subsection{User Registration} 
 \textbf{Test Type:} Functional, Dynamic, Automated. \\
 \textbf{Tools Used:} Custom Scripts, Google reCAPTCHA. \\
 \textbf{Schedule:} Begin testing November 8. Complete manual tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. \\
-\textbf{Team Member Responsible:} \\
+\textbf{Team Member Responsible:} Carolyn Chong.\\
 \textbf{Methodology:} The main objective of user registration is to create a user account to be used for login. Users must use a valid email address and pass a user identification procedure. This ensures the user is human and prevents spam and automated scripts from accessing the application and abusing its services. Testing is manual and automated. Manual testing involves people manually going through the registration process in real-time as a user. Automated testing involves systemically attempting SQL injections to test for valid and invalid registrations. Google reCAPTCHA validates that users are legitimate.
 
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.1.1 & Registration page. Empty fields. & Email and password entered and passes reCAPTCHA test. & Verification email sent. Redirected to application main page. \\ 
+4.1.1 & Landing page. Empty fields. & Email and password entered and passes reCAPTCHA test. Clicks register. & Verification email sent. Redirected to application main page. \\ 
 \hline
-4.1.2 & Registration page. Empty fields. & Empty field(s). & Stays on the same page. Error message appears: "Please fill in missing fields". Empty field is highlighted. \\
+4.1.2 & Landing page. Empty fields. & Empty field(s). Clicks register. & Stays on the same page. Error message appears. Empty field is highlighted. \\
 \hline
-4.1.3 & Registration page. Empty fields. & Email address already stored in database. & Stays on the same page. Error message appears. Email field is highlighted. \\
+4.1.3 & Landing page. Empty fields. & Email address already stored in database. Clicks register. & Stays on the same page. Error message appears. Email field is highlighted. \\
 \hline
-4.1.4 & Registration page. Empty fields. & Fails reCAPTCHA test. & Stays on the same page. Error message appears. Test field is highlighted. \\
+4.1.4 & Landing page. Empty fields. & Fails reCAPTCHA test. & Stays on the same page. Error message appears. Test field is highlighted. \\
 \hline
 \end{longtable}
 
@@ -120,19 +120,21 @@ All unit tests will be automated. Unit tests will be created as features are dev
 \textbf{Test Type:} Functional, Dynamic, Automated. \\
 \textbf{Tools Used:} Custom Scripts. \\
 \textbf{Schedule:} Begin testing November 8. Complete manual tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. \\
-\textbf{Team Member Responsible:} \\
-\textbf{Methodology:} The main objective of user login is to ensure a secure process where only valid users are allowed to enter the application. Testing involves authenticating users against an existing database to determine if they are valid users or not. Testing is manual and automated. Manual testing involves people manually going through the login process in real-time as a user. Automated testing involves systemically attempting SQL injections to test for valid and invalid logins.
+\textbf{Team Member Responsible:} Carolyn Chong. \\
+\textbf{Methodology:} The main objective of user login is to ensure a secure process where only valid users are allowed to enter the application. Testing involves authenticating users against an existing database to determine if they are valid users or not. Testing is automated. Automated testing involves systemically attempting SQL injections to test for valid and invalid logins.
 
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.2.1 & Login page. Empty username and password fields. \cc{break after 5 password failed attempts, logout timeout, online one device can login at a time} & Valid username and password combination. & Redirected to application main page. \\ 
+4.2.1 & Landing page. Empty username and password fields. & Valid username and password combination. Clicks login. & Redirected to application main page. \\ 
 \hline
-4.2.2 & Login page. Empty username and password fields. & Invalid username. & Stays on the same page. Error message appears. Fields are highlighted. \\
+4.2.2 & Landing page. Empty username and password fields. & Invalid username and password combination. Clicks login. & Stays on the same page. Error message appears. Fields are highlighted. After 5 unsuccessful attempts, user cannot login for 10 minutes. \\
 \hline
-4.2.3 & Login page. Empty username and password fields. & Valid username and invalid password. \cc{fix}. & Stays on the same page. Error message appears. Password field is highlighted. \\
+4.2.3 & Landing page. Empty username and password fields. & Empty username and/or password fields. Clicks login. & Stays on the same page. Error message appears. Fields are highlighted. \\
 \hline
-4.2.4 & Login page. Empty username and password fields. & Empty username and/or password fields. & Stays on the same page. Error message appears. Fields are highlighted. \\
+4.2.4 & Application main page. & Clicks logout. & User is successfully logged out from system. Redirected to login page. \\
+\hline
+4.2.5 & Landing page. Empty username and password fields. User attempting to login on another device while already logged in on a device. & Valid username and password combination. Clicks login. & Stays on the same page. Error message appears. \\ 
 \hline
 \end{longtable}
 
@@ -143,19 +145,29 @@ All unit tests will be automated. Unit tests will be created as features are dev
 \textbf{Test Type:} Functional, Dynamic, Automated. \\
 \textbf{Tools Used:} Custom Scripts. \\
 \textbf{Schedule:} Begin testing after the PoC Demo. Complete automated tests by Final Demo April 1. \\
-\textbf{Team Member Responsible:} \\
-\textbf{Methodology:} The Calendar feature allows users to add/delete events and chores to a shared Calendar between members of a house. This shared Calendar can be synched with a user's personal Calendar. Testing is manual and automated. Manual testing involves a person manually going through the process of adding/deleting an event or chore to the Calendar in real-time as a user, and then checking if those updates are properly synched with the user's personal Calendar. Automated testing involves \cc{todo}. \cc{Unit Testing?}.
+\textbf{Team Member Responsible:} Carolyn Chong. \\
+\textbf{Methodology:} The Calendar feature allows users to add/delete events and chores to a shared Calendar between members of a house. This shared Calendar can be synched with a user's personal Calendar. Testing is automated. Automated testing involves a script that will go through the process of adding/deleting an event or chore to the Calendar in real-time as a user, and then checking if those updates are properly synched with the user's personal Calendar. 
 
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.3.1 & Calendar page. Empty form. & \cc{Add option to select date first, not allowed to make past event, modify event.} Add event/chore. Correct values entered in fields. & Form closes. Event/chore is added to database. Event/chore is updated on Calendar. \\ 
+4.3.1 & Calendar page. & Select Calendar view (Year, Month, Week, or Day). & Calendar view is displayed. \\ 
 \hline
-4.3.2 & Calendar page. Empty form. & Add event/chore. Incorrect values entered in fields. & Form remains open. Error message appears. Incorrect fields are highlighted. \\
+4.3.2 & Calendar page. & Select current or future date. & Form opens. \\ 
 \hline
-4.3.3 & Calendar page. Empty form. & Add event/chore. Empty field(s). & Form remains open. Error message appears. Empty fields are highlighted. \\
+4.3.3 & Calendar page. & User(A) selects event/chore that User(A) created. & Form opens. \\ 
 \hline
-4.3.4 & Calendar page. & Click button to delete event/chore.  & Event/chore is removed from database. Event/chore is no longer displayed on Calendar. \\
+4.3.4 & Calendar page. & User(B) selects event/chore that User(A) created. & Nothing. \\ 
+\hline
+4.3.5 & Calendar page. Existing form created by User(A) is open. & User(A) modifies event details and saves changes. & Form closes and updated Calendar is displayed. \\ 
+\hline
+4.3.6 & Calendar page. & Select past date. & Nothing. \\ 
+\hline
+4.3.7 & Calendar page. Empty form. & Add event/chore. Text entered in fields and saves. & Form closes. Event/chore is updated on Calendar. \\ 
+\hline
+4.3.8 & Calendar page. Empty form. & Add event/chore. Empty field(s). Clicks save. & Form remains open. Error message appears. Empty fields are highlighted. \\
+\hline
+4.3.9 & Calendar page. & Click to delete event/chore. & Event/chore is no longer displayed on Calendar. \\
 \hline
 \end{longtable}
 
@@ -164,7 +176,7 @@ All unit tests will be automated. Unit tests will be created as features are dev
 \textbf{Test Type:} Functional, Dynamic, Static, Automated. \\
 \textbf{Tools Used:} QUnit, Chron Scripts. \\
 \textbf{Schedule:} Begin testing after the PoC Demo. Complete automated tests by Final Demo April 1. \\
-\textbf{Team Member Responsible:} \\
+\textbf{Team Member Responsible:} Kevin Ly. \\
 \textbf{Methodology:} The maintenance tracking system allows tenants to create maintenance requests, where the landlord then responds and updates with further information. This portion of the system is restricted based on the user type; tenants cannot modify maintenance ticket properties. This component will be tested using unit tests for functionality, with automated testing to ensure the permissions are handled properly. Static database checkers will be used in conjunction with the automated test cases to check for proper database modifications.
 
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
@@ -172,27 +184,27 @@ All unit tests will be automated. Unit tests will be created as features are dev
 \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
 4.4.1 & Quarters Web Application. & Open maintenance system. & Maintenance system opens and shows new maintenance tickets with existing tickets in chronological order. \\ 
 \hline
-4.4.2 & Maintenance System. & Clicks on maintenance ticket. & Inner dialog opens displaying all properties in a maintenance ticket. \\
+4.4.2 & Maintenance System. & Click on maintenance ticket. & Inner dialog opens displaying all properties in a maintenance ticket. \\
 \hline
-4.4.3 & Maintenance System. & Entering a search query or adding a filter & sort and filter maintenance tickets and reveal only successful tickets. \\
+4.4.3 & Maintenance System. & Entering a search query or adding a filter. & Sort and filter maintenance tickets and reveal only successful tickets. \\
 \hline
-4.4.4 & Maintenance Ticket Window & Modifying properties of a ticket & save icon appears in dialog to confirm changes\\
+4.4.4 & Maintenance Ticket Window. & Modifying properties of a ticket. & Save icon appears in dialog to confirm changes.\\
 \hline
-4.4.5 & Maintenance Ticket Window & Saving ticket properties & window will close, and database will be updated to reflect changes\\
+4.4.5 & Maintenance Ticket Window. & Saving ticket properties & Window will close, and database will be updated to reflect changes.\\
 \hline
-4.4.6 & Maintenance Ticket Window & Deleting Ticket & confirmation window will appear, upon deletion confirmation: close window and remove data from database\\
+4.4.6 & Maintenance Ticket Window. & Deleting Ticket. & Confirmation window will appear. Upon deletion confirmation, close window and remove data from database.\\
 \hline
-4.4.7 & Maintenance System & click on create new request & Opens a new ticket window\\
+4.4.7 & Maintenance System & Click on create new request. & Opens a new ticket window.\\
 \hline
-4.4.8 & New Maintenance ticket window & click on create empty fields & window will remain opening, prompt will display error message\\
+4.4.8 & New Maintenance ticket window. & Click on create empty fields. & Window will remain opening, prompt will display error message.\\
 \hline
-4.4.9 & New Maintenance ticket window & Click on create, required fields filled & window closes, database will be updated with new ticket\\
+4.4.9 & New Maintenance ticket window. & Click on create, required fields filled. & Window closes, database will be updated with new ticket.\\
 \hline
-4.4.10 & New Maintenance ticket window & click on cancel with fields filled & window remains open, prompt will ask for confirmation on close\\
+4.4.10 & New Maintenance ticket window. & Click on cancel with fields filled. & Window remains open, prompt will ask for confirmation on close.\\
 \hline
-4.4.11 & Confirmation Prompt & click on OK & closes prompt and dialog \\
+4.4.11 & Confirmation Prompt. & Click on OK. & Closes prompt and dialog. \\
 \hline
-4.4.12 & Confirmation Prompt & click on cancel & closes prompt, dialog remains open\\
+4.4.12 & Confirmation Prompt. & Click on cancel. & Closes prompt, dialog remains open.\\
 \hline
 \end{longtable}
 
@@ -201,39 +213,39 @@ All unit tests will be automated. Unit tests will be created as features are dev
 \textbf{Test Type:} Functional, Dynamic, Automated. \\
 \textbf{Tools Used:} QUnit. \\
 \textbf{Schedule:} Begin testing after the PoC Demo. Complete automated tests by Final Demo April 1. \\
-\textbf{Team Member Responsible:} Kevin Ly\\
-\textbf{Methodology:} House management system is the feature which allows user to view and modify information in regards to the house and create and delete houses. Unit tests can be created for each function in the feature which will be included in the automated testing sequence.
+\textbf{Team Member Responsible:} Kevin Ly.\\
+\textbf{Methodology:} The house management system allows users to create, delete, view, and modify information about houses. Unit tests will be created for each function in the feature which will be included in the automated testing sequence.
 
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.5.1 & House Management, not admin user & Click modify information & Nothing\\ 
+4.5.1 & House Management, not admin. & Click modify information. & Nothing.\\ 
 \hline
-4.5.2 & House Management, admin user & Click modify information & input fields become editable \\
+4.5.2 & House Management, admin. & Click modify information. & Input fields become editable. \\
 \hline
-4.5.3 & House Management, admin & modify information fields & save button opens, discard changes appears. \\
+4.5.3 & House Management, admin. & Modify information fields. & Save button opens, discard changes appears. \\
 \hline
-4.5.4 & House Management, any user & click on View Documents  & redirects to new page showing all uploaded documents in House \\
+4.5.4 & House Management, any user. & Click on View Documents. & Redirects to new page showing all uploaded documents in House. \\
 \hline
-4.5.5 & House Documents, any user & clicks on a document & retrieves documents and initiates file transfer\\
+4.5.5 & House Documents, any user. & Clicks on a document. & Retrieves documents and initiates file transfer.\\
 \hline
-4.5.6 & House Documents, admin & clicks on Add Documents & upload window opens for user upload, file will be transfer to server and information is updated in database\\
+4.5.6 & House Documents, admin. & Clicks on Add Documents. & Upload window opens for user upload, file will be transfer to server and information is updated in database.\\
 \hline
-4.5.7 & House Documents, admin & clicks on delete document & prompt opens\\
+4.5.7 & House Documents, admin. & Clicks on delete document. & Prompt opens.\\
 \hline
-4.5.8 & deletion prompt, admin & clicks on yes & prompt closed, file is removed from display, database is updated\\
+4.5.8 & Deletion prompt, admin. & Clicks on yes. & Prompt closed, file is removed from display, database is updated.\\
 \hline
-4.5.9 & deletion prompt, admin & clicks on no & prompt closed\\
+4.5.9 & Deletion prompt, admin. & Clicks on no. & Prompt closed.\\
 \hline
-4.5.10 & House Management, any user & clicks on view members & shows all memebers of the house and their role\\
+4.5.10 & House Management, any user. & Clicks on view members. & Shows all memebers of the house and their role.\\
 \hline
-4.5.11 & House Management, admin, members list visible & clicks on add member & Dialog will appear\\
+4.5.11 & House Management, admin, members list visible. & Clicks on add member. & Dialog will appear.\\
 \hline
-4.5.12 & Member Dialog, admin, fields empty & clicks on ok & prompt opens, notifying missing fields \\
+4.5.12 & Member Dialog, admin, fields empty. & Clicks on ok. & Prompt opens, notifying missing fields. \\
 \hline
-4.5.13 & Member Dialog, admin, fields complete & clicks on ok & window closes, new user is notified, database is updated, member status pending\\
+4.5.13 & Member Dialog, admin, fields complete. & Clicks on ok. & Window closes, new user is notified, database is updated, member status pending.\\
 \hline
-4.5.14 & Member Dialog, admin, & clicks on cancel & window closes\\
+4.5.14 & Member Dialog, admin. & Clicks on cancel. & Window closes.\\
 \hline
 \end{longtable}
 
@@ -242,17 +254,15 @@ All unit tests will be automated. Unit tests will be created as features are dev
 \textbf{Test Type:} Functional, Dynamic, Static, Automated. \\
 \textbf{Tools Used:} Custom scripts. \\
 \textbf{Schedule:} Begin testing November 8. Complete manual tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. \\
-\textbf{Team Member Responsible:} \\
-\textbf{Methodology:} Landing page allows users to sign in and create new accounts. This page also displays information in regards to the application. This feature will be manually tested since there are not many test cases.
+\textbf{Team Member Responsible:} Kevin Ly.\\
+\textbf{Methodology:} The landing page allows users to login and create new accounts. This page also displays information about the application for visitors. This feature will be manually tested since there are not many test cases.
 
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.6.1 & Landing Page, not logged in & clicks on sign in & username field appears, password field appears.\\
+4.6.1 & Landing Page, not logged in. & Clicks on login. & Username field appears, password field appears.\\
 \hline
-4.6.2 & Landing Page, not logged in & clicks on registration & email, password, password confirmation, firstname, lastname, fields appear\\
-\hline
-4.6.3 & Landing Page, logged in & loading page & forwards to main application logged in as user\\
+4.6.2 & Landing Page, not logged in. & Clicks on registration. & Email and password fields appear.\\
 \hline
 \end{longtable}
 
@@ -262,13 +272,13 @@ All unit tests will be automated. Unit tests will be created as features are dev
 \textbf{Test Type:} Functional, Dynamic, Manual. \\
 \textbf{Tools Used:} None. \\
 \textbf{Schedule:} Begin testing after the PoC Demo. Complete automated tests by Final Demo April 1. \\
-\textbf{Team Member Responsible:} \\
-\textbf{Methodology:} The main objective of live chat is to allow another means of communication inside the house; it will replace the use of Facebook messenger and text message so the user does not have to switch between applications. The testing involves one user establishing live chat with another user. Testing will be manual and automated. Manual testing involves one user(A) sending a message to other user(B) and ensuring user(B) receives the message without delay. 
+\textbf{Team Member Responsible:} Wenqiang Chen.\\
+\textbf{Methodology:} The main objective of live chat is to allow another means of communication inside the house, in addition to the Discussion Board. The testing involves one user establishing live chat with another user. Testing will be manual. Manual testing involves one user(A) sending a message to another user(B) and ensuring user(B) receives the message without delay. 
 
 \begin{longtable}[l]{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.7.1 & Main page. User logged in. House selected. House members displayed. & Click on house member to send message & Chat window opens, with target user's name as window name. \\ 
+4.7.1 & Main page. User logged in. House selected. House members displayed. & Click on house member to send message. & Chat window opens, with target user's name as window name. \\ 
 \hline
 4.7.2 & Main page. User logged in. Chat window open. & Input text and click send. & Chat windows displays user's message. Time stamp is displayed. \\ 
 \hline
@@ -283,41 +293,43 @@ All unit tests will be automated. Unit tests will be created as features are dev
 \textbf{Test Type:} Functional, Dynamic, Manual. \\
 \textbf{Tools Used:} None. \\
 \textbf{Schedule:} Begin testing after the PoC Demo. Complete automated tests by Final Demo April 1. \\
-\textbf{Team Member Responsible:} \\
+\textbf{Team Member Responsible:} Wenqiang Chen. \\
 \textbf{Methodology:} The main objective of notification is to remind user of events that has had happened; users should be notified immediate after the event has taken place. The testing involves one user completing different actions which generates notification and have another user related to this event receive notification.
 
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.8.1 & Main page. User(A) logged in. & User(B) sends money request & User(A) sees notification of pending payment due.  \\ 
+4.8.1 & Main page. User(A) logged in. & User(B) sends money request. & User(A) sees notification of pending payment due.  \\ 
 \hline
-4.8.2 & Main page. User(A) logged in. & User(A) pays user(B) & User(B) sees notification of payment completed.  \\ 
+4.8.2 & Main page. User(A) logged in. & User(A) pays user(B). & User(B) sees notification of payment completed.  \\ 
 \hline
-4.8.3 & Main page. User(A) logged in. & User(A) has late payment & User(A) sees notification of late payment.  \\ 
+4.8.3 & Main page. User(A) logged in. & User(A) has late payment. & User(A) sees notification of late payment.  \\ 
 \hline
-4.8.4 & Main page. User(A) logged in. & User(A) joins a house  & Other users in that house sees notification that user(A) joined the house. \\
+4.8.4 & Main page. User(A) logged in. & User(A) joins a house.  & Other users in that house sees notification that user(A) joined the house. \\
 \hline
-4.8.5 & Main page. User(A)(landlord) logged in. & User(B) sends maintenance ticket(Critical) & User(A) sees notification of unresolved maintenance ticket, receives email, receives text message \\
+4.8.5 & Main page. User(A)(landlord) logged in. & User(B) sends maintenance ticket(Critical). & User(A) sees notification of unresolved maintenance ticket, receives email, receives text message. \\
 \hline
-4.8.6 & Main page. User(A)(landlord) logged in. & User(B) sends maintenance ticket(Major) & User(A) sees notification of unresolved maintenance ticket, receives email\\
+4.8.6 & Main page. User(A)(landlord) logged in. & User(B) sends maintenance ticket(Major.) & User(A) sees notification of unresolved maintenance ticket, receives email.\\
 \hline
-4.8.7 & Main page. User(A)(landlord) logged in. & User(B) sends maintenance ticket(Minor) & User(A) sees notification of unresolved maintenance ticket \\
+4.8.7 & Main page. User(A)(landlord) logged in. & User(B) sends maintenance ticket(Minor). & User(A) sees notification of unresolved maintenance ticket. \\
 \hline
-4.8.8 & Main page. User(A) logged in. & User(B)(Landlord) resolves a maintenance ticket & User(A) sees notification of resolved maintenance ticket \\
+4.8.8 & Main page. User(A) logged in. & User(B)(Landlord) resolves a maintenance ticket. & User(A) sees notification of resolved maintenance ticket. \\
 \hline
-4.8.9 & Main page. User(A) logged in. & User(B) sends user(A) a message & User(A) sees notification of unread message \\
+4.8.9 & Main page. User(A) logged in. & User(B) sends user(A) a message. & User(A) sees notification of unread message. \\
 \hline
-4.8.10 & Main page. User(A) logged in. & User(B) makes a post in discussion board & User(A) sees notification of unread post \\
+4.8.10 & Main page. User(A) logged in. & User(B) makes a post in discussion board. & User(A) sees notification of unread post. \\
 \hline
-4.8.11 & Main page. User(A) logged in. & User(B) replies to a post made by user(A) & User(A) sees notification of unread reply \\
+4.8.11 & Main page. User(A) logged in. & User(B) replies to a post made by user(A). & User(A) sees notification of unread reply. \\
 \hline
-4.8.12 & Main page. User(A) logged in. & User(A) leaves a house  & Other users in that house sees notification that user(A) left the house. \\
+4.8.12 & Main page. User(A) logged in. & User(A) leaves a house.  & Other users in that house sees notification that user(A) left the house. \\
 \hline
-4.8.13 & Main page. User(A) logged in. & User(B) adds event to Calendar & User(A) sees notification of added post \\
+4.8.13 & Main page. User(A) logged in. & User(B) adds event to Calendar. & User(A) sees notification of added post. \\
 \hline
-4.8.14 & Main page. User(A) logged in. & User(B) deleted event from Calendar & User(A) sees notification of deleted event \\
+4.8.14 & Main page. User(A) logged in. & User(B) deletes event from Calendar. & User(A) sees notification of deleted event. \\
 \hline
-4.8.15 & Main page. User(A) logged in. & User(A)has event happening on day & User(A) sees notification of event \\
+4.8.15 & Main page. User(A) logged in. & User(A)has event happening on day. & User(A) sees notification of event. \\
+\hline
+4.8.16 & Main page. User(A) logged in. Notification displayed. & User clicks on Notification icon. & Notification disappears. \\
 \hline
 \end{longtable}
 
@@ -326,7 +338,7 @@ All unit tests will be automated. Unit tests will be created as features are dev
 \textbf{Test Type:} Functional, Dynamic, Automated. \\
 \textbf{Tools Used:} Custom Scripts. \\
 \textbf{Schedule:} Begin testing after the PoC Demo. Complete automated tests by Final Demo April 1. \\
-\textbf{Team Member Responsible:} \\
+\textbf{Team Member Responsible:} James Anthony. \\
 \textbf{Methodology:} A script can be used to test the process of uploading and downloading multiple files of different types and sizes.
 
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
@@ -357,7 +369,7 @@ All unit tests will be automated. Unit tests will be created as features are dev
 \textbf{Test Type:} Functional, Dynamic, Automated. \\
 \textbf{Tools Used:} Custom Scripts. \\
 \textbf{Schedule:} Begin testing after the PoC Demo. Complete automated tests by Final Demo April 1. \\
-\textbf{Team Member Responsible:} \\
+\textbf{Team Member Responsible:} James Anthony. \\
 \textbf{Methodology:} A script can be used to test the process of posting on the discussion board, and commenting on existing posts.
 
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
@@ -381,14 +393,14 @@ All unit tests will be automated. Unit tests will be created as features are dev
 \subsection{Finance}
 \textbf{Test Type:} Functional, Dynamic, Manual. \\
 \textbf{Tools Used:} None. \\
-\textbf{Schedule:} Begin testing after the PoC Demo. Complete automated tests by Final Demo April 1.
-\textbf{Team Member Responsible:} \\
-\textbf{Methodology:} Tests cann be performed by having one user add payment deadlines, and having another user send arbitrarty amounts of money via PayPal. Speed and accuracy of transactions can be tracked. Transaction records can be manually evaluated for correctness.
+\textbf{Schedule:} Begin testing after the PoC Demo. Complete automated tests by Final Demo April 1. \\
+\textbf{Team Member Responsible:} James Anthony. \\
+\textbf{Methodology:} Tests can be performed by having one user add payment deadlines, and having another user send arbitrary amounts of money via PayPal. Speed and accuracy of transactions can be tracked. Transaction records can be manually evaluated for correctness.
 
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Test Case} & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.11.1 & No payments due. & User initiates PayPal transaction. & Error message indicating that no payments are due the current time.\\
+4.11.1 & No payments due. & User initiates PayPal transaction. & Error message indicating that no payments are due at the current time.\\
 \hline
 4.11.2 & No payments due. & User posts payment request with some deadline. & New payment deadline added.\\
 \hline
@@ -405,10 +417,10 @@ All unit tests will be automated. Unit tests will be created as features are dev
 \section{Non-Functional Tests}
 
 \subsection{Look and Feel}
-To test that the system is attractive and intuitive and appears professional and secure, we will survey 10 users to rate the user interface on a scale of 1 to 10, where a 1 means "ugly, unprofessional and would not return to the site", and a 10 means "captivating, professional, and would refer a friend". The testing schedule will include a test December 7 and February 22. The first test will be used as a baseline to get both quantitative and qualitative feedback. We will do a second test before the Final Demo to see if we improved.
+To test that the system is attractive and intuitive and appears professional and secure, we will survey ten users to rate the user interface on a scale of 1 to 10, where a 1 means "ugly, unprofessional and would not return to the site", and a 10 means "captivating, professional, and would refer a friend". We will also ask users to provide comments or suggestions for qualitative feedback. The testing schedule will include a test December 7 and February 22. The first test will be used as a baseline. We will do a second test before the Final Demo to see if we improved.
 
 \subsection{Usability}
-To test that the system is intuitive to use and navigate, we will ask 10 users to create a user account and login. 5 users will act as landlords, who will send an email invitation to invite users to a house, and then create a post on the discussion board. 5 other users will act as tenants who will accept an email invitation, create an account, login, and then create a post on the discussion board. Users will rate their experience on a scale of 1 to 10, where a 1 is "frustrated, could not complete task(s), would not recommend", and a 10 means "user friendly, would recommend to a friend". The testing schedule will include a test December 7 and February 22. The first test will be used as a baseline to get both quantitative and qualitative feedback. We will do a second test before the Final Demo to see if we improved.
+To test that the system is intuitive to use and navigate, we will ask ten users to complete a set of tasks on the site. Five users will act as landlords, who will create an account, login, send an email invitation to invite users to a house, and then create a post on the discussion board. Five other users will act as tenants who will accept an email invitation, create an account, login, and then create a post on the discussion board. Users will rate their experience on a scale of 1 to 10, where a 1 is "frustrated, could not complete task(s), would not recommend", and a 10 means "user friendly, easy to navigate, would recommend to a friend".  We will also ask users to provide comments or suggestions for qualitative feedback. The testing schedule will include a test December 7 and February 22. The first test will be used as a baseline. We will do a second test before the Final Demo to see if we improved.
 
 \subsection{Performance}
 To test the server, we will do a load testing to make sure the server can handle 100 simultaneous requests.
