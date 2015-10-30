@@ -66,30 +66,30 @@ html(lang='en')
             |  Dev Tools
           .row.mt
             .col-lg-12
-              button.btn.btn-default(onclick="window.location='dev/status';") status
+              button.btn.btn-default(onclick="window.location='/dev/status';") status
               br
-              button.btn.btn-default(onclick="window.location='dev/update';")  update from github
+              button.btn.btn-default(onclick="window.location='/dev/update';")  update from github
               br
-              button.btn.btn-default(onclick="window.location='dev/devmode';")  restart
+              button.btn.btn-default(onclick="window.location='/dev/devmode';")  restart
               br
               br
-              button.btn.btn-default(onclick="window.location='dev/app.log';")  app.log
+              button.btn.btn-default(onclick="window.location='/dev/app.log';")  app.log
               br
-              button.btn.btn-default(onclick="window.location='dev/output.log';")  output.log
+              button.btn.btn-default(onclick="window.location='/dev/output.log';")  output.log
               br
-              button.btn.btn-default(onclick="window.location='dev/error.log';")  error.log
+              button.btn.btn-default(onclick="window.location='/dev/error.log';")  error.log
       // main content end
       // footer start
     // js placed at the end of the document so the pages load faster
-    script(src='assets/js/jquery.js')
-    script(src='assets/js/bootstrap.min.js')
-    script(src='assets/js/jquery-ui-1.9.2.custom.min.js')
-    script(src='assets/js/jquery.ui.touch-punch.min.js')
-    script.include(type='text/javascript', src='assets/js/jquery.dcjqaccordion.2.7.js')
-    script(src='assets/js/jquery.scrollTo.min.js')
-    script(src='assets/js/jquery.nicescroll.js', type='text/javascript')
+    script(src='../assets/js/jquery.js')
+    script(src='../assets/js/bootstrap.min.js')
+    script(src='../assets/js/jquery-ui-1.9.2.custom.min.js')
+    script(src='../assets/js/jquery.ui.touch-punch.min.js')
+    script.include(type='text/javascript', src='../assets/js/jquery.dcjqaccordion.2.7.js')
+    script(src='../assets/js/jquery.scrollTo.min.js')
+    script(src='../assets/js/jquery.nicescroll.js', type='text/javascript')
     // common script for all pages
-    script(src='assets/js/common-scripts.js')
+    script(src='../assets/js/common-scripts.js')
     // script for this page
     script.
       //custom select box
