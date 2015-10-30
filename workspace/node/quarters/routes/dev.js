@@ -49,6 +49,26 @@ router.get('/app.log', function(req, res, next) {
 		});
 });
 
+router.get('/output.log', function(req, res, next) {
+	var exec = require('child_process').exec,
+	child;
+
+	child = exec('quarters-web output-log',
+		function (error, stdout, stderr) {
+			res.render('dev', {content : stdout});
+		});
+});
+
+router.get('/error.log', function(req, res, next) {
+	var exec = require('child_process').exec,
+	child;
+
+	child = exec('quarters-web error-log',
+		function (error, stdout, stderr) {
+			res.render('dev', {content : stdout});
+		});
+});
+
 router.get('/dbconnect', function(req, res, next) {
 
 	var pg = require('pg');
