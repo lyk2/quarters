@@ -5,7 +5,7 @@ var sys = require('util');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-	res.send("dev tools");
+	res.render('dev-app');
 });
 
 /* GET users listing. */
@@ -24,6 +24,26 @@ router.get('/status', function(req, res, next) {
 	child;
 
 	child = exec('quarters-web status',
+		function (error, stdout, stderr) {
+			res.render('dev', {content : stdout});
+		});
+});
+
+router.get('/restart', function(req, res, next) {
+	var exec = require('child_process').exec,
+	child;
+
+	child = exec('quarters-web devmode',
+		function (error, stdout, stderr) {
+			res.render('dev', {content : stdout});
+		});
+});
+
+router.get('/app.log', function(req, res, next) {
+	var exec = require('child_process').exec,
+	child;
+
+	child = exec('quarters-web app-log',
 		function (error, stdout, stderr) {
 			res.render('dev', {content : stdout});
 		});
