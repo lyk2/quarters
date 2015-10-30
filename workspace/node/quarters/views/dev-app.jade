@@ -8,12 +8,12 @@ html(lang='en')
     meta(name='keyword', content='Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina')
     title Quarters Dev Team
     // Bootstrap core CSS
-    link(href='assets/css/bootstrap.css', rel='stylesheet')
+    link(href='/assets/css/bootstrap.css', rel='stylesheet')
     // external css
-    link(href='assets/font-awesome/css/font-awesome.css', rel='stylesheet')
+    link(href='/assets/font-awesome/css/font-awesome.css', rel='stylesheet')
     // Custom styles for this template
-    link(href='assets/css/style.css', rel='stylesheet')
-    link(href='assets/css/style-responsive.css', rel='stylesheet')
+    link(href='/assets/css/style.css', rel='stylesheet')
+    link(href='/assets/css/style-responsive.css', rel='stylesheet')
     // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
     //if lt IE 9
       script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
@@ -46,7 +46,7 @@ html(lang='en')
           ul#nav-accordion.sidebar-menu
             p.centered
               a(href='profile.html')
-                img.img-circle(src='assets/img/ui-sam.jpg', width='60')
+                img.img-circle(src='/assets/img/ui-sam.jpg', width='60')
             h5.centered Quarters
             li.mt
               a(href='index.html')
@@ -66,30 +66,30 @@ html(lang='en')
             |  Dev Tools
           .row.mt
             .col-lg-12
-              button.btn.btn-default(onclick="window.location='dev/status';") status
+              button.btn.btn-default(onclick="window.location.href='/dev/status';") status
               br
-              button.btn.btn-default(onclick="window.location='dev/update';")  update from github
+              button.btn.btn-default(onclick="window.location.href='/dev/update';")  update from github
               br
-              button.btn.btn-default(onclick="window.location='dev/devmode';")  restart
+              button.btn.btn-default(onclick="window.location.href='/dev/devmode';")  restart
               br
               br
-              button.btn.btn-default(onclick="window.location='dev/app.log';")  app.log
+              button.btn.btn-default(onclick="window.location.href='/dev/app.log';")  app.log
               br
-              button.btn.btn-default(onclick="window.location='dev/output.log';")  output.log
+              button.btn.btn-default(onclick="window.location.href='/dev/output.log';")  output.log
               br
-              button.btn.btn-default(onclick="window.location='dev/error.log';")  error.log
+              button.btn.btn-default(onclick="window.location.href='/dev/error.log';")  error.log
       // main content end
       // footer start
     // js placed at the end of the document so the pages load faster
-    script(src='../assets/js/jquery.js')
-    script(src='../assets/js/bootstrap.min.js')
-    script(src='../assets/js/jquery-ui-1.9.2.custom.min.js')
-    script(src='../assets/js/jquery.ui.touch-punch.min.js')
-    script.include(type='text/javascript', src='../assets/js/jquery.dcjqaccordion.2.7.js')
-    script(src='../assets/js/jquery.scrollTo.min.js')
-    script(src='../assets/js/jquery.nicescroll.js', type='text/javascript')
+    script(src='/assets/js/jquery.js')
+    script(src='/assets/js/bootstrap.min.js')
+    script(src='/assets/js/jquery-ui-1.9.2.custom.min.js')
+    script(src='/assets/js/jquery.ui.touch-punch.min.js')
+    script.include(type='text/javascript', src='/assets/js/jquery.dcjqaccordion.2.7.js')
+    script(src='/assets/js/jquery.scrollTo.min.js')
+    script(src='/assets/js/jquery.nicescroll.js', type='text/javascript')
     // common script for all pages
-    script(src='../assets/js/common-scripts.js')
+    script(src='/assets/js/common-scripts.js')
     // script for this page
     script.
       //custom select box
