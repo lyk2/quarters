@@ -52,7 +52,7 @@ router.get('/app.log', function(req, res, next) {
 router.get('/dbconnect', function(req, res, next) {
 
 	var pg = require('pg');
-	var conString = "postgres://postgres:testing@localhost:5432/quarters";
+	var conString = "postgres://quarters:quarters@localhost:5432/quarters";
 
 	pg.connect(conString, function(err, client, done) {
 
@@ -62,6 +62,7 @@ router.get('/dbconnect', function(req, res, next) {
 		client.query('select * from playground;', function(err, result) {
 			done();
 			if (err) {
+				res.send("LOL");
 				return console.error('error running query');
 			}
 			res.send(result);
