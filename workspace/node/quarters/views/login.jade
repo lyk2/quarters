@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+ head
+  title Login  
+  link(rel="stylesheet" type="text/css" href="bootstrap.css")
+  link(rel="stylesheet" type="text/css" href="style.css")
+  script(src='jquery.js')
+  script(src='bootstrap.js')
+  script(src='validate.js')
+  script(src='jquery-validate.bootstrap-tooltip.js')
+  script(src='function.js')
+
+ body
+  div.loginform
+   form(method="post" id='loginform')
+    input(type="email" name="username" id="uname" placeholder="Enter Email")
+    input(type="password" name="password" id ="pword" placeholder="Enter Password")
+    input(type="password" name="cpassword" id ="cpword" placeholder="Confirm Password")
+    input(type="submit" class="btn btn-primary btn-block btn-large"   value="submit")
+    label(class="remember")
+     input(type="checkbox" id="remember" value="yes")
+     span Stay Signed in

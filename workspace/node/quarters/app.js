@@ -9,6 +9,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var dev = require('./routes/dev');
 var signup = require('./routes/signup');
+var login = require('./routes/login');
 
 var app = express();
 
@@ -29,6 +30,10 @@ app.use('/', routes);
 app.use('/signup', signup);
 app.use('/users', users);
 app.use('/dev', dev);
+<<<<<<< HEAD
+=======
+app.use('/login', login);
+>>>>>>> origin/master
 app.listen(3000);
 
 // catch 404 and forward to error handler
