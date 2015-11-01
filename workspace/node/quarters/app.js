@@ -30,11 +30,9 @@ app.use('/', routes);
 app.use('/signup', signup);
 app.use('/users', users);
 app.use('/dev', dev);
-<<<<<<< HEAD
-=======
 app.use('/login', login);
->>>>>>> origin/master
-app.listen(3000);
+
+//app.listen(3000);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
