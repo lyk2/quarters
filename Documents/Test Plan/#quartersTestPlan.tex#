@@ -1,0 +1,422 @@
+\documentclass[12pt]{article}
+
+
+\usepackage{graphicx}
+\usepackage{colortbl}
+\usepackage{xr}
+\usepackage{longtable}
+\usepackage{xfrac}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{xcolor} % for different colour comments
+\usepackage{fullpage}
+\newcounter{rowcount}
+\setcounter{rowcount}{0}
+
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+      colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+%% Comments
+\newif\ifcomments\commentstrue
+\ifcomments
+\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\else
+\newcommand{\authornote}[3]{}
+\newcommand{\todo}[1]{}
+\fi
+\newcommand{\wss}[1]{\authornote{magenta}{SS}{#1}}
+\newcommand{\ds}[1]{\authornote{blue}{DS}{#1}}
+\newcommand{\kly}[1]{\authornote{green}{KL}{#1}}
+\newcommand{\cc}[1]{\authornote{orange}{CC}{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{Test Plan for Quarters} 
+\author{James Anthony (anthonjb)\\ Wenqiang Chen (chenw25)\\ Carolyn Chong 
+(chongce)\\ Kevin Ly (lyk2)}
+\date{\today}
+  
+\maketitle
+
+\pagebreak
+
+\tableofcontents
+
+\section*{Revision History}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Date}  & \textbf{Comments} \\ \hline
+October 21, 2015 & Created first draft. \\ 
+\hline
+\end{tabular}
+
+\section*{Template}
+This document makes use of the Software Test Plan (STP) Template for all of its organization.
+
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Acronyms and Definitions
+\section{Acronyms and Definitions}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{l l} 
+  \toprule    
+  \textbf{Acronym} & \textbf{Description}\\
+  \midrule 
+  PoC   &Proof of Concept\\
+  \bottomrule
+\end{tabular}\\
+
+
+%Plans for Automated Testing
+\section{Plans for Automated Testing}
+
+
+%Plans for Unit Testing
+\section{Plans for Unit Testing}
+
+
+%System Tests
+\section{System Tests}
+
+%Template
+\cc{Use this as a template. Create a new subsection for each feature to be tested.}\\
+\textbf{Test Type:} Structural/Functional/Unit, Static/Dynamic, Manual/Automated. \\
+\textbf{Test Factors:} Correctness/Learnability/Maintainability/Reliability. \\
+\textbf{Tools Used:} unit testing framework, code coverage metrics, static checkers, automated testing, load testing (like JMeter), etc. \\ 
+\textbf{Schedule:} PoC Demo November 16 / Final Demo April 1. \\
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} The "how".
+
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+4. & & &  \\ 
+\hline
+\end{longtable}
+
+
+
+%4.1 User Registration
+\subsection{User Registration} \cc{Should I include Google/Facebook?}\\
+\textbf{Test Type:} Functional/Static/Dynamic/Manual/Automated. \\
+\textbf{Test Factors:} Correctness, Reliability. \\
+\textbf{Tools Used:} Selenium, Google reCAPTCHA. \\
+\textbf{Schedule:} Begin static testing November 6. Complete manual dynamic tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. \\
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} The main objective of user registration is to create a user account to be used for login. Users must use a valid email address and pass a user identification procedure. This ensures the user is human and prevents spam and automated scripts from accessing the application and abusing its services. Testing is manual and automated. Manual testing involves people manually going through the registration process in real-time as a user. Automated testing involves systemically attempting SQL injections to test for valid and invalid registrations. Google reCAPTCHA validates that users are legitimate.
+
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+4.1.1 & Registration page. Empty fields. & Valid values entered and passes reCAPTCHA test. & Redirected to registration confirmation page. Correct user values are displayed. User values are correctly stored in database. \\ 
+\hline
+4.1.2 & Registration page. Empty fields. & Empty field(s). & Stays on the same page. Error message appears. Empty field is highlighted. \\
+\hline
+4.1.3 & Registration page. Empty fields. & Invalid email address. & Stays on the same page. Error message appears. Email field is highlighted. \\
+\hline
+4.1.4 & Registration page. Empty fields. & Email address already stored in database. & Stays on the same page. Error message appears. Email field is highlighted. \\
+\hline
+4.1.5 & Registration page. Empty fields. & Fails reCAPTCHA test. & Stays on the same page. Error message appears. Test field is highlighted. \\
+\hline
+\end{longtable}
+
+
+
+%4.2 User Login
+\subsection{User Login}
+\textbf{Test Type:} Functional/Static/Dynamic/Manual/Automated. \\
+\textbf{Test Factors:} Correctness, Reliability. \\
+\textbf{Tools Used:} Selenium. \\
+\textbf{Schedule:} Begin static testing November 6. Complete manual dynamic tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. \\
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} The main objective of user login is to ensure a secure process where only valid users are allowed to enter the application. Testing involves authenticating users against an existing database to determine if they are valid users or not. Testing is manual and automated. Manual testing involves people manually going through the login process in real-time as a user. Automated testing involves systemically attempting SQL injections to test for valid and invalid logins.
+
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+4.2.1 & Login page. Empty username and password fields. & Valid username and password combination. & Redirected to application main page. \\ 
+\hline
+4.2.2 & Login page. Empty username and password fields. & Invalid username. & Stays on the same page. Error message appears. Fields are highlighted. \\
+\hline
+4.2.3 & Login page. Empty username and password fields. & Valid username and invalid password. & Stays on the same page. Error message appears. Password field is highlighted. \\
+\hline
+4.2.4 & Login page. Empty username and password fields. & Empty username and/or password fields. & Stays on the same page. Error message appears. Fields are highlighted. \\
+\hline
+\end{longtable}
+
+
+
+%4.3 Calendar
+\subsection{Calendar}
+\textbf{Test Type:} Functional/Static/Dynamic/Manual/Automated. \\
+\textbf{Test Factors:} Learnability, Reliability. \\
+\textbf{Tools Used:} \cc{todo}. \\
+\textbf{Schedule:} Begin static testing November 6. Complete manual dynamic tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. \\
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} The Calendar feature allows users to add/delete events and chores to a shared Calendar between members of a house. This shared Calendar can be synched with a user's personal Calendar. Testing is manual and automated. Manual testing involves a person manually going through the process of adding/deleting an event or chore to the Calendar in real-time as a user, and then checking if those updates are properly synched with the user's personal Calendar. Automated testing involves \cc{todo}. \cc{Unit Testing?}.
+
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+4.3.1 & Calendar page. Empty form. & Add event/chore. Correct values entered in fields. & Form closes. Event/chore is added to database. Event/chore is updated on Calendar. \\ 
+\hline
+4.3.2 & Calendar page. Empty form. & Add event/chore. Incorrect values entered in fields. & Form remains open. Error message appears. Incorrect fields are highlighted. \\
+\hline
+4.3.3 & Calendar page. Empty form. & Add event/chore. Empty field(s). & Form remains open. Error message appears. Empty fields are highlighted. \\
+\hline
+4.3.4 & Calendar page. & Click button to delete event/chore.  & Event/chore is removed from database. Event/chore is no longer displayed on Calendar. \\
+\hline
+\end{longtable}
+
+%4.4 Maintenance Ticketing System
+\subsection{Maintenance Tracking}
+\textbf{Test Type:} Functional/Static/Dynamic/Manual/Automated. \\
+\textbf{Test Factors:} Correctness, Reliablility. \\
+\textbf{Tools Used:} QUnit, Chron Scripts. \\
+\textbf{Schedule:} Complete automated dynamic tests by Final Demo April 1. \\
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} The maintenance tracking system allows tenants to create maintenance requests, where the landlord then responds and updates with further information. This portions of this system is restricted based on the user type; tenants cannot modify maintenance ticket properties. This component will be tested using unit test for functionality, with automated testing to ensure the permissions are handled properly. Static database checkers will be used in conjunction with the automated test cases to check for proper database modifications.
+
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+4.4.1 & Quarters Web Application & Open maintenance system & Maintenance system opens and shows new maintenance tickets with existing tickets in chronological\\ 
+\hline
+4.3.2 & Maintenance System. & Clicks on maintenance ticket & Inner dialog opens displaying all properties in a maintenance ticket. \\
+\hline
+4.3.3 & Maintenance System & Entering a search query or adding a filter & sort and filter maintenance tickets and reveal only successful tickets. \\
+\hline
+4.3.4 & Maintenance Ticket Window & Modifying properties of a ticket & save icon appears in dialog to confirm changes\\
+\hline
+4.3.5 & Maintenance Ticket Window & Saving ticket properties & window will close, and database will be updated to reflect changes\\
+\hline
+4.3.6 & Maintenance Ticket Window & Deleting Ticket & confirmation window will appear, upon deletion confirmation: close window and remove data from database\\
+\hline
+4.3.7 & Maintenance System & click on create new request & Opens a new ticket window\\
+\hline
+4.3.8 & New Maintenance ticket window & click on create empty fields & window will remain opening, prompt will display error message\\
+\hline
+4.3.9 & New Maintenance ticket window & Click on create, required fields filled & window closes, database will be updated with new ticket\\
+\hline
+4.3.10 & New Maintenance ticket window & click on cancel with fields filled & window remains open, prompt will ask for confirmation on close\\
+\hline
+4.3.11 & Confirmation Prompt & click on OK & closes prompt and dialog \\
+\hline
+4.3.10 & Confirmation Prompt & click on cancel & closes prompt, dialog remains open\\
+\hline
+\end{longtable}
+
+%4.5 house management
+\subsection{House Management}
+\textbf{Test Type:} Functional/Static/Dynamic/Manual/Automated. \\
+\textbf{Test Factors:} Learnability, Reliability. \\
+\textbf{Tools Used:} QUnit. \\
+\textbf{Schedule:} Complete automated dynamic unit tests by Final Demo April 1. \\
+\textbf{Team Member Responsible:} Kevin Ly\\
+\textbf{Methodology:} House management system is the feature which allows user to view and modify information in regards to the house and create and delete houses. Unit tests can be created for each function in the feature which will be included in the automated testing sequence.
+
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+4.5.1 & House Management, not admin user & Click modify information & Nothing\\ 
+\hline
+4.5.2 & House Management, admin user & Click modify information & input fields become editable \\
+\hline
+4.5.3 & House Management, admin & modify information fields & save button opens, discard changes appears. \\
+\hline
+4.5.4 & House Management, any user & click on View Documents  & redirects to new page showing all uploaded documents in House \\
+\hline
+4.5.5 & House Documents, any user & clicks on a document & retrieves documents and initiates file transfer\\
+\hline
+4.5.6 & House Documents, admin & clicks on Add Documents & upload window opens for user upload, file will be transfer to server and information is updated in database\\
+\hline
+4.5.7 & House Documents, admin & clicks on delete document & prompt opens\\
+\hline
+4.5.8 & deletion prompt, admin & clicks on yes & prompt closed, file is removed from display, database is updated\\
+\hline
+4.5.9 & deletion prompt, admin & clicks on no & prompt closed\\
+\hline
+4.5.10 & House Management, any user & clicks on view members & shows all memebers of the house and their role\\
+\hline
+4.5.11 & House Management, admin, members list visible & clicks on add member & Dialog will appear\\
+\hline
+4.5.12 & Member Dialog, admin, fields empty & clicks on ok & prompt opens, notifying missing fields \\
+\hline
+4.5.13 & Member Dialog, admin, fields complete & clicks on ok & window closes, new user is notified, database is updated, member status pending\\
+\hline
+4.5.14 & Member Dialog, admin, & clicks on cancel & window closes\\
+\hline
+\end{longtable}
+
+%4.6 landing page
+\subsection{Landing Page}
+\textbf{Test Type:} Functional/Static/Dynamic/Manual/Automated. \\
+\textbf{Test Factors:} Correctness, Learnability. \\
+\textbf{Tools Used:} n/a. \\
+\textbf{Schedule:} Begin static testing November 6. Complete manual dynamic tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. \\
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} Landing page allows users to sign in and create new accounts. This page also displays information in regards to the application. This feature will be manually tested since there are not many test cases.
+
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+4.6.1 & Landing Page, not logged in & clicks on sign in & username field appears, password field appears.\\
+\hline
+4.6.2 & Landing Page, not logged in & clicks on registration & email, password, password confirmation, firstname, lastname, fields appear\\
+\hline
+4.6.3 & Landing Page, logged in & loading page & forwards to main application logged in as user\\
+\hline
+\end{longtable}
+
+
+%4.9 Live chat
+\subsection{Live Chat}
+\textbf{Test Type:} Functional/Static/Dynamic/Manual/Automated. \\
+\textbf{Test Factors:} Correctness, Reliability. \\
+\textbf{Tools Used:} \\
+\textbf{Schedule:} Begin static testing November 6. Complete manual dynamic tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. \\
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} The main objective of live chat is to allow another means of communication inside the house; it will replace the use of Facebook messenger and text message so the user does not have to switch between applications. The testing involves one user establishing live chat with another user. Testing will be manual and automated. Manual testing involves one user(A) sending a message to other user(B) and ensuring user(B) receives the message without delay. Automated testing involves a macro which simulates the sending process.
+\newline
+\newline
+\newline
+\newline
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+4.9.1 & Main page. User logged in. & Click on user to send message & Chat window opens, with target user's name as window name. \\ 
+\hline
+4.9.2 & Main page. User logged in. & With chat window open, insert text and click send & Chat windows shows user's message and the time stamp it's sent. \\ 
+\hline
+4.9.3 & Main page. User logged in. & With chat window open, do not insert text and click send & Chat windows does not change, nothing is sent. \\ 
+\hline
+4.9.4 & Main page. User logged in. & Click on user with notification pending. & Chat window opens with target user's message displayed with it's sent time stamp. \\
+\hline
+\end{longtable}
+
+%4.10 Notification
+\subsection{Notification}
+\textbf{Test Type:} Functional/Static/Dynamic/Manual/Automated. \\
+\textbf{Test Factors:} Correctness, Reliability. \\
+\textbf{Tools Used:} \\
+\textbf{Schedule:} Begin static testing November 6. Complete manual dynamic tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. \\
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} The main objective of notification is to remind user of events that has had happened; users should be notified immediate after the event has taken place. The testing involves one user completing different actions which generates notification and have another user related to this event receive notification. Automated testing involves a macro which simulates the sending process.
+
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+4.10.1 & Main page. User(A) logged in. & User(B) sends money request & User(A) sees notification of pending payment due.  \\ 
+\hline
+4.10.2 & Main page. User(A) logged in. & User(A) pays user(B) & User(B) sees notification of payment completed.  \\ 
+\hline
+4.10.3 & Main page. User(A) logged in. & User(A) has late payment & User(A) sees notification of late payment.  \\ 
+\hline
+4.10.4 & Main page. User(A) logged in. & User(A) joins a house  & Other users in that house sees notification that user(A) joined the house. \\
+\hline
+4.10.5 & Main page. User(A)(landlord) logged in. & User(B) sends maintenance ticket(Critical) & User(A) sees notification of unresolved maintenance ticket, receives email, receives text message \\
+\hline
+4.10.6 & Main page. User(A)(landlord) logged in. & User(B) sends maintenance ticket(Major) & User(A) sees notification of unresolved maintenance ticket, receives email\\
+\hline
+4.10.7 & Main page. User(A)(landlord) logged in. & User(B) sends maintenance ticket(Minor) & User(A) sees notification of unresolved maintenance ticket \\
+\hline
+4.10.8 & Main page. User(A) logged in. & User(B)(Landlord) resolves a maintenance ticket & User(A) sees notification of resolved maintenance ticket \\
+\hline
+4.10.9 & Main page. User(A) logged in. & User(B) sends user(A) a message & User(A) sees notification of unread message \\
+\hline
+4.10.10 & Main page. User(A) logged in. & User(B) makes a post in bulletin board & User(A) sees notification of unread post \\
+\hline
+4.10.11 & Main page. User(A) logged in. & User(B) replies to a post made by user(A) & User(A) sees notification of unread reply \\
+    \hline
+\end{longtable}
+
+%Administrative File Storage
+\subsection{Administrative File Storage}
+\textbf{Test Type:} Mantual/Automated. \\
+\textbf{Test Factors:} Correctness, Security, Reliability. \\
+\textbf{Tools Used:} \\
+\textbf{Schedule:} After proof of concept.
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} A script can be used to test the process of uploading and downloading multiple files of different types and sizes.
+
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Test Case} & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+0.0.0 & 0 files in storage. & User tries to upload a file of size $s$, where $s \le$ max file size. & Successful file upload.\\
+\hline
+0.0.1 & 0 files in storage. & User tries to upload a file of size $s$, where $s >$ max file size. & Error message indicating file has not been uploaded.\\
+\hline
+0.1.0 & $n$ files in storage. & User tries to upload a file of size $s$, where $s \le$ total remaining space. & Successful file upload.\\
+\hline
+0.1.1 & $n$ files in storage. & User tries to upload a file of size $s$, where $s >$ total remaining space. & Error message indicating file has not been uploaded.\\
+\hline
+0.1.2 & $n$ files in storage. & User tries to upload a file with an invalid type. & Error message indicating file has not been uploaded.\\
+\hline
+0.1.3 & $n$ files in storage. & User requests to download a file. & Successful file download.\\
+\hline
+0.1.4 & $n$ files in storage. & Connection interrupted while download is in progress. & Error message indicating file has not been downloaded.\\
+\hline
+\end{longtable}
+
+%Bulletin Board
+\subsection{Bulletin Board}
+\textbf{Test Type:} Mantual/Automated. \\
+\textbf{Test Factors:} Correctness, Reliability. \\
+\textbf{Tools Used:} \\
+\textbf{Schedule:} After proof of concept.
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} A script can be used to test the process of posting on the discussion board, and commenting on existing posts.
+
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Test Case} & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+1.0.0 & No posts on bulletin board. & A post with 0 characters & Empty post is disgarded and not added to bulletin board.\\
+\hline
+1.0.1 & No posts on bulletin board. & A post with $n$ characters, where $n > 0$. & Bulletin board is updated with the post of $n$ characters.\\
+\hline
+1.1.0 & $p$ posts on bulletin board, where $p > 0$. & A post with 0 characters & Empty post is disgarded and not added to bulletin board.\\
+\hline
+1.1.1 & $p$ posts on bulletin board, where $p > 0$. & A post with $n$ characters, where $n > 0$. & Bulletin board is updated with the post of $n$ characters.\\
+\hline
+1.1.2 & $p$ posts on bulletin board, where $p > 0$. & A comment with 0 characters on an existing post $p$. & Empty comment is disgarded and not added to bulletin board.\\
+\hline
+1.1.3 & $p$ posts on bulletin board, where $p > 0$. & A comment with $n$ characters where $n > 0$, on an existing post $p_i$. & Comment is added to the list of comments associated with post $p_i$.\\
+\hline
+\end{longtable}
+  
+%Finance
+\subsection{Finance}
+\textbf{Test Type:} Manual\\
+\textbf{Test Factors:} Security, Correctness, Reliability. \\
+\textbf{Tools Used:} \\
+\textbf{Schedule:} After proof of concept.
+\textbf{Team Member Responsible:} \\
+\textbf{Methodology:} Tests cann be performed by having one user add payment deadlines, and having another user send arbitrarty amounts of money via PayPal. Speed and accuracy of transactions can be tracked. Transaction records can be manually evaluated for correctness.
+
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Test Case} & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+2.0.0 & No payments due. & User initiates PayPal transaction. & Error message indicating that no payments are due the current time.\\
+\hline
+2.0.1 & No payments due. & User posts payment request with some deadline. & New payment deadline added.\\
+\hline
+2.1.0 & Payment due. & User initiates PayPal transaction. & Transaction is handled by PayPal. All users involved are notified of the completed payment. Deadline is removed from list of current payments due.\\
+\hline
+2.1.1 & Payment due. & Payment has not been completed, and deadline has passed. & All users involved are notified that the deadline has passed. Deadline is marked as past due, and users will continue to be notified until either the payment has been completed, or the due payment is removed.\\
+\hline
+2.1.2 & Payment due. & User who posted the original due payment removes the request. & Payment request is removed from the list of due payments.\\
+\hline
+\end{longtable}
+\end{document}
