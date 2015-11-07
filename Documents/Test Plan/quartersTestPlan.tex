@@ -64,6 +64,8 @@ October 21, 2015 & Created first draft. \\
 \section*{Template}
 This document makes use of the Validation, Verification and Testing Plan Template, and "Integrated Stroke Test Plan" for all of its organization.
 
+\ds{A brief introduction or system description would be useful.}
+
 \pagebreak
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -88,6 +90,8 @@ All tests that will be automated will be completed for the Final Demo April 1. W
 \section{Plans for Unit Testing}
 All unit tests will be automated. Unit tests will be created as features are developed. They will be separated by module. Since the majority of modules will be Javascript, we will be using QUnit. QUnit is a Javascript unit testing framework. 
 
+\ds{You should start planning your unit tests now. You can determine the
+majority of them ahead of time.}
 
 %System Tests
 \section{System Tests}
@@ -167,14 +171,14 @@ All unit tests will be automated. Unit tests will be created as features are dev
 \hline
 4.3.8 & Calendar page. Empty form. & Add event/chore. Empty field(s). Clicks save. & Form remains open. Error message appears. Empty fields are highlighted. \\
 \hline
-4.3.9 & Calendar page. & Click to delete event/chore. & Event/chore is no longer displayed on Calendar. \\
+4.3.9 & Calendar page. & Click to delete event/chore. & Event/chore is no longer displayed on Calendar. \ds{Who can delete events/chores?} \\
 \hline
 \end{longtable}
 
 %4.4 Maintenance Ticketing System
 \subsection{Maintenance Tracking}
 \textbf{Test Type:} Functional, Dynamic, Static, Automated. \\
-\textbf{Tools Used:} QUnit, Chron Scripts. \\
+\textbf{Tools Used:} QUnit, Chron Scripts. \ds{Chron scripts?}\\
 \textbf{Schedule:} Begin testing after the PoC Demo. Complete automated tests by Final Demo April 1. \\
 \textbf{Team Member Responsible:} Kevin Ly. \\
 \textbf{Methodology:} The maintenance tracking system allows tenants to create maintenance requests, where the landlord then responds and updates with further information. This portion of the system is restricted based on the user type; tenants cannot modify maintenance ticket properties. This component will be tested using unit tests for functionality, with automated testing to ensure the permissions are handled properly. Static database checkers will be used in conjunction with the automated test cases to check for proper database modifications.
@@ -266,6 +270,7 @@ All unit tests will be automated. Unit tests will be created as features are dev
 \hline
 \end{longtable}
 
+\ds{So how does registration work? What happens if someone tries to register an existing email/username?}
 
 %4.7 Live chat
 \subsection{Live Chat}
@@ -282,7 +287,9 @@ All unit tests will be automated. Unit tests will be created as features are dev
 \hline
 4.7.2 & Main page. User logged in. Chat window open. & Input text and click send. & Chat windows displays user's message. Time stamp is displayed. \\ 
 \hline
-4.7.3 & Main page. User logged in. Chat windown open. & No text input and click send. & Chat windows does not change, nothing is sent. \\ 
+4.7.3 & Main page. User logged in. Chat windown 
+\ds{``window"} 
+open. & No text input and click send. & Chat windows does not change, nothing is sent. \\ 
 \hline
 4.7.4 & Main page. User logged in. Chat notification displayed. & Click on notification. & Chat window opens with sender's message and time stamp displayed. Notification disappears. \\
 \hline
@@ -375,7 +382,9 @@ All unit tests will be automated. Unit tests will be created as features are dev
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Test Case} & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.10.1 & No posts on bulletin board. & A post with 0 characters & Empty post is disgarded and not added to bulletin board.\\
+4.10.1 & No posts on bulletin board. & A post with 0 characters & Empty post is disgarded
+\ds{``discarded"}
+and not added to bulletin board.\\
 \hline
 4.10.2 & No posts on bulletin board. & A post with $n$ characters, where $n > 0$. & Bulletin board is updated with the post of $n$ characters.\\
 \hline
@@ -383,7 +392,9 @@ All unit tests will be automated. Unit tests will be created as features are dev
 \hline
 4.10.4 & $p$ posts on bulletin board, where $p > 0$. & A post with $n$ characters, where $n > 0$. & Bulletin board is updated with the post of $n$ characters.\\
 \hline
-4.10.5 & $p$ posts on bulletin board, where $p > 0$. & A comment with 0 characters on an existing post $p$. & Empty comment is disgarded and not added to bulletin board.\\
+4.10.5 & $p$ posts on bulletin board, where $p > 0$. & A comment with 0 characters on an existing post $p$. & Empty comment is disgarded
+\ds{discarded}
+and not added to bulletin board.\\
 \hline
 4.10.6 & $p$ posts on bulletin board, where $p > 0$. & A comment with $n$ characters where $n > 0$, on an existing post $p_i$. & Comment is added to the list of comments associated with post $p_i$.\\
 \hline
@@ -419,14 +430,22 @@ All unit tests will be automated. Unit tests will be created as features are dev
 \subsection{Look and Feel}
 To test that the system is attractive and intuitive and appears professional and secure, we will survey ten users to rate the user interface on a scale of 1 to 10, where a 1 means "ugly, unprofessional and would not return to the site", and a 10 means "captivating, professional, and would refer a friend". We will also ask users to provide comments or suggestions for qualitative feedback. The testing schedule will include a test December 7 and February 22. The first test will be used as a baseline. We will do a second test before the Final Demo to see if we improved.
 
+\ds{If you are providing a survey, you should include a copy of it as an appendix.}
+
 \subsection{Usability}
 To test that the system is intuitive to use and navigate, we will ask ten users to complete a set of tasks on the site. Five users will act as landlords, who will create an account, login, send an email invitation to invite users to a house, and then create a post on the discussion board. Five other users will act as tenants who will accept an email invitation, create an account, login, and then create a post on the discussion board. Users will rate their experience on a scale of 1 to 10, where a 1 is "frustrated, could not complete task(s), would not recommend", and a 10 means "user friendly, easy to navigate, would recommend to a friend".  We will also ask users to provide comments or suggestions for qualitative feedback. The testing schedule will include a test December 7 and February 22. The first test will be used as a baseline. We will do a second test before the Final Demo to see if we improved.
+
+\ds{Can you more accurately describe what the users will be tasked with doing?}
 
 \subsection{Performance}
 To test the server, we will do a load testing to make sure the server can handle 100 simultaneous requests.
 
+\ds{How?}
+
 \subsection{Security}
 To test the security of the system, including file access, failed password attempts, SQL injections, and expired sessions, we will do manual testing.
+
+\ds{Be more descriptive.}
 
 
 \end{document}
