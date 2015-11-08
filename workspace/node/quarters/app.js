@@ -9,7 +9,8 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var dev = require('./routes/dev');
 var signup = require('./routes/signup');
-var login = require('./routes/login');
+var login = require('./routes/authenticate');
+var passport = require('passport');
 
 var app = express();
 
