@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  div
+    button(onclick="window.location.href='/status';") status
+    br
+    button(onclick="window.location.href='/update';")  update from github
+    br
+    button(onclick="window.location.href='/devmode';")  restart
+    br
+    br
+    button(onclick="window.location.href='/app.log';")  app.log
+    br
+    button(onclick="window.location.href='/output.log';")  output.log
+    br
+    button(onclick="window.location.href='/error.log';")  error.log
