@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var dev = require('./routes/dev');
 var signup = require('./routes/signup');
 var login = require('./routes/authenticate');
 var passport = require('passport');
@@ -30,10 +29,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/signup', signup);
 app.use('/users', users);
-app.use('/dev', dev);
 app.use('/login', login);
 
-//app.listen(3000);
+app.listen(3000);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
