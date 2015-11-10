@@ -8,11 +8,32 @@ block content
     br
     button(onclick="window.location.href='/update';")  update from github
     br
-    button(onclick="window.location.href='/devmode';")  restart
+    br
+    div quarters-live
+        button(onclick="window.location.href='/live-start';")  start
+        br
+        button(onclick="window.location.href='/live-app.log';")  app.log
+        br
+        button(onclick="window.location.href='/live-output.log';")  output.log
+        br
+        button(onclick="window.location.href='/live-error.log';")  error.log
     br
     br
-    button(onclick="window.location.href='/app.log';")  app.log
+    div quarters-dev
+        button(onclick="window.location.href='/dev-start';")  start
+        br
+        button(onclick="window.location.href='/dev-app.log';")  app.log
+        br
+        button(onclick="window.location.href='/dev-output.log';")  output.log
+        br
+        button(onclick="window.location.href='/dev-error.log';")  error.log
     br
-    button(onclick="window.location.href='/output.log';")  output.log
     br
-    button(onclick="window.location.href='/error.log';")  error.log
+    div quarters-tools
+        button(onclick="window.location.href='/tools-start';")  start
+        br
+        button(onclick="window.location.href='/tools-app.log';")  app.log
+        br
+        button(onclick="window.location.href='/tools-output.log';")  output.log
+        br
+        button(onclick="window.location.href='/tools-error.log';")  error.log

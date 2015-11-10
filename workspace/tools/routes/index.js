@@ -27,45 +27,127 @@ router.get('/status', function(req, res, next) {
 		});
 });
 
-router.get('/restart', function(req, res, next) {
+router.get('/live-start', function(req, res, next) {
 	var exec = require('child_process').exec,
 	child;
 
-	child = exec('quarters-web devmode',
+	child = exec('quarters-web live start',
 		function (error, stdout, stderr) {
 			res.render('dev', {content : stdout});
 		});
 });
 
-router.get('/app.log', function(req, res, next) {
+router.get('/dev-start', function(req, res, next) {
 	var exec = require('child_process').exec,
 	child;
 
-	child = exec('quarters-web app-log',
+	child = exec('quarters-web dev start',
 		function (error, stdout, stderr) {
 			res.render('dev', {content : stdout});
 		});
 });
 
-router.get('/output.log', function(req, res, next) {
+router.get('/tools-start', function(req, res, next) {
 	var exec = require('child_process').exec,
 	child;
 
-	child = exec('quarters-web output-log',
+	child = exec('quarters-web tools start',
 		function (error, stdout, stderr) {
 			res.render('dev', {content : stdout});
 		});
 });
 
-router.get('/error.log', function(req, res, next) {
+router.get('/live-app.log', function(req, res, next) {
 	var exec = require('child_process').exec,
 	child;
 
-	child = exec('quarters-web error-log',
+	child = exec('quarters-web live app.log',
 		function (error, stdout, stderr) {
 			res.render('dev', {content : stdout});
 		});
 });
+
+router.get('/live-output.log', function(req, res, next) {
+	var exec = require('child_process').exec,
+	child;
+
+	child = exec('quarters-web live output.log',
+		function (error, stdout, stderr) {
+			res.render('dev', {content : stdout});
+		});
+});
+
+router.get('/live-error.log', function(req, res, next) {
+	var exec = require('child_process').exec,
+	child;
+
+	child = exec('quarters-web live error.log',
+		function (error, stdout, stderr) {
+			res.render('dev', {content : stdout});
+		});
+});
+
+router.get('/dev-app.log', function(req, res, next) {
+	var exec = require('child_process').exec,
+	child;
+
+	child = exec('quarters-web dev app.log',
+		function (error, stdout, stderr) {
+			res.render('dev', {content : stdout});
+		});
+});
+
+router.get('/dev-output.log', function(req, res, next) {
+	var exec = require('child_process').exec,
+	child;
+
+	child = exec('quarters-web dev output.log',
+		function (error, stdout, stderr) {
+			res.render('dev', {content : stdout});
+		});
+});
+
+router.get('/dev-error.log', function(req, res, next) {
+	var exec = require('child_process').exec,
+	child;
+
+	child = exec('quarters-web dev error.log',
+		function (error, stdout, stderr) {
+			res.render('dev', {content : stdout});
+		});
+});
+
+router.get('/tools-app.log', function(req, res, next) {
+	var exec = require('child_process').exec,
+	child;
+
+	child = exec('quarters-web tools app.log',
+		function (error, stdout, stderr) {
+			res.render('dev', {content : stdout});
+		});
+});
+
+router.get('/tools-output.log', function(req, res, next) {
+	var exec = require('child_process').exec,
+	child;
+
+	child = exec('quarters-web tools output.log',
+		function (error, stdout, stderr) {
+			res.render('dev', {content : stdout});
+		});
+});
+
+router.get('/tools-error.log', function(req, res, next) {
+	var exec = require('child_process').exec,
+	child;
+
+	child = exec('quarters-web tools error.log',
+		function (error, stdout, stderr) {
+			res.render('dev', {content : stdout});
+		});
+});
+
+
 
 
 module.exports = router;
