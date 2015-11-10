@@ -1,0 +1,79 @@
+#!/bin/bash
+
+path="/home/quarters/quarters/workspace"
+server="bin/www"
+logpath="/home/quarters/quarters-logs"
+
+uid="quarters-web"
+
+if [ "$#" -ne 2 ]; then
+    echo "incorrect usage:"
+    echo "quarters-web [servertype] [action]"
+    exit 1
+fi
+
+case $1 in
+	"live")
+		path="$path/live"
+		logpath="$logpath/live"
+		uid="$uid-live"
+		;;
+	"dev")
+		path="$path/dev"
+		logpath="$logpath/dev"
+		uid="$uid-dev"
+		;;
+	"tools")
+		path="$path/tools"
+		logpath="$logpath/tools"
+		uid="$uid-tools"
+		;;
+	"status")
+		echo "quarters status"
+		forever list
+		exit 1
+		;;
+	"update")
+		echo "pulling from github"
+		git pull
+		exit 1
+		;;
+	*)
+		echo "server type, action unknown"
+		echo "[live|dev|tools] or [status|update]"
+		exit 1
+		;;
+esac
+
+echo $path
+
+case $2 in
+	"start")
+		rm $logpath/*
+		forever stop $uid
+		forever start -w -o $logpath/output.log -l $logpath/app.log -e $logpath/error.log --uid $uid --minUptime 1000 --spinSleepTime 1000 $server
+		;;
+	"start-nolog")
+		forever start -a --uid $uid --minUptime 100 --spinSleepTime 1000 $server
+		;;
+	"stop")
+		forever stop $uid
+		;;
+	"app-log")
+		echo "app.log"
+		cat $logpath/app.log
+		;;
+	"output-log")
+		echo "output.log"
+		cat $logpath/output.log
+		;;
+	"error-log")
+		echo "error.log"
+		cat $logpath/error.log
+		;;
+	*)
+		echo "action unknown"
+		echo "[start|start-nolog|stop|app-log|output-log|error-log]
+		exit 1
+		;;
+esac

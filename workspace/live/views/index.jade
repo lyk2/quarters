@@ -1,0 +1,169 @@
+﻿doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title Quarters
+    link(href='css/styles.css', rel='stylesheet', type='text/css')
+    //- // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    //- // WARNING: Respond.js doesn't work if you view the page via file://
+    //- //if lt IE 9
+    //-   script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+    //-   script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+   body#page-top(data-spy='scroll', data-target='.navbar-fixed-top')
+    // Navigation
+    nav.navbar.navbar-custom.navbar-custom1.navbar-fixed-top(role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-main-collapse')
+            a.btn.btn-ghost.btn-sm(href='#signup') Sign Up
+          a.navbar-brand.page-scroll(href='#page-top')
+            a.navbar-brand.navbar(href='#') Quarters
+        // Collect the nav links, forms, and other content for toggling
+        .nav.collapse.navbar-collapse.navbar-right.navbar-main-collapse.navbar-custom1
+          ul.nav.navbar-nav
+            // Hidden li included to remove active class from about link when scrolled up past about section
+            li.hidden
+              a(href='#page-top')
+            li
+              a.page-scroll(href='#about') About
+            li
+              a.page-scroll(href='#features') Features
+            li
+              a.btn.btn-ghost.btn-md(href='login') Login
+    // Header
+    .intro-header
+      .container.text.center
+        .row
+          .col-lg-12
+            .intro-message
+              h1 The living network
+              h3 An online platform for landlords and tenants to communicate.
+              //hr.intro-divider
+              .list-inline.intro-social-buttons
+                a.btn.btn-custom.btn-lg(href='signup')
+                  span.network-name Sign Up
+      // /.container
+    // /.intro-header
+    // Page Content
+    a(name='about')
+    .content-section-a
+      .container.text-center
+        .row
+          .col-lg-12
+            //- hr.section-heading-spacer
+            .clearfix
+            h2.section-heading
+              | Everything you need all under one roof.
+            p.intro Start a new house to store important documents, transfer money, or chat. Quarters displays all your updates on your personalized dashboard. Get to Quarters from anywhere, on any device.
+      // /.container
+    // /.content-section-a
+    a(name='features')
+    .content-section-a
+      .container
+        .row
+          .col-lg-5.col-sm-6
+            //- hr.section-heading-spacer
+            .clearfix
+            h2.section-heading
+              | Document Storage
+            p.lead
+              | Upload leases and contracts for safe-keeping and reference. Quick and easy access whenever you want. 
+          .col-lg-5.col-lg-offset-2.col-sm-6
+             span.glyphicon.glyphicon-custom.glyphicon-file
+      // /.container
+    // /.content-section-a
+    .content-section-b
+      .container
+        .row
+          .col-lg-5.col-lg-offset-1.col-sm-push-6.col-sm-6
+            //- hr.section-heading-spacer
+            .clearfix
+            h2.section-heading
+              | Maintenance Tracking
+            p.lead
+              | Let each other know of issues that need to be addressed. Attach a photo and give it a priority rating. Receive a notification when the issue has been resolved.
+          .col-lg-5.col-sm-pull-6.col-sm-6
+            span.glyphicon.glyphicon-custom.glyphicon-ok-sign
+      // /.container
+    // /.content-section-b
+    .content-section-a
+      .container
+        .row
+          .col-lg-5.col-sm-6
+            //- hr.section-heading-spacer
+            .clearfix
+            h2.section-heading
+              | Financing
+            p.lead
+              | Transfer funds within the app. Safe and secure thanks to PayPal.
+          .col-lg-5.col-lg-offset-2.col-sm-6
+            span.glyphicon.glyphicon-custom.glyphicon-usd
+           // /.container
+    // /.content-section-a
+    .content-section-b
+      .container
+        .row
+          .col-lg-5.col-lg-offset-1.col-sm-push-6.col-sm-6
+            //- hr.section-heading-spacer
+            .clearfix
+            h2.section-heading
+              | Scheduler
+            p.lead
+              | View chores and reminders on a shared Calendar. Keep each other accountable and happy.
+          .col-lg-5.col-sm-pull-6.col-sm-6
+            span.glyphicon.glyphicon-custom.glyphicon-list
+      // /.container
+    // /.content-section-b
+    .content-section-a
+      .container
+        .row
+          .col-lg-5.col-sm-6
+            //- hr.section-heading-spacer
+            .clearfix
+            h2.section-heading
+              | Discussion Board
+            p.lead
+              | Create and comment on posts to keep each other in the loop. 
+          .col-lg-5.col-lg-offset-2.col-sm-6
+            span.glyphicon.glyphicon-custom.glyphicon-comment
+      // /.container
+    // /.content-section-a
+    .content-section-b
+      .container
+        .row
+          .col-lg-5.col-lg-offset-1.col-sm-push-6.col-sm-6
+            //- hr.section-heading-spacer
+            .clearfix
+            h2.section-heading
+              | Chat
+            p.lead
+              | Send direct instant messages to other members of your house.
+          .col-lg-5.col-sm-pull-6.col-sm-6
+            span.glyphicon.glyphicon-custom.glyphicon-envelope
+      // /.container
+    // /.content-section-b
+    a(name='contact')
+    .banner
+      .container.text-center
+        .row
+          .col-lg-12
+            h2 Get started now
+          .col-lg-12
+            a.btn.btn-primary.btn-lg(href='signup')
+              span.network-name Sign up for free
+      // /.container
+    // /.banner
+    // Footer
+    footer
+      .container.text-center
+        .row
+          .col-lg-12
+            p.copyright.text-muted.small Copyright © Quarters 2015. All Rights Reserved
+    // jQuery
+    script(src='js/jquery.js')
+    // Bootstrap Core JavaScript
+    script(src='js/bootstrap.min.js')
