@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-var passport = require('passport');
 var pg = require("pg");
 
 var conString = "postgres://quarters:qadmin@system.quarters.space/quarters";
@@ -19,9 +18,3 @@ client.connect(function(err){
     client.end();
   });
 });
-
-
-
-
-
-//require('./config/passport')(passport); // pass passport for configuration

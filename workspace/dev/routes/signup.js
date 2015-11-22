@@ -80,7 +80,7 @@ router.post('/', function (req, response) {
     // Hash the password with the salt
     var hash = bcrypt.hashSync(password, salt);
 
-    client.query("INSERT INTO users(user_name, password) values($1, $2)", ['aaaa', 'aaaaa']);
+    client.query("INSERT INTO users(user_name, password) values($1, $2)", [email, hash]);
 
 });
 
