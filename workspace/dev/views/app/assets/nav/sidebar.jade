@@ -1,0 +1,35 @@
+.navbar-default.sidebar(role='navigation')
+  .sidebar-nav.navbar-collapse
+    ul#side-menu.nav
+      li.hidden-xs
+        img.img.center(src='../img/avatars/house.jpg', width='100%')
+      li
+        a
+          i.fa.fa-home.fa-fw
+          | #{house}
+          span.fa.arrow
+        ul.nav.nav-second-level.collapse(aria-expanded='false', style='height: 0px;')
+          li
+            a(href='houseProfile.html') View House Profile
+          li
+            a(href='d.html') Leave House
+      li
+        a(href='bulletin')
+          i.fa.fa-newspaper-o.fa-fw
+          |  Bulletin Board
+      li
+        a(href='calendar')
+          i.fa.fa-calendar-o.fa-fw
+          |  Calendar
+      li
+        a(href='messages')
+          i.fa.fa-weixin.fa-fw
+          |  Messages
+      li
+        a(href='finances')
+          i.fa.fa-usd.fa-fw
+          |  Finances
+      li
+        a(href='maintenance')
+          i.fa.fa-wrench.fa-fw
+          |  Maintenance

@@ -1,0 +1,14 @@
+.header {
+	padding-left:0px;
+	padding-right:0px;
+}
+
+.glyphicon.header {
+	font-size: 25px;
+}
+
+.center {
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+}
