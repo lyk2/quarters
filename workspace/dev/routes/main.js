@@ -25,17 +25,16 @@ router.get('/messages', function(req, res, next) {
   res.render('app/messages');
 });
 
-<<<<<<< HEAD
 router.get('/userprofile', function(req, res, next) {
   res.render('app/userprofile');
 });
 
 router.get('/accountsettings', function(req, res, next) {
   res.render('app/accountsettings');
-=======
+});
+
 router.get('/documents', function(req, res, next) {
   res.render('app/documents');
->>>>>>> ecc45c2d398543b50238fecb9e9ce0a96b8a7823
 });
 
 
