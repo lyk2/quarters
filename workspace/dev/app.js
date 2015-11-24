@@ -9,7 +9,8 @@ var passport = require('passport');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var signup = require('./routes/signup');
-var main = require('./routes/main');
+var login = require('./routes/login');
+var db = require('./routes/db');
 
 var app = express();
 
@@ -29,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/signup', signup);
 app.use('/users', users);
-app.use('/main', main);
+app.use('/login', login);
 
 //app.listen(3000);
 

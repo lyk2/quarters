@@ -5,13 +5,13 @@ block content
     div.panel
       div.panel-heading Sign up
       form(name="form", method="post", action="/signup", novalidate)
-        div.form-group
-          label.control-label(for="username") Username
-          input.form-control(type="text", name="username", id="username", placeholder="Username", unique-username, required, ng-model="username", autofocus)
-          i.halflings-icon.refresh.rotating(ng-show="busy")
-          span.help-block(ng-show="form.username.$dirty && form.username.$error.required") Please choose a username
-          span.help-block(ng-show="form.username.$dirty && form.username.$error.isTaken") Username already taken
-          span.help-block(ng-show="form.username.$dirty && form.username.$error.invalidChars") Username may not contain any non-url-safe characters
+        //div.form-group
+        //  label.control-label(for="username") Username
+        //  input.form-control(type="text", name="username", id="username", placeholder="Username", unique-username, required, ng-model="username", autofocus)
+        //  i.halflings-icon.refresh.rotating(ng-show="busy")
+        //  span.help-block(ng-show="form.username.$dirty && form.username.$error.required") Please choose a username
+        //  span.help-block(ng-show="form.username.$dirty && form.username.$error.isTaken") Username already taken
+        //  span.help-block(ng-show="form.username.$dirty && form.username.$error.invalidChars") Username may not contain any non-url-safe characters
         div.form-group
           label.control-label(for="email") Email
           input.form-control(type="email", ng-model="email", name="email", id="email", placeholder="Email", required)
@@ -20,6 +20,7 @@ block content
           label.control-label(for="password") Password
           input.form-control(type="password", name="password", id="password", ng-model="password", required, match="verification")
           span.help-block(ng-show="form.password.$dirty && form.password.$error.required") Please enter a password
+          //span.help-block(ng-show="form.password.$dirty && form.password.$error.minLength") Password must be greater than 9 characters
         div.form-group
           label.control-label(for="verification") Repeat password
           input.form-control(type="password", name="verification", id="verification", ng-model="verification", required, match="password")
