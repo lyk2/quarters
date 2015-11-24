@@ -4,7 +4,7 @@ block content
   div.col-lg-offset-4.col-lg-4
     div.panel
       div.panel-heading Login
-      form(name="form", method="post", action="/signup", novalidate)
+      form(name="form", method="post", action="/login", novalidate)
         
         div.form-group
           label.control-label(for="email") Email
@@ -13,7 +13,7 @@ block content
         
         div.form-group
           label.control-label(for="password") Password
-          input.form-control(type="password", name="password", id="password", ng-model="password", required, match="verification")
+          input.form-control(type="password", name="password", id="password", ng-model="password", required)
           span.help-block(ng-show="form.password.$dirty && form.password.$error.required") Please enter a password
         if error
           div.alert #{error}
