@@ -1,18 +1,12 @@
 var express = require('express');
 var router = express.Router();
+
 var pg = require("pg");
-var port = 5433;
-var host = 'system.space.quarters';
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
     res.render('login');
 });
-
-// target for form submit
-var conString = "pg://quarters:qadmin@system.quarters.space/quarters";
-var client = new pg.Client(conString);
-client.connect();
 
 router.post('/', function (req, response) {
 
@@ -20,6 +14,9 @@ router.post('/', function (req, response) {
     var password = req.body.password;
     var error = null;
     var bcrypt = require('bcryptjs');
+
+    var client = new pg.Client(req.app.locals.db.connect);
+    client.connect();
     client.query("SELECT user_name,password from \"users\" WHERE user_name = $1", [email], function (err, result) {
         if (result.rows.length == 0) {
             error = 'Incorrect username/password';
@@ -37,7 +34,7 @@ router.post('/', function (req, response) {
                     error: error
                 });
             } else {
-                console.log('user found');
+                req.session.user = {uid : email, password : password};
                 response.redirect("../main");
             }
         }
