@@ -7,19 +7,18 @@ var host = 'system.space.quarters';
 /* GET signup page. */
 router.get('/', function (req, res, next) {
     res.render('signup');
-    //res.send('respond with a resource');
 });
 
-// target for form submit
-var conString = "pg://quarters:qadmin@system.quarters.space/quarters";
-var client = new pg.Client(conString);
-client.connect();
+
 
 router.post('/', function (req, response) {
 
     var email = req.body.email;
     var password = req.body.password;
     var error = null;
+
+    var client = new pg.Client(req.app.locals.db.connect);
+    client.connect();
 
     client.query("SELECT user_name from \"users\" WHERE user_name = $1",[email], function(err, result) {
         if (result.rows.length!=0){
@@ -41,10 +40,8 @@ router.post('/', function (req, response) {
             var salt = bcrypt.genSaltSync(10);
             // Hash the password with the salt
             var hash = bcrypt.hashSync(password, salt);
-
-
             client.query("INSERT INTO users(user_name, password) values($1, $2)", [email, hash]);
-            //client.end();
+            req.session.user = {uid : email};
             response.redirect("../main");
         }
     }

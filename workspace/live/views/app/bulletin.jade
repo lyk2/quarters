@@ -1,0 +1,51 @@
+extends ./app.jade
+
+block content
+	div.row
+		div.col-lg-12
+			h1.page-header Bulletin Board
+	div.row
+		div.col-xs-9
+			textarea.form-control(rows='2',placeholder='Add something to share!' style='margin-bottom: 30px')
+		div.col-xs-3
+			button.btn.btn-primary(type='submit') Submit
+	div.row
+		div.col-lg-12
+			table.table.table-responsive.table-striped
+					tr
+						td
+							i.glyphicon.glyphicon-warning-sign(style='font-size: 50px; color: yellow')
+						td 
+							h4 Garbage Cans Missing
+							h5 Low Priority
+						td
+							h5 Oct 11, 2015 at 3:30pm
+					tr
+						td
+							i.glyphicon.glyphicon-comment(style='font-size: 50px; color: blue')
+						td 
+							h4 Who wants to grab dinner tonight at BP?!
+							h5 Jane Smith
+						td
+							h5 Oct 5, 2015 at 4:45pm
+					tr
+						td
+							i.glyphicon.glyphicon-usd(style='font-size: 50px; color: green')
+						td 
+							h4 $500 Rent Due
+						td
+							h5 Oct 1, 2015
+					tr
+						td
+							i.glyphicon.glyphicon-calendar(style='font-size: 50px; color: purple')
+						td 
+							h4 Chore Reminder: Garbage day is tomorrow
+						td
+							h5 Sept 27, 2015
+					tr
+						td
+							i.glyphicon.glyphicon-usd(style='font-size: 50px; color: green')
+						td 
+							h4 Jane paid you $29.98
+						td
+							h5 Sept 23, 2015
