@@ -1,0 +1,90 @@
+extends ./app.jade
+
+block content
+	div.row
+		div.col-lg-12
+			h1.page-header Messages
+	div.row
+		.container.col-lg-12
+			.row
+				.col-md-8
+					.panel.panel-info
+						.panel-heading
+							| RECENT CHAT HISTORY
+						.panel-body
+							ul.media-list
+								li.media
+									.media-body
+										.media
+											a.pull-left(href='#')
+												img.media-object.img-circle(style='max-height:40px;', src='../img/boy2.png')
+											.media-body
+												| Hi Jane. I hope you are settling in well. Please let me know if you have any questions. I will be dropping in tomorrow to mow the lawn.
+												br
+												small.text-muted You | Sept 2 at 5:00pm
+												hr
+								li.media
+									.media-body
+										.media
+											a.pull-left(href='#')
+												img.media-object.img-circle(style='max-height:40px;', src='../img/girl2.png')
+											.media-body
+												| Thank you for checking in! Actually, I do have one question. What day is garbage pick-up? Other than that, so far everything is going well.
+												br
+												small.text-muted Jane Smith | Sept 2 at 5:07pm
+												hr
+								li.media
+									.media-body
+										.media
+											a.pull-left(href='#')
+												img.media-object.img-circle(style='max-height:40px;', src='../img/boy2.png')
+											.media-body
+												| Glad to hear. Garbage day is every Monday. The garbage cans are located beside the house. Please try and recycle as much as you can.
+												br
+												small.text-muted You | Sept 2 at 5:08pm
+												hr
+								li.media
+									.media-body
+										.media
+											a.pull-left(href='#')
+												img.media-object.img-circle(style='max-height:40px;', src='../img/girl2.png')
+											.media-body
+												| Okay, great. And will do! See you tomorrow!
+												br
+												small.text-muted Jane Smith | Sept 2 at 5:12pm
+												hr
+						.panel-footer
+							.input-group
+								input.form-control(type='text', placeholder='Enter Message')
+								span.input-group-btn
+									button.btn.btn-info(type='button') SEND
+				.col-md-4
+					.panel.panel-primary
+						.panel-heading
+							| ONLINE USERS
+						.panel-body
+							ul.media-list
+								li.media
+									.media-body
+										.media
+											a.pull-left(href='#')
+												img.media-object.img-circle(style='max-height:40px;', src='../img/girl.png')
+											.media-body
+												h5 Lucy Lu
+												small.text-muted Active From 3 hours
+								li.media
+									.media-body
+										.media
+											a.pull-left(href='#')
+												img.media-object.img-circle(style='max-height:40px;', src='../img/girl2.png')
+											.media-body
+												h5 Jane Smith
+												small.text-muted Active From 3 hours
+								li.media
+									.media-body
+										.media
+											a.pull-left(href='#')
+												img.media-object.img-circle(style='max-height:40px;', src='../img/boy.png')
+											.media-body
+												h5 John Doe 
+												small.text-muted Active From 3 hours

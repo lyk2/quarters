@@ -1,0 +1,42 @@
+extends ./app.jade
+
+block content
+	div.row
+		div.col-lg-12
+			h1.page-header Documents
+	.row(style='padding-bottom: 30px')
+		.col-xs-2
+			a.btn.btn-success(href='#')
+				i.fa.fa-plus.fa-lg
+					| Add file
+		.col-xs-2
+			a.btn.btn-primary(href='#')
+				i.fa.fa-cloud-upload.fa-lg
+					| Upload
+		.col-xs-2
+			a.btn.btn-warning(href='#')
+				i.fa.fa-remove.fa-lg
+					| Cancel
+		.col-xs-2
+			a.btn.btn-danger(href='#')
+				i.fa.fa-trash.fa-lg
+					| Delete
+	.row
+		.col-xs-4
+			img.img-responsive.img-thumbnail(src='../img/rentalAgreement.jpg', height='220', width='200')
+			h4 Updated Lease Agreement
+			h5 Added by John
+			h5 Sept 1, 2015
+		.col-xs-4
+			img.img-responsive.img-thumbnail(src='../img/rentalAgreement.jpg', height='220', width='200')
+			h4 Lease Agreement
+			h5 Added by John
+			h5 Aug 23, 2015
+		.col-xs-4
+			img.img-responsive.img-thumbnail(src='../img/listing.jpg', height='200', width='200')
+			h4 Listing
+			h5 Added by John
+			h5 Aug 17, 2015
+
+
+

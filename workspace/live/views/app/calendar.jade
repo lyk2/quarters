@@ -1,0 +1,24 @@
+extends ./app.jade
+
+block content
+	div.row
+		div.col-lg-12
+			h1.page-header Calendar
+	div.row
+		label.checkbox-inline
+			input#inlineCheckbox1(type='checkbox', value='option1')
+			|  Chores
+		label.checkbox-inline
+			input#inlineCheckbox2(type='checkbox', value='option2')
+			|  Finances
+		label.checkbox-inline
+			input#inlineCheckbox3(type='checkbox', value='option3')
+			|  Maintenance
+		label.checkbox-inline
+			input#inlineCheckbox4(type='checkbox', value='option4')
+			|  Other
+		
+	div.row
+		div.col-xs-12
+		hr
+		#calendar
