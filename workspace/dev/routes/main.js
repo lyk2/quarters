@@ -25,6 +25,14 @@ router.get('/messages', function(req, res, next) {
   res.render('app/messages');
 });
 
+router.get('/userprofile', function(req, res, next) {
+  res.render('app/userprofile');
+});
+
+router.get('/accountsettings', function(req, res, next) {
+  res.render('app/accountsettings');
+});
+
 
 
 
