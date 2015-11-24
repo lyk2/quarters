@@ -25,6 +25,10 @@ router.get('/messages', function(req, res, next) {
   res.render('app/messages');
 });
 
+router.get('/documents', function(req, res, next) {
+  res.render('app/documents');
+});
+
 
 
 
