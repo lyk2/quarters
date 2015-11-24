@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  res.redirect('bulletin');
+  	res.redirect('../main/bulletin');
 });
 
 router.get('/bulletin', function(req, res, next) {
@@ -24,6 +24,8 @@ router.get('/maintenance', function(req, res, next) {
 router.get('/messages', function(req, res, next) {
   res.render('app/messages');
 });
+
+
 
 
 
