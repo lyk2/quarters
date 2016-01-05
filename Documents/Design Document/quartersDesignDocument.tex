@@ -1,0 +1,128 @@
+\documentclass[12pt]{article}
+
+
+\usepackage{graphicx}
+\usepackage{colortbl}
+\usepackage{xr}
+\usepackage{longtable}
+\usepackage{xfrac}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{xcolor} % for different colour comments
+\usepackage{fullpage}
+\newcounter{rowcount}
+\setcounter{rowcount}{0}
+
+
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+      colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+%% Comments
+\newif\ifcomments\commentstrue
+\ifcomments
+\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\else
+\newcommand{\authornote}[3]{}
+\newcommand{\todo}[1]{}
+\fi
+\newcommand{\wss}[1]{\authornote{magenta}{SS}{#1}}
+\newcommand{\ds}[1]{\authornote{blue}{DS}{#1}}
+\newcommand{\kly}[1]{\authornote{green}{KL}{#1}}
+\newcommand{\cc}[1]{\authornote{orange}{CC}{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{Design Document for Quarters} 
+\author{Team 6\\ \\James Anthony (anthonjb)\\ Wenqiang Chen (chenw25)\\ Carolyn Chong 
+(chongce)\\ Kevin Ly (lyk2)}
+\date{\today}
+  
+\maketitle
+
+\pagebreak
+
+\tableofcontents
+
+\section*{Revision History}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Date}  & \textbf{Comments} \\ \hline
+January 5, 2016 & Created first draft. \\ 
+\hline
+\end{tabular}
+
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Introduction and Overview
+\section{Introduction and Overview}
+includes a clear statement of what design principle(s) is (are)being used, the source of the template being followed – explanation of document structure. Explanation of template, symbols and conventions use
+
+%Connection between requirements and design 
+\section{Connection between requirements and design }
+what design decisions needed to be made torealize the requirements – for instance, if there are security NFRs, what decision is made onhow to do this – password protection?
+
+%Anticipated Changes
+\section{Anticipated Changes}
+\begin{enumerate}
+\item{}
+\end{enumerate}
+
+%System Tests
+\section{Unlikely Changes}
+\begin{enumerate}
+\item{}
+\end{enumerate}
+
+%
+\section{Decomposition into Components} 
+
+%
+\section{Uses hierarchy, or control flow diagram, or inheritance graph}
+
+%
+\section{Traceability from requirements to design components} 
+
+%
+\section{Traceability for anticipated changes to components}
+
+%
+\section{Error Handling}
+
+%
+\section{User interface elements descriptions}
+
+%
+\section{Overview of key algorithms}
+
+%
+\section{Relational database structure}
+
+%
+\section{Communication protocols specified}
+
+%
+\section{Description of each component, or UI element, or database table}
+
+%
+\section{Language of implementation, supporting frameworks, supporting technology explicitly identified, with references and web­links}
+
+%
+\section{GanttProject shows a detailed project schedule}
+
+%
+\section{Pert chart shows dependencies}
+
+
+\end{document}
