@@ -29,6 +29,18 @@ CREATE TABLE urgent_level
   CONSTRAINT urgent_level_pkey PRIMARY KEY (urgent_level_id)
 )
 
+INSERT INTO urgent_level(
+            urgent_level_id, level_name)
+    VALUES (0, "Low Priority");
+
+INSERT INTO urgent_level(
+            urgent_level_id, level_name)
+    VALUES (1, "Medium Priority");
+
+INSERT INTO urgent_level(
+            urgent_level_id, level_name)
+    VALUES (2, "High Priority");
+
 CREATE TABLE ticket_type
 (
   type_id integer NOT NULL,
