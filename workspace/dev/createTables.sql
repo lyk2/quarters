@@ -3,6 +3,21 @@ create table users(
 	email text
 );
 
+CREATE TABLE user_info
+(
+  user_id integer NOT NULL,
+  name character(100),
+  dob date,
+  house_id integer,
+  CONSTRAINT user_info_pkey PRIMARY KEY (user_id),
+  CONSTRAINT house_id_fkey FOREIGN KEY (house_id)
+      REFERENCES house (house_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT user_id_fkey FOREIGN KEY (user_id)
+      REFERENCES users (id) MATCH SIMPLE
+      ON UPDATE CASCADE ON DELETE CASCADE
+)
+
 CREATE TABLE urgent_level
 (
   urgent_level_id integer NOT NULL,
