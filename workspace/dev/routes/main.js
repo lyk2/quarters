@@ -57,10 +57,4 @@ function genPageData (session) {
 	return data;
 };
 
-
-
-
-
-
-
 module.exports = router;
