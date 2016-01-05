@@ -3,6 +3,13 @@ create table users(
 	email text
 );
 
+CREATE TABLE ticket_type
+(
+  type_id integer NOT NULL,
+  type_name character(30) NOT NULL,
+  CONSTRAINT ticket_type_pkey PRIMARY KEY (type_id)
+)
+
 CREATE TABLE maintenance_tickets
 (
   ticket_id integer NOT NULL,
