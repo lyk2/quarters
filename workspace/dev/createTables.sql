@@ -1,7 +1,11 @@
-create table users(
-	u_id serial primary key,
-	email text
-);
+CREATE TABLE users
+(
+  id integer NOT NULL,
+  email character(100),
+  password character(100),
+  "ROLE" integer,
+  CONSTRAINT users_pkey PRIMARY KEY (id)
+)
 
 CREATE TABLE user_info
 (
