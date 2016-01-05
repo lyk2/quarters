@@ -3,6 +3,13 @@ create table users(
 	email text
 );
 
+CREATE TABLE urgent_level
+(
+  urgent_level_id integer NOT NULL,
+  level_name character(50) NOT NULL,
+  CONSTRAINT urgent_level_pkey PRIMARY KEY (urgent_level_id)
+)
+
 CREATE TABLE ticket_type
 (
   type_id integer NOT NULL,
