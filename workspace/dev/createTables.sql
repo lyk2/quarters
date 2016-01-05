@@ -3,6 +3,23 @@ create table users(
 	email text
 );
 
+CREATE TABLE maintenance_tickets
+(
+  ticket_id integer NOT NULL,
+  house_id integer NOT NULL,
+  resolved boolean NOT NULL,
+  urgent_level integer NOT NULL,
+  ticket_type integer NOT NULL,
+  description text NOT NULL,
+  CONSTRAINT ticket_pkey PRIMARY KEY (ticket_id),
+  CONSTRAINT house_id_fkey FOREIGN KEY (house_id)
+      REFERENCES house (house_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT ticket_type_fkey FOREIGN KEY (ticket_id)
+      REFERENCES ticket_type (type_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+
 CREATE TABLE house
 (
   house_id integer NOT NULL,
