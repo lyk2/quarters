@@ -34,7 +34,7 @@ router.post('/', function (req, response) {
                     error: error
                 });
             } else {
-                req.session.user = {uid : email, password : password};
+                req.session.user = {uid: email, password: password};
                 response.redirect("../main");
             }
         }
