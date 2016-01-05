@@ -3,11 +3,16 @@ create table users(
 	email text
 );
 
-create table houses(
-	h_id serial primary key,
-	address text,
-	postal_code text
-);
+CREATE TABLE house
+(
+  house_id integer NOT NULL,
+  address character(100) NOT NULL,
+  city character(100) NOT NULL,
+  province character(100) NOT NULL,
+  country character(100) NOT NULL,
+  postal_code character(50) NOT NULL,
+  CONSTRAINT house_pkey PRIMARY KEY (house_id)
+)
 
 CREATE TABLE discussion
 (
