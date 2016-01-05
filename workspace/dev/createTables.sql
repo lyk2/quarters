@@ -22,23 +22,23 @@ CREATE TABLE user_info
       ON UPDATE CASCADE ON DELETE CASCADE
 )
 
-CREATE TABLE urgent_level
+CREATE TABLE priority_level
 (
-  urgent_level_id integer NOT NULL,
-  level_name character(50) NOT NULL,
-  CONSTRAINT urgent_level_pkey PRIMARY KEY (urgent_level_id)
+  priority_id integer NOT NULL,
+  priority_name character(50) NOT NULL,
+  CONSTRAINT priority_level_pkey PRIMARY KEY (priority_id)
 )
 
-INSERT INTO urgent_level(
-            urgent_level_id, level_name)
+INSERT INTO priority_level(
+            priority_id, priority_name)
     VALUES (0, "Low Priority");
 
-INSERT INTO urgent_level(
-            urgent_level_id, level_name)
+INSERT INTO priority_level(
+            priority_id, priority_name)
     VALUES (1, "Medium Priority");
 
-INSERT INTO urgent_level(
-            urgent_level_id, level_name)
+INSERT INTO priority_level(
+            priority_id, priority_name)
     VALUES (2, "High Priority");
 
 CREATE TABLE ticket_type
@@ -53,7 +53,7 @@ CREATE TABLE maintenance_tickets
   ticket_id integer NOT NULL,
   house_id integer NOT NULL,
   resolved boolean NOT NULL,
-  urgent_level integer NOT NULL,
+  priority_level integer NOT NULL,
   ticket_type integer NOT NULL,
   description text NOT NULL,
   CONSTRAINT ticket_pkey PRIMARY KEY (ticket_id),
