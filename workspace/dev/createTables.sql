@@ -11,7 +11,7 @@ CREATE TABLE user_info
 (
   user_id integer NOT NULL,
   name character(100),
-  dob date,
+  date_of_birth date,
   house_id integer,
   CONSTRAINT user_info_pkey PRIMARY KEY (user_id),
   CONSTRAINT house_id_fkey FOREIGN KEY (house_id)
@@ -41,20 +41,12 @@ INSERT INTO priority_level(
             priority_id, priority_name)
     VALUES (2, "High Priority");
 
-CREATE TABLE ticket_type
-(
-  type_id integer NOT NULL,
-  type_name character(30) NOT NULL,
-  CONSTRAINT ticket_type_pkey PRIMARY KEY (type_id)
-)
-
 CREATE TABLE maintenance_tickets
 (
   ticket_id integer NOT NULL,
   house_id integer NOT NULL,
   resolved boolean NOT NULL,
   priority_level integer NOT NULL,
-  ticket_type integer NOT NULL,
   description text NOT NULL,
   CONSTRAINT ticket_pkey PRIMARY KEY (ticket_id),
   CONSTRAINT house_id_fkey FOREIGN KEY (house_id)

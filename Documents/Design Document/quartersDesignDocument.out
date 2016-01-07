@@ -10,11 +10,20 @@
 \BOOKMARK [1][-]{section.8}{Traceability for anticipated changes to components}{}% 10
 \BOOKMARK [1][-]{section.9}{Error Handling}{}% 11
 \BOOKMARK [1][-]{section.10}{User interface elements descriptions}{}% 12
-\BOOKMARK [1][-]{section.11}{Overview of key algorithms}{}% 13
-\BOOKMARK [1][-]{section.12}{Relational database structure}{}% 14
-\BOOKMARK [1][-]{section.13}{Communication protocols specified}{}% 15
-\BOOKMARK [1][-]{section.14}{Description of each component, or UI element, or database table}{}% 16
-\BOOKMARK [1][-]{section.15}{Development Details}{}% 17
-\BOOKMARK [1][-]{section.16}{GanttProject shows a detailed project schedule}{}% 18
-\BOOKMARK [1][-]{section.17}{Pert chart shows dependencies}{}% 19
-\BOOKMARK [1][-]{section.18}{References}{}% 20
+\BOOKMARK [2][-]{subsection.10.1}{Navigation Flow}{section.10}% 13
+\BOOKMARK [2][-]{subsection.10.2}{Landing Page}{section.10}% 14
+\BOOKMARK [2][-]{subsection.10.3}{Sign Up}{section.10}% 15
+\BOOKMARK [2][-]{subsection.10.4}{Login}{section.10}% 16
+\BOOKMARK [2][-]{subsection.10.5}{Bulletin Board}{section.10}% 17
+\BOOKMARK [2][-]{subsection.10.6}{House Settings}{section.10}% 18
+\BOOKMARK [2][-]{subsection.10.7}{Calendar}{section.10}% 19
+\BOOKMARK [2][-]{subsection.10.8}{Messages}{section.10}% 20
+\BOOKMARK [2][-]{subsection.10.9}{Finances}{section.10}% 21
+\BOOKMARK [2][-]{subsection.10.10}{Maintenance}{section.10}% 22
+\BOOKMARK [1][-]{section.11}{Overview of key algorithms}{}% 23
+\BOOKMARK [1][-]{section.12}{Relational database structure}{}% 24
+\BOOKMARK [1][-]{section.13}{Communication protocols specified}{}% 25
+\BOOKMARK [1][-]{section.14}{Description of each component, or UI element, or database table}{}% 26
+\BOOKMARK [1][-]{section.15}{Language of implementation, supporting frameworks, supporting technology explicitly identified, with references and web­links}{}% 27
+\BOOKMARK [1][-]{section.16}{GanttProject shows a detailed project schedule}{}% 28
+\BOOKMARK [1][-]{section.17}{Pert chart shows dependencies}{}% 29

@@ -9,8 +9,6 @@ router.get('/', function (req, res, next) {
     res.render('signup');
 });
 
-
-
 router.post('/', function (req, response) {
 
     var email = req.body.email;
@@ -20,20 +18,20 @@ router.post('/', function (req, response) {
     var client = new pg.Client(req.app.locals.db.connect);
     client.connect();
 
-    client.query("SELECT user_name from \"users\" WHERE user_name = $1",[email], function(err, result) {
-        if (result.rows.length!=0){
+    client.query("SELECT user_name from \"users\" WHERE user_name = $1", [email], function (err, result) {
+        if (result.rows.length != 0) {
             error = 'Email is already taken, please try something else.';
         }
         errorOut(error);
     });
-    function errorOut(error){
-        if(error){
+    function errorOut(error) {
+        if (error) {
             response.status(403);
             response.render('signup', {
                 error: error
             });
             return
-        }else{
+        } else {
             // Load the bcrypt module
             var bcrypt = require('bcryptjs');
             // Generate a salt
@@ -41,7 +39,7 @@ router.post('/', function (req, response) {
             // Hash the password with the salt
             var hash = bcrypt.hashSync(password, salt);
             client.query("INSERT INTO users(user_name, password) values($1, $2)", [email, hash]);
-            req.session.user = {uid : email};
+            req.session.user = {uid: email};
             response.redirect("../main");
         }
     }
