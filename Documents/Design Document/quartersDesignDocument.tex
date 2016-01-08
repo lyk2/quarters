@@ -19,25 +19,30 @@
 
 
 %% Diagram formatting
+<<<<<<< HEAD
 \tikzstyle{block} = [draw, rectangle, minimum height=1em, minimum 
 width=2em, text centered]
+=======
+\tikzstyle{block} = [draw, fill=blue!20, rectangle, minimum height=3em, minimum
+width=6em, text centered]
+>>>>>>> dbc5c7eae5251931938b10b0289e48f6e36f6d9c
 \tikzstyle{line} = [draw, -stealth', thick]
-\tikzstyle{block2} = [draw, fill=blue!20, rectangle, minimum height=1em, minimum 
+\tikzstyle{block2} = [draw, fill=blue!20, rectangle, minimum height=1em, minimum
 width=2em, text centered]
 \tikzstyle{arrow} = [thick,-,>=stealth]
 \tikzstyle{arrow1} = [thick,->,>=stealth]
-\tikzstyle{block3} = [draw, draw=black, fill=orange!20, rectangle, minimum 
+\tikzstyle{block3} = [draw, draw=black, fill=orange!20, rectangle, minimum
 height=3em, minimum width=6em, text centered]
 
-%
-%\hypersetup{
-%    bookmarks=true,         % show bookmarks bar?
-%    colorlinks=true,        % false: boxed links; true: colored links
-%    linkcolor=black,        % color of internal links (change box color with linkbordercolor)
-%    citecolor=green,        % color of links to bibliography
-%    filecolor=magenta,      % color of file links
-%    urlcolor=cyan           % color of external links
-%}
+
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    colorlinks=true,        % false: boxed links; true: colored links
+    linkcolor=black,        % color of internal links (change box color with linkbordercolor)
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
 
 %% Comments
 \newif\ifcomments\commentstrue
@@ -118,7 +123,7 @@ what design decisions needed to be made torealize the requirements – for insta
 
 %
 \section{Traceability for anticipated changes to components}
-	
+
 %
 \section{Error Handling}
 
@@ -212,10 +217,10 @@ The Calendar resembles the UI of the Google Calendar because it is a widely used
 A simple chat history of direct messages between two users is displayed here. The messages section is separate from the online users section. An image of the user accompanies each message. Again, a simple, uncluttered interface is important to ensure the user experience is as quick as possible.
 
 \subsection{Finances}
-The main focus of this page is a table displaying all bills. 
+The main focus of this page is a table displaying all bills.
 
 \subsection{Maintenance}
-This section holds a list of maintenance tickets in chronological order. Each ticket is accompanied by a corresponding icon to symbolize the type of ticket. Colors are used to differentiate the priority levels of each ticket. Each ticket is its own horizontal panel. 
+This section holds a list of maintenance tickets in chronological order. Each ticket is accompanied by a corresponding icon to symbolize the type of ticket. Colors are used to differentiate the priority levels of each ticket. Each ticket is its own horizontal panel.
 
 \subsection{Notifications}
 visibility and feedback
@@ -238,26 +243,28 @@ visibility and feedback
 \begin{description}
   \item[Languages of implementation] \hfill
     \begin{itemize}
-      \item NodeJS [1]
-      \item PostgreSQL [2]
-      \item Jade [3]
+      \item \href{https://nodejs.org/en/}{NodeJS}
+      \item \href{http://www.postgresql.org/}{PostgreSQL}
+      \item \href{http://jade-lang.com/}{Jade}
     \end{itemize}
   \item[Supporting frameworks] \hfill
     \begin{itemize}
-      \item Bootstrap [4]
-      \item ExpressJS [5]
+      \item \href{http://getbootstrap.com/}{Bootstrap}
+      \item \href{http://expressjs.com/}{ExpressJS}
     \end{itemize}
   \item[Supporting technology] \hfill
     \begin{itemize}
-      \item Ubuntu Server [6]
+      \item \href{http://www.ubuntu.com/server}{Ubuntu Server}
     \end{itemize}
 \end{description}
+<<<<<<< HEAD
 
+=======
+%
+\section{GanttProject shows a detailed project schedule}
 
 %
-\section{References}
-\begin{description}
-  \item[[1]] link
-  \item[[2]] link
-\end{description}
+\section{Pert chart shows dependencies}
+>>>>>>> dbc5c7eae5251931938b10b0289e48f6e36f6d9c
+
 \end{document}
