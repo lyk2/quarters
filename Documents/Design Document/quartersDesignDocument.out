@@ -11,7 +11,6 @@
 \BOOKMARK [1][-]{section.9}{Error Handling}{}% 11
 \BOOKMARK [1][-]{section.10}{User interface elements descriptions}{}% 12
 \BOOKMARK [2][-]{subsection.10.1}{Navigation Flow}{section.10}% 13
-<<<<<<< HEAD
 \BOOKMARK [2][-]{subsection.10.2}{Norman's Design Principles}{section.10}% 14
 \BOOKMARK [2][-]{subsection.10.3}{Landing Page}{section.10}% 15
 \BOOKMARK [2][-]{subsection.10.4}{Sign Up}{section.10}% 16
@@ -20,32 +19,15 @@
 \BOOKMARK [2][-]{subsection.10.7}{Navigation bars}{section.10}% 19
 \BOOKMARK [2][-]{subsection.10.8}{Bulletin Board}{section.10}% 20
 \BOOKMARK [2][-]{subsection.10.9}{House Management}{section.10}% 21
-\BOOKMARK [2][-]{subsection.10.10}{Calendar}{section.10}% 22
-\BOOKMARK [2][-]{subsection.10.11}{Messages}{section.10}% 23
-\BOOKMARK [2][-]{subsection.10.12}{Finances}{section.10}% 24
-\BOOKMARK [2][-]{subsection.10.13}{Maintenance}{section.10}% 25
-\BOOKMARK [2][-]{subsection.10.14}{Notifications}{section.10}% 26
-\BOOKMARK [1][-]{section.11}{Overview of key algorithms}{}% 27
-\BOOKMARK [1][-]{section.12}{Relational database structure}{}% 28
-\BOOKMARK [1][-]{section.13}{Communication protocols specified}{}% 29
-\BOOKMARK [1][-]{section.14}{Description of each component, or UI element, or database table}{}% 30
-\BOOKMARK [1][-]{section.15}{Development Details}{}% 31
-\BOOKMARK [1][-]{section.16}{References}{}% 32
-=======
-\BOOKMARK [2][-]{subsection.10.2}{Landing Page}{section.10}% 14
-\BOOKMARK [2][-]{subsection.10.3}{Sign Up}{section.10}% 15
-\BOOKMARK [2][-]{subsection.10.4}{Login}{section.10}% 16
-\BOOKMARK [2][-]{subsection.10.5}{Bulletin Board}{section.10}% 17
-\BOOKMARK [2][-]{subsection.10.6}{House Settings}{section.10}% 18
-\BOOKMARK [2][-]{subsection.10.7}{Calendar}{section.10}% 19
-\BOOKMARK [2][-]{subsection.10.8}{Messages}{section.10}% 20
-\BOOKMARK [2][-]{subsection.10.9}{Finances}{section.10}% 21
-\BOOKMARK [2][-]{subsection.10.10}{Maintenance}{section.10}% 22
-\BOOKMARK [1][-]{section.11}{Overview of key algorithms}{}% 23
-\BOOKMARK [1][-]{section.12}{Relational database structure}{}% 24
-\BOOKMARK [1][-]{section.13}{Communication protocols specified}{}% 25
-\BOOKMARK [1][-]{section.14}{Description of each component, or UI element, or database table}{}% 26
-\BOOKMARK [1][-]{section.15}{Development Details}{}% 27
-\BOOKMARK [1][-]{section.16}{GanttProject shows a detailed project schedule}{}% 28
-\BOOKMARK [1][-]{section.17}{Pert chart shows dependencies}{}% 29
->>>>>>> dbc5c7eae5251931938b10b0289e48f6e36f6d9c
+\BOOKMARK [2][-]{subsection.10.10}{User Settings}{section.10}% 22
+\BOOKMARK [2][-]{subsection.10.11}{House Settings}{section.10}% 23
+\BOOKMARK [2][-]{subsection.10.12}{Calendar}{section.10}% 24
+\BOOKMARK [2][-]{subsection.10.13}{Messages}{section.10}% 25
+\BOOKMARK [2][-]{subsection.10.14}{Finances}{section.10}% 26
+\BOOKMARK [2][-]{subsection.10.15}{Maintenance}{section.10}% 27
+\BOOKMARK [2][-]{subsection.10.16}{Notifications}{section.10}% 28
+\BOOKMARK [1][-]{section.11}{Overview of key algorithms}{}% 29
+\BOOKMARK [1][-]{section.12}{Relational database structure}{}% 30
+\BOOKMARK [1][-]{section.13}{Communication protocols specified}{}% 31
+\BOOKMARK [1][-]{section.14}{Description of each component, or UI element, or database table}{}% 32
+\BOOKMARK [1][-]{section.15}{Development Details}{}% 33
