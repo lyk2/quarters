@@ -19,7 +19,7 @@
 
 
 %% Diagram formatting
-\tikzstyle{block} = [draw, rectangle, minimum height=1.5em, minimum 
+\tikzstyle{block} = [draw, rectangle, minimum height=1.5em, minimum
 width=2em, text centered]
 \tikzstyle{arrow} = [thick,-,>=stealth]
 
@@ -60,7 +60,7 @@ width=2em, text centered]
 
 \pagebreak
 
-\tableofcontents 
+\tableofcontents
 \listoffigures
 
 \section*{Revision History}
@@ -83,7 +83,6 @@ This document provides insight as to how Quarters was built. Design principles a
 
 \subsection{Design Principles}
 TBC. includes a clear statement of what design principle(s) is (are)being used. The web application was designed in a XXX manner. This was to ensure XXX. Decomposition follows the design principle suggested for the design. In many cases the appropriate design principle will be design for change (information hiding). Methodologies include top-down, bottom-up, stepwise refinement, prototyping, modular, or object-oriented.
-
 
 %Connection between requirements and design
 \section{Connection between requirements and design}
@@ -160,7 +159,7 @@ See Figure \ref{fig:1}. Users are directed to the landing page. From there new u
 \end{figure}
 
 \subsection{Norman's Design Principles}
-Don Norman lists six principles to support software usability in his book \textit{The Design of Everyday Things} \cite{norman}. These principles are visibility, affordances, mappings, constraints, feedback, and the conceptual model. Together they guide the design decisions of the UI of Quarters. 
+Don Norman lists six principles to support software usability in his book \textit{The Design of Everyday Things} \cite{norman}. These principles are visibility, affordances, mappings, constraints, feedback, and the conceptual model. Together they guide the design decisions of the UI of Quarters.
 
 \begin{enumerate}
 \item Visibility conveys to the user their current state and possible actions \cite{norman}.
@@ -168,7 +167,7 @@ Don Norman lists six principles to support software usability in his book \texti
 \item A mapping is the relationship between a control and its effects \cite{norman}.
 \item Constraints limit the ways in which an object or control can be used by the user \cite{norman}.
 \item Feedback is when the user is informed of the results of their actions and indicates what actions can be taken next \cite{norman}.
-\item The conceptual model is a physical understanding of an interface or interaction technique based on real-world experience \cite{norman}. 
+\item The conceptual model is a physical understanding of an interface or interaction technique based on real-world experience \cite{norman}.
 \end{enumerate}
 
 \subsection{Landing Page}
@@ -178,25 +177,25 @@ The purpose of the landing page is to provide information about the web applicat
 The sign up page is designed to have strong visibility. A new user should be able to know what to do just by looking at the page. The page is simple, straightforward and uncluttered to allow for a quick process. The empty fields afford input. The sign up button is an example of a constraint because it is disabled until the user enters valid input.
 
 \subsection{Join or Create House}
-See \ref{management}. 
+See \ref{management}.
 
 \subsection{Login}
-Designed similarly to the sign up page, the login page has strong visibility. The empty fields afford input. The login button is disabled until the user enters valid input. 
+Designed similarly to the sign up page, the login page has strong visibility. The empty fields afford input. The login button is disabled until the user enters valid input.
 
 \subsection{Navigation bars}
-Every page of the application has the same layout for consistency. Each page consists of a top navigation bar and a left navigation bar, and the remaining space is devoted to hold the content of that specific page. The structure of the navigation bars are consistent throughout the application to improve learnability. Fonts, colors and layouts are consistent, as well. The whole user experience, from signing up to logging out, is responsive. This means that regardless of the screen window size, the user will be able to access all functionality of the application. For example, the navigation bars collapse to a toggle menu in smaller screen sizes to ensure the premium screen space is occupied mainly by content with which the user will spend the most time interacting. The intuitive iconography of the navigation bars clearly indicate there are more options hiding deeper down, and thus, demonstrates strong visibility. 
+Every page of the application has the same layout for consistency. Each page consists of a top navigation bar and a left navigation bar, and the remaining space is devoted to hold the content of that specific page. The structure of the navigation bars are consistent throughout the application to improve learnability. Fonts, colors and layouts are consistent, as well. The whole user experience, from signing up to logging out, is responsive. This means that regardless of the screen window size, the user will be able to access all functionality of the application. For example, the navigation bars collapse to a toggle menu in smaller screen sizes to ensure the premium screen space is occupied mainly by content with which the user will spend the most time interacting. The intuitive iconography of the navigation bars clearly indicate there are more options hiding deeper down, and thus, demonstrates strong visibility.
 
 \subsection{Bulletin Board}
-The bulletin board (bulletin for convenience) is the main page of the application. From here, every other page can be accessed via the navigation bar. Every user's bulletin is personalized based on their activity and their house's activity. Posts take up the majority of the screen space and are listed in chronological order to support the conceptual model. Each post is listed with a corresponding icon that symbolizes the type of activity. A large field is positioned at the top of the bulletin to allow users to share content quickly. When the user clicks on the input field it is highlighted to give feedback to the user that the field is active and input is allowed.  
+The bulletin board (bulletin for convenience) is the main page of the application. From here, every other page can be accessed via the navigation bar. Every user's bulletin is personalized based on their activity and their house's activity. Posts take up the majority of the screen space and are listed in chronological order to support the conceptual model. Each post is listed with a corresponding icon that symbolizes the type of activity. A large field is positioned at the top of the bulletin to allow users to share content quickly. When the user clicks on the input field it is highlighted to give feedback to the user that the field is active and input is allowed.
 
 \subsection{House Management}\label{management}
-New users are automatically directed to this page after signing up. Returning users can access House Management via the top navigation bar by clicking on the house address. This page is where users can join new houses, create new houses, or add members to a house. This page should be designed with strong feedback including whether the user's actions were successful and what actions they should take next. 
+New users are automatically directed to this page after signing up. Returning users can access House Management via the top navigation bar by clicking on the house address. This page is where users can join new houses, create new houses, or add members to a house. This page should be designed with strong feedback including whether the user's actions were successful and what actions they should take next.
 
 \subsection{User Settings}
 Users can change their display name on this page. This page is accessible by clicking on the user's email in the top navigation bar.
 
 \subsection{House Settings}
-House Settings is accessible via the side navigation bar. Important documents uploaded by members of the house are included here. Documents should be presented following the conceptual model of a stack of "papers", that is, a scaled-down screenshot of each document should be laid out in a grid-like structure. 
+House Settings is accessible via the side navigation bar. Important documents uploaded by members of the house are included here. Documents should be presented following the conceptual model of a stack of "papers", that is, a scaled-down screenshot of each document should be laid out in a grid-like structure.
 
 \subsection{Calendar}
 The Calendar resembles the UI of \href{https://apps.google.com/products/calendar/‎}{Google Calendar} because it is a widely used calendar that allows for some familiarity. The checkbox group showcasing different calendars improves visibility of the calendar state. The Calendar should be designed so that users can click on a day or established event to make changes, as opposed to only allowing users to make changes using the buttons positioned above the Calendar. In this way, the natural mapping allows users to interact with the Calendar in an intuitive manner.
@@ -229,7 +228,7 @@ Notifications are displayed in the top navigation bar for improved visibility an
     \item \textbf{calendar\_events} - Store calender event details
     \item \textbf{notification} - Store notifications for users
     \item \textbf{notification\_type} - Specify notification types (discussion, events, tickets, joined house, etc.)
-    
+
 \end{itemize}
 %
 \section{Communication protocols specified}
@@ -256,9 +255,9 @@ Notifications are displayed in the top navigation bar for improved visibility an
 
 %References
 \begin{thebibliography}{9}
-\bibitem{norman} 
-Don Norman. 
-\textit{The Design of Everyday Things -– Revised and Expanded Edition}. 
+\bibitem{norman}
+Don Norman.
+\textit{The Design of Everyday Things -– Revised and Expanded Edition}.
 Basic Books, New York, 10-131, 2013.
 \end{thebibliography}
 
