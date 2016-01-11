@@ -6,28 +6,25 @@
 \BOOKMARK [1][-]{section.4}{Unlikely Changes}{}% 6
 \BOOKMARK [1][-]{section.5}{Decomposition into Components}{}% 7
 \BOOKMARK [1][-]{section.6}{Uses hierarchy, or control flow diagram, or inheritance graph}{}% 8
-\BOOKMARK [1][-]{section.7}{Traceability from requirements to design components}{}% 9
-\BOOKMARK [1][-]{section.8}{Traceability for anticipated changes to components}{}% 10
-\BOOKMARK [1][-]{section.9}{Error Handling}{}% 11
-\BOOKMARK [1][-]{section.10}{User interface elements descriptions}{}% 12
-\BOOKMARK [2][-]{subsection.10.1}{Navigation Flow}{section.10}% 13
-\BOOKMARK [2][-]{subsection.10.2}{Norman's Design Principles}{section.10}% 14
-\BOOKMARK [2][-]{subsection.10.3}{Landing Page}{section.10}% 15
-\BOOKMARK [2][-]{subsection.10.4}{Sign Up}{section.10}% 16
-\BOOKMARK [2][-]{subsection.10.5}{Join or Create House}{section.10}% 17
-\BOOKMARK [2][-]{subsection.10.6}{Login}{section.10}% 18
-\BOOKMARK [2][-]{subsection.10.7}{Navigation bars}{section.10}% 19
-\BOOKMARK [2][-]{subsection.10.8}{Bulletin Board}{section.10}% 20
-\BOOKMARK [2][-]{subsection.10.9}{House Management}{section.10}% 21
-\BOOKMARK [2][-]{subsection.10.10}{User Settings}{section.10}% 22
-\BOOKMARK [2][-]{subsection.10.11}{House Settings}{section.10}% 23
-\BOOKMARK [2][-]{subsection.10.12}{Calendar}{section.10}% 24
-\BOOKMARK [2][-]{subsection.10.13}{Messages}{section.10}% 25
-\BOOKMARK [2][-]{subsection.10.14}{Finances}{section.10}% 26
-\BOOKMARK [2][-]{subsection.10.15}{Maintenance}{section.10}% 27
-\BOOKMARK [2][-]{subsection.10.16}{Notifications}{section.10}% 28
-\BOOKMARK [1][-]{section.11}{Overview of key algorithms}{}% 29
-\BOOKMARK [1][-]{section.12}{Relational database structure}{}% 30
-\BOOKMARK [1][-]{section.13}{Communication protocols specified}{}% 31
-\BOOKMARK [1][-]{section.14}{Description of each component, or UI element, or database table}{}% 32
-\BOOKMARK [1][-]{section.15}{Development Details}{}% 33
+\BOOKMARK [1][-]{section.7}{User interface elements descriptions}{}% 9
+\BOOKMARK [2][-]{subsection.7.1}{Navigation Flow}{section.7}% 10
+\BOOKMARK [2][-]{subsection.7.2}{Norman's Design Principles}{section.7}% 11
+\BOOKMARK [2][-]{subsection.7.3}{Landing Page}{section.7}% 12
+\BOOKMARK [2][-]{subsection.7.4}{Sign Up}{section.7}% 13
+\BOOKMARK [2][-]{subsection.7.5}{Join or Create House}{section.7}% 14
+\BOOKMARK [2][-]{subsection.7.6}{Login}{section.7}% 15
+\BOOKMARK [2][-]{subsection.7.7}{Navigation bars}{section.7}% 16
+\BOOKMARK [2][-]{subsection.7.8}{Bulletin Board}{section.7}% 17
+\BOOKMARK [2][-]{subsection.7.9}{House Management}{section.7}% 18
+\BOOKMARK [2][-]{subsection.7.10}{User Settings}{section.7}% 19
+\BOOKMARK [2][-]{subsection.7.11}{House Settings}{section.7}% 20
+\BOOKMARK [2][-]{subsection.7.12}{Calendar}{section.7}% 21
+\BOOKMARK [2][-]{subsection.7.13}{Messages}{section.7}% 22
+\BOOKMARK [2][-]{subsection.7.14}{Finances}{section.7}% 23
+\BOOKMARK [2][-]{subsection.7.15}{Maintenance}{section.7}% 24
+\BOOKMARK [2][-]{subsection.7.16}{Notifications}{section.7}% 25
+\BOOKMARK [1][-]{section.8}{Relational database structure}{}% 26
+\BOOKMARK [2][-]{subsection.8.1}{ER-Diagram}{section.8}% 27
+\BOOKMARK [2][-]{subsection.8.2}{Table Descriptions}{section.8}% 28
+\BOOKMARK [1][-]{section.9}{Communication protocols specified}{}% 29
+\BOOKMARK [1][-]{section.10}{Development Details}{}% 30

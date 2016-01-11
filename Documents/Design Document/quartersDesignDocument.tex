@@ -110,15 +110,6 @@ what design decisions needed to be made to realize the requirements – for inst
 %
 \section{Uses hierarchy, or control flow diagram, or inheritance graph}
 
-%
-\section{Traceability from requirements to design components}
-
-%
-\section{Traceability for anticipated changes to components}
-
-%
-\section{Error Handling}
-
 % User Interface
 \section{User interface elements descriptions}
 A description of the user interface design of Quarters is presented here. This section is divided into subsections of the UI navigation flow and the major UI elements. Each UI element is explained with the support of Norman's design principles and illustrated with screen images from a mockup. Norman's principles of design are briefly stated to provide some background on the design decisions of Quarters.
@@ -272,18 +263,26 @@ This section holds a list of maintenance tickets in chronological order. Each ti
 \subsection{Notifications}
 Notifications are accessed via the bell icon displayed in the top navigation bar. Notifications are viewed by clicking on the dropdown menu. Visibility is improved because the navigation bar is displayed on every page, therefore, notifications are displayed on every page. As a result, the user is always aware of application updates. Feedback is improved because the notification icon, the bell, changes color upon a new notification, and then reverts back to its default color to inform the user that they have read the notification.
 
-%
-\section{Overview of key algorithms}
-
 %Relational database structure
 \section{Relational database structure}
-\includegraphics[scale=0.397, angle=-90, keepaspectratio]{ER_Diagram}
+\subsection{ER-Diagram}
+\includegraphics[scale=0.5, keepaspectratio]{images/ER_Diagram.png}
+\subsection{Table Descriptions}
+\begin{itemize}
+    \item \textbf{user} - Store user credentials(email, password, role type)
+    \item \textbf{user\_info} - Store basic user informations(name, birthday etc.)
+    \item \textbf{house} - Store house informations (address, postal code, etc.)
+    \item \textbf{maintenance\_tickets} - Store maintenance tickets details
+    \item \textbf{discussion} - Store discussion posts
+    \item \textbf{priority\_level} - Specify priority levels (low, medium, high)
+    \item \textbf{role\_type} - Specify role types (tenants, landlord)
+    \item \textbf{calendar\_events} - Store calender event details
+    \item \textbf{notification} - Store notifications for users
+    \item \textbf{notification\_type} - Specify notification types (discussion, events, tickets, joined house, etc.)
+    
+\end{itemize}
 
-%
 \section{Communication protocols specified}
-
-%
-\section{Description of each component, or UI element, or database table}
 
 %
 \section{Development Details}
