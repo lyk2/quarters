@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 \BOOKMARK [1][-]{section.1}{User Interface Elements Descriptions}{}% 1
 \BOOKMARK [2][-]{subsection.1.1}{Navigation Flow}{section.1}% 2
 \BOOKMARK [2][-]{subsection.1.2}{Norman's Design Principles}{section.1}% 3
@@ -19,37 +18,4 @@
 \BOOKMARK [1][-]{section.2}{Relational Database Structure}{}% 18
 \BOOKMARK [2][-]{subsection.2.1}{ER-Diagram}{section.2}% 19
 \BOOKMARK [2][-]{subsection.2.2}{Table Descriptions}{section.2}% 20
-\BOOKMARK [1][-]{section.3}{Communication Protocols}{}% 21
-\BOOKMARK [1][-]{section.4}{Development Details}{}% 22
-=======
-\BOOKMARK [1][-]{section.1}{Introduction and Overview}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Document Structure}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{Design Principles}{section.1}% 3
-\BOOKMARK [1][-]{section.2}{Connection between requirements and design}{}% 4
-\BOOKMARK [1][-]{section.3}{Anticipated Changes}{}% 5
-\BOOKMARK [1][-]{section.4}{Unlikely Changes}{}% 6
-\BOOKMARK [1][-]{section.5}{Decomposition into Components}{}% 7
-\BOOKMARK [1][-]{section.6}{Uses hierarchy, or control flow diagram, or inheritance graph}{}% 8
-\BOOKMARK [1][-]{section.7}{User Interface Elements Descriptions}{}% 9
-\BOOKMARK [2][-]{subsection.7.1}{Navigation Flow}{section.7}% 10
-\BOOKMARK [2][-]{subsection.7.2}{Norman's Design Principles}{section.7}% 11
-\BOOKMARK [2][-]{subsection.7.3}{Landing Page}{section.7}% 12
-\BOOKMARK [2][-]{subsection.7.4}{Sign Up}{section.7}% 13
-\BOOKMARK [2][-]{subsection.7.5}{Join or Create House}{section.7}% 14
-\BOOKMARK [2][-]{subsection.7.6}{Login}{section.7}% 15
-\BOOKMARK [2][-]{subsection.7.7}{Navigation bars}{section.7}% 16
-\BOOKMARK [2][-]{subsection.7.8}{Bulletin Board}{section.7}% 17
-\BOOKMARK [2][-]{subsection.7.9}{House Management}{section.7}% 18
-\BOOKMARK [2][-]{subsection.7.10}{User Settings}{section.7}% 19
-\BOOKMARK [2][-]{subsection.7.11}{House Settings}{section.7}% 20
-\BOOKMARK [2][-]{subsection.7.12}{Calendar}{section.7}% 21
-\BOOKMARK [2][-]{subsection.7.13}{Messages}{section.7}% 22
-\BOOKMARK [2][-]{subsection.7.14}{Finances}{section.7}% 23
-\BOOKMARK [2][-]{subsection.7.15}{Maintenance}{section.7}% 24
-\BOOKMARK [2][-]{subsection.7.16}{Notifications}{section.7}% 25
-\BOOKMARK [1][-]{section.8}{Relational Database Structure}{}% 26
-\BOOKMARK [2][-]{subsection.8.1}{ER-Diagram}{section.8}% 27
-\BOOKMARK [2][-]{subsection.8.2}{Table Descriptions}{section.8}% 28
-\BOOKMARK [1][-]{section.9}{Communication Protocols}{}% 29
-\BOOKMARK [1][-]{section.10}{Development Details}{}% 30
->>>>>>> 8aa5f4b3a99699448a8865b2fd99c34812179fa0
+\BOOKMARK [1][-]{section.3}{Development Details}{}% 21
