@@ -68,7 +68,9 @@ width=2em, text centered]
 \begin{tabular}{|c|c|}
 \hline
 \textbf{Date}  & \textbf{Comments} \\ \hline
-January 5, 2016 & Created first draft. \\
+January 5, 2016 & Revision 0 \\ \hline
+January 10, 2016 & Revision 1\\ \hline
+January 11, 2016 & Revision 2\\
 \hline
 \end{tabular}
 
@@ -142,7 +144,7 @@ Don Norman lists six principles to support software usability in his book \texti
 \subsection{Landing Page}
 The purpose of the landing page is to provide information about the web application's features, and to allow the potential user to sign up. There is also a login button for returning users. Both the signup and login buttons are designed to afford clicking and both are placed in convenient and visible locations. The landing page is designed to capture a potential user's interest in the web application by making it appear modern, secure, easy to use, and beneficial through the use of fonts, colors, and layout. A big image covers the landing page that is meant to evoke feelings for a desire of that lifestyle the user could have if they joined Quarters. See Figure \ref{fig:landingPage}.
 
-\begin{figure}
+\begin{figure}[bp]
 \centering
 \includegraphics[width=\textwidth]{landing}
 \caption{Screen image of Landing page}
@@ -248,6 +250,37 @@ Notifications are accessed via the bell icon displayed in the top navigation bar
         \item redirects to home page.
     \end{itemize}
 \end{itemize}
+
+
+\subsection{Sign Up}
+
+\begin{itemize}
+    \item Allows user to register for an account on Quarters.
+    
+    \item \textbf{validateEmail(email)}
+    \begin{itemize}
+        \item validate email against database for uniqueness
+        \item outputs error if emails is invalid
+    \end{itemize}
+    \item \textbf{signup(email,pass)}
+    \begin{itemize}
+        \item send sign up request with user credential to server to be added to database.
+        \item redirect user to main application after sign up is successful.
+    \end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Login}
+\begin{itemize}
+    \item Allows user to login into Quarters application.
+    \item \textbf{login(email,pass)}
+    \begin{itemize}
+        \item send login request with user credential to server to be verified.
+        \item outputs appropriate error message if credential is incorrect.
+        \item redirect user to main application if login is successful.
+    \end{itemize}
+\end{itemize}
+
 
 \subsection{House Management}
 \begin{itemize}
@@ -388,45 +421,15 @@ Notifications are accessed via the bell icon displayed in the top navigation bar
     \item updates the statuses of the noticiations (seen, unseen).
     \end{itemize}
 \end{itemize}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Login}
-\begin{itemize}
-    \item Allows user to login into Quarters application.
-\end{itemize}
-\subsubsection{Functions}
-\begin{itemize}
-    \item login(email,pass)
-    \begin{itemize}
-        \item send login request with user credential to server to be verified.
-        \item outputs appropriate error message if credential is incorrect.
-        \item redirect user to main application if login is successful.
-    \end{itemize}
-\end{itemize}
 
-\subsection{Sign Up}
-
-\begin{itemize}
-    \item Allows user to register for an account on Quarters.
-\end{itemize}
-\begin{itemize}
-    \item validateEmail(email)
-    \begin{itemize}
-        \item validate email against database for uniqueness
-        \item outputs error if emails is invalid
-    \end{itemize}
-    \item signup(email,pass)
-    \begin{itemize}
-        \item send sign up request with user credential to server to be added to database.
-        \item redirect user to main application after sign up is successful.
-    \end{itemize}
-\end{itemize}
 
 
 %Relational database structure
 \section{Relational Database Structure}
 \subsection{ER-Diagram}
 See Figure \ref{fig:er}.
-\begin{figure}[h]
+\begin{figure}[b]
+    \centering
   \includegraphics[scale=0.5, keepaspectratio]{images/ER_Diagram.png}
   \caption{ER-Diagram}
   \label{fig:er}

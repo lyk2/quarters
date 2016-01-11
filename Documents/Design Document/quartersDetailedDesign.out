@@ -17,16 +17,15 @@
 \BOOKMARK [2][-]{subsection.1.16}{Notifications}{section.1}% 17
 \BOOKMARK [1][-]{section.2}{Module Decomposition}{}% 18
 \BOOKMARK [2][-]{subsection.2.1}{Quarters application}{section.2}% 19
-\BOOKMARK [2][-]{subsection.2.2}{House Management}{section.2}% 20
-\BOOKMARK [2][-]{subsection.2.3}{Bulletin Board}{section.2}% 21
-\BOOKMARK [2][-]{subsection.2.4}{Calendar}{section.2}% 22
-\BOOKMARK [2][-]{subsection.2.5}{Financial}{section.2}% 23
-\BOOKMARK [2][-]{subsection.2.6}{Ticketing System}{section.2}% 24
-\BOOKMARK [2][-]{subsection.2.7}{Notification}{section.2}% 25
-\BOOKMARK [2][-]{subsection.2.8}{Login}{section.2}% 26
-\BOOKMARK [3][-]{subsubsection.2.8.1}{Functions}{subsection.2.8}% 27
-\BOOKMARK [2][-]{subsection.2.9}{Sign Up}{section.2}% 28
-\BOOKMARK [1][-]{section.3}{Relational Database Structure}{}% 29
-\BOOKMARK [2][-]{subsection.3.1}{ER-Diagram}{section.3}% 30
-\BOOKMARK [2][-]{subsection.3.2}{Table Descriptions}{section.3}% 31
-\BOOKMARK [1][-]{section.4}{Development Details}{}% 32
+\BOOKMARK [2][-]{subsection.2.2}{Sign Up}{section.2}% 20
+\BOOKMARK [2][-]{subsection.2.3}{Login}{section.2}% 21
+\BOOKMARK [2][-]{subsection.2.4}{House Management}{section.2}% 22
+\BOOKMARK [2][-]{subsection.2.5}{Bulletin Board}{section.2}% 23
+\BOOKMARK [2][-]{subsection.2.6}{Calendar}{section.2}% 24
+\BOOKMARK [2][-]{subsection.2.7}{Financial}{section.2}% 25
+\BOOKMARK [2][-]{subsection.2.8}{Ticketing System}{section.2}% 26
+\BOOKMARK [2][-]{subsection.2.9}{Notification}{section.2}% 27
+\BOOKMARK [1][-]{section.3}{Relational Database Structure}{}% 28
+\BOOKMARK [2][-]{subsection.3.1}{ER-Diagram}{section.3}% 29
+\BOOKMARK [2][-]{subsection.3.2}{Table Descriptions}{section.3}% 30
+\BOOKMARK [1][-]{section.4}{Development Details}{}% 31
