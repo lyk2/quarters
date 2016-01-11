@@ -222,7 +222,7 @@ House Settings is accessible via the side navigation bar. Important documents up
 \subsection{Calendar}
 The Calendar resembles the UI of \href{https://apps.google.com/products/calendar/‎}{Google Calendar} because it is a widely used calendar that allows for some familiarity. The checkbox group showcasing different calendars improves visibility of the calendar state. The Calendar should be designed so that users can click on a day or established event to make changes, as opposed to only allowing users to make changes using the buttons positioned above the Calendar. In this way, the natural mapping allows users to interact with the Calendar in an intuitive manner. See Figure \ref{fig:calendar}.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=\textwidth]{calendar}
 \caption{Screen image of Calendar page}
@@ -232,7 +232,7 @@ The Calendar resembles the UI of \href{https://apps.google.com/products/calendar
 \subsection{Messages}
 A basic chat history of direct messages between two users is displayed here. The messages section is separate from the online users section. An image of the user accompanies each message. Again, a simple, uncluttered interface is important to ensure the user experience is as quick as possible. See Figure \ref{fig:messages}.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=\textwidth]{messages}
 \caption{Screen image of Messages page}
@@ -242,7 +242,7 @@ A basic chat history of direct messages between two users is displayed here. The
 \subsection{Finances}
 The main focus of this page is a table displaying all bills owed and owing. See Figure \ref{fig:finances}.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=\textwidth]{finances}
 \caption{Screen image of Finances page}
@@ -252,7 +252,7 @@ The main focus of this page is a table displaying all bills owed and owing. See 
 \subsection{Maintenance}
 This section holds a list of maintenance tickets in chronological order. Each ticket is accompanied by a corresponding icon to symbolize the type of ticket. Colors are used to differentiate the priority levels of each ticket. Each ticket is displayed in its own horizontal panel. See Figure \ref{fig:maintenance}.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=\textwidth]{maintenance}
 \caption{Screen image of Maintenance page}
@@ -265,7 +265,12 @@ Notifications are accessed via the bell icon displayed in the top navigation bar
 %Relational database structure
 \section{Relational Database Structure}
 \subsection{ER-Diagram}
-\includegraphics[scale=0.5, keepaspectratio]{images/ER_Diagram.png}
+See Figure \ref{fig:er}.
+\begin{figure}[h]
+  \includegraphics[scale=0.5, keepaspectratio]{images/ER_Diagram.png}
+  \caption{ER-Diagram}
+  \label{fig:er}
+\end{figure}
 \subsection{Table Descriptions}
 \begin{itemize}
     \item \textbf{user} - Store user credentials(email, password, role type)
