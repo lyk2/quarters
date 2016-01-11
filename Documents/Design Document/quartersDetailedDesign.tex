@@ -78,6 +78,7 @@ January 5, 2016 & Created first draft. \\
 
 % User Interface
 \section{User Interface Elements Descriptions}
+
 A description of the user interface (UI) design of Quarters is presented here. This section is divided into subsections of the UI navigation flow and the major UI elements. Each UI element is explained with the support of Norman's design principles and illustrated with screen images from a mockup. Norman's principles of design are briefly stated to provide some background on the UI design principles of Quarters.
 
 \subsection{Navigation Flow}
@@ -163,7 +164,6 @@ See \ref{management}.
 
 \subsection{Login}
 Designed similarly to the sign up page, the login page has strong visibility. The empty fields afford input. The login button is disabled until the user enters valid input.
-\subsubsection{Functions}
 
 \subsection{Navigation bars}
 Every page of the application has the same layout for consistency. Each page consists of a top navigation bar and a left navigation bar, and the remaining space is devoted to hold the content of that specific page. The structure of the navigation bars are consistent throughout the application to improve learnability. Fonts, colors and layouts are consistent, as well. The whole user experience, from signing up to logging out, is responsive. This means that regardless of the screen window size, the user will be able to access all functionality of the application. For example, the navigation bars collapse to a toggle menu in smaller screen sizes to ensure the premium screen space is occupied mainly by content with which the user will spend the most time interacting. The intuitive iconography of the navigation bars clearly indicate there are more options hiding deeper down, and thus, demonstrates strong visibility.
@@ -230,7 +230,28 @@ This section holds a list of maintenance tickets in chronological order. Each ti
 \subsection{Notifications}
 Notifications are accessed via the bell icon displayed in the top navigation bar. Notifications are viewed by clicking on the dropdown menu. Visibility is improved because the navigation bar is displayed on every page, therefore, notifications are displayed on every page. As a result, the user is always aware of application updates. Feedback is improved because the notification icon, the bell, changes color upon a new notification, and then reverts back to its default color to inform the user that they have read the notification.
 
-%Relational database structure
+%Relational database stru
+
+
+\section{Module Decomposition}
+
+\subsection{Login}
+\begin{itemize}
+    \item Allows user to login into Quarters application.
+\end{itemize}
+Functions
+\begin{itemize}
+    \item login(email,pass)
+    \begin{itemize}
+        \item send login request with user credential to server to be verified.
+        \item outputs appropriate error message if logins is 
+    \end{itemize}
+\end{itemize}
+
+\subsection{Sign Up}
+
+
+
 \section{Relational Database Structure}
 \subsection{ER-Diagram}
 See Figure \ref{fig:er}.
