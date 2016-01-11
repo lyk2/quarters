@@ -3,6 +3,8 @@
 Documents/Problem Statement/quarters_ProblemStatement.tex.bak
 *.aux
 *.bak
+*.lof
+*.out
 Documents/Problem Statement/quarters_ProblemStatement.pdf
 *.toc
 Documents/Problem Statement/quarters_ProblemStatement.pdf
