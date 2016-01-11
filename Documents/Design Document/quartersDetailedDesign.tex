@@ -230,10 +230,50 @@ This section holds a list of maintenance tickets in chronological order. Each ti
 \subsection{Notifications}
 Notifications are accessed via the bell icon displayed in the top navigation bar. Notifications are viewed by clicking on the dropdown menu. Visibility is improved because the navigation bar is displayed on every page, therefore, notifications are displayed on every page. As a result, the user is always aware of application updates. Feedback is improved because the notification icon, the bell, changes color upon a new notification, and then reverts back to its default color to inform the user that they have read the notification.
 
-%Relational database stru
-
-
+%Module Decomposition
 \section{Module Decomposition}
+
+\subsection{Quarters application}
+\begin{itemize}
+    \item builds the entire application on the web.
+    \item access different modules to build certain features.
+    \item \textbf{startApp (feature)}
+    \begin{itemize}
+        \item builds the view.
+        \item builds the specific feature provided by the argument.
+    \end{itemize}
+        \item \textbf{logout()}
+    \begin{itemize}
+        \item clears server sided session data.
+        \item redirects to home page.
+    \end{itemize}
+\end{itemize}
+
+\subsection{House Management}
+\begin{itemize}
+    \item conceals information with regard to housing and roles.
+    \item \textbf{houseLookup(userID)}
+    \begin{itemize}
+        \item returns a list of houseIDs a user is a part of.
+    \end{itemize}
+    \item \textbf{houseInfo(houseID)}
+    \begin{itemize}
+        \item returns information about a house as a JSON object.
+        \item description, users in the house and their roles.
+    \end{itemize}
+    \item \textbf{joinHouse(userID, houseID)}
+    \begin{itemize}
+        \item userID is a part of the house at the corresponding houseID.
+    \end{itemize}
+    \item \textbf{leaveHouse(userID, houseID)}
+    \begin{itemize}
+        \item userID leaves the house at houseID.
+    \end{itemize}
+    \item \textbf{updateHouseInformation(userID, houseID)}
+    \begin{itemize}
+        \item checks if userID has permission to update houseID.
+    \end{itemize}
+\end{itemize}
 
 \subsection{Login}
 \begin{itemize}
@@ -250,8 +290,10 @@ Functions
 
 \subsection{Sign Up}
 
+\subsection{•}
 
 
+%Relational database structure
 \section{Relational Database Structure}
 \subsection{ER-Diagram}
 See Figure \ref{fig:er}.
