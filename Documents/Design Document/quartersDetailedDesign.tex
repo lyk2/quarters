@@ -279,18 +279,33 @@ Notifications are accessed via the bell icon displayed in the top navigation bar
 \begin{itemize}
     \item Allows user to login into Quarters application.
 \end{itemize}
-Functions
+\subsubsection{Functions}
 \begin{itemize}
     \item login(email,pass)
     \begin{itemize}
         \item send login request with user credential to server to be verified.
-        \item outputs appropriate error message if logins is 
+        \item outputs appropriate error message if credential is incorrect.
+        \item redirect user to main application if login is successful.
     \end{itemize}
 \end{itemize}
 
 \subsection{Sign Up}
 
-\subsection{•}
+\begin{itemize}
+    \item Allows user to register for an account on Quarters.
+\end{itemize}
+\begin{itemize}
+    \item validateEmail(email)
+    \begin{itemize}
+        \item validate email against database for uniqueness
+        \item outputs error if emails is invalid
+    \end{itemize}
+    \item signup(email,pass)
+    \begin{itemize}
+        \item send sign up request with user credential to server to be added to database.
+        \item redirect user to main application after sign up is successful.
+    \end{itemize}
+\end{itemize}
 
 
 %Relational database structure
