@@ -52,7 +52,7 @@ width=2em, text centered]
 
 \begin{document}
 
-\title{Design Document for Quarters}
+\title{Detailed Design for Quarters}
 \author{Team 6\\ \\James Anthony (anthonjb)\\ Wenqiang Chen (chenw25)\\ Carolyn Chong
 (chongce)\\ Kevin Ly (lyk2)}
 \date{\today}
@@ -76,43 +76,11 @@ January 5, 2016 & Created first draft. \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Introduction and Overview
-\section{Introduction and Overview}
-
-\subsection{Document Structure}
-This document provides insight as to how Quarters was built. Design principles are stated followed by a list of anticipated and unlikely changes. The web application's system architecture is then decomposed and the design details explained based on the Software Requirements Specifications (SRS) document.
-
-\subsection{Design Principles}
-TBC. includes a clear statement of what design principle(s) is (are)being used. The web application was designed in a XXX manner. This was to ensure XXX. Decomposition follows the design principle suggested for the design. In many cases the appropriate design principle will be design for change (information hiding). Methodologies include top-down, bottom-up, stepwise refinement, prototyping, modular, or object-oriented.
-
-
-%Connection between requirements and design
-\section{Connection between requirements and design}
-what design decisions needed to be made to realize the requirements – for instance, if there are security NFRs, what decision is made onhow to do this – password protection?
-
-%Anticipated Changes
-\section{Anticipated Changes}
-\begin{enumerate}
-  \item \textbf{Design of user interface:} The user interface is expected to change based on feedback from users during usability testing. The interface is expected to change in ways that increase visibility and are more intuitive to use.
-  \item \textbf{Removal of features:} Some features are expected to be removed based on user feedback. If usability testing indicates that a specific feature would not be utilized then it should be removed .
-\end{enumerate}
-
-%Unlikely Changes
-\section{Unlikely Changes}
-\begin{enumerate}
-  \item \textbf{Login via social media:} Allows the user to login using accounts from other services such as Facebook, Gmail, Twitter, etc.
-  \item \textbf{Live chat:} A platform for real-time communication between users who are currently logged on to Quarters.
-\end{enumerate}
-
-%
-\section{Decomposition into Components}
-
-%
-\section{Uses hierarchy, or control flow diagram, or inheritance graph}
+\cc{How errors are to be handled is specified. - 5 marks}
 
 % User Interface
-\section{User interface elements descriptions}
-A description of the user interface design of Quarters is presented here. This section is divided into subsections of the UI navigation flow and the major UI elements. Each UI element is explained with the support of Norman's design principles and illustrated with screen images from a mockup. Norman's principles of design are briefly stated to provide some background on the design decisions of Quarters.
+\section{User Interface Elements Descriptions}
+A description of the user interface (UI) design of Quarters is presented here. This section is divided into subsections of the UI navigation flow and the major UI elements. Each UI element is explained with the support of Norman's design principles and illustrated with screen images from a mockup. Norman's principles of design are briefly stated to provide some background on the UI design principles of Quarters.
 
 \subsection{Navigation Flow}
 See Figure \ref{fig:flowchart}. Users are directed to the landing page. From there new users can sign up or returning users can login. After signing up, the new user will be prompted to either join a house or create a house in order to access the rest of the application. After logging in, the returning user will be directed to the main page of the application, called the Bulletin Board. The other pages of the application, including House Management and User Settings can be accessed from any page via the top navigation bar while House Settings, Calendar, Messages, Finances and Maintenance can all be navigated to from any page using the side navigation bar.\\
@@ -264,7 +232,7 @@ This section holds a list of maintenance tickets in chronological order. Each ti
 Notifications are accessed via the bell icon displayed in the top navigation bar. Notifications are viewed by clicking on the dropdown menu. Visibility is improved because the navigation bar is displayed on every page, therefore, notifications are displayed on every page. As a result, the user is always aware of application updates. Feedback is improved because the notification icon, the bell, changes color upon a new notification, and then reverts back to its default color to inform the user that they have read the notification.
 
 %Relational database structure
-\section{Relational database structure}
+\section{Relational Database Structure}
 \subsection{ER-Diagram}
 \includegraphics[scale=0.5, keepaspectratio]{images/ER_Diagram.png}
 \subsection{Table Descriptions}
@@ -282,7 +250,8 @@ Notifications are accessed via the bell icon displayed in the top navigation bar
     
 \end{itemize}
 
-\section{Communication protocols specified}
+\section{Communication Protocols}
+\cc{TBC}.
 
 %
 \section{Development Details}
