@@ -1,9 +1,11 @@
 doctype html
 html(lang='en')
 	include ./assets/head.jade
+	block css
 	body
 		#wrapper
 			include ./assets/nav.jade
 		#page-wrapper
 			block content
 		include ./assets/footer.jade
+		block js
