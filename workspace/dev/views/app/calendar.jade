@@ -1,30 +1,73 @@
 extends ./app.jade
 
 block css
-	link(href='../css/calendar.css', rel='stylesheet')
+	//- link(href='../css/calendar.css', rel='stylesheet')
+	link(rel='stylesheet' href='../css/fullcalendar.css')
+	
 
 block js
-	script(src='../js/calendar.js')
+	//- script(src='../js/calendar.js')
+	script(src='../js/jquery.min.js')
+	script(src='../js/moment.min.js')
+	script(src='../js/fullcalendar.js')
+	script.
+		$(document).ready(function() {
+
+			/* initialize the external events */
+			$('#external-events .fc-event').each(function() {
+
+				// store data so the calendar knows to render an event upon drop
+				$(this).data('event', {
+					title: $.trim($(this).text()), // use the element's text as the event title
+					stick: true // maintain when user navigates (see docs on the renderEvent method)
+				});
+
+				// make the event draggable using jQuery UI
+				$(this).draggable({
+					zIndex: 999,
+					revert: true,      // will cause the event to go back to its
+					revertDuration: 0  //  original position after the drag
+				});
+
+			});
+
+			/* initialize the calendar */
+			$('#calendar').fullCalendar({
+
+				header: {
+			      left: 'prev,next today myCustomButton',
+			      center: 'title',
+			      right: 'month,agendaWeek,agendaDay'
+			    },
+
+			    nowIndicator: true,
+
+			    dayClick: function(date, jsEvent, view) {
+			        alert(date.format());
+			    },
+
+			    selectable: true,
+			})
+
+		});
 
 block content
-	div.row
-		div.col-lg-12
-			h1.page-header Calendar
-	div.row
-		label.checkbox-inline
-			input#inlineCheckbox1(type='checkbox', value='option1')
-			|  Chores
-		label.checkbox-inline
-			input#inlineCheckbox2(type='checkbox', value='option2')
-			|  Finances
-		label.checkbox-inline
-			input#inlineCheckbox3(type='checkbox', value='option3')
-			|  Maintenance
-		label.checkbox-inline
-			input#inlineCheckbox4(type='checkbox', value='option4')
-			|  Other
-		
-	div.row
-		div.col-xs-12
-		hr
+	#wrap
+
+		div.row
+			div.col-lg-12
+				h1.page-header Calendar
+
+		#external-events
+			h4 Draggable Events
+			.fc-event My Event 1
+			.fc-event My Event 2
+			.fc-event My Event 3
+			.fc-event My Event 4
+			.fc-event My Event 5
+			p
+				input#drop-remove(type='checkbox')
+				label(for='drop-remove') remove after drop
+
 		#calendar
+		div(style='clear:both')
