@@ -49,6 +49,7 @@ app.use('/signup', signup);
 app.use('/users', users);
 app.use('/login', login);
 app.use('/main', main);
+app.use('/db', db);
 
 
 // catch 404 and forward to error handler
