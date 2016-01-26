@@ -13,3 +13,5 @@ var connection = {
 var db = pgp(connection);
 
 module.exports = db;
+
+// https://github.com/vitaly-t/pg-promise

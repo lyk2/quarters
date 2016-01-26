@@ -7,7 +7,7 @@ var app = express();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.send('respond with a DB INTERFACE');
 });
 
 router.use('/house', house);
