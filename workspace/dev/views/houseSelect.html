@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Select House</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <!-- malihu scrollbar -->
+  <link rel="stylesheet" href="../public/css/jquery.mCustomScrollbar.css">
+  <script src="../public/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+  <script>
+    (function($){
+      $(window).load(function(){
+        $("#house-list").mCustomScrollbar({
+	  axis:"x",
+	  autoExpandScrollbar:true,
+	  advanced:{autoExpandHorizontalScroll:true}
+        });
+      });
+    })(jQuery);
+  </script>
+  
+</head>
+
+
+<body>
+  <h3>Join or create a house</h3>
+  <button type="button">Join</button>
+  <button type="button">Create</button>
+
+  <h3> Select a house </h3>
+  <div id="house-list" class="mCustomScrollbar">
+    <ul>
+      <li><h1 class="glyphicon glyphicon-home"> House 1</h1></li>
+      <li><h1 class="glyphicon glyphicon-home"> House 2</h1></li>
+      <li><h1 class="glyphicon glyphicon-home"> House 3</h1></li>
+      <li><h1 class="glyphicon glyphicon-home"> House 4</h1></li>
+      <li><h1 class="glyphicon glyphicon-home"> House 5</h1></li>
+      <li><h1 class="glyphicon glyphicon-home"> House 6</h1></li>
+    </ul>
+  </div>
+ 
+</body>
+</html>
