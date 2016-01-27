@@ -2,10 +2,10 @@ CREATE TABLE house
 (
   house_id serial NOT NULL,
   address character(100) NOT NULL,
-  city character(100) NOT NULL,
-  province character(100) NOT NULL,
-  country character(100) NOT NULL,
-  postal_code character(50) NOT NULL,
+  city character(100),
+  province character(100),
+  country character(100),
+  postal_code character(50),
   CONSTRAINT house_pkey PRIMARY KEY (house_id)
 );
 

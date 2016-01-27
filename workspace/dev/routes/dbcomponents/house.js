@@ -5,11 +5,29 @@ var db = require('./db-con');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
- 	res.send('respond with a house resource');
+ 	res.send('db house interface');
 });
 
 router.get('/create', function(req, res, next) {
-	res.send('created house with address: ' + req.query.address);
+
+	var data = req.query;
+
+	if (Object.keys(data).indexOf('address') != 0) {
+		var error = { errorcode: 'no address provided'};
+
+		res.send(JSON.stringify(error));
+		return;
+	}
+
+
+	db.query("INSERT INTO house (address) VALUES ($1) RETURNING *;", "123 test")
+ 	.then(function(data){
+ 		res.send(JSON.stringify(data[0]));
+
+ 		console.log(data);
+ 	}).catch(function(error){
+ 		res.send(error);
+ 	});
 });
 
 router.get('/connection', function(req, res, next) {
