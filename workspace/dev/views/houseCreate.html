@@ -1,73 +1,84 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Create House</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <style>
+    .input-label {
+        width:30%;
+    }
+  </style>
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <!-- Trigger modal -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#createHouseModal">Create House</button>
 
-    <!-- Latest compiled JavaScript -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!-- Modal -->
+  <div id="createHouseModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
-    <style>
-      .input-label {
-          width:150px;
-      }
-    </style>
-    
-  </head>
+      <!-- Modal content -->
+      <div class="modal-content">
+        <!-- Modal header -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 class="modal-title text-center">Create House</h3>
+        </div>
 
-
-  <!-- Make country a dropdown
-       Change postal/zip based on country
-       Change state/province based on country
-  -->
-  <body>
-  <div class="container">
-    <div class="row">
-    <div class="col-lg-12 text-center">
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <div class="container">
+          <div class="row">
+          <div class="col-lg-8">
         
-      <h3> House Creation </h3>
-      <p>Please select your country, and fill in the following fields to create your house</p>
+            <p>Please select your country, and fill in the following fields to create your house.</p>
 
-      <!-- Input Form -->
-      <form>
-        <div class="radio-inline" id="country">
-          <label class="radio-inline"><input type="radio" name="country-opt">Canada</label>
-          <label class="radio-inline"><input type="radio" name="country-opt">USA</label>
-          <label class="radio-inline"><input type="radio" name="country-opt">Other</label>
-        </div>
-        <br>
-        <br>
-        <div class="input-group col-xs-8">
-          <span class="input-group-addon input-label" id="password">Password</span>
-          <input type="text" class="form-control" placeholder="Required">
-        </div>
-        <div class="input-group col-xs-8">
-          <span class="input-group-addon input-label" id="address">Address</span>
-          <input type="text" class="form-control" placeholder="Required">
-        </div>
-        <div class="input-group col-xs-8">
-          <span class="input-group-addon input-label" id="city">City</span>
-          <input type="text" class="form-control">
-        </div>
-        <div class="input-group col-xs-8">
-          <span class="input-group-addon input-label" id="province">Province/State</span>
-          <input type="text" class="form-control">
-        </div>
-        <div class="input-group col-xs-8">
-          <span class="input-group-addon input-label" id="postal-code">Postal/Zip Code</span>
-          <input type="text" class="form-control">
-        </div>
-        <br>
-        <input type="submit" value="Create">
-      </form>
+            <!-- Input Form -->
+            <form>
+              <div class="radio-inline" id="country">
+                <label class="radio-inline"><input type="radio" name="country-opt">Canada</label>
+                <label class="radio-inline"><input type="radio" name="country-opt">USA</label>
+                <label class="radio-inline"><input type="radio" name="country-opt">Other</label>
+              </div>
+              <br>
+              <br>
+              <div class="input-group col-xs-8">
+                <span class="input-group-addon input-label" id="password">Password</span>
+                <input type="text" class="form-control" placeholder="Required">
+              </div>
+              <div class="input-group col-xs-8">
+                <span class="input-group-addon input-label" id="address">Address</span>
+                <input type="text" class="form-control" placeholder="Required">
+              </div>
+              <div class="input-group col-xs-8">
+                <span class="input-group-addon input-label" id="city">City</span>
+                <input type="text" class="form-control">
+              </div>
+              <div class="input-group col-xs-8">
+                <span class="input-group-addon input-label" id="province">Province/State</span>
+                <input type="text" class="form-control">
+              </div>
+              <div class="input-group col-xs-8">
+                <span class="input-group-addon input-label" id="postal-code">Postal/Zip Code</span>
+                <input type="text" class="form-control">
+              </div>
+            </form>
       
-    </div>
-    </div>
-  </div>
-  </body>
+          </div>
+          </div>
+          </div>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-defult" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Create</button>
+        </div>
+
+      </div> <!-- modal content -->
+    </div> <!-- modal dialog -->
+  </div> <!-- modal -->
 </html>
