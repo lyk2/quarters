@@ -3,6 +3,12 @@ var router = express.Router();
 var db = require('./db-con');
 
 
+// this is occurs on every request, use to check against session for valid use
+router.use(function timeLog(req, res, next) {
+  console.log('check session');
+  next();
+});
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
  	res.send('db house interface');

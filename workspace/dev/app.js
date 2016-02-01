@@ -9,8 +9,6 @@ var uuid = require('uuid');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var signup = require('./routes/signup');
-var login = require('./routes/login');
 var db = require('./routes/db');
 var main = require('./routes/main');
 
@@ -45,9 +43,7 @@ app.use(session({
 
 
 app.use('/', routes);
-app.use('/signup', signup);
 app.use('/users', users);
-app.use('/login', login);
 app.use('/main', main);
 app.use('/db', db);
 

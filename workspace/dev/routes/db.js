@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var house = require('./dbcomponents/house');
+var auth = require('./dbcomponents/authentication');
 
 var app = express();
 
@@ -11,6 +12,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.use('/house', house);
+router.use('/auth', auth);
 
 
 
