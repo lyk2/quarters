@@ -18,8 +18,6 @@ router.post('/signup', function(req, res, next) {
     // Hash the password with the salt
     var hash = bcrypt.hashSync(password, salt);
 
-    console.log(password);
-
     db.query('INSERT INTO "user"(email, password) values($1, $2)', [email, hash])
     .then(function(data){
         res.send('{"success":true}');
@@ -42,17 +40,6 @@ router.post('/em', function(req, res, next) {
  	});
 });
 
-router.get('/connection', function(req, res, next) {
-	db.one('SELECT NOW() as "theTime"')
-    .then(function (data) {
-        res.send('connection is online: ' + data.theTime);
-    })
-    .catch(function (error) {
-        res.send('failed');
-    });
-
-});
-
 router.post('/login', function(req, res, next) {
     var email = req.body.email;
     var password = req.body.password;
@@ -67,7 +54,10 @@ router.post('/login', function(req, res, next) {
             if (!bcrypt.compareSync(password, data[0].password.trim())) {
                 res.send('failed - err code 2');
             } else {
-                req.session.user = {uid: email, password: password};
+                req.session.user = {
+                    uid: data[0]["user_id"], 
+                    email: email
+                };
                 res.send('{"success":true}');
             }
         }
@@ -76,17 +66,6 @@ router.post('/login', function(req, res, next) {
         res.send('failed');
     });
 });
-
-
-function dbquery(){
-
-};
-
-
-
-
-
-
 
 
 module.exports = router;

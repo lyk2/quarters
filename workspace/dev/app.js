@@ -30,7 +30,7 @@ app.locals.db = {connect : "pg://quarters:qadmin@system.quarters.space/quarters"
 
 
 
-
+// should replace this with redis
 app.use(session({
   genid: function(req) {
     return uuid.v1();

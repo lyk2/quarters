@@ -51,7 +51,7 @@ router.get("/logout", function(req, res, next) {
 function genPageData (session) {
 
 	var data = {};
-	data.firstname = session.user.uid;
+	data.firstname = session.user.email;
 	data.house = "1280 Main St West";
 
 	return data;
