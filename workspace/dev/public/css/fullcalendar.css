@@ -1122,3 +1122,8 @@ be a descendant of the grid when it is being dragged.
 	border-top-color: transparent;
 	border-bottom-color: transparent;
 }
+
+/*.modal-backdrop
+{
+    background: white; !important;
+}*/

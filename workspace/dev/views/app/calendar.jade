@@ -2,7 +2,7 @@ extends ./app.jade
 
 block css
 	link(rel='stylesheet' href='../css/fullcalendar.css')
-	link(href='../fullcalendar.print.css', rel='stylesheet', media='print')
+	//- link(href='../css/fullcalendar.print.css', rel='stylesheet', media='print')
 	
 
 block js
@@ -90,20 +90,20 @@ block content
 			.modal-content
 				.modal-header
 					button.close(type='button', data-dismiss='modal')
-						span(aria-hidden='true') ×
+						span(aria-hidden='true') &times
 					h4.modal-title New Event
-			.modal-body
-				form#createEventForm.form-horizontal(role='form', action='')
-					.form-group
-						label.col-sm-2.control-label(for='eventName') Event:
-						.col-sm-10
-							input#eventName.form-control(type='text', name='eventName')
-							input#eventStartTime(type='hidden', name='eventStartTime')
-							input#eventEndTime(type='hidden', name='eventEndTime')
-							input#eventAllDay(type='hidden', name='eventAllDay')
-					.form-group
-						label.col-sm-2.control-label(for='when') When:
-						#when.col-sm-10
-			.modal-footer
-				button.btn(data-dismiss='modal', aria-hidden='true') Cancel
-				button#submitButton.btn.btn-primary(type='submit') Create Event
+				.modal-body
+					form#createEventForm.form-horizontal(role='form', action='')
+						.form-group
+							label.col-sm-2.control-label(for='eventName') Event:
+							.col-sm-10
+								input#eventName.form-control(type='text', name='eventName')
+								input#eventStartTime(type='hidden', name='eventStartTime')
+								input#eventEndTime(type='hidden', name='eventEndTime')
+								input#eventAllDay(type='hidden', name='eventAllDay')
+						.form-group
+							label.col-sm-2.control-label(for='when') When:
+							#when.col-sm-10
+				.modal-footer
+					button.btn(data-dismiss='modal', aria-hidden='true') Cancel
+					button#submitButton.btn.btn-primary(type='submit') Create Event
