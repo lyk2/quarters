@@ -1,0 +1,51 @@
+#myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+    .modal-dialog(role='document')
+        .modal-content
+            .modal-body(style='padding:0px')
+                .col-md-12(style='padding:0px')
+                    button.close(type='button', data-dismiss='modal', aria-label='Close', style='position: relative;top: 10px;left: -10px;z-index: 10;')
+                        span(aria-hidden='true') ×
+                    .panel.panel-login
+                        .panel-heading
+                            .row
+                                .col-xs-6
+                                    a#login-form-link.active(href='#') Login
+                                .col-xs-5
+                                    a#register-form-link(href='#') Register
+                            hr
+                        .panel-body
+                            .row
+                                .col-lg-12
+                                    form#login-form(action='/db/auth/login', method='post', role='form', style='display: block;')
+                                        .form-group
+                                            input#username.form-control(type='email', name='email', tabindex='1', placeholder='Email', value='', required)
+                                            #login-message.help-block.with-errors
+                                        .form-group
+                                            input#password.form-control(type='password', name='password', tabindex='2', placeholder='Password', required)
+                                            .help-block.with-errors
+                                        .form-group.text-center
+                                            input#remember(type='checkbox', tabindex='3', name='remember')
+                                            label(for='remember')  Remember Me
+                                        .form-group
+                                            .row
+                                                .col-sm-6.col-sm-offset-3
+                                                    input#login-submit.form-control.btn.btn-login(type='submit', name='login-submit', tabindex='4', value='Log In')
+                                        .form-group
+                                            .row
+                                                .col-lg-12
+                                                    .text-center
+                                                        a.forgot-password(href='http://phpoll.com/recover', tabindex='5') Forgot Password?
+                                    form#register-form(action='/db/auth/signup', method='post', role='form', style='display: none;', data-toggle="validator")
+                                        .form-group
+                                            input#email.form-control(type='email', name='email', tabindex='1', placeholder='Email Address', value='', required)
+                                            #email-message.help-block.with-errors
+                                        .form-group
+                                            input#inputpassword.form-control(type='password', name='password', tabindex='2', placeholder='Password', data-minlength="6", required)
+                                            .help-block.with-errors
+                                        .form-group
+                                            input#confirm-password.form-control(type='password', name='confirm-password', tabindex='2', placeholder='Confirm Password', data-match="#inputpassword", data-minlength="6", data-match-error="Passwords do not match.", required)
+                                            .help-block.with-errors
+                                        .form-group
+                                            .row
+                                                .col-sm-6.col-sm-offset-3
+                                                    input#register-submit.form-control.btn.btn-register(type='submit', name='register-submit', tabindex='4', value='Register Now')
