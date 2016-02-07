@@ -25,7 +25,7 @@
     <div class="modal-content">
       <!-- Modal header -->
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <button type="safe-close" class="close" data-dismiss="modal">&times;</button>
         <h3 class="modal-title text-center">Join, Create, or Select a House</h3>
       </div>
       
@@ -34,23 +34,31 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-8">        
-              <button type="button" class="btn btn-info btn-primary">Join</button>
+              <button id="join-button" type="button" class="btn btn-info btn-primary">Join New</button>
               <button id="create-house" type="button" class="btn btn-info btn-primary">Create</button>
             </div>
+            <br>
             <div id="house-list" class="mCustomScrollbar col-xs-8">
               <ul>
-                <li><h1 class="glyphicon glyphicon-home"> House 1</h1></li>
-                <li><h1 class="glyphicon glyphicon-home"> House 2</h1></li>
-                <li><h1 class="glyphicon glyphicon-home"> House 3</h1></li>
-                <li><h1 class="glyphicon glyphicon-home"> House 4</h1></li>
-                <li><h1 class="glyphicon glyphicon-home"> House 5</h1></li>
-                <li><h1 class="glyphicon glyphicon-home"> House 6</h1></li>
+                <li><h1 class="glyphicon glyphicon-home"> House 1 </h1></li>
+                <li><h1 class="glyphicon glyphicon-home"> House 2 </h1></li>
+                <li><h1 class="glyphicon glyphicon-home"> House 3 </h1></li>
+                <li><h1 class="glyphicon glyphicon-home"> House 4 </h1></li>
+                <li><h1 class="glyphicon glyphicon-home"> House 5 </h1></li>
+                <li><h1 class="glyphicon glyphicon-home"> House 6 </h1></li>
               </ul>
             </div>
           </div>
         </div>
       </div>
-
+      
+      <div class="modal-footer">
+        <div class="col-lg-8">
+          <button type="button" class="btn btn-info btn-primary">Leave House</button>
+          <button type="button" class="btn btn-info btn-primary">Set Default</button>
+        </div>
+      </div>
+      
     </div>
   </div>
 </div>
@@ -65,7 +73,7 @@
     <div class="modal-content">
       <!-- Modal header -->
       <div class="modal-header">
-        <button id="safe-close1" type="button" class="close" data-dismiss="modal">&times;</button>
+        <button type="safe-close" class="close" data-dismiss="modal">&times;</button>
         <h3 class="modal-title text-center">Create House</h3>
       </div>
 
@@ -85,10 +93,6 @@
                 </div>
                 <br>
                 <br>
-                <div class="input-group col-xs-8">
-                  <span class="input-group-addon input-label" id="password">Password</span>
-                  <input type="text" class="form-control" placeholder="Required">
-                </div>
                 <div class="input-group col-xs-8">
                   <span class="input-group-addon input-label" id="address">Address</span>
                   <input type="text" class="form-control" placeholder="Required">
@@ -113,7 +117,8 @@
 
       <!-- Modal Footer -->
       <div class="modal-footer">
-        <button id="safe-close2" type="button" class="btn btn-defult" data-dismiss="modal">Close</button>
+        <button type="safe-close" class="btn btn-defult" data-dismiss="modal">Close</button>
+        <button id="safe-back" type="button" class="btn btn-defult" data-dismiss="modal">Back</button>
         <button type="button" class="btn btn-primary">Create</button>
       </div>
 
@@ -121,6 +126,50 @@
   </div> <!-- modal dialog -->
 </div> <!-- modal -->
 <!------------------------ END OF HOUSE CREATION WINDOW ------------------------>
+
+<!------------------------- START OF JOIN HOUSE WINDOW ------------------------->
+<!-- Modal -->
+<div id="joinHouseModal" class="modal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <!-- Modal header -->
+      <div class="modal-header">
+        <button type="safe-close" class="close" data-dismiss="modal">&times;</button>
+        <h3 class="modal-title text-center">Join House</h3>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8">
+              <p>Please enter your invitation code below.</p>
+              <!-- Input Form -->
+              <form>
+                <div class="input-group col-xs-8">
+                  <span class="input-group-addon input-label" id="invite-code">Invitation Code</span>
+                  <input type="text" class="form-control" placeholder="Required">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button type="safe-close" class="btn btn-defult" data-dismiss="modal">Close</button>
+        <button id="safe-back2" type="button" class="btn btn-defult" data-dismiss="modal">Back</button>
+        <button type="button" class="btn btn-primary">Join</button>
+      </div>
+      
+    </div> <!-- end modal content -->
+  </div> <!-- end modal dialog -->
+</div> <!-- end modal -->
+
+<!-------------------------- END OF JOIN HOUSE WINDOW -------------------------->
 
 <!-- MODAL SCRIPTS -->
 <script>
@@ -135,12 +184,42 @@ $("#create-house").on("click", function() {
     showCreateHouse();
 });
 
-$("#safe-close1").on("click", function () {
+// Close modal window while avoiding rendering errors
+$('button[type="safe-close"]').on("click", function () {
     $(".modal-backdrop").fadeOut("slow");
 });
 
-$("#safe-close2").on("click", function () {
-    $(".modal-backdrop").fadeOut("slow");
+// Hide create house modal, and show select house modal
+function showSelectHouse() {
+    $("#createHouseModal").removeClass("fade").modal("hide");
+    $("#selectHouseModal").modal("show").addClass("fade");
+}
+
+// Move back one page from the create house modal
+$("#safe-back").on("click", function() {
+    showSelectHouse();
+});
+
+// Hide select house modal, and show join house modal
+function showJoinHouse() {
+    $("#selectHouseModal").removeClass("fade").modal("hide");
+    $("#joinHouseModal").modal("show").addClass("fade");
+}
+
+// Show join house modal
+$("#join-button").on("click", function () {
+    showJoinHouse();
+});
+
+// Hide join house modal, and show select house modal
+function showSelectHouse2() {
+    $("#joinHouseModal").removeClass("fade").modal("hide");
+    $("#selectHouseModal").modal("show").addClass("fade");
+}
+
+// Move back one page from the join house modal window
+$("#safe-back2").on("click", function() {
+    showSelectHouse2();
 });
 </script>
 <!-- END MODAL SCRIPTS -->
