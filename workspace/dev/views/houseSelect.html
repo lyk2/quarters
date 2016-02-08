@@ -85,7 +85,7 @@
               <p>Please select your country, and fill in the following fields to create your house.</p>
 
               <!-- Input Form -->
-              <form>
+              <form id="create-house-form">
                 <div class="radio-inline" id="country">
                   <label class="radio-inline"><input type="radio" name="country-opt">Canada</label>
                   <label class="radio-inline"><input type="radio" name="country-opt">USA</label>
@@ -94,20 +94,20 @@
                 <br>
                 <br>
                 <div class="input-group col-xs-8">
-                  <span class="input-group-addon input-label" id="address">Address</span>
-                  <input type="text" class="form-control" placeholder="Required">
+                  <span class="input-group-addon input-label">Address</span>
+                  <input type="text" class="form-control" id="address" placeholder="Required">
                 </div>
                 <div class="input-group col-xs-8">
-                  <span class="input-group-addon input-label" id="city">City</span>
-                  <input type="text" class="form-control">
+                  <span class="input-group-addon input-label">City</span>
+                  <input type="text" class="form-control" id="city">
                 </div>
                 <div class="input-group col-xs-8">
-                  <span class="input-group-addon input-label" id="province">Province/State</span>
-                  <input type="text" class="form-control">
+                  <span class="input-group-addon input-label">Province/State</span>
+                  <input type="text" class="form-control" id="province">
                 </div>
                 <div class="input-group col-xs-8">
-                  <span class="input-group-addon input-label" id="postal-code">Postal/Zip Code</span>
-                  <input type="text" class="form-control">
+                  <span class="input-group-addon input-label">Postal/Zip Code</span>
+                  <input type="text" class="form-control" id="postalCode">
                 </div>
               </form>
             </div>
@@ -119,7 +119,7 @@
       <div class="modal-footer">
         <button type="safe-close" class="btn btn-defult" data-dismiss="modal">Close</button>
         <button id="safe-back" type="button" class="btn btn-defult" data-dismiss="modal">Back</button>
-        <button type="button" class="btn btn-primary">Create</button>
+        <button id="submit-create-house" type="button" class="btn btn-primary">Create</button>
       </div>
 
     </div> <!-- modal content -->
@@ -223,6 +223,20 @@ $("#safe-back2").on("click", function() {
 });
 </script>
 <!-- END MODAL SCRIPTS -->
+
+<!-- HOUSE CREATION SCRIPTS -->
+<script>
+$("#submit-create-house").click(function(event){
+  var data = {
+    address: $("#address").val(),
+    city: $("#city").val(),
+    province: $("#province").val(),
+    postalCode: $("#postalCode").val()
+  };
+});
+  
+</script>
+<!-- END HOUSE CREATION SCRIPTS -->
 
 <script>
   (function($){
