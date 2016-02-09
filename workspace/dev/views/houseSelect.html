@@ -33,20 +33,54 @@
       <div class="modal-body">
         <div class="container">
           <div class="row">
-            <div class="col-lg-8">        
-              <button id="join-button" type="button" class="btn btn-info btn-primary">Join New</button>
-              <button id="create-house" type="button" class="btn btn-info btn-primary">Create</button>
-            </div>
-            <br>
-            <div id="house-list" class="mCustomScrollbar col-xs-8">
-              <ul>
-                <li><h1 class="glyphicon glyphicon-home"> House 1 </h1></li>
-                <li><h1 class="glyphicon glyphicon-home"> House 2 </h1></li>
-                <li><h1 class="glyphicon glyphicon-home"> House 3 </h1></li>
-                <li><h1 class="glyphicon glyphicon-home"> House 4 </h1></li>
-                <li><h1 class="glyphicon glyphicon-home"> House 5 </h1></li>
-                <li><h1 class="glyphicon glyphicon-home"> House 6 </h1></li>
-              </ul>
+            <div class="col-lg-6">
+              <button type="button" class="btn btn-info btn-primary">Leave House</button>
+              <button type="button" class="btn btn-info btn-primary">Set Default</button>
+              <br>
+              <br>
+              <p> (Select houses to leave. Only one house may be set as default.)</p>
+              <div id="house-list" class="radio">
+                <span>
+                  <span style="display:inline-block">
+                    <label class="radio-inline"><input type="radio" name="optradio"> Default </label>
+                    <br>
+                    <label class="checkbox-inline"><input type="checkbox" value=""> Option 1 </label>
+                  </span>
+                  <img src="../public/img/avatars/house.jpg" style="width:100px;height:100px;">
+                </span>
+                <span>
+                  <span style="display:inline-block">
+                    <label class="radio-inline"><input type="radio" name="optradio"> Default </label>
+                    <br>
+                    <label class="checkbox-inline"><input type="checkbox" value=""> Option 2 </label>
+                  </span>
+                  <img src="../public/img/avatars/house.jpg" style="width:100px;height:100px;">
+                </span>
+                <span>
+                  <span style="display:inline-block">
+                    <label class="radio-inline"><input type="radio" name="optradio"> Default </label>
+                    <br>
+                    <label class="checkbox-inline"><input type="checkbox" value=""> Option 3 </label>
+                  </span>
+                  <img src="../public/img/avatars/house.jpg" style="width:100px;height:100px;">
+                </span>
+                <span>
+                  <span style="display:inline-block">
+                    <label class="radio-inline"><input type="radio" name="optradio"> Default </label>
+                    <br>
+                    <label class="checkbox-inline"><input type="checkbox" value=""> Option 4 </label>
+                  </span>
+                  <img src="../public/img/avatars/house.jpg" style="width:100px;height:100px;">
+                </span>
+                <span>
+                  <span style="display:inline-block">
+                    <label class="radio-inline"><input type="radio" name="optradio"> Default </label>
+                    <br>
+                    <label class="checkbox-inline"><input type="checkbox" value=""> Option 5 </label>
+                  </span>
+                  <img src="../public/img/avatars/house.jpg" style="width:100px;height:100px;">
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -54,8 +88,8 @@
       
       <div class="modal-footer">
         <div class="col-lg-8">
-          <button type="button" class="btn btn-info btn-primary">Leave House</button>
-          <button type="button" class="btn btn-info btn-primary">Set Default</button>
+          <button id="join-button" type="button" class="btn btn-info btn-primary">Join New</button>
+          <button id="create-house" type="button" class="btn btn-info btn-primary">Create</button>
         </div>
       </div>
       
@@ -227,25 +261,36 @@ $("#safe-back2").on("click", function() {
 <!-- HOUSE CREATION SCRIPTS -->
 <script>
 $("#submit-create-house").click(function(event){
-  var data = {
+  var houseData = {
     address: $("#address").val(),
     city: $("#city").val(),
     province: $("#province").val(),
     postalCode: $("#postalCode").val()
   };
+  $.ajax({
+    url: '/db/auth/em',
+    type: 'post',
+    data: houseData,
+    dataType: 'json',
+    success:
+
+
+
 });
   
 </script>
 <!-- END HOUSE CREATION SCRIPTS -->
 
+<!-- SCROLLBAR SCRIPT -->
 <script>
   (function($){
     $(window).load(function(){
       $("#house-list").mCustomScrollbar({
 	axis:"x",
-	autoExpandScrollbar:true,
-	advanced:{autoExpandHorizontalScroll:true}
+        advanced:{autoExpandHorizontalScroll:true},
+        theme:"dark-thick"
       });
     });
   })(jQuery);
 </script>
+<!-- END SCROLLBAR SCRIPT -->

@@ -1269,27 +1269,10 @@ yx-axis
 
         /* ------------------------------------------ */
         /* CUSTOM SCROLLBAR FOR HOUSE LIST */
+        
         #house-list{
-            width: 75.5%;
+            width: 60%;
             height: 150px;
-            overflow: auto;
-            padding: 0px;
-            background:#f2f2f2;
-        }
-        #house-list ul{
-            width: 100%;
-            height: 150px;
-            margin: 0px;
-            padding: 10px;
-            list-style-type:none;
-            white-space:nowrap;
-            overflow-x:auto;
-            background:#f2f2f2;
-        }
-        #house-list li{;
-            height: 20px;
-            margin: 5px;
-            padding: 0px 0px;
-            background: #f2f2f2;
-            display:inline;
+            padding: 5px;
+            //background:#f2f2f2;
         }
