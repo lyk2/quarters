@@ -1,0 +1,31 @@
+.row
+	.col-lg-12
+		.panel.panel-info
+			.panel-heading
+				h3.panel-title Members
+			.table-responsive
+				table.table
+					thead
+						tr
+							th
+							th Name
+							th Email
+							th Number
+							th Role
+							th
+					tbody
+						each val in members
+							tr
+								th(scope='row') pic
+								td= val.full_name
+								td= val.email
+								td= val.cell_num
+								if val.role == 1
+									td admin
+								else
+									td member
+								td
+									.btn-group(role='group', aria-label='...')
+										button.btn.btn-default(type='button') View
+										button.btn.btn-default(type='button') Message
+										button.btn.btn-default(type='button') Remove
