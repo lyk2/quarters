@@ -123,6 +123,9 @@ router.get('/test', function(req, res, next) {
 
 });
 
+router.get('/wtf', function(req,res, next) {
+	res.send(req.session);
+});
 
 
 function dbquery() {

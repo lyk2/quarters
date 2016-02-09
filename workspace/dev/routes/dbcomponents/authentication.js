@@ -58,7 +58,6 @@ router.post('/login', function(req, res, next) {
 						uid: data[0].user_id,
 						email: email
 					};
-					console.log(req.session.user);
 					res.send('{"success":true}');
 				}
 			}
