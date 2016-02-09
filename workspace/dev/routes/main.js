@@ -36,7 +36,7 @@ router.use(function timeLog(req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-	res.render('app/bulletin', genPageData(req.session));
+	res.render('app/bulletin', req.session);
 });
 
 router.get('/bulletin', function(req, res, next) {
@@ -68,15 +68,9 @@ router.get('/accountsettings', function(req, res, next) {
 });
 
 router.get('/documents', function(req, res, next) {
-
 	// load application module
 	var houseinfo = require('./app-utils/house-info');
-	var data = genPageData();
-
-	//hard set
-	data.active_house_id = "26";
-
-	houseinfo.render(data, res);
+	houseinfo.render(req.session, res);
 });
 
 router.get("/logout", function(req, res, next) {
@@ -86,7 +80,7 @@ router.get("/logout", function(req, res, next) {
 	req.session.destroy();
 });
 
-function genPageData() {
+function genPageData(x) {
 
 	var data = {
 		name: "some name here",
@@ -94,7 +88,7 @@ function genPageData() {
 		uid: 3
 	};
 
-	return data;
+	return x;
 }
 
 module.exports = router;
