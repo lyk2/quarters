@@ -8,34 +8,5 @@
     span.glyphicon.glyphicon-menu-right.header.navbar-brand
     .dropdown.navbar-brand
         | house address
-        a#joinHouse.btn.btn-ghost.btn-md joinHouse
-
+        button.btn.btn-default open house
 script(src='../js/jquery.js')
-script.
-    $('#joinHouse').click(function () {
-        var inviteCode = prompt('Please enter your invitation code');
-
-        if (inviteCode!=null) {
-            jsonObj = [];
-            item = {}
-            item ["userId"] = 123;
-            item ["inviteCode"] = inviteCode;
-            item ["role"] = 1;
-
-            jsonObj.push(item);
-            console.log(jsonObj);
-            $.ajax({
-                url: '/db/house/join',
-                type: 'get',
-                data: jsonObj[0],
-                dataType: 'json',
-
-                success: function (data) {
-                    alert('success');
-                },
-                error: function (data) {
-                    alert('invalid invite code');
-                }
-            });
-        }
-    });

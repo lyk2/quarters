@@ -14,6 +14,8 @@ html
       .input-label {
       width:30%;
       }
+    button.btn.btn-primary.btn-lg(type='button', data-toggle='modal', data-target='#selectHouseModal')
+      | Select House
     // ---------------------- START OF HOUSE SELECT WINDOW ----------------------
     // Modal
     #selectHouseModal.modal.fade
@@ -173,3 +175,74 @@ html
       // end modal dialog
     // end modal
     // ------------------------ END OF JOIN HOUSE WINDOW ------------------------
+    // MODAL SCRIPTS
+    script.
+      function showCreateHouse() {
+      $("#selectHouseModal").removeClass("fade").modal("hide");
+      $("#createHouseModal").modal("show").addClass("fade");
+      }
+      //$("#selectHouseModal").modal("show");
+      $("#create-house").on("click", function() {
+      showCreateHouse();
+      });
+      // Close modal window while avoiding rendering errors
+      $('button[type="safe-close"]').on("click", function () {
+      $(".modal-backdrop").fadeOut("slow");
+      });
+      // Hide create house modal, and show select house modal
+      function showSelectHouse() {
+      $("#createHouseModal").removeClass("fade").modal("hide");
+      $("#selectHouseModal").modal("show").addClass("fade");
+      }
+      // Move back one page from the create house modal
+      $("#safe-back").on("click", function() {
+      showSelectHouse();
+      });
+      // Hide select house modal, and show join house modal
+      function showJoinHouse() {
+      $("#selectHouseModal").removeClass("fade").modal("hide");
+      $("#joinHouseModal").modal("show").addClass("fade");
+      }
+      // Show join house modal
+      $("#join-button").on("click", function () {
+      showJoinHouse();
+      });
+      // Hide join house modal, and show select house modal
+      function showSelectHouse2() {
+      $("#joinHouseModal").removeClass("fade").modal("hide");
+      $("#selectHouseModal").modal("show").addClass("fade");
+      }
+      // Move back one page from the join house modal window
+      $("#safe-back2").on("click", function() {
+      showSelectHouse2();
+      });
+    // END MODAL SCRIPTS
+    // HOUSE CREATION SCRIPTS
+    script.
+      $("#submit-create-house").click(function(event){
+      var houseData = {
+      address: $("#address").val(),
+      city: $("#city").val(),
+      province: $("#province").val(),
+      postalCode: $("#postalCode").val()
+      };
+      $.ajax({
+      url: '/db/auth/em',
+      type: 'post',
+      data: houseData,
+      dataType: 'json',
+      success:
+      });
+    // END HOUSE CREATION SCRIPTS
+    // SCROLLBAR SCRIPT
+    script.
+      (function($){
+      $(window).load(function(){
+      $("#house-list").mCustomScrollbar({
+      axis:"x",
+      advanced:{autoExpandHorizontalScroll:true},
+      theme:"dark-thick"
+      });
+      });
+      })(jQuery);
+    // END SCROLLBAR SCRIPT
