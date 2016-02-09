@@ -50,6 +50,34 @@ router.get('/create', function(req, res, next) {
 		});
 });
 
+router.get('/join', function(req,res,next){
+	var data = req.query;
+	console.log(data);
+	//	db.query("Insert into role (user_id,house_id,role) values (1,23,1)")
+	db.query("Insert into role (user_id,house_id,role) values ($1,$2,$3)",[data.userId,data.houseId,data.role])
+			.then(function(data){
+				res.send("{}");
+			})
+			.catch(function(error){
+				res.send(error);
+			});
+});
+
+
+router.post('/checkInvite', function(req, res, next) {
+	var inviteCode = req.body.invite;
+
+	db.query('select invite_code from "house" where invite_code=$1', inviteCode)
+			.then(function(data){
+				if (data.length > 0)
+					res.send('{"valid":true}');
+				else
+					res.send('{"valid":false}');
+			}).catch(function(error){
+		res.send(error);
+	});
+});
+
 router.get('/connection', function(req, res, next) {
 	db.one('SELECT NOW() as "theTime"')
 		.then(function(data) {

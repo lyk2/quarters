@@ -6,6 +6,7 @@ CREATE TABLE house
   province character(100),
   country character(100),
   postal_code character(50),
+  invite_code character(150) NOT NULL,
   CONSTRAINT house_pkey PRIMARY KEY (house_id)
 );
 
