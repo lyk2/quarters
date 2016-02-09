@@ -29,11 +29,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.locals.db = {
-	connect: "pg://quarters:qadmin@system.quarters.space/quarters"
-};
-
-
 
 // should replace this with redis
 app.use(session({

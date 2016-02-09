@@ -46,20 +46,26 @@ router.get('/create', function(req, res, next) {
 	if (!data.country) data.country = "";
 	if (!data.postalCode) data.postalCode = "";
 
-	db.query("INSERT INTO house (address, city, province, country, postal_code invite_code) VALUES (${address}, ${city}, ${province}, ${country}, ${postalCode}, ${invite}) RETURNING *;", data)
-		.then(function(data) {
-			console.log(data);
-			res.send(JSON.stringify(data[0]));
-		}).catch(function(error) {
-			res.send(error);
-		});
+	db.task(function (t) {
+        return t.one("insert into house (address, city, province, country, postal_code, invite_code) values (${address}, ${city}, $(province), $(country), $(postalCode), $(invite)) returning *", data)
+            .then(function (house) {
+                return t.one("insert into role (user_id, house_id, role) values ($1, $2, $3) returning *", [req.session.user.uid, house.house_id, 1]);
+            });
+    })
+    .then(function (events) {
+        res.send(events);
+    })
+    .catch(function (error) {
+        res.send(error);
+    });
+
+
 });
 
 router.get('/join', function(req,res,next){
 	var data = req.query;
 	console.log(data);
-	//	db.query("Insert into role (user_id,house_id,role) values (1,23,1)")
-	db.query("Insert into role (user_id,house_id,role) values ($1,$2,$3)",[data.userId,data.houseId,data.role])
+	db.query("Insert into role (user_id,house_id,role) values ($1,$2,$3)",[req.session.user.uid, data.houseId, 0])
 			.then(function(data){
 				res.send("{}");
 			})
@@ -117,6 +123,9 @@ router.get('/test', function(req, res, next) {
 
 });
 
+router.get('/wtf', function(req,res, next) {
+	res.send(req.session);
+});
 
 
 function dbquery() {

@@ -1,12 +1,42 @@
 var express = require('express');
 var router = express.Router();
 
+// this is occurs on every request, use to check against session for valid use
+router.use(function timeLog(req, res, next) {
+
+	if (req.session.user && req.session.house) {
+		next();
+	}
+	else if (req.session.user &&!req.session.house) {
+		// get default house
+		var db = require('./dbcomponents/db-con');
+		db.query('select address, house_id from user_info, house where user_id=$1 and house.house_id=user_info.default_house_id', req.session.user.uid)
+			.then(function(data){
+				req.session.house = {
+					active_house_id: data[0].house_id,
+					address: data[0].address.trim()
+				};
+				next();
+			})
+			.catch(function(error){
+				console.log(error);
+			});
+	}
+	else {
+		req.session.user = {
+			uid: 6,
+			email: "mem1@hello.ca"
+		};
+		req.session.house = {
+			active_house_id : 26,
+			address : "NO IDEA"
+		};
+		next();
+	}
+});
+
 router.get('/', function(req, res, next) {
-	// var user = req.session.user;
-	// if (user)
-	//  		res.redirect('../main/bulletin');
-	//  	else
-	//  		res.redirect('../');
+	res.render('app/bulletin', genPageData(req.session));
 });
 
 router.get('/bulletin', function(req, res, next) {
