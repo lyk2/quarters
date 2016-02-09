@@ -60,7 +60,17 @@ router.get('/messages', function(req, res, next) {
 });
 
 router.get('/userprofile', function(req, res, next) {
-	res.render('app/userprofile', genPageData(req.session));
+	//res.render('app/userprofile', genPageData(req.session));
+	// load application module
+	var userinfo = require('./app-utils/user-info');
+	var data={};
+
+	if(req.query.uid)
+		data.user_id = req.query.uid;
+	else
+		data.user_id =  req.session.user.uid;
+
+	userinfo.render(data, res);
 });
 
 router.get('/accountsettings', function(req, res, next) {
@@ -86,15 +96,17 @@ router.get("/logout", function(req, res, next) {
 	req.session.destroy();
 });
 
-function genPageData() {
+function genPageData(x) {
 
-	var data = {
-		name: "some name here",
-		address: "123 idk",
-		uid: 3
+	x.user = {
+		uid : 6,
 	};
+	x.house = {
+		hid: 30,
+		address: ""
+	}
 
-	return data;
+	return x;
 }
 
 module.exports = router;
