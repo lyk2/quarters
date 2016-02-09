@@ -4,15 +4,9 @@
       li.hidden-xs
         img.img.center(src='../img/avatars/house.jpg', width='100%')
       li
-        a
+        a(href='documents')
           i.fa.fa-home.fa-fw
-          | #{address}
-          span.fa.arrow
-        ul.nav.nav-second-level.collapse(aria-expanded='false', style='height: 0px;')
-          li
-            a(href='documents') View House Profile
-          li
-            a(href='d.html') Leave House
+          | #{house.address}
       li
         a(href='bulletin')
           i.fa.fa-newspaper-o.fa-fw
