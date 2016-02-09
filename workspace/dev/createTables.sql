@@ -38,6 +38,7 @@ CREATE TABLE user_info
   user_id integer NOT NULL,
   full_name character(50),
   cell_num integer,
+  date_of_birth date,
   description character(255),
   default_house_id integer,
   CONSTRAINT user_info_pkey PRIMARY KEY(user_id),
