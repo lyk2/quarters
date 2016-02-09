@@ -29,8 +29,9 @@ router.get('/create', function(req, res, next) {
 
 	// generate auth code
 	var date = new Date();
-	var invitecode = "" + req.session.user.uid + date.getMonth() + date.getDate()+ date.getMilliseconds();
+	var invitecode = "" + req.session.user.uid + date.getMonth() + date.getDate() + date.getHours() + date.getMilliseconds();
 
+	data.invite = invitecode;
 	if (Object.keys(data).indexOf('address') !== 0) {
 		var error = {
 			errorcode: 'no address provided'
@@ -40,11 +41,15 @@ router.get('/create', function(req, res, next) {
 		return;
 	}
 
-	db.query("INSERT INTO house (address, invite_code) VALUES ($1, $2) RETURNING *;", [data.address, invitecode])
-		.then(function(data) {
-			res.send(JSON.stringify(data[0]));
+	if (!data.city) data.city = "";
+	if (!data.province) data.province = "";
+	if (!data.country) data.country = "";
+	if (!data.postalCode) data.postalCode = "";
 
+	db.query("INSERT INTO house (address, city, province, country, postal_code invite_code) VALUES (${address}, ${city}, ${province}, ${country}, ${postalCode}, ${invite}) RETURNING *;", data)
+		.then(function(data) {
 			console.log(data);
+			res.send(JSON.stringify(data[0]));
 		}).catch(function(error) {
 			res.send(error);
 		});
