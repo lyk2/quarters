@@ -55,7 +55,7 @@ router.post('/login', function(req, res, next) {
 					res.send('failed - err code 2');
 				} else {
 					req.session.user = {
-						uid: data[0]["user_id"],
+						uid: data[0].user_id,
 						email: email
 					};
 					console.log(req.session.user);

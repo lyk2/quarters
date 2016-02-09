@@ -1,12 +1,21 @@
 var express = require('express');
 var router = express.Router();
 
+// this is occurs on every request, use to check against session for valid use
+router.use(function timeLog(req, res, next) {
+	if(req.session.user)
+		next();
+	else {
+		//res.send('please log in');
+		// uncomment this to allow testing
+		req.session.user = {};
+		req.session.user.uid = 6;
+		next();
+	}
+});
+
 router.get('/', function(req, res, next) {
-	// var user = req.session.user;
-	// if (user)
-	//  		res.redirect('../main/bulletin');
-	//  	else
-	//  		res.redirect('../');
+	res.render('app/bulletin', genPageData(req.session));
 });
 
 router.get('/bulletin', function(req, res, next) {
