@@ -2,43 +2,51 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-	var user = req.session.user;
-	if (user)
-  		res.redirect('../main/bulletin');
-  	else 
-  		res.redirect('../');
+	// var user = req.session.user;
+	// if (user)
+	//  		res.redirect('../main/bulletin');
+	//  	else
+	//  		res.redirect('../');
 });
 
 router.get('/bulletin', function(req, res, next) {
-  res.render('app/bulletin', genPageData(req.session));  
+	res.render('app/bulletin', genPageData(req.session));
 });
 
 router.get('/calendar', function(req, res, next) {
-  res.render('app/calendar', genPageData(req.session));
+	res.render('app/calendar', genPageData(req.session));
 });
 
 router.get('/finances', function(req, res, next) {
-  res.render('app/finances', genPageData(req.session));
+	res.render('app/finances', genPageData(req.session));
 });
 
 router.get('/maintenance', function(req, res, next) {
-  res.render('app/maintenance', genPageData(req.session));
+	res.render('app/maintenance', genPageData(req.session));
 });
 
 router.get('/messages', function(req, res, next) {
-  res.render('app/messages', genPageData(req.session));
+	res.render('app/messages', genPageData(req.session));
 });
 
 router.get('/userprofile', function(req, res, next) {
-  res.render('app/userprofile', genPageData(req.session));
+	res.render('app/userprofile', genPageData(req.session));
 });
 
 router.get('/accountsettings', function(req, res, next) {
-  res.render('app/accountsettings', genPageData(req.session));
+	res.render('app/accountsettings', genPageData(req.session));
 });
 
 router.get('/documents', function(req, res, next) {
-  res.render('app/documents', genPageData(req.session));
+
+	// load application module
+	var houseinfo = require('./app-utils/house-info');
+	var data = genPageData();
+
+	//hard set
+	data.active_house_id = "26";
+
+	houseinfo.render(data, res);
 });
 
 router.get("/logout", function(req, res, next) {
@@ -48,13 +56,15 @@ router.get("/logout", function(req, res, next) {
 	req.session.destroy();
 });
 
-function genPageData (session) {
+function genPageData() {
 
-	var data = {};
-	data.firstname = session.user.email;
-	data.house = "1280 Main St West";
+	var data = {
+		name: "some name here",
+		address: "123 idk",
+		uid: 3
+	};
 
 	return data;
-};
+}
 
 module.exports = router;

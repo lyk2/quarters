@@ -28,6 +28,19 @@ CREATE TABLE "role"
     REFERENCES house (house_id) MATCH SIMPLE
     ON UPDATE CASCADE ON DELETE CASCADE,
   CONSTRAINT user_id_fkey FOREIGN KEY (user_id)
-    REFERENCES house (house_id) MATCH SIMPLE
+    REFERENCES "user" (user_id) MATCH SIMPLE
+    ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE user_info
+(
+  user_id integer NOT NULL,
+  full_name character(50),
+  cell_num integer,
+  description character(255),
+  default_house_id integer,
+  CONSTRAINT user_info_pkey PRIMARY KEY(user_id),
+  CONSTRAINT user_info_fkey FOREIGN KEY (user_id)
+    REFERENCES "user" (user_id) MATCH SIMPLE
     ON UPDATE CASCADE ON DELETE CASCADE
 );
