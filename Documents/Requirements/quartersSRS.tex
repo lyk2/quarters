@@ -66,6 +66,8 @@ January 17, 2016 & Made some revisions based on marking feedback, including Othe
 \hline
 January 18, 2016 & Fixed Constraints and Ideas for Solutions. \\ 
 \hline
+February 8, 2016 & Updated Naming Conventions and Terminology, Users of the Product, Work Partitioning Table. \\ 
+\hline
 \end{longtable}
 
 \section*{Template}
@@ -77,7 +79,7 @@ This document makes use of the Volere Template for all of its organization.
 \subsection{The Purpose of the Project}
 \subsubsection{Project Background}
 Communication is the exchange of information between two parties. It is an important aspect of people's everyday lives. With the introduction 
-of the Internet and cellular devices people's capacity to communicate has vastly 
+of the Internet and mobile devices people's capacity to communicate has vastly 
 improved, however, this information has hardly centralized. Landlords and their 
 tenants commonly communicate via email, instant messaging or phone calls, but a response is not always guaranteed or the reply is hard to retrace. This lack of centralized 
 communication may introduce confusion and frustration between the two parties in addition to challenges sharing documents and other important information.\\
@@ -98,9 +100,9 @@ handles communication between all parties and gives a detailed status of the hou
 \subsubsection {The Customer}
 This platform is designed for tenants and landlords. It provides tenants with the ability to communicate efficiently and effectively with each other and their landlord. The customer requires a robust, easy-to-learn platform.
 \subsubsection {Other Stakeholders}
-Other stakeholders whose input is needed to build the product include current software developers to create and test the application, future software developers to improve and build on the existing version, in addition to the project supervisor to provide guidance and advice on the design and implementation.
+Other stakeholders whose input is needed to build the product include the project supervisor to provide guidance and advice on the design and implementation, current software developers to create and test the application and future software developers to improve and build on the existing version.
 \subsection{Users of the Product}
-There are two key users of the product: tenants and landlords. \\ \\
+There are two key users of the product: tenants and landlords. From herein, the term "user" encompasses both a tenant and landlord, unless otherwise specified. \\ \\
 Tenants have the following role:
 \begin{enumerate}
 \item Communicate information to other tenants when needed
@@ -148,8 +150,8 @@ N/A.
 \subsection{Schedule Constraints} 
     \begin{itemize}
     \item Proof of Concept Demonstration on November 24, 2015
-    \item Revision 0 Demonstration, February 1-12
-    \item Final Demonstration, Exam Period
+    \item Revision 0 Demonstration on February 10, 2016
+    \item Final Demonstration in April 2016
     \end{itemize}
     
 \subsection{Budget Constraints}
@@ -160,24 +162,17 @@ N/A.
 
 \section{Naming Conventions and Terminology}
     \begin{itemize}
-    \item Landlord: A person who owns or runs a boarding house, inn, or similar
-      establishment.
-    \item Tenant: A person who occupies land or property rented from a landlord.
     \item House: In the context of this project, a house functions as a set
       which contains one or more users and stores information about the
-      physical property, the users, and data added by those users.
-    \item Maintenance request: A ticket created by a tenant to inform their
-      landlord of property related maintenance that they are responsible for
-      completing.
+      physical property, the users, and content added by those users.
+    \item User: A user is a user of the application. A user is designated as an administrator or member of a house.
+    \item Administrator: The user that creates the house is, by default, the administrator of the house. The administrator of a house is the only member of the house who can change information about the house, upload/delete files, add/delete members, and delete the house.
+    \item Maintenance request: A ticket created by a member of a house to inform another member of the same house of property-related maintenance that needs to be addressed. For example, a tenant may submit a maintenance request to their landlord to fix a leaky faucet, or a tenant may submit a maintenance request to a fellow tenant to clean their dirty dishes in the sink. 
     \end{itemize}
 
 \section{Relevant Facts and Assumptions} 
 \subsection{Relevant Facts}
-  \begin{itemize}
-    \item Facebook Login is a secure form of account management.
-    \item Google Sign-In is a secure form of account management.
-    \item PayPal is a secure method of making online payments. 
-  \end{itemize}
+N/A.
 \subsection{Assumptions}
   \begin{itemize}
   \item  It is assumed that both landlords and tenants will be capable of using
@@ -190,9 +185,8 @@ N/A.
 There is currently no existing software platform that attempts to simplify and 
 document communication between landlords and tenants. A web application is 
 needed to serve as a centralized management solution that will benefit both 
-types of users. The web application will include document storage, in-app 
-payment, a chore calendar, maintenance ticketing, instant messaging, and a 
-discussion board.  
+types of users. The web application will include document storage, financial transaction history, a calendar, maintenance ticketing and a 
+bulletin board.
 \subsubsection{The Context of the Work} 
 See Figure \ref{fig:workcontext}.
 \begin{figure}[H]
@@ -222,64 +216,55 @@ See Table \ref{tab:workpartition}.
 \hline
 \textbf{Event Name}  & \textbf{Input and Output} & \textbf{Summary} \\ 
 \hline
-1. User creates account. & \mbox{User Name (IN)} \linebreak \mbox{User ID (IN)} 
-\linebreak \mbox{User Password (IN)} \linebreak User Email (IN) & User creates 
-an account. The system then adds the account to the database. \\ 
+1. User creates account. & \mbox{User email (IN)} \linebreak User password (IN) & User creates 
+an account and, by default, becomes the administrator. The system then adds the account to the database. \\ 
 \hline
-2. User deletes account. & \mbox{User ID (IN)} \linebreak \mbox{User Password 
+2. User deletes account. & \mbox{User email (IN)} \linebreak \mbox{User password 
 (IN)} & User deletes their account. The system then removes the account from the 
 database. \\ 
 \hline
-3. User logs in. & \mbox{User ID (IN)} \linebreak User password (IN) & User logs 
+3. User logs in. & \mbox{User email (IN)} \linebreak User password (IN) & User logs 
 in to app. \\ 
 \hline
-4. User logs out. & User ID (IN) & User logs out from server. \\
+4. User logs out. & User email (IN) & User logs out of app. \\
 \hline
-5. User creates house. & \mbox{User ID (IN)} \linebreak House name (IN) & User 
+5. User creates house. & \mbox{House address (IN)} \linebreak Invitation code (OUT) & User 
 inputs the house address into system. The system then saves the house in the 
-database. \\
+database. A unique invitation code is generated that the house creator uses to invite other users to join the house. \\
 \hline
-6. User joins house. & \mbox{User ID (IN)} \linebreak House name (IN) & User 
-selects a house to join. The system adds the user to the house. \\
+6. User joins house. & \mbox{User email (IN)} \linebreak Invitation code (IN) & User 
+enters invitation code. The system adds the user to the house. \\
 \hline
-7. User leaves house. & \mbox{User ID (IN)} \linebreak House name (IN) & User 
+7. User leaves house. & \mbox{User email (IN)} \linebreak House address (IN) & User 
 selects a house to leave. The system removes the user from the house. \\
 \hline
-8. User uploads file. & \mbox{User ID (IN)} \linebreak File (IN) & User adds a 
+8. User uploads file. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak File (IN) & User adds a 
 file to be visible to house. The system then saves the file in the database 
 directory. \\
 \hline
-9. User submits maintenance request. & \mbox{User ID (IN)} \linebreak 
-\mbox{Request (IN)} \linebreak Request (OUT) & User that is tenant submits a 
+9. User submits maintenance request. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak \mbox{Request (IN)} \linebreak Request (OUT) & User that is tenant submits a 
 maintenance request to be received by landlord. \\
 \hline
-10. User updates maintenance request. & \mbox{User ID (IN)} \linebreak 
-\mbox{Request (IN)} \linebreak Request (OUT) & User that is landlord 
-\ds{Why can't tenants update maintenance requests?}
-completes a 
-maintenance request. \\
+10. User updates maintenance request. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak \mbox{Request (IN)} \linebreak Request (OUT) & User that is landlord 
+marks a maintenance request as complete. \\
 \hline
-11. User adds chore. & \mbox{User ID (IN)} \linebreak \mbox{Chore (IN)} 
-\linebreak Calendar (OUT) & User submits a chore to be completed and displayed 
-on the Calendar. \\
+11. User adds chore. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Chore (IN)} 
+\linebreak Calendar (OUT) & User submits a chore to be displayed 
+on the Calendar. \\ \hline
+12. User deletes chore. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Chore (IN)} 
+\linebreak Calendar (OUT) & User deletes a chore to be removed from the Calendar. \\
 \hline
-12. User initiates chat with other user. & \mbox{User ID (IN)} \linebreak 
-\mbox{User ID (IN)} \linebreak Chat (OUT) & User creates chat window with other 
-user. \\
+13. User adds post. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Post (IN)} \linebreak 
+Bulletin Board (OUT) & User adds post to bulletin board. \\
 \hline
-13. User sends instant message. & \mbox{User ID (IN)} \linebreak \mbox{Message 
-(IN)} \linebreak Chat (OUT) & User submits a message  and it is displayed 
-on the chat window. \\
-\hline
-14. User adds post. & \mbox{User ID (IN)} \linebreak \mbox{Post (IN)} \linebreak 
-Discussion Board (OUT) & User adds post to discussion board. \\
-\hline
-15. User comments on post. & \mbox{User ID (IN)} \linebreak \mbox{Comment (IN)} 
+14. User comments on post. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Comment (IN)} 
 \linebreak Discussion Board (OUT) & User comments on post on discussion board. 
 \\
 \hline
-16. User transfers funds. & Record of Transaction (OUT) & User transfers funds 
-to another user using third-party software. A record of the transaction is 
+15. User deletes post. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Post (IN)} \linebreak 
+Bulletin Board (OUT) & User deletes post from bulletin board. \\
+\hline
+16. User adds record of financial transaction. & \mbox{User A email (IN)} \linebreak \mbox{User B email (IN)} \linebreak \mbox{House address (IN)} \linebreak \mbox{Record of transaction (IN)} \linebreak \mbox{Transaction history (OUT)} & User A enters the monetary amount and the name of User B (another user belonging to the same house) with whom they completed an external financial transaction. A record of the transaction is 
 displayed. \\
 \hline
 \caption{Work Partitioning}
@@ -307,10 +292,10 @@ See Figure \ref{fig:usecase}.
 \node [block2, below of=upload](submit){9. Submits Maintenance Request};
 \node [block2, below of=submit](update){10. Updates Maintenance Request};
 \node [block2, below of=update](chore){11. Adds Chore};
-\node [block2, below of=chore](chat){12. Initiates Chat};
-\node [block2, below of=chat](message){13. Sends Message};
-\node [block2, below of=message](post){14. Adds Post};
-\node [block2, below of=post](comment){15. Adds Comment};
+\node [block2, below of=chore](chat){12. Deletes Chore};
+\node [block2, below of=chat](message){13. Adds Post};
+\node [block2, below of=message](post){14. Adds Comment};
+\node [block2, below of=post](comment){15. Deletes Post};
 \node [block2, below of=comment](funds){16. Creates Record of Transaction};
 \node [block3, left of=create, xshift=-6cm](lord){Landlord User};
 \node [block3, left of=chat, xshift=-6cm](tenant){Tenant User};
@@ -391,26 +376,65 @@ See Figure \ref{fig:usecase}.
 
 \subsection{Functional and Data Requirements}
 \NumTabs{5}
+\textbf{Requirement \#:} 
+      \tab{\textbf{Event/Use Case:} 1}
+      \tab{\textbf{Priority:} 5} \\
+      \textbf{Description: }{Account registration.} \\
+      \textbf{Rationale: }{To individualize a user's experience and ensure security of a user's information and data.} \\
+      \textbf{Fit Criterion: }{Only a registered user can access the application.} \\ \\ 
+\textbf{Requirement \#:} 
+      \tab{\textbf{Event/Use Case:} 2}
+      \tab{\textbf{Priority:} 2} \\
+      \textbf{Description: }{Account removal.} \\
+      \textbf{Rationale: }{For users who wish to delete their account from the system.} \\
+      \textbf{Fit Criterion: }{Once a user deletes their account they cannot access the application unless they create a new account.} \\ \\ 
+\textbf{Requirement \#:} 
+      \tab{\textbf{Event/Use Case:} 3}
+      \tab{\textbf{Priority:} 5} \\
+      \textbf{Description: }{User login.} \\
+      \textbf{Rationale: }{All users should be able to securely login.} \\
+      \textbf{Fit Criterion: }{Upon passing proper credentials, user completes 
+the login process.} \\ \\
+\textbf{Requirement \#:} 
+      \tab{\textbf{Event/Use Case:} 4}
+      \tab{\textbf{Priority:} 5} \\
+      \textbf{Description: }{User logout.} \\
+      \textbf{Rationale: }{All users should be able to securely logout.} \\
+      \textbf{Fit Criterion: }{Upon logging out, a user must login to access their account.} \\ \\
 \textbf{Requirement \#:} 1 
       \tab{\textbf{Event/Use Case:} 5} 
       \tab{\textbf{Priority:} 5} \\
-      \textbf{Description:} User creates a house within the application. \\
+      \textbf{Description:} House creation. \\
       \textbf{Rationale:} To allow users to self-organize and communicate. \\
       \textbf{Fit Criterion:} A house object is created in the database, with
-      the creator as its initial tenant. \\ \\    
+      the creator as its default administrator. \\ \\  
+\textbf{Requirement \#:} 1 
+      \tab{\textbf{Event/Use Case:} } 
+      \tab{\textbf{Priority:} 5} \\
+      \textbf{Description:} House deletion. \\
+      \textbf{Rationale:} Allows the administrator to delete a house and all of its contents. \\
+      \textbf{Fit Criterion:} The administrator and members no longer have access to that house. \\ \\  
 \textbf{Requirement \#:} 2 
       \tab{\textbf{Event/Use Case:} 6}
       \tab{\textbf{Priority:} 5} \\
       \textbf{Description:} User joins a house. \\
       \textbf{Rationale:} To allow multiple users to join house groups which
       have already been created. \\
-      \textbf{Fit Criterion:} The user is added to the list of tenants
+      \textbf{Fit Criterion:} The user is added to the list of members
+      associated with the house they are joining. \\ \\
+\textbf{Requirement \#:} 2 
+      \tab{\textbf{Event/Use Case:} 6}
+      \tab{\textbf{Priority:} 5} \\
+      \textbf{Description:} User joins a house. \\
+      \textbf{Rationale:} To allow multiple users to join house groups which
+      have already been created. \\
+      \textbf{Fit Criterion:} The user is added to the list of members
       associated with the house they are joining. \\ \\
 \textbf{Requirement \#:} 3 
       \tab{\textbf{Event/Use Case:} 8}
       \tab{\textbf{Priority:} 3} \\
-      \textbf{Description:} User uploads a file. \\
-      \textbf{Rationale:} To allow users to share documents. \\
+      \textbf{Description:} Administrator user uploads a file. \\
+      \textbf{Rationale:} To allow administrators to share documents. \\
       \textbf{Fit Criterion:} The file that is uploaded is added to the set of
       files associated with that house. \\ \\
 \textbf{Requirement \#:} 4
@@ -419,27 +443,21 @@ See Figure \ref{fig:usecase}.
       \textbf{Description:} User downloads a file. \\
       \textbf{Rationale:} To allow users to retrieve and save documents that 
 have
-      been uploaded by other users in their house. \\
+      been uploaded by the administrator(s) in their house. \\
       \textbf{Fit Criterion:} The file selected by the user is downloaded to
       their machine. \\ \\
 \textbf{Requirement \#:} 
       \tab{\textbf{Event/Use Case:}}
       \tab{\textbf{Priority:} } \\
-      \textbf{Description:} Landlords and tenants shall communicate through a discussion
-    board. \\
-      \textbf{Rationale:} Landlords and tenants will not need to communicate via email,
-    text message, or phone. \\
-      \textbf{Fit Criterion:} All communications conducted via the product's discussion
-    board will be instant and accessible by all members of the group. \\ \\ 
-\textbf{Requirement \#:} 5
+      \textbf{Description:} Users shall communicate through posts on the bulletin board. \\
+      \textbf{Rationale:} To centralize communication between users. \\
+      \textbf{Fit Criterion:} All posts are instant and visible on the house group's bulletin board.  \\ \\ 
+      \textbf{Requirement \#:} 
       \tab{\textbf{Event/Use Case:}}
-      \tab{\textbf{Priority:} 2} \\
-      \textbf{Description:} Users shall be able to specify which other users
-      are able to view content that they post or uploaded. \\
-      \textbf{Rationale:} To allow users to share content and communicate
-      privately and keep sensitive data safe. \\
-      \textbf{Fit Criterion:} Content shall only be visible to those who the
-      creator has specified are able to view it. \\ \\
+      \tab{\textbf{Priority:} } \\
+      \textbf{Description:} Users shall be able to reply to posts on the bulletin board. \\
+      \textbf{Rationale:} To streamline communications regarding the same topic in a thread-like structure. \\
+      \textbf{Fit Criterion:} All post replies are instant and appear directly under the post.  \\ \\ 
 \textbf{Requirement \#:} 6
       \tab{\textbf{Event/Use Case:} 9}
       \tab{\textbf{Priority:} 4} \\
@@ -449,21 +467,6 @@ have
       related work that needs to be addressed in a structured manner, as opposed to random messages via email, text or phone.\\
       \textbf{Fit Criterion:} Landlords shall be able to view a list of current
       maintenance requests as soon as they are created by their tenants.\\ \\          
-\textbf{Requirement \#:} 7
-      \tab{\textbf{Event/Use Case:} 3}
-      \tab{\textbf{Priority:} 5} \\
-      \textbf{Description: }{User login.} \\
-      \textbf{Rationale: }{All users should be able to securely login.} \\
-      \textbf{Fit Criterion: }{Upon passing proper credentials, user completes 
-the login process.} \\ \\
-\textbf{Requirement \#:} 8
-      \tab{\textbf{Event/Use Case:} 1}
-      \tab{\textbf{Priority:} 4} \\
-      \textbf{Description: }{Account registration.} \\
-      \textbf{Rationale: }{Potential users may register an account using 
-Facebook Login, Google Sign-In, or registering with Quarters directly.} \\
-      \textbf{Fit Criterion: }{Registering should be a one-step process, with 
-email verification to confirm identity.} \\ \\ 
 \textbf{Requirement \#:} 9
       \tab{\textbf{Event/Use Case:} 14,15} 
       \tab{\textbf{Priority:} 4}\\
@@ -508,6 +511,12 @@ platform. Chores and other repeating events can be created here.} \\
 standardized ICS structure. This format should be deployable to other calendar 
 management software. This platform should support the creation, deletion and 
 modifications to an event.} \\ \\
+\textbf{Requirement \#:}  
+      \tab{\textbf{Event/Use Case:} }
+      \tab{\textbf{Priority:} 3} \\
+      \textbf{Description:} Administrator makes member of house another administrator. \\
+      \textbf{Rationale:} To allow multiple administrators of a house. For example, a tenant may create the house, but the landlord wants access to upload files. Or, the original administrator is leaving the house group but the house group should remain. \\
+      \textbf{Fit Criterion:} Additional administrators have the added ability to add information about the house, upload/delete files, add/delete members, and delete the house.\\ \\
 \ds{How does a landlord end up on a house?}
 \ds{You have not covered the entirety of your use cases. Where are the rest of
 	your requirements?}
