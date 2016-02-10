@@ -1271,8 +1271,7 @@ yx-axis
         /* CUSTOM SCROLLBAR FOR HOUSE LIST */
         
         #house-list{
-            width: 60%;
+            width: 75%;
             height: 150px;
             padding: 5px;
-            //background:#f2f2f2;
         }

@@ -16,3 +16,16 @@
 .navbar-address {
 	margin-top:-2px;
 }
+
+.finance div{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+.userList div{
+	margin: 5px 15px 5px 15px;
+	width: 570px;
+	border: solid 2px grey;
+	min-height: 100px;
+}

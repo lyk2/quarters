@@ -128,14 +128,6 @@ router.get('/wtf', function(req,res, next) {
 });
 
 
-function dbquery() {
-
-}
-
-
-
-
-
 
 
 
