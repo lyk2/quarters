@@ -1,0 +1,71 @@
+#billModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+    .modal-dialog(role='document')
+        .modal-content
+            .modal-header
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') ×
+                h4#newFinancePost.modal-title New Finance Post
+            .modal-body
+                .row.finance
+                    .col-xs-6
+                        | Event
+                    .col-xs-6
+                        button#bill_type.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                            | Household
+                            span.caret
+                        ul.dropdown-menu
+                            li
+                                a(href='#') Groceries
+                            li
+                                a(href='#') Electricity
+                            li
+                                a(href='#') Internet
+                            li
+                                a(href='#') Household
+                            li
+                                a(href='#') Other
+                .row
+                    .col-xs-6
+                        | Name
+                    .col-xs-3
+                        input#name_field.form-control(type='text', placeholder='Enter Name', aria-describedby='sizing-addon2')
+                br
+                .row
+                    .col-xs-6
+                        | Amount
+                    .col-xs-3
+                        input#amount_field.form-control(type='text', placeholder='Enter amount', aria-describedby='sizing-addon2')
+                br
+                .row
+                    .col-xs-6
+                        | Date
+                    .col-xs-3
+                        input#date_field(type='date')
+                .row.finance
+                    .col-xs-6
+                        | Description
+                    .col-xs-6
+                        textarea#description_field
+                input#more_fields(type='button', onclick='add_users();', value='Add')
+                br
+                br
+                .row.user-list
+                    .col-xs-12
+                        form#financeList
+            .modal-footer
+                button.btn.btn-primary(type='button', data-dismiss='modal') Save
+                button.btn.btn-default(type='button') Cancel
+script.
+    $(function () {
+        $(".dropdown-menu li a").click(function () {
+            $("#bill_type").text($(this).text());
+            $("$bill_type").val($(this).text());
+        });
+    });
+    function add_users() {
+        var amount = $("#amount_field").val()
+        $("#amount_field").val("");
+        var name = $("#name_field").val()
+        $("#name_field").val("");
+        document.getElementById('financeList').innerHTML += '<span><h4>' + name + " owes $" + amount + '</h4></span>\\r\n';
+    }

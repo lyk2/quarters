@@ -1,0 +1,290 @@
+style.
+  .input-label {
+  width:30%;
+  }
+// select house modal ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#selectHouseModal.modal.fade
+  .modal-dialog
+    // Modal content
+    .modal-content
+      // Modal header
+      .modal-header
+        button.close(type='safe-close', data-dismiss='modal') ×
+        h3.modal-title.text-center Join, Create, or Select a House
+      // Modal Body
+      .modal-body
+        .container(style="width:auto")
+          .row
+            .col-xs-12
+              button#leavehouse.btn.btn-info.btn-primary(type='button') Leave House
+              button.btn.btn-info.btn-primary(type='button') Set Default
+              br
+              br
+              p  (Select houses to leave. Only one house may be set as default.)
+              #house-list.radio
+                if house.all_houses!=null
+                  each val in house.all_houses
+                    span
+                      span(style='display:inline-block')
+                        label.radio-inline
+                          if val.house_id == house.active_house_id
+                            input(type='radio', name='optradio' value='#{val.house_id}' checked)
+                            |  #{val.address}
+                          else
+                            input(type='radio', name='optradio' value='#{val.house_id}')
+                            |  #{val.address}
+                      img(src='../img/avatars/house.jpg', style='width:100px;height:100px;')
+      .modal-footer
+        .col-lg-8
+          button#selectthishouse.btn.btn-info.btn-primary(type='button') Select
+          button#join-button.btn.btn-info.btn-primary(type='button') Join New
+          button#create-house.btn.btn-info.btn-primary(type='button') Create
+
+// create house modal ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#createHouseModal.modal(role='dialog')
+  .modal-dialog
+    // Modal content
+    .modal-content
+      // Modal header
+      .modal-header
+        button.close(type='safe-close', data-dismiss='modal') ×
+        h3.modal-title.text-center Create House
+      // Modal Body
+      .modal-body
+        .container
+          .row
+            .col-xs-8
+              p
+                | Please select your country, and fill in the following fields to create your house.
+              // Input Form
+              form#create-house-form
+                #country.radio-inline
+                  label.radio-inline
+                    input(type='radio', name='country-opt')
+                    | Canada
+                  label.radio-inline
+                    input(type='radio', name='country-opt')
+                    | USA
+                  label.radio-inline
+                    input(type='radio', name='country-opt')
+                    | Other
+                br
+                br
+                .input-group.col-xs-8
+                  span.input-group-addon.input-label Address
+                  input#address.form-control(type='text', placeholder='Required')
+                .input-group.col-xs-8
+                  span.input-group-addon.input-label City
+                  input#city.form-control(type='text')
+                .input-group.col-xs-8
+                  span.input-group-addon.input-label Province/State
+                  input#province.form-control(type='text')
+                .input-group.col-xs-8
+                  span.input-group-addon.input-label Postal/Zip Code
+                  input#postalCode.form-control(type='text')
+      // modal body
+      // Modal Footer
+      .modal-footer
+        button.btn.btn-defult(type='safe-close', data-dismiss='modal') Close
+        button#safe-back.btn.btn-defult(type='button', data-dismiss='modal') Back
+        button#submit-create-house.btn.btn-primary(type='button') Create
+    // modal content
+  // modal dialog
+// modal
+
+// join house modal ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#joinHouseModal.modal(role='dialog')
+  .modal-dialog
+    // Modal content
+    .modal-content
+      // Modal header
+      .modal-header
+        button.close(type='safe-close', data-dismiss='modal') ×
+        h3.modal-title.text-center Join House
+      // Modal Body
+      .modal-body
+        .container
+          .row
+            .col-xs-8
+              p Please enter your invitation code below.
+              // Input Form
+              form
+                .input-group.col-xs-8
+                  span#invite-code.input-group-addon.input-label Invitation Code
+                  input#joincode.form-control(type='text', placeholder='Required')
+      // Modal Footer
+      .modal-footer
+        button.btn.btn-defult(type='safe-close', data-dismiss='modal') Close
+        button#safe-back2.btn.btn-defult(type='button', data-dismiss='modal') Back
+        button#joinhouse.btn.btn-primary(type='button') Join
+    // end modal content
+  // end modal dialog
+// end modal
+
+// MODAL SCRIPTS
+script.
+  function showCreateHouse() {
+  $("#selectHouseModal").removeClass("fade").modal("hide");
+  $("#createHouseModal").modal("show").addClass("fade");
+  }
+  //$("#selectHouseModal").modal("show");
+  $("#create-house").on("click", function() {
+  showCreateHouse();
+  });
+  // Close modal window while avoiding rendering errors
+  $('button[type="safe-close"]').on("click", function () {
+  $(".modal-backdrop").fadeOut("slow");
+  });
+  // Hide create house modal, and show select house modal
+  function showSelectHouse() {
+  $("#createHouseModal").removeClass("fade").modal("hide");
+  $("#selectHouseModal").modal("show").addClass("fade");
+  }
+  // Move back one page from the create house modal
+  $("#safe-back").on("click", function() {
+  showSelectHouse();
+  });
+  // Hide select house modal, and show join house modal
+  function showJoinHouse() {
+  $("#selectHouseModal").removeClass("fade").modal("hide");
+  $("#joinHouseModal").modal("show").addClass("fade");
+  }
+  // Show join house modal
+  $("#join-button").on("click", function () {
+  showJoinHouse();
+  });
+  // Hide join house modal, and show select house modal
+  function showSelectHouse2() {
+  $("#joinHouseModal").removeClass("fade").modal("hide");
+  $("#selectHouseModal").modal("show").addClass("fade");
+  }
+  // Move back one page from the join house modal window
+  $("#safe-back2").on("click", function() {
+  showSelectHouse2();
+  });
+// END MODAL SCRIPTS
+
+// HOUSE CREATION SCRIPTS
+script.
+  $("#submit-create-house").click(function(event){
+    var houseData = {
+    address: $("#address").val(),
+    city: $("#city").val(),
+    province: $("#province").val(),
+    postalCode: $("#postalCode").val()
+    };
+    
+
+  $.ajax({
+    url: '/db/house/create',
+    type: 'get',
+    data: houseData,
+    dataType: 'json',
+    success: function(result){
+        console.log(result);
+        alert("House is created");
+        var listing = '<span><span style="display:inline-block"><label class="radio-inline"><input type="radio" name="optradio" value="'+result.house_id+'" checked="">'+result.address.trim()+'</label></span><img src="../img/avatars/house.jpg" style="width:100px;height:100px;" class="mCS_img_loaded"></span>';
+        $('#house-list > div .mCSB_container').append(listing);
+        $("#safe-back").trigger('click');
+      }
+    });
+  });
+// END HOUSE CREATION SCRIPTS
+
+// SCROLLBAR SCRIPT
+script.
+  (function($){
+  $(window).load(function(){
+  $("#house-list").mCustomScrollbar({
+  axis:"x",
+  advanced:{autoExpandHorizontalScroll:true},
+  theme:"dark-thick"
+  });
+  });
+  })(jQuery);
+// END SCROLLBAR SCRIPT
+
+script.
+    $("#leavehouse").click(function(){
+      
+      var d = confirm("Are you sure you want to leave?");
+      
+      if (!d)
+        return;
+      
+      var data = {
+        house_id : $('input[name="optradio"]:checked').val()
+      };
+      
+      $.ajax({
+        url : "../db/house/leave",
+        data : data,
+        method: 'post',
+        dataType: 'json',
+        success: function(response){
+          console.log("response");
+          $("input[name='optradio'][value='"+data.house_id+"']").closest('span').parent('span').remove();
+        },
+        error: function(error){
+          console.log(error);
+        }
+        
+      }); 
+    });
+    
+script.
+    $("#joinhouse").click(function(){
+      
+      var data = {
+        invite : $('#joincode').val()
+      };
+      
+      $.ajax({
+        url : "../db/house/join",
+        data : data,
+        method: 'get',
+        dataType: 'json',
+        success: function(response){
+          if (Object.keys(response).length > 0) {
+            alert("Joined House " + response.address.trim());
+            
+            var listing = '<span><span style="display:inline-block"><label class="radio-inline"><input type="radio" name="optradio" value="'+response.house_id+'" checked="">'+response.address.trim()+'</label></span><img src="../img/avatars/house.jpg" style="width:100px;height:100px;" class="mCS_img_loaded"></span>';
+            
+            // add listing
+            $('#house-list > div .mCSB_container').append(listing);
+            $("#safe-back2").trigger("click");
+          } else {
+            alert("invite code is incorrect");
+          }
+        },
+        error: function(error) {
+          alert("invite code is incorrect");
+        }
+        
+      }); 
+    });
+    $("#selectthishouse").click(function(){
+      
+      var data = {
+        house_id : $('input[name="optradio"]:checked').val(),
+        address : $('input[name="optradio"]:checked').parent('label').text()
+      };
+      
+      $.ajax({
+        url : "../db/house/select",
+        data : data,
+        method: 'get',
+        dataType: 'json',
+        success: function(response){
+          window.location.href = "";
+        },
+        error: function(error) {
+          alert("errored");
+        }
+        
+      }); 
+    });
+    
+if house.active_house_id == -1
+  script.
+    $("#openhouseselect").trigger('click');
