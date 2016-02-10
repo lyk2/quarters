@@ -6,34 +6,37 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     meta(name='description', content='')
     meta(name='author', content='')
-    title Quarters
+    title Quarters - DEVELOPMENTAL
     link(href='css/styles.css', rel='stylesheet', type='text/css')
+    link(href='css/login.css', rel='stylesheet', type='text/css')
     //- // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
     //- // WARNING: Respond.js doesn't work if you view the page via file://
     //- //if lt IE 9
     //-   script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
     //-   script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
-    body#page-top(data-spy='scroll', data-target='.navbar-static-top')
-        // Navigation
-        nav.navbar.navbar-custom.navbar-custom1.navbar-fixed-top(role='navigation')
-          .container
-            .navbar-header
-              button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-main-collapse')
-                a.btn.btn-ghost.btn-sm(href='login') Login
-              a.navbar-brand.page-scroll(href='#page-top')
-                a.navbar-brand.navbar(href='#') Quarters
-            // Collect the nav links, forms, and other content for toggling
-            .nav.collapse.navbar-collapse.navbar-right.navbar-main-collapse.navbar-custom
-              ul.nav.navbar-nav
-                // Hidden li included to remove active class from about link when scrolled up past about section
-                li.hidden
-                  a(href='#page-top')
-                li
-                  a.page-scroll(href='#about') About
-                li
-                  a.page-scroll(href='#features') Features
-                li
-                  a.btn.btn-ghost.btn-md(href='login') Login
+   body#page-top(data-spy='scroll', data-target='.navbar-static-top')
+
+    include ./login/login.jade
+    // Navigation
+    nav.navbar.navbar-custom.navbar-custom1.navbar-fixed-top(role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-main-collapse')
+            a.btn.btn-ghost.btn-sm(href='#') Login
+          a.navbar-brand.page-scroll(href='#page-top')
+            a.navbar-brand.navbar(href='#') Quarters
+        // Collect the nav links, forms, and other content for toggling
+        .nav.collapse.navbar-collapse.navbar-right.navbar-main-collapse.navbar-custom
+          ul.nav.navbar-nav
+            // Hidden li included to remove active class from about link when scrolled up past about section
+            li.hidden
+              a(href='#page-top')
+            li
+              a.page-scroll(href='#about') About
+            li
+              a.page-scroll(href='#features') Features
+            li
+              a#i-login.btn.btn-ghost.btn-md(data-toggle="modal" data-target="#myModal") Login
     // Header
     .intro-header
       .container.text.center
@@ -44,7 +47,7 @@ html(lang='en')
               h3 An online platform for landlords and tenants to communicate.
               //hr.intro-divider
               .list-inline.intro-social-buttons
-                a.btn.btn-custom.btn-lg(href='signup')
+                a#i-signup.btn.btn-custom.btn-lg(data-toggle="modal" data-target="#myModal")
                   span.network-name Sign Up
       // /.container
     // /.intro-header
@@ -153,7 +156,7 @@ html(lang='en')
           .col-lg-12
             h2 Get started now
           .col-lg-12
-            a.btn.btn-primary.btn-lg(href='signup')
+            a#i-signup.btn.btn-primary.btn-lg(href='#')
               span.network-name Sign up for free
       // /.container
     // /.banner
@@ -167,3 +170,101 @@ html(lang='en')
     script(src='js/jquery.js')
     // Bootstrap Core JavaScript
     script(src='js/bootstrap.min.js')
+    // bootstrap validator
+    script(src='js/validator.min.js')
+    script.
+      $(function() {
+      $('#login-form-link').click(function(e) {
+      $("#login-form").delay(100).fadeIn(100);
+      $("#register-form").fadeOut(100);
+      $('#register-form-link').removeClass('active');
+      $(this).addClass('active');
+      e.preventDefault();
+      });
+      $('#register-form-link').click(function(e) {
+      $("#register-form").delay(100).fadeIn(100);
+      $("#login-form").fadeOut(100);
+      $('#login-form-link').removeClass('active');
+      $(this).addClass('active');
+      e.preventDefault();
+      });
+      });
+
+      $('#i-signup').click(function(){
+        $('#register-form-link').trigger('click');
+      });
+      $('#i-login').click(function(){
+        $('#login-form-link').trigger('click');
+      });
+
+    script.
+      $( "#register-form" ).submit(function( event ) {
+        event.preventDefault();
+        var email = $("#email").val();
+        var emaildata = {"email":email};
+
+        $.ajax({
+            url: '/db/auth/em',
+            type: 'post',
+            data: emaildata,
+            dataType: 'json',
+            success: function (data) {
+              if (data.taken) {
+                $("#email-message").empty();
+                $("#email-message").append('<ul class="list-unstyled"><li>This email is already taken.</li></ul>');
+              }
+             else {
+
+                var pw = $("#inputpassword").val();
+                var pwc = $("#confirm-password").val();
+
+                if (pw == pwc) {
+                  // make acc
+
+                  console.log('making acc');
+                  emaildata.password = pw;
+                  reg(emaildata);
+
+                  $("#email-message").empty();
+                  $("#email-message").append('<ul class="list-unstyled"><li>Please Login Now</li></ul>');
+                }
+              }
+            }
+        });
+
+
+        function reg(d) {
+          $.ajax({
+            url: '/db/auth/signup',
+            type: 'post',
+            data: d,
+            dataType: 'json',
+          });
+        } 
+
+      });
+
+      $( "#login-form" ).submit(function( event ) {
+        event.preventDefault();
+        var login = {
+          email : $("#username").val(),
+          password: $("#password").val()
+        };
+
+        $.ajax({
+          url: '/db/auth/login',
+          type: 'post',
+          data: login,
+          dataType: 'json',
+          success: function(data){
+            window.location.href='/main';
+          },
+          error: function(data){
+            $("#login-message").empty();
+            $("#login-message").append('<ul class="list-unstyled"><li>Email or password is incorrect</li></ul>');
+          }
+        });
+
+        
+
+      })
