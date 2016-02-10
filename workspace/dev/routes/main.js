@@ -4,10 +4,10 @@ var router = express.Router();
 // this is occurs on every request, use to check against session for valid use
 router.use(function timeLog(req, res, next) {
 
-	req.session.user = {
-		uid: 6,
-		email: "hacked test"
-	};
+	// req.session.user = {
+	// 	uid: 6,
+	// 	email: "hacked test"
+	// };
 
 	if (req.session.user && req.session.house) {
 		next();
@@ -17,12 +17,13 @@ router.use(function timeLog(req, res, next) {
 		var db = require('./dbcomponents/db-con');
 		db.tx(function(t) {
 			return t.batch([
-				t.one('select address, house_id from user_info, house where user_id=$1 and house.house_id=user_info.default_house_id', req.session.user.uid),
+				t.any('select address, house_id from user_info, house where user_id=$1 and house.house_id=user_info.default_house_id', req.session.user.uid),
 				t.query('select house.house_id, house.address from role, house where user_id=$1 and role.house_id = house.house_id;', req.session.user.uid)
 			]);
 		})
 		.then(function(data) {
 			console.log(data);
+			console.log("here");
 			var address = (data[0].address) ? data[0].address.trim() : "";
 			var active_house_id = (data[0].house_id) ? data[0].house_id : -1;
 
@@ -38,18 +39,7 @@ router.use(function timeLog(req, res, next) {
 		});
 	}
 	else {
-		req.session.user = {
-			uid: 6,
-			email: "mem1@hello.ca"
-		};
-		req.session.house = {
-			active_house_id : 26,
-			address : "NO IDEA",
-			all_houses: [
-				{house_id:26, address:"HOLYFUCK"},
-			]
-		};
-		next();
+		res.send('please log in');
 	}
 });
 

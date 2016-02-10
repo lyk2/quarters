@@ -35,6 +35,7 @@ style.
                     img(src='../img/avatars/house.jpg', style='width:100px;height:100px;')
       .modal-footer
         .col-lg-8
+          button#selectthishouse.btn.btn-info.btn-primary(type='button') Select
           button#join-button.btn.btn-info.btn-primary(type='button') Join New
           button#create-house.btn.btn-info.btn-primary(type='button') Create
 
@@ -171,6 +172,7 @@ script.
     province: $("#province").val(),
     postalCode: $("#postalCode").val()
     };
+    
 
   $.ajax({
     url: '/db/house/create',
@@ -179,7 +181,10 @@ script.
     dataType: 'json',
     success: function(result){
         console.log(result);
-        $("#createHouseModal").removeClass("fade").modal("hide");
+        alert("House is created");
+        var listing = '<span><span style="display:inline-block"><label class="radio-inline"><input type="radio" name="optradio" value="'+result.house_id+'" checked="">'+result.address.trim()+'</label></span><img src="../img/avatars/house.jpg" style="width:100px;height:100px;" class="mCS_img_loaded"></span>';
+        $('#house-list > div .mCSB_container').append(listing);
+        $("#safe-back").trigger('click');
       }
     });
   });
@@ -257,3 +262,28 @@ script.
         
       }); 
     });
+    $("#selectthishouse").click(function(){
+      
+      var data = {
+        house_id : $('input[name="optradio"]:checked').val(),
+        address : $('input[name="optradio"]:checked').parent('label').text()
+      };
+      
+      $.ajax({
+        url : "../db/house/select",
+        data : data,
+        method: 'get',
+        dataType: 'json',
+        success: function(response){
+          window.location.href = "";
+        },
+        error: function(error) {
+          alert("errored");
+        }
+        
+      }); 
+    });
+    
+if house.active_house_id == -1
+  script.
+    $("#openhouseselect").trigger('click');

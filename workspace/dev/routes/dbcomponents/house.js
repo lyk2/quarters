@@ -43,7 +43,11 @@ router.get('/create', function(req, res, next) {
 	db.task(function (t) {
         return t.one("insert into house (address, city, province, country, postal_code, invite_code) values (${address}, ${city}, $(province), $(country), $(postalCode), $(invite)) returning *", data)
             .then(function (house) {
-                return t.one("insert into role (user_id, house_id, role) values ($1, $2, $3) returning *", [req.session.user.uid, house.house_id, 1]);
+				req.session.house.all_houses.push({house_id:house.house_id, address:house.address});
+                return t.one("insert into role (user_id, house_id, role) values ($1, $2, $3) returning *", [req.session.user.uid, house.house_id, 1])
+				.then(function(d){
+					res.send(house);
+				});
             });
     })
     .then(function (events) {
@@ -164,6 +168,15 @@ router.get('/test', function(req, res, next) {
 
 router.get('/wtf', function(req,res, next) {
 	res.send(req.session);
+});
+
+router.get('/select', function(req,res, next) {
+	if (!req.query.house_id)
+		res.send('no house_id provided');
+
+	req.session.house.active_house_id = req.query.house_id;
+	req.session.house.address = req.query.address;
+	res.send('{"WOO": true}');
 });
 
 
