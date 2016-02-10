@@ -10,17 +10,27 @@ router.use(function timeLog(req, res, next) {
 	else if (req.session.user &&!req.session.house) {
 		// get default house
 		var db = require('./dbcomponents/db-con');
-		db.query('select address, house_id from user_info, house where user_id=$1 and house.house_id=user_info.default_house_id', req.session.user.uid)
-			.then(function(data){
-				req.session.house = {
-					active_house_id: data[0].house_id,
-					address: data[0].address.trim()
-				};
-				next();
-			})
-			.catch(function(error){
-				console.log(error);
-			});
+		db.tx(function(t) {
+			return t.batch([
+				t.one('select address, house_id from user_info, house where user_id=$1 and house.house_id=user_info.default_house_id', req.session.user.uid),
+				t.query('select house.house_id, house.address from role, house where user_id=$1 and role.house_id = house.house_id;', req.session.user.uid)
+			]);
+		})
+		.then(function(data) {
+			req.session.house = {
+				active_house_id: data[0].house_id,
+				address: data[0].address.trim(),
+			};
+			if (data[1].length > 0){
+				req.session.house.all_houses = data[1];
+			} else {
+				req.session.house.all_houses = [];
+			}
+			next();
+		})
+		.catch(function(error){
+			console.log(error);
+		})
 	}
 	else {
 		req.session.user = {
@@ -29,14 +39,17 @@ router.use(function timeLog(req, res, next) {
 		};
 		req.session.house = {
 			active_house_id : 26,
-			address : "NO IDEA"
+			address : "NO IDEA",
+			all_houses: [
+				{house_id:26, address:"HOLYFUCK"},
+			]
 		};
 		next();
 	}
 });
 
 router.get('/', function(req, res, next) {
-	res.render('app/bulletin', genPageData(req.session));
+	res.render('app/bulletin', req.session);
 });
 
 router.get('/bulletin', function(req, res, next) {
@@ -60,7 +73,13 @@ router.get('/messages', function(req, res, next) {
 });
 
 router.get('/userprofile', function(req, res, next) {
-	res.render('app/userprofile', genPageData(req.session));
+	var userinfo = require('./app-utils/user-info');
+
+	if(req.query.uid)
+		userinfo.render(req.session, res, req.query.uid);
+	else
+		userinfo.render(req.session, res);
+
 });
 
 router.get('/accountsettings', function(req, res, next) {
@@ -68,15 +87,9 @@ router.get('/accountsettings', function(req, res, next) {
 });
 
 router.get('/documents', function(req, res, next) {
-
 	// load application module
 	var houseinfo = require('./app-utils/house-info');
-	var data = genPageData();
-
-	//hard set
-	data.active_house_id = "26";
-
-	houseinfo.render(data, res);
+	houseinfo.render(req.session, res);
 });
 
 router.get("/logout", function(req, res, next) {
@@ -86,15 +99,17 @@ router.get("/logout", function(req, res, next) {
 	req.session.destroy();
 });
 
-function genPageData() {
+function genPageData(x) {
 
-	var data = {
-		name: "some name here",
-		address: "123 idk",
-		uid: 3
+	x.user = {
+		uid : 6,
 	};
+	x.house = {
+		hid: 30,
+		address: ""
+	}
 
-	return data;
+	return x;
 }
 
 module.exports = router;

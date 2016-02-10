@@ -19,6 +19,30 @@ CREATE TABLE "user"
 );
 
 
+CREATE TABLE bill_owed
+(
+  bill_id integer NOT NULL,
+  owed_to integer NOT NULL,
+  owned_by integer NOT NULL,
+  paid boolean NOT NULL,
+  amount money NOT NULL,
+  CONSTRAINT bill_pkey PRIMARY KEY (bill_id, owed_to, owned_by),
+  CONSTRAINT bill_id_fkey FOREIGN KEY (bill_id)
+      REFERENCES finance (bill_id) MATCH SIMPLE
+      ON UPDATE CASCADE ON DELETE CASCADE
+)
+
+CREATE TABLE finance
+(
+  house_id integer NOT NULL,
+  owner_id integer NOT NULL,
+  bill_type character(150) NOT NULL,
+  bill_date timestamp without time zone NOT NULL,
+  bill_id serial NOT NULL,
+  CONSTRAINT bill_id_pkey PRIMARY KEY (bill_id)
+)
+
+
 CREATE TABLE "role"
 (
   user_id integer NOT NULL,
