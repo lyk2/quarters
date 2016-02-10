@@ -3,7 +3,7 @@ extends ./app.jade
 block content
 	div.row
 		div.col-lg-12
-			h3.page-header= full_name
+			h3.page-header= profile.full_name
 			button.btn.btn-default(style="margin-top:-60px; float:right") Send Message
 		div.col-xs-3
 			img.img-circle.center(src='../img/avatars/avatar.jpg', width='90%')
@@ -13,20 +13,19 @@ block content
 					tr
 						td Age
 						td
-							input.form-control(type='text' readonly=true value='#{age}' )
-						//value='#{info.age}'
+							input.form-control(type='text' readonly=true value='#{profile.age}' )
 					tr
 						td Date of Birth
 						td
-							input.form-control(type='text' readonly=true value='#{date_of_birth}' )
+							input.form-control(type='text' readonly=true value='#{profile.date_of_birth}' )
 					tr
 						td Contact Number
 						td
-							input.form-control(type='text' readonly=true value='#{cell_num}' )
+							input.form-control(type='text' readonly=true value='#{profile.cell_num}' )
 					tr
 						td Contact Email
 						td
-							input.form-control(type='text' readonly=true value='#{email}' )
+							input.form-control(type='text' readonly=true value='#{profile.email}' )
 					tr 
 						td Rating
 						td 2/5
@@ -34,4 +33,3 @@ block content
 						td Description
 						td
 							textarea.form-control(type='text' readonly=true)= description
-

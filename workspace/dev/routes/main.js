@@ -10,17 +10,27 @@ router.use(function timeLog(req, res, next) {
 	else if (req.session.user &&!req.session.house) {
 		// get default house
 		var db = require('./dbcomponents/db-con');
-		db.query('select address, house_id from user_info, house where user_id=$1 and house.house_id=user_info.default_house_id', req.session.user.uid)
-			.then(function(data){
-				req.session.house = {
-					active_house_id: data[0].house_id,
-					address: data[0].address.trim()
-				};
-				next();
-			})
-			.catch(function(error){
-				console.log(error);
-			});
+		db.tx(function(t) {
+			return t.batch([
+				t.one('select address, house_id from user_info, house where user_id=$1 and house.house_id=user_info.default_house_id', req.session.user.uid),
+				t.query('select house.house_id, house.address from role, house where user_id=$1 and role.house_id = house.house_id;', req.session.user.uid)
+			]);
+		})
+		.then(function(data) {
+			req.session.house = {
+				active_house_id: data[0].house_id,
+				address: data[0].address.trim(),
+			};
+			if (data[1].length > 0){
+				req.session.house.all_houses = data[1];
+			} else {
+				req.session.house.all_houses = [];
+			}
+			next();
+		})
+		.catch(function(error){
+			console.log(error);
+		})
 	}
 	else {
 		req.session.user = {
@@ -29,7 +39,10 @@ router.use(function timeLog(req, res, next) {
 		};
 		req.session.house = {
 			active_house_id : 26,
-			address : "NO IDEA"
+			address : "NO IDEA",
+			all_houses: [
+				{house_id:26, address:"HOLYFUCK"},
+			]
 		};
 		next();
 	}
@@ -60,17 +73,13 @@ router.get('/messages', function(req, res, next) {
 });
 
 router.get('/userprofile', function(req, res, next) {
-	//res.render('app/userprofile', genPageData(req.session));
-	// load application module
 	var userinfo = require('./app-utils/user-info');
-	var data={};
 
 	if(req.query.uid)
-		data.user_id = req.query.uid;
+		userinfo.render(req.session, res, req.query.uid);
 	else
-		data.user_id =  req.session.user.uid;
+		userinfo.render(req.session, res);
 
-	userinfo.render(data, res);
 });
 
 router.get('/accountsettings', function(req, res, next) {

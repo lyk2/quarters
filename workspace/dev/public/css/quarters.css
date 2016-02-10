@@ -13,6 +13,10 @@
 	margin-right: auto;
 }
 
+.navbar-address {
+	margin-top:-2px;
+}
+
 .finance div{
 	margin-top: 10px;
 	margin-bottom: 10px;

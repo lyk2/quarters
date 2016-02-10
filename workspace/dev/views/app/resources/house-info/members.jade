@@ -26,6 +26,6 @@
 									td member
 								td
 									.btn-group(role='group', aria-label='...')
-										button.btn.btn-default(type='button') View
-										button.btn.btn-default(type='button') Message
-										button.btn.btn-default(type='button') Remove
+										button.btn.btn-default(type='button' onClick='window.location.href = "userprofile?uid=#{val.user_id}"') View
+										//button.btn.btn-default(type='button') Message
+										//button.btn.btn-default(type='button') Remove

@@ -5,7 +5,7 @@ var info = {};
 
 info.render = function(session, res) {
 
-	console.log(session.house);
+	console.log(session);
 	db.tx(function(t){
 		return t.batch([
 			t.one('select * from house where house_id=$1', session.house.active_house_id),

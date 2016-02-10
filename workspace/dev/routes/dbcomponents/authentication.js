@@ -24,6 +24,7 @@ router.post('/signup', function(req, res, next) {
 		}).catch(function(error) {
 			res.send(error);
 		});
+	//todo generate user info
 });
 
 router.post('/em', function(req, res, next) {

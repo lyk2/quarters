@@ -6,7 +6,9 @@
         span.icon-bar
     a.header.navbar-brand(href='#', style='margin-left:15px') Quarters
     span.glyphicon.glyphicon-menu-right.header.navbar-brand
-    .dropdown.navbar-brand
-        | #{house.address}
-        button.btn.btn-default(data-toggle='modal', data-target='#selectHouseModal') open house
+    .dropdown.navbar-brand.navbar-address
+        span(style="margin-right:10px")= house.address
+        button.btn.btn-default(data-toggle='modal', data-target='#selectHouseModal')
+            i.fa.fa-home(style="float:left")
+            i.fa.fa-exchange(style="float:left")
 script(src='../js/jquery.js')
