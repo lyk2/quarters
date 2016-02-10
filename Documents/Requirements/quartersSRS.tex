@@ -37,8 +37,6 @@ height=3em, minimum width=6em, text centered]
 \tikzstyle{block4} = [draw, draw=black, fill=green!20, rectangle, minimum 
 height=3em, minimum width=6em, text centered]
 
-
-
  
 
 
@@ -66,7 +64,7 @@ January 17, 2016 & Made some revisions based on marking feedback, including Othe
 \hline
 January 18, 2016 & Fixed Constraints and Ideas for Solutions. \\ 
 \hline
-February 8, 2016 & Updated Naming Conventions and Terminology, Users of the Product, Work Partitioning Table. \\ 
+February 8-10, 2016 & Updated Naming Conventions and Terminology, Users of the Product, Work Partitioning Table, Functional Requirements, Waiting Room. \\ 
 \hline
 \end{longtable}
 
@@ -167,7 +165,7 @@ N/A.
       physical property, the users, and content added by those users.
     \item User: A user is a user of the application. A user is designated as an administrator or member of a house.
     \item Administrator: The user that creates the house is, by default, the administrator of the house. The administrator of a house is the only member of the house who can change information about the house, upload/delete files, add/delete members, and delete the house.
-    \item Maintenance request: A ticket created by a member of a house to inform another member of the same house of property-related maintenance that needs to be addressed. For example, a tenant may submit a maintenance request to their landlord to fix a leaky faucet, or a tenant may submit a maintenance request to a fellow tenant to clean their dirty dishes in the sink. 
+    \item Maintenance request: A ticket created by a member of a house to inform another member of the same house of property-related maintenance that needs to be addressed.
     \end{itemize}
 
 \section{Relevant Facts and Assumptions} 
@@ -217,7 +215,7 @@ See Table \ref{tab:workpartition}.
 \textbf{Event Name}  & \textbf{Input and Output} & \textbf{Summary} \\ 
 \hline
 1. User creates account. & \mbox{User email (IN)} \linebreak User password (IN) & User creates 
-an account and, by default, becomes the administrator. The system then adds the account to the database. \\ 
+an account. The system then adds the account to the database. \\ 
 \hline
 2. User deletes account. & \mbox{User email (IN)} \linebreak \mbox{User password 
 (IN)} & User deletes their account. The system then removes the account from the 
@@ -230,7 +228,7 @@ in to app. \\
 \hline
 5. User creates house. & \mbox{House address (IN)} \linebreak Invitation code (OUT) & User 
 inputs the house address into system. The system then saves the house in the 
-database. A unique invitation code is generated that the house creator uses to invite other users to join the house. \\
+database. The user that created the house becomes, by default, the administrator of the house. A unique invitation code is generated that the house creator uses to invite other users to join the house. \\
 \hline
 6. User joins house. & \mbox{User email (IN)} \linebreak Invitation code (IN) & User 
 enters invitation code. The system adds the user to the house. \\
@@ -239,26 +237,24 @@ enters invitation code. The system adds the user to the house. \\
 selects a house to leave. The system removes the user from the house. \\
 \hline
 8. User uploads file. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak File (IN) & User adds a 
-file to be visible to house. The system then saves the file in the database 
-directory. \\
+file to be visible to house. The system then saves the file in the database. \\
 \hline
-9. User submits maintenance request. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak \mbox{Request (IN)} \linebreak Request (OUT) & User that is tenant submits a 
-maintenance request to be received by landlord. \\
+9. User submits maintenance request. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak \mbox{Request (IN)} \linebreak Request (OUT) & User submits a 
+maintenance request to be received by another user of the same house. \\
 \hline
-10. User updates maintenance request. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak \mbox{Request (IN)} \linebreak Request (OUT) & User that is landlord 
-marks a maintenance request as complete. \\
+10. User updates maintenance request. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak \mbox{Request (IN)} \linebreak Request (OUT) & User marks a maintenance request as complete. \\
 \hline
-11. User adds chore. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Chore (IN)} 
-\linebreak Calendar (OUT) & User submits a chore to be displayed 
+11. User adds chore/event. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Chore/Event (IN)} 
+\linebreak Calendar (OUT) & User submits a chore or event to be displayed 
 on the Calendar. \\ \hline
-12. User deletes chore. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Chore (IN)} 
+12. User deletes chore/event. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Chore/Event (IN)} 
 \linebreak Calendar (OUT) & User deletes a chore to be removed from the Calendar. \\
 \hline
 13. User adds post. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Post (IN)} \linebreak 
 Bulletin Board (OUT) & User adds post to bulletin board. \\
 \hline
 14. User comments on post. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Comment (IN)} 
-\linebreak Discussion Board (OUT) & User comments on post on discussion board. 
+\linebreak Bulletin Board (OUT) & User comments on post on bulletin board. 
 \\
 \hline
 15. User deletes post. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Post (IN)} \linebreak 
@@ -276,145 +272,55 @@ N/A.
 
 \subsection{The Scope of the Product}
 \subsubsection{Product Boundary}
-See Figure \ref{fig:usecase}.
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}[auto, node distance=1cm,>=latex']
-% Place nodes  
-\node [block2](account){1. Creates Account};
-\node [block2, below of=account](delete){2. Deletes Account};
-\node [block2, below of=delete](login){3. Login};
-\node [block2, below of=login](logout){4. Logout};
-\node [block2, below of=logout](create){5. Creates House};
-\node [block2, below of=create](join){6. Joins House};
-\node [block2, below of=join](leave){7. Leaves House};
-\node [block2, below of=leave](upload){8. Uploads File};
-\node [block2, below of=upload](submit){9. Submits Maintenance Request};
-\node [block2, below of=submit](update){10. Updates Maintenance Request};
-\node [block2, below of=update](chore){11. Adds Chore};
-\node [block2, below of=chore](chat){12. Deletes Chore};
-\node [block2, below of=chat](message){13. Adds Post};
-\node [block2, below of=message](post){14. Adds Comment};
-\node [block2, below of=post](comment){15. Deletes Post};
-\node [block2, below of=comment](funds){16. Creates Record of Transaction};
-\node [block3, left of=create, xshift=-6cm](lord){Landlord User};
-\node [block3, left of=chat, xshift=-6cm](tenant){Tenant User};
-\node [block4, right of=create, xshift=6cm](database){Database};
-\node [block4, right of=chat, xshift=6cm](server){Web Server};
-
-% Place lines
-\draw [arrow] (lord.east) -- (account.west);
-\draw [arrow] (lord.east) -- (delete.west);
-\draw [arrow] (lord.east) -- (login.west);
-\draw [arrow] (lord.east) -- (logout.west);
-\draw [arrow] (lord.east) -- (create.west);
-\draw [arrow] (lord.east) -- (join.west);
-\draw [arrow] (lord.east) -- (leave.west);
-\draw [arrow] (lord.east) -- (upload.west);
-\draw [arrow] (lord.east) -- (update.west);
-\draw [arrow] (lord.east) -- (chore.west);
-\draw [arrow] (lord.east) -- (chat.west);
-\draw [arrow] (lord.east) -- (message.west);
-\draw [arrow] (lord.east) -- (post.west);
-\draw [arrow] (lord.east) -- (comment.west);
-\draw [arrow] (lord.east) -- (funds.west);
-
-\draw [arrow] (tenant.east) -- (account.west);
-\draw [arrow] (tenant.east) -- (delete.west);
-\draw [arrow] (tenant.east) -- (login.west);
-\draw [arrow] (tenant.east) -- (logout.west);
-\draw [arrow] (tenant.east) -- (create.west);
-\draw [arrow] (tenant.east) -- (join.west);
-\draw [arrow] (tenant.east) -- (leave.west);
-\draw [arrow] (tenant.east) -- (upload.west);
-\draw [arrow] (tenant.east) -- (submit.west);
-\draw [arrow] (tenant.east) -- (chore.west);
-\draw [arrow] (tenant.east) -- (chat.west);
-\draw [arrow] (tenant.east) -- (message.west);
-\draw [arrow] (tenant.east) -- (post.west);
-\draw [arrow] (tenant.east) -- (comment.west);
-\draw [arrow] (tenant.east) -- (funds.west);
-
-\draw [arrow] (database.west) -- (account.east);
-\draw [arrow] (database.west) -- (delete.east);
-\draw [arrow] (database.west) -- (login.east);
-\draw [arrow] (database.west) -- (logout.east);
-\draw [arrow] (database.west) -- (create.east);
-\draw [arrow] (database.west) -- (join.east);
-\draw [arrow] (database.west) -- (leave.east);
-\draw [arrow] (database.west) -- (upload.east);
-\draw [arrow] (database.west) -- (submit.east);
-\draw [arrow] (database.west) -- (update.east);
-\draw [arrow] (database.west) -- (chore.east);
-\draw [arrow] (database.west) -- (chat.east);
-\draw [arrow] (database.west) -- (message.east);
-\draw [arrow] (database.west) -- (post.east);
-\draw [arrow] (database.west) -- (comment.east);
-\draw [arrow] (database.west) -- (funds.east);
-
-\draw [arrow] (server.west) -- (account.east);
-\draw [arrow] (server.west) -- (delete.east);
-\draw [arrow] (server.west) -- (login.east);
-\draw [arrow] (server.west) -- (logout.east);
-\draw [arrow] (server.west) -- (create.east);
-\draw [arrow] (server.west) -- (join.east);
-\draw [arrow] (server.west) -- (leave.east);
-\draw [arrow] (server.west) -- (upload.east);
-\draw [arrow] (server.west) -- (submit.east);
-\draw [arrow] (server.west) -- (update.east);
-\draw [arrow] (server.west) -- (chore.east);
-\draw [arrow] (server.west) -- (chat.east);
-\draw [arrow] (server.west) -- (message.east);
-\draw [arrow] (server.west) -- (post.east);
-\draw [arrow] (server.west) -- (comment.east);
-\draw [arrow] (server.west) -- (funds.east);
-
-\end{tikzpicture}
-\caption{Product Use Case Diagram}
-\label{fig:usecase}
-\end{figure}
+N/A.
 
 \subsection{Functional and Data Requirements}
 \NumTabs{5}
-\textbf{Requirement \#:} 
+\textbf{Requirement \#:} 1
       \tab{\textbf{Event/Use Case:} 1}
       \tab{\textbf{Priority:} 5} \\
       \textbf{Description: }{Account registration.} \\
       \textbf{Rationale: }{To individualize a user's experience and ensure security of a user's information and data.} \\
       \textbf{Fit Criterion: }{Only a registered user can access the application.} \\ \\ 
-\textbf{Requirement \#:} 
+\textbf{Requirement \#:} 2
       \tab{\textbf{Event/Use Case:} 2}
       \tab{\textbf{Priority:} 2} \\
       \textbf{Description: }{Account removal.} \\
       \textbf{Rationale: }{For users who wish to delete their account from the system.} \\
       \textbf{Fit Criterion: }{Once a user deletes their account they cannot access the application unless they create a new account.} \\ \\ 
-\textbf{Requirement \#:} 
+\textbf{Requirement \#:} 3
       \tab{\textbf{Event/Use Case:} 3}
       \tab{\textbf{Priority:} 5} \\
       \textbf{Description: }{User login.} \\
       \textbf{Rationale: }{All users should be able to securely login.} \\
       \textbf{Fit Criterion: }{Upon passing proper credentials, user completes 
-the login process.} \\ \\
-\textbf{Requirement \#:} 
+the login process. If user inputs incorrect email/password combination, the user is prompted to try again.} \\ \\
+\textbf{Requirement \#:} 4
       \tab{\textbf{Event/Use Case:} 4}
       \tab{\textbf{Priority:} 5} \\
       \textbf{Description: }{User logout.} \\
       \textbf{Rationale: }{All users should be able to securely logout.} \\
       \textbf{Fit Criterion: }{Upon logging out, a user must login to access their account.} \\ \\
-\textbf{Requirement \#:} 1 
+\textbf{Requirement \#:} 5
+      \tab{\textbf{Event/Use Case:} 5,6}
+      \tab{\textbf{Priority:} 5} \\
+      \textbf{Description: }{New users must create or join a house immediately after account registration.} \\
+      \textbf{Rationale: }{All users must be a member of a house to use the application.} \\
+      \textbf{Fit Criterion: }{New users will be prompted to either create a house or join a house upon logging in.} \\ \\
+\textbf{Requirement \#:} 6
       \tab{\textbf{Event/Use Case:} 5} 
       \tab{\textbf{Priority:} 5} \\
       \textbf{Description:} House creation. \\
       \textbf{Rationale:} To allow users to self-organize and communicate. \\
       \textbf{Fit Criterion:} A house object is created in the database, with
       the creator as its default administrator. \\ \\  
-\textbf{Requirement \#:} 1 
+\textbf{Requirement \#:} 7
       \tab{\textbf{Event/Use Case:} } 
-      \tab{\textbf{Priority:} 5} \\
+      \tab{\textbf{Priority:} 3} \\
       \textbf{Description:} House deletion. \\
       \textbf{Rationale:} Allows the administrator to delete a house and all of its contents. \\
       \textbf{Fit Criterion:} The administrator and members no longer have access to that house. \\ \\  
-\textbf{Requirement \#:} 2 
+\textbf{Requirement \#:} 8
       \tab{\textbf{Event/Use Case:} 6}
       \tab{\textbf{Priority:} 5} \\
       \textbf{Description:} User joins a house. \\
@@ -422,103 +328,106 @@ the login process.} \\ \\
       have already been created. \\
       \textbf{Fit Criterion:} The user is added to the list of members
       associated with the house they are joining. \\ \\
-\textbf{Requirement \#:} 2 
-      \tab{\textbf{Event/Use Case:} 6}
+\textbf{Requirement \#:} 9
+      \tab{\textbf{Event/Use Case:} 7}
       \tab{\textbf{Priority:} 5} \\
       \textbf{Description:} User leaves a house. \\
       \textbf{Rationale:} To allow a user that is a member of a house to leave the house group in the event they are no longer a landlord or tenant. \\
       \textbf{Fit Criterion:} The user is removed from the list of members
       associated with the house they are leaving. \\ \\
-\textbf{Requirement \#:} 3 
-      \tab{\textbf{Event/Use Case:} 8}
+\textbf{Requirement \#:} 10
+      \tab{\textbf{Event/Use Case:} }
+      \tab{\textbf{Priority:} 5} \\
+      \textbf{Description:} House management section. \\
+      \textbf{Rationale:} To view: the list of houses a user belongs to, house documents, member profiles, and house details. Also, to allow user to switch house views.\\
+      \textbf{Fit Criterion:} House information is accurate and user can switch which house to view. \\ \\
+      \textbf{Requirement \#:} 11
+      \tab{\textbf{Event/Use Case:} }
       \tab{\textbf{Priority:} 3} \\
+      \textbf{Description:} Administrator makes member of house another administrator. \\
+      \textbf{Rationale:} To allow multiple administrators of a house. For example, a tenant may create the house, but the landlord wants access to upload files. Or, the original administrator is leaving the house group but the house group should remain. \\
+      \textbf{Fit Criterion:} Additional administrators have the same permissions as default administrators, including adding information about the house, uploading/deleting files, adding/deleting members, and deleting the house. \\ \\
+\textbf{Requirement \#:} 12
+      \tab{\textbf{Event/Use Case:} 8}
+      \tab{\textbf{Priority:} 2} \\
       \textbf{Description:} Administrator user uploads a file. \\
       \textbf{Rationale:} To allow administrators to share documents. \\
       \textbf{Fit Criterion:} The file that is uploaded is added to the set of
       files associated with that house. \\ \\
-\textbf{Requirement \#:} 4
-      \tab{\textbf{Event/Use Case:} 8}
-      \tab{\textbf{Priority:} 3} \\
+\textbf{Requirement \#:} 13
+      \tab{\textbf{Event/Use Case:} }
+      \tab{\textbf{Priority:} 2} \\
+      \textbf{Description:} Administrator user deletes a file. \\
+      \textbf{Rationale:} To allow administrators to delete uploaded documents. \\
+      \textbf{Fit Criterion:} The file that is deleted is removed from the set of
+      files associated with that house. \\ \\
+\textbf{Requirement \#:} 14
+      \tab{\textbf{Event/Use Case:} }
+      \tab{\textbf{Priority:} 2} \\
       \textbf{Description:} User downloads a file. \\
       \textbf{Rationale:} To allow users to retrieve and save documents that 
 have
       been uploaded by the administrator(s) in their house. \\
       \textbf{Fit Criterion:} The file selected by the user is downloaded to
       their machine. \\ \\
-\textbf{Requirement \#:} 
-      \tab{\textbf{Event/Use Case:}}
-      \tab{\textbf{Priority:} } \\
+\textbf{Requirement \#:} 15
+      \tab{\textbf{Event/Use Case:} } 
+      \tab{\textbf{Priority:} 5}\\
+      \textbf{Description: }{Bulletin board.} \\
+      \textbf{Rationale: }{Users are able to post and view new updates from the Calendar, Financing and Maintenance Request sections, and 
+comment on posts and updates to enhance communications.} \\
+      \textbf{Fit Criterion: }{Posts on the bulletin should be sorted 
+chronologically.} \\ \\      
+\textbf{Requirement \#:} 16 
+      \tab{\textbf{Event/Use Case:} 13}
+      \tab{\textbf{Priority:} 4} \\
       \textbf{Description:} Users shall communicate through posts on the bulletin board. \\
       \textbf{Rationale:} To centralize communication between users. \\
       \textbf{Fit Criterion:} All posts are instant and visible on the house group's bulletin board.  \\ \\ 
-      \textbf{Requirement \#:} 
-      \tab{\textbf{Event/Use Case:}}
-      \tab{\textbf{Priority:} } \\
+      \textbf{Requirement \#:} 17
+      \tab{\textbf{Event/Use Case:} 14}
+      \tab{\textbf{Priority:} 4} \\
       \textbf{Description:} Users shall be able to reply to posts on the bulletin board. \\
       \textbf{Rationale:} To streamline communications regarding the same topic in a thread-like structure. \\
       \textbf{Fit Criterion:} All post replies are instant and appear directly under the post.  \\ \\ 
-\textbf{Requirement \#:} 6
+\textbf{Requirement \#:} 18
       \tab{\textbf{Event/Use Case:} 9}
       \tab{\textbf{Priority:} 4} \\
-      \textbf{Description:} Tenants shall be able to create maintenance
+      \textbf{Description:} Users shall be able to submit maintenance
       requests. \\
-      \textbf{Rationale:} To allow tenants to inform their landlord of property
-      related work that needs to be addressed in a structured manner, as opposed to random messages via email, text or phone.\\
-      \textbf{Fit Criterion:} Landlords shall be able to view a list of current
-      maintenance requests as soon as they are created by their tenants.\\ \\          
-\textbf{Requirement \#:} 9
-      \tab{\textbf{Event/Use Case:} 14,15} 
-      \tab{\textbf{Priority:} 4}\\
-      \textbf{Description: }{Bulletin board.} \\
-      \textbf{Rationale: }{Users are able to post and view information, and 
-comment on other posts to enhance communications.} \\
-      \textbf{Fit Criterion: }{Posts on the bulletin should be sorted 
-chronologically, and viewable by the designated user.} \\ \\        
-\textbf{Requirement \#:} 10
+      \textbf{Rationale:} To allow users to inform another member of the same house of property-
+      related maintenance that needs to be addressed in a structured manner, as opposed to random messages via email, text or phone.\\
+      \textbf{Fit Criterion:} Users shall be able to view a list of current
+      maintenance requests as soon as they are created.\\ \\    
+\textbf{Requirement \#:} 19
+      \tab{\textbf{Event/Use Case:} 10}
+      \tab{\textbf{Priority:} 4} \\
+      \textbf{Description:} Users shall be able to update maintenance
+      requests. \\
+      \textbf{Rationale:} To allow users to indicate they have addressed a maintenance request. \\
+      \textbf{Fit Criterion:} Users shall be able to view a list of completed
+      maintenance requests as soon as they are updated.\\ \\                 
+\textbf{Requirement \#:} 20
+      \tab{\textbf{Event/Use Case:} 16}
+      \tab{\textbf{Priority:} 3} \\
+      \textbf{Description: }{Finances section to log monetary transactions between users.} \\
+      \textbf{Rationale: }{To keep a history log of external payments between users.} \\
+      \textbf{Fit Criterion: }{Users log the relevant information regarding the transaction in a form, and the information is displayed in a table.} \\ \\        
+\textbf{Requirement \#:} 21
+      \tab{\textbf{Event/Use Case:} 11}
+      \tab{\textbf{Priority:} 4} \\
+      \textbf{Description: }{Calendar section.} \\
+      \textbf{Rationale: }{To allow users to keep track of upcoming chores and events.} \\
+      \textbf{Fit Criterion: }{Calendar format should be based off the 
+standardized ICS structure. This platform should support the addition and deletion of an event.} \\ \\
+\textbf{Requirement \#:} 22
       \tab{\textbf{Event/Use Case:}
       \tab{\textbf{Priority:} 5} \\
       \textbf{Description: }{Multiple resolution compatibility.} \\
       \textbf{Rationale: }{Users may have different devices with different 
 screen resolutions. The application should be able to support all types.} \\
       \textbf{Fit Criterion: }{Web platform should support mobile screens and 
-desktop screens, including both horizontal and vertical layouts.} \\ \\        
-\textbf{Requirement \#:} 11
-      \tab{\textbf{Event/Use Case:} 6}
-      \tab{\textbf{Priority:} 5} \\
-      \textbf{Description: }{House management.} \\
-      \textbf{Rationale: }{Administrator should be able to determine which users 
-can access the house.} \\
-      \textbf{Fit Criterion: }{Administrators can add, edit and remove users 
-from a house.} 
-\ds{Who are the administrators? Are they developers of ``Quarters" or landlords?}
-\\ \\        
-\textbf{Requirement \#:} 12
-      \tab{\textbf{Event/Use Case:} 16}
-      \tab{\textbf{Priority:} 3} \\
-      \textbf{Description: }{Financial platform that provides users with the option to make payments via PayPal.} \\
-      \textbf{Rationale: }{Payments between users may be processed within the 
-platform to discard the need to handle cash or to use post-dated cheques.} \\
-      \textbf{Fit Criterion: }{Payments are secure and logged. Payer and payee 
-will be notified upon payment completion.} \\ \\        
-\textbf{Requirement \#:} 13
-      \tab{\textbf{Event/Use Case:} 11}
-      \tab{\textbf{Priority:} 3} \\
-      \textbf{Description: }{Calendar platform.} \\
-      \textbf{Rationale: }{Events tied to the house can be made in the calendar 
-platform. Chores and other repeating events can be created here.} \\
-      \textbf{Fit Criterion: }{Calendar format should be based off the 
-standardized ICS structure. This format should be deployable to other calendar 
-management software. This platform should support the creation, deletion and 
-modifications to an event.} \\ \\
-\textbf{Requirement \#:}  
-      \tab{\textbf{Event/Use Case:} }
-      \tab{\textbf{Priority:} 3} \\
-      \textbf{Description:} Administrator makes member of house another administrator. \\
-      \textbf{Rationale:} To allow multiple administrators of a house. For example, a tenant may create the house, but the landlord wants access to upload files. Or, the original administrator is leaving the house group but the house group should remain. \\
-      \textbf{Fit Criterion:} Additional administrators have the added ability to add information about the house, upload/delete files, add/delete members, and delete the house.\\ \\
-\ds{How does a landlord end up on a house?}
-\ds{You have not covered the entirety of your use cases. Where are the rest of
-	your requirements?}
+desktop screens, including both horizontal and vertical layouts.} 
         
 \section{Nonfunctional Requirements}
 \subsection{Look and Feel Requirements}
@@ -566,10 +475,7 @@ The web application shall be available for use 24 hours per day, 365 days per
 year.
 \subsubsection{Robustness or Fault-Tolerance Requirements}
 The web application shall successfully display an error message to the user 
-should an incorrect username/password combination be input, or in the event one of its features crashes.  
-\ds{There should be error-related functional requirements as well. When the
-error message occurs, what happens? Does the program stop or can the user 
-continue performing tasks?}
+should an incorrect username/password combination be input, or in the event one of its features crashes.
 \subsubsection{Capacity Requirements}
 The web application shall cater to 100 simultaneous users during its initial release. Capacity will increase with expansion.
 \subsubsection{Scalability or Extensibility Requirements}
@@ -596,13 +502,9 @@ The initial release of the web application will be in February 2016. The next
 release will be in April 2016.
 \subsection{Maintainability and Support Requirements}
 \subsubsection{Maintenance Requirements}
-The web application shall be able to be maintained by developers who are not the 
-original developers.
-\ds{That is not a good requirement.}
+N/A.
 \subsubsection{Supportability Requirements}
-N/A. 
-\ds{You may want to include supportability requirements}
-
+A user help guide and FAQ section will be made available to all users; new users will be given a tour of the application.
 \subsubsection{Adaptability Requirements}
 The web application is expected to run on web browsers on mobile phones, tablets 
 and desktop computers.
@@ -619,12 +521,7 @@ protect itself from unwanted attacks by unauthorized users. The web application
 shall have a back-up of its stored data on an alternate server.
 \subsubsection{Privacy Requirements}
 The web application shall make its users aware of its information practices 
-before collecting data from them. The web application shall authorize account 
-registration of users using social media accounts. The web application shall use 
-a third-party interface to store credit card information and perform secure 
-monetary transactions between users.
-
-\ds{Is data stored securely? Is it tamper-proof?}
+before collecting data from them. The data shall be stored securely and be tamper-proof.
 \subsubsection{Audit Requirements}
 N/A.
 \subsubsection{Immunity Requirements}
@@ -632,9 +529,6 @@ N/A.
 \subsection{Cultural and Political Requirements}
 N/A.
 \subsection{Legal Requirements}
-\subsubsection{Compliance Requirements}
-N/A.
-\subsubsection{Standards Requirements}
 N/A.
 
 \section{Project Issues}
@@ -642,19 +536,18 @@ N/A.
 \begin{itemize}
   \item Size of the user group is uncertain, therefore a hardware upgrade may be 
 required in the future to accommodate the user.
-  \item User interface has yet to be designed.
-  \item Browser compatibility.
-  \item Methods to store documents, eg. database vs locally on server.
+  \item Results of usability tests may completely change business model.
+  \item The scope of the project given project deadlines.
+  \item Security and permissions.
 \end{itemize}
 
 \subsection{Off the Shelf Solutions}
 \subsubsection{Ready-Made Products}
 No ready-made products exist with the same functionalities. 
 \subsubsection{Reusable Components}
-Facebook and Google accounts can be used for account registration and connecting members in 
-the house.
+N/A.
 \subsubsection{Products That Can Be Copied}
-N/A
+N/A.
 \subsection{New Problems}
 \subsubsection{Effects on the Current Environment}
 N/A.
@@ -674,9 +567,9 @@ Old web browsers are not compatible with the web application.
 \subsection{Tasks}
 \subsubsection{Project Planning}
 \begin{itemize}
-  \item Present requirement document to supervisor for feedback.
-  \item Develop prototype for demo purpose.
-  \item Refine and develop more features.
+  \item Present requirements document to supervisor for feedback.
+  \item Develop prototype for demo.
+  \item Test, refine and develop more features.
 \end{itemize}
 \subsubsection{Planning of the Development Phases}
 \begin{itemize}
@@ -692,7 +585,7 @@ N/A.
 
 \subsection{Risks}
 \begin{itemize}
-  \item Security/legal issues with online payment.
+  \item Security issues with user accounts and data.
   \item Not able to get enough users.
   \item Certain features may not be compatible with the hardware.
   \item Project becomes too complicated and not able to meet deadlines.
@@ -715,9 +608,12 @@ will be given a tour.
 \subsection{Waiting Room}
 The next release will include the following features:
 \begin{itemize}
+	\item In-app payment.
+	\item Repeating events and colour-coded events on Calendar.
 	\item Separate module for housing advertisements.
 	\item Ability to attach pictures and files in discussion board.
 	\item Notifications either through email or text messages (for urgent events).
+	\item Update to Bootstrap v4.
 \end{itemize}
 \subsection{Ideas for Solutions}
 \begin{itemize}
@@ -725,11 +621,11 @@ The next release will include the following features:
       with an emphasis on extensibility and on standards-compliance.
     \item ExpressJS: A NodeJS web application server framework, designated for
       building single-page, multi-page, and hybrid web applications.
-    \item AngularJS: An open-source web application framework.
     \item NodeJS: An open-source, cross-platform run-time environment for
       developing server-side web applications.
     \item Bootstrap: A free and open-source collection of tools for creating
       websites and web applications.
+    \item \href{http://fullcalendar.io/‎}{FullCalendar}: An open-source full-sized JavaScript calendar to display events.
 \end{itemize}
 
 \end{document}

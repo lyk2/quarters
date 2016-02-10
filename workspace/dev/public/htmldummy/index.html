@@ -95,7 +95,7 @@
                                 Event
                             </div>
                             <div class="col-xs-6">
-                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                                <button class="btn btn-default dropdown-toggle" id="bill_type" type="button" data-toggle="dropdown">
                                     Household
                                     <span class="caret"></span></button>
                                 <ul class="dropdown-menu">
@@ -114,7 +114,7 @@
                                 Name
                             </div>
                             <div class="col-xs-3">
-                                <input id="name_field" type="text" class="form-control" placeholder="Jon Snow" aria-describedby="sizing-addon2">
+                                <input id="name_field" type="text" class="form-control" placeholder="Enter Name" aria-describedby="sizing-addon2">
                             </div>
                         </div>
 
@@ -125,7 +125,7 @@
                                 Amount
                             </div>
                             <div class="col-xs-3">
-                                <input id="amount_field" type="text" class="form-control" placeholder="$0.00" aria-describedby="sizing-addon2">
+                                <input id="amount_field" type="text" class="form-control" placeholder="Enter amount" aria-describedby="sizing-addon2">
                             </div>
                         </div>
 
@@ -183,25 +183,25 @@
 <script src="../js/bootstrap.min.js"></script>
 
 <script>
-    $("#test").click(function () {
+    $(function(){
 
-        console.log('aasdf');
+        $(".dropdown-menu li a").click(function(){
 
-        $.get("/db/house/create", {
-            address: "1280 main st w"
+            $("#bill_type").text($(this).text());
+            $("$bill_type").val($(this).text());
+
         });
-
     });
+
+    function add_users() {
+        var amount = $("#amount_field").val()
+        $("#amount_field").val("");
+        var name = $("#name_field").val()
+        $("#name_field").val("");
+        document.getElementById('financeList').innerHTML += '<span><h4>' + name + " owes $"+ amount + '</h4></span>\r\n';
+    }
 </script>
 
-
-<script>
-function add_users() {
-    var amount = $("#amount_field").val()
-    var name = $("#name_field").val()
-    document.getElementById('financeList').innerHTML += '<span><h4>' + name + " owes $"+ amount + '</h4></span>\r\n';
-}
-</script>
 </body>
 
 </html>
