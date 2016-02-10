@@ -95,7 +95,7 @@
                                 Event
                             </div>
                             <div class="col-xs-6">
-                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                                <button class="btn btn-default dropdown-toggle" id="bill_type" type="button" data-toggle="dropdown">
                                     Household
                                     <span class="caret"></span></button>
                                 <ul class="dropdown-menu">
@@ -192,6 +192,16 @@
         });
 
     });
+    $(function(){
+
+        $(".dropdown-menu li a").click(function(){
+
+            $("#bill_type").text($(this).text());
+            $("$bill_type").val($(this).text());
+
+        });
+
+    });
 </script>
 
 
@@ -203,6 +213,7 @@ function add_users() {
     $("#name_field").val("");
     document.getElementById('financeList').innerHTML += '<span><h4>' + name + " owes $"+ amount + '</h4></span>\r\n';
 }
+
 </script>
 </body>
 
