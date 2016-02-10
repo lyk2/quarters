@@ -107,25 +107,59 @@
                                 </ul>
                             </div>
                         </div>
+
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                Name
+                            </div>
+                            <div class="col-xs-3">
+                                <input id="name_field" type="text" class="form-control" placeholder="Jon Snow" aria-describedby="sizing-addon2">
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                Amount
+                            </div>
+                            <div class="col-xs-3">
+                                <input id="amount_field" type="text" class="form-control" placeholder="$0.00" aria-describedby="sizing-addon2">
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                Date
+                            </div>
+                            <div class="col-xs-3">
+                                <input type="date" id="date_field">
+                            </div>
+                        </div>
+
+
+
                         <div class="row finance">
                             <div class="col-xs-6">
                                 Description
                             </div>
                             <div class="col-xs-6">
-                                <textarea></textarea>
+                                <textarea id="description_field"></textarea>
                             </div>
                         </div>
-                        <button>+</button>
-                        <div class="row userList">
-                            <div class="col-xs-6">
-                                <table>
-                                    <tr>
 
-                                    </tr>
-                                    <td>
+                        <input type="button" id="more_fields" onclick="add_users();" value="Add" />
+                        <br>
+                        <br>
 
-                                    </td>
-                                </table>
+                        <div class="row user-list">
+                            <div class="col-xs-12">
+                                <form id="financeList">
+                                    
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -160,6 +194,14 @@
     });
 </script>
 
+
+<script>
+function add_users() {
+    var amount = $("#amount_field").val()
+    var name = $("#name_field").val()
+    document.getElementById('financeList').innerHTML += '<span><h4>' + name + " owes $"+ amount + '</h4></span>\r\n';
+}
+</script>
 </body>
 
 </html>
