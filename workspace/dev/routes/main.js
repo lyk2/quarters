@@ -60,17 +60,13 @@ router.get('/messages', function(req, res, next) {
 });
 
 router.get('/userprofile', function(req, res, next) {
-	//res.render('app/userprofile', genPageData(req.session));
-	// load application module
 	var userinfo = require('./app-utils/user-info');
-	var data={};
 
 	if(req.query.uid)
-		data.user_id = req.query.uid;
+		userinfo.render(data, res, req.query.uid);
 	else
-		data.user_id =  req.session.user.uid;
+		userinfo.render(req.session, res);
 
-	userinfo.render(data, res);
 });
 
 router.get('/accountsettings', function(req, res, next) {
