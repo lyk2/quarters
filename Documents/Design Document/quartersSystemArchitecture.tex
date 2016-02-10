@@ -28,11 +28,12 @@ width=2em, text centered]
 \hypersetup{
     bookmarks=true,         % show bookmarks bar?
     colorlinks=true,        % false: boxed links; true: colored links
-    linkcolor=black,        % color of internal links (change box color with linkbordercolor)
+    linkcolor=blue,        % color of internal links (change box color with linkbordercolor)
     citecolor=green,        % color of links to bibliography
     filecolor=magenta,      % color of file links
     urlcolor=cyan           % color of external links
 }
+
 
 %% Comments
 \newif\ifcomments\commentstrue
@@ -103,8 +104,17 @@ This document provides a general overview as to how Quarters will be built. List
 \centering
 \includegraphics[scale=0.75]{login}
 \caption{Authentication control flow}
-\label{fig:jsflow}
+\label{fig:auflow}
 \end{figure}
+
+Figure \ref{fig:auflow} presents flow of logging into the application.
+\begin{enumerate}
+    \item \textbf{Landing page} - Presents an overview of the application, outlining some of the main features, and provide the option to sign up and login.
+    \item \textbf{Signup} - Allows user to register new accounts. Once registration is done, the user is directed to the main application.
+    \item \textbf{Login} - Allows user to login with their existing account. Once registration is done, the user is directed to the main application
+    \item \textbf{Session Manager} - Once the user is verified (against the database), the user information will be stored into the local session.
+\end{enumerate}
+
 
 \begin{figure}
 \centering
@@ -113,6 +123,18 @@ This document provides a general overview as to how Quarters will be built. List
 \label{fig:jsflow}
 \end{figure}
 
-\ds{You should have some explanation of the decomposition with your diagrams.}
+\
+
+ Figure \ref{fig:jsflow} presents a flow of the Javascript modules
+\begin{enumerate}
+    \item \textbf{House management} - Handles all activities related to the house. e.g Joining a house, leaving a house, etc.
+    \item \textbf{Bulletin Board} - Handles all activities within the bulletin board module. e.g. e.g. make a new post, delete a post, etc.
+    \item \textbf{Calendar Board} - Handles all updates  for calendar events. e.g. make a new event, delete event, etc.
+    \item \textbf{Financial} - Handles all actions for storing financial records. e.g. post a new bill, pay bill, etc.
+    \item \textbf{Ticketing} - Handles all actions for maintenance tickets. e.g. submit a new ticket, close a ticket, etc.
+    \item \textbf{Notification} - Handles all actions for notifications. e.g. post notification.
+    
+    
+\end{enumerate}
 
 \end{document}

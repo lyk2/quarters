@@ -1,7 +1,7 @@
 extends ./app.jade
 
 block css
-	link(rel='stylesheet' href='../css/calendar.css')
+	link(rel='stylesheet' href='../css/fullcalendar.css')
 	//- link(href='../css/fullcalendar.print.css', rel='stylesheet', media='print')
 	
 
@@ -28,10 +28,11 @@ block js
 				selectable: true,
 				selectHelper: true,
 
-				googleCalendarApiKey: 'AIzaSyABDKnGkEvFCN9UDlq7GCyep99uMvnclYM',
-				events: {
-					googleCalendarId: 'oomoup4h350ojq5dsh6nl2qtu0@group.calendar.google.com'
-				},
+				// Google Calendar API
+				//- googleCalendarApiKey: 'AIzaSyABDKnGkEvFCN9UDlq7GCyep99uMvnclYM',
+				//- events: {
+				//- 	googleCalendarId: 'oomoup4h350ojq5dsh6nl2qtu0@group.calendar.google.com'
+				//- },
 
 				select: function (start, end, allDay) {
 					mEnd = moment(end).format('h:mma');

@@ -183,7 +183,7 @@ N/A.
 There is currently no existing software platform that attempts to simplify and 
 document communication between landlords and tenants. A web application is 
 needed to serve as a centralized management solution that will benefit both 
-types of users. The web application will include document storage, financial transaction history, a calendar, maintenance ticketing and a 
+types of users. The web application will include document storage, financial transaction history, a calendar, maintenance ticketing, and a 
 bulletin board.
 \subsubsection{The Context of the Work} 
 See Figure \ref{fig:workcontext}.
@@ -281,13 +281,13 @@ N/A.
       \tab{\textbf{Priority:} 5} \\
       \textbf{Description: }{Account registration.} \\
       \textbf{Rationale: }{To individualize a user's experience and ensure security of a user's information and data.} \\
-      \textbf{Fit Criterion: }{Only a registered user can access the application.} \\ \\ 
+      \textbf{Fit Criterion: }{Only a registered user can use the application.} \\ \\ 
 \textbf{Requirement \#:} 2
       \tab{\textbf{Event/Use Case:} 2}
       \tab{\textbf{Priority:} 2} \\
       \textbf{Description: }{Account removal.} \\
       \textbf{Rationale: }{For users who wish to delete their account from the system.} \\
-      \textbf{Fit Criterion: }{Once a user deletes their account they cannot access the application unless they create a new account.} \\ \\ 
+      \textbf{Fit Criterion: }{Once a user deletes their account they cannot use the application unless they create a new account.} \\ \\ 
 \textbf{Requirement \#:} 3
       \tab{\textbf{Event/Use Case:} 3}
       \tab{\textbf{Priority:} 5} \\
@@ -301,12 +301,6 @@ the login process. If user inputs incorrect email/password combination, the user
       \textbf{Description: }{User logout.} \\
       \textbf{Rationale: }{All users should be able to securely logout.} \\
       \textbf{Fit Criterion: }{Upon logging out, a user must login to access their account.} \\ \\
-\textbf{Requirement \#:} 5
-      \tab{\textbf{Event/Use Case:} 5,6}
-      \tab{\textbf{Priority:} 5} \\
-      \textbf{Description: }{New users must create or join a house immediately after account registration.} \\
-      \textbf{Rationale: }{All users must be a member of a house to use the application.} \\
-      \textbf{Fit Criterion: }{New users will be prompted to either create a house or join a house upon logging in.} \\ \\
 \textbf{Requirement \#:} 6
       \tab{\textbf{Event/Use Case:} 5} 
       \tab{\textbf{Priority:} 5} \\
@@ -315,12 +309,6 @@ the login process. If user inputs incorrect email/password combination, the user
       \textbf{Fit Criterion:} A house object is created in the database, with
       the creator as its default administrator. \\ \\  
 \textbf{Requirement \#:} 7
-      \tab{\textbf{Event/Use Case:} } 
-      \tab{\textbf{Priority:} 3} \\
-      \textbf{Description:} House deletion. \\
-      \textbf{Rationale:} Allows the administrator to delete a house and all of its contents. \\
-      \textbf{Fit Criterion:} The administrator and members no longer have access to that house. \\ \\  
-\textbf{Requirement \#:} 8
       \tab{\textbf{Event/Use Case:} 6}
       \tab{\textbf{Priority:} 5} \\
       \textbf{Description:} User joins a house. \\
@@ -328,99 +316,27 @@ the login process. If user inputs incorrect email/password combination, the user
       have already been created. \\
       \textbf{Fit Criterion:} The user is added to the list of members
       associated with the house they are joining. \\ \\
-\textbf{Requirement \#:} 9
+\textbf{Requirement \#:} 8
       \tab{\textbf{Event/Use Case:} 7}
       \tab{\textbf{Priority:} 5} \\
       \textbf{Description:} User leaves a house. \\
-      \textbf{Rationale:} To allow a user that is a member of a house to leave the house group in the event they are no longer a landlord or tenant. \\
+      \textbf{Rationale:} To allow a user that is a member of a house to leave the house group. \\
       \textbf{Fit Criterion:} The user is removed from the list of members
       associated with the house they are leaving. \\ \\
-\textbf{Requirement \#:} 10
+\textbf{Requirement \#:} 9
       \tab{\textbf{Event/Use Case:} }
       \tab{\textbf{Priority:} 5} \\
       \textbf{Description:} House management section. \\
       \textbf{Rationale:} To view: the list of houses a user belongs to, house documents, member profiles, and house details. Also, to allow user to switch house views.\\
       \textbf{Fit Criterion:} House information is accurate and user can switch which house to view. \\ \\
-      \textbf{Requirement \#:} 11
-      \tab{\textbf{Event/Use Case:} }
-      \tab{\textbf{Priority:} 3} \\
-      \textbf{Description:} Administrator makes member of house another administrator. \\
-      \textbf{Rationale:} To allow multiple administrators of a house. For example, a tenant may create the house, but the landlord wants access to upload files. Or, the original administrator is leaving the house group but the house group should remain. \\
-      \textbf{Fit Criterion:} Additional administrators have the same permissions as default administrators, including adding information about the house, uploading/deleting files, adding/deleting members, and deleting the house. \\ \\
-\textbf{Requirement \#:} 12
-      \tab{\textbf{Event/Use Case:} 8}
-      \tab{\textbf{Priority:} 2} \\
-      \textbf{Description:} Administrator user uploads a file. \\
-      \textbf{Rationale:} To allow administrators to share documents. \\
-      \textbf{Fit Criterion:} The file that is uploaded is added to the set of
-      files associated with that house. \\ \\
-\textbf{Requirement \#:} 13
-      \tab{\textbf{Event/Use Case:} }
-      \tab{\textbf{Priority:} 2} \\
-      \textbf{Description:} Administrator user deletes a file. \\
-      \textbf{Rationale:} To allow administrators to delete uploaded documents. \\
-      \textbf{Fit Criterion:} The file that is deleted is removed from the set of
-      files associated with that house. \\ \\
-\textbf{Requirement \#:} 14
-      \tab{\textbf{Event/Use Case:} }
-      \tab{\textbf{Priority:} 2} \\
-      \textbf{Description:} User downloads a file. \\
-      \textbf{Rationale:} To allow users to retrieve and save documents that 
-have
-      been uploaded by the administrator(s) in their house. \\
-      \textbf{Fit Criterion:} The file selected by the user is downloaded to
-      their machine. \\ \\
-\textbf{Requirement \#:} 15
-      \tab{\textbf{Event/Use Case:} } 
-      \tab{\textbf{Priority:} 5}\\
-      \textbf{Description: }{Bulletin board.} \\
-      \textbf{Rationale: }{Users are able to post and view new updates from the Calendar, Financing and Maintenance Request sections, and 
-comment on posts and updates to enhance communications.} \\
-      \textbf{Fit Criterion: }{Posts on the bulletin should be sorted 
-chronologically.} \\ \\      
-\textbf{Requirement \#:} 16 
-      \tab{\textbf{Event/Use Case:} 13}
-      \tab{\textbf{Priority:} 4} \\
-      \textbf{Description:} Users shall communicate through posts on the bulletin board. \\
-      \textbf{Rationale:} To centralize communication between users. \\
-      \textbf{Fit Criterion:} All posts are instant and visible on the house group's bulletin board.  \\ \\ 
-      \textbf{Requirement \#:} 17
-      \tab{\textbf{Event/Use Case:} 14}
-      \tab{\textbf{Priority:} 4} \\
-      \textbf{Description:} Users shall be able to reply to posts on the bulletin board. \\
-      \textbf{Rationale:} To streamline communications regarding the same topic in a thread-like structure. \\
-      \textbf{Fit Criterion:} All post replies are instant and appear directly under the post.  \\ \\ 
-\textbf{Requirement \#:} 18
-      \tab{\textbf{Event/Use Case:} 9}
-      \tab{\textbf{Priority:} 4} \\
-      \textbf{Description:} Users shall be able to submit maintenance
-      requests. \\
-      \textbf{Rationale:} To allow users to inform another member of the same house of property-
-      related maintenance that needs to be addressed in a structured manner, as opposed to random messages via email, text or phone.\\
-      \textbf{Fit Criterion:} Users shall be able to view a list of current
-      maintenance requests as soon as they are created.\\ \\    
-\textbf{Requirement \#:} 19
-      \tab{\textbf{Event/Use Case:} 10}
-      \tab{\textbf{Priority:} 4} \\
-      \textbf{Description:} Users shall be able to update maintenance
-      requests. \\
-      \textbf{Rationale:} To allow users to indicate they have addressed a maintenance request. \\
-      \textbf{Fit Criterion:} Users shall be able to view a list of completed
-      maintenance requests as soon as they are updated.\\ \\                 
-\textbf{Requirement \#:} 20
-      \tab{\textbf{Event/Use Case:} 16}
-      \tab{\textbf{Priority:} 3} \\
-      \textbf{Description: }{Finances section to log monetary transactions between users.} \\
-      \textbf{Rationale: }{To keep a history log of external payments between users.} \\
-      \textbf{Fit Criterion: }{Users log the relevant information regarding the transaction in a form, and the information is displayed in a table.} \\ \\        
-\textbf{Requirement \#:} 21
+\textbf{Requirement \#:} 10
       \tab{\textbf{Event/Use Case:} 11}
       \tab{\textbf{Priority:} 4} \\
       \textbf{Description: }{Calendar section.} \\
       \textbf{Rationale: }{To allow users to keep track of upcoming chores and events.} \\
       \textbf{Fit Criterion: }{Calendar format should be based off the 
 standardized ICS structure. This platform should support the addition and deletion of an event.} \\ \\
-\textbf{Requirement \#:} 22
+\textbf{Requirement \#:} 11
       \tab{\textbf{Event/Use Case:}
       \tab{\textbf{Priority:} 5} \\
       \textbf{Description: }{Multiple resolution compatibility.} \\
@@ -443,7 +359,7 @@ The web application shall appear professional and secure.
 The 
 web application shall be used by users with no prior training. A casual user should 
 be able to use the application with the same ease of a frequent user. The 
-application shall make the users want to use it. A test panel of current 
+utility of the application and its unique advantages shall be apparent upon a first encounter. A test panel of current 
 landlords and their tenants shall be able to successfully create a user account 
 and use the application's functions without guidance within their first 
 encounter.
@@ -607,6 +523,12 @@ The next release will include the following features:
 	\item Ability to attach pictures and files in discussion board.
 	\item Notifications either through email or text messages (for urgent events).
 	\item Update to Bootstrap v4.
+	\item House deletion.
+	\item Administrator roles.
+	\item Maintenance ticketing.
+	\item Finance History.
+	\item Bulletin board.
+	\item Document upload.
 \end{itemize}
 \subsection{Ideas for Solutions}
 \begin{itemize}
