@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="quarters" company="quarters" webLink="http://quarters.space" view-date="2015-12-31" view-index="0" gantt-divider-location="353" resource-divider-location="300" version="2.7.1" locale="en_US">
+<?xml version="1.0" encoding="UTF-8"?><project name="quarters" company="quarters" webLink="http://quarters.space" view-date="2015-12-31" view-index="0" gantt-divider-location="353" resource-divider-location="300" version="2.7.1" locale="en_CA">
     <description><![CDATA[capstone development, assignment progress]]></description>
     <view zooming-state="default:0" id="gantt-chart">
         <field id="tpd3" name="Name" width="55" order="0"/>
@@ -42,7 +42,7 @@
             <task id="14" name="Finalized Design Doc" color="#8cb6ce" meeting="true" start="2016-01-11" duration="0" complete="0" expand="true"/>
             <task id="92" name="Product Demo" color="#8cb6ce" meeting="true" start="2016-02-02" duration="0" complete="0" expand="true"/>
         </task>
-        <task id="8" name="Database Development" color="#ff3333" meeting="false" start="2016-01-01" duration="22" complete="0" expand="true">
+        <task id="8" name="Database Development" color="#ff3333" meeting="false" start="2016-01-01" duration="61" complete="0" expand="true">
             <task id="15" name="House Tables" color="#8cb6ce" meeting="false" start="2016-01-01" duration="5" complete="0" expand="true">
                 <depend id="16" type="2" difference="0" hardness="Strong"/>
                 <depend id="17" type="2" difference="0" hardness="Strong"/>
@@ -60,62 +60,62 @@
                 <depend id="38" type="2" difference="0" hardness="Strong"/>
             </task>
             <task id="20" name="Ticketing tables" color="#8cb6ce" meeting="false" start="2016-01-15" duration="3" complete="0" expand="true"/>
-            <task id="21" name="Database Optimization" color="#8cb6ce" meeting="false" start="2016-01-25" duration="6" complete="0" expand="true"/>
+            <task id="21" name="Database Optimization" color="#8cb6ce" meeting="false" start="2016-01-25" duration="45" complete="0" expand="true"/>
             <task id="94" name="database completion" color="#8cb6ce" meeting="true" start="2016-01-20" duration="0" complete="0" expand="true"/>
         </task>
-        <task id="9" name="Front End Development" meeting="false" start="2016-01-01" duration="18" complete="0" expand="true">
-            <task id="22" name="House selection" color="#000000" meeting="false" start="2016-01-01" duration="17" complete="0" expand="true">
-                <task id="23" name="UI" color="#8cb6ce" meeting="false" start="2016-01-01" duration="3" complete="0" expand="true"/>
-                <task id="24" name="Functionality" meeting="false" start="2016-01-21" duration="3" complete="0" expand="true"/>
+        <task id="9" name="Front End Development" meeting="false" start="2016-01-01" duration="80" complete="0" expand="true">
+            <task id="22" name="House selection" color="#000000" meeting="false" start="2016-01-01" duration="48" complete="0" expand="true">
+                <task id="23" name="UI" color="#8cb6ce" meeting="false" start="2016-01-01" duration="29" complete="0" expand="true"/>
+                <task id="24" name="Functionality" meeting="false" start="2016-02-17" duration="15" complete="0" expand="true"/>
             </task>
-            <task id="28" name="House information" meeting="false" start="2016-01-01" duration="13" complete="0" expand="true">
-                <task id="29" name="UI" meeting="false" start="2016-01-01" duration="3" complete="0" expand="true"/>
-                <task id="30" name="Functionality" meeting="false" start="2016-01-15" duration="3" complete="0" expand="true"/>
+            <task id="28" name="House information" meeting="false" start="2016-01-01" duration="46" complete="0" expand="true">
+                <task id="29" name="UI" meeting="false" start="2016-01-01" duration="27" complete="0" expand="true"/>
+                <task id="30" name="Functionality" meeting="false" start="2016-02-11" duration="17" complete="0" expand="true"/>
             </task>
-            <task id="31" name="Bulletin Board" color="#000000" meeting="false" start="2016-01-01" duration="18" complete="0" expand="true">
-                <task id="32" name="UI" meeting="false" start="2016-01-01" duration="3" complete="0" expand="true"/>
-                <task id="33" name="Functionality" meeting="false" start="2016-01-22" duration="3" complete="0" expand="true"/>
+            <task id="31" name="Bulletin Board" color="#000000" meeting="false" start="2016-02-15" duration="34" complete="0" expand="true">
+                <task id="32" name="UI" meeting="false" start="2016-02-15" duration="12" complete="0" expand="true"/>
+                <task id="33" name="Functionality" color="#8cb6ce" meeting="false" start="2016-02-23" duration="28" complete="0" expand="true"/>
             </task>
-            <task id="34" name="Calendar" color="#000000" meeting="false" start="2016-01-01" duration="13" complete="0" expand="true">
-                <task id="37" name="UI" meeting="false" start="2016-01-01" duration="3" complete="0" expand="true"/>
-                <task id="38" name="Functionality" meeting="false" start="2016-01-15" duration="3" complete="0" expand="true"/>
+            <task id="34" name="Calendar" color="#000000" meeting="false" start="2016-01-01" duration="41" complete="0" expand="true">
+                <task id="37" name="UI" meeting="false" start="2016-01-01" duration="26" complete="0" expand="true"/>
+                <task id="38" name="Functionality" meeting="false" start="2016-01-15" duration="31" complete="0" expand="true"/>
             </task>
-            <task id="44" name="Notifications" color="#000000" meeting="false" start="2016-01-01" duration="17" complete="0" expand="true">
-                <task id="45" name="UI" meeting="false" start="2016-01-01" duration="3" complete="0" expand="true"/>
-                <task id="46" name="Functionality" meeting="false" start="2016-01-21" duration="3" complete="0" expand="true"/>
+            <task id="44" name="Notifications" color="#000000" meeting="false" start="2016-02-29" duration="39" complete="0" expand="true">
+                <task id="45" name="UI" meeting="false" start="2016-02-29" duration="3" complete="0" expand="true"/>
+                <task id="46" name="Functionality" meeting="false" start="2016-03-11" duration="30" complete="0" expand="true"/>
             </task>
             <task id="25" name="CSS" color="#000000" meeting="false" start="2016-01-01" duration="17" complete="0" expand="true">
                 <task id="26" name="Landing page" meeting="false" start="2016-01-01" duration="17" complete="0" expand="true"/>
                 <task id="27" name="main app" meeting="false" start="2016-01-01" duration="17" complete="0" expand="true"/>
             </task>
         </task>
-        <task id="10" name="Server Development" meeting="false" start="2016-01-01" duration="18" complete="0" expand="true">
-            <task id="39" name="Housing group Management" color="#000000" meeting="false" start="2016-01-08" duration="9" complete="0" expand="true">
+        <task id="10" name="Server Development" meeting="false" start="2016-01-01" duration="50" complete="0" expand="true">
+            <task id="39" name="Housing group Management" color="#000000" meeting="false" start="2016-01-08" duration="28" complete="0" expand="true">
                 <depend id="24" type="2" difference="0" hardness="Strong"/>
-                <task id="40" name="Create House" meeting="false" start="2016-01-08" duration="5" complete="0" expand="true">
-                    <depend id="41" type="2" difference="0" hardness="Strong"/>
+                <task id="40" name="Create House" meeting="false" start="2016-01-08" duration="24" complete="0" expand="true">
+                    <depend id="41" type="1" difference="0" hardness="Strong"/>
                     <depend id="42" type="2" difference="0" hardness="Strong"/>
                     <depend id="43" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="41" name="Join house" meeting="false" start="2016-01-15" duration="4" complete="0" expand="true"/>
-                <task id="42" name="Leave house" meeting="false" start="2016-01-15" duration="4" complete="0" expand="true"/>
-                <task id="43" name="modify, change roles" meeting="false" start="2016-01-15" duration="4" complete="0" expand="true"/>
+                <task id="41" name="Join house" color="#8cb6ce" meeting="false" start="2016-01-08" duration="24" complete="0" expand="true"/>
+                <task id="42" name="Leave house" meeting="false" start="2016-02-11" duration="4" complete="0" expand="true"/>
+                <task id="43" name="modify, change roles" meeting="false" start="2016-02-11" duration="4" complete="0" expand="true"/>
             </task>
-            <task id="47" name="House information storage" color="#000000" meeting="false" start="2016-01-01" duration="18" complete="0" expand="true">
-                <task id="48" name="general description" meeting="false" start="2016-01-01" duration="10" complete="0" expand="true">
+            <task id="47" name="House information storage" color="#000000" meeting="false" start="2016-01-01" duration="43" complete="0" expand="true">
+                <task id="48" name="general description" meeting="false" start="2016-01-01" duration="29" complete="0" expand="true">
                     <depend id="30" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="49" name="external files" meeting="false" start="2016-01-11" duration="12" complete="0" expand="true"/>
+                <task id="49" name="external files" meeting="false" start="2016-02-15" duration="12" complete="0" expand="true"/>
             </task>
-            <task id="50" name="Notifications" color="#000000" meeting="false" start="2016-01-14" duration="5" complete="0" expand="true">
+            <task id="50" name="Notifications" color="#000000" meeting="false" start="2016-02-29" duration="9" complete="0" expand="true">
                 <depend id="46" type="2" difference="0" hardness="Strong"/>
-                <task id="51" name="Database checks" meeting="false" start="2016-01-14" duration="5" complete="0" expand="true"/>
-                <task id="52" name="notification pushed" meeting="false" start="2016-01-14" duration="5" complete="0" expand="true"/>
+                <task id="51" name="Database checks" meeting="false" start="2016-02-29" duration="9" complete="0" expand="true"/>
+                <task id="52" name="notification pushed" meeting="false" start="2016-02-29" duration="5" complete="0" expand="true"/>
             </task>
-            <task id="53" name="Bulletin Board" color="#000000" meeting="false" start="2016-01-14" duration="6" complete="0" expand="true">
-                <task id="54" name="get data" meeting="false" start="2016-01-14" duration="6" complete="0" expand="true"/>
-                <task id="55" name="update data" meeting="false" start="2016-01-14" duration="6" complete="0" expand="true"/>
-                <task id="56" name="posts" meeting="false" start="2016-01-14" duration="6" complete="0" expand="true">
+            <task id="53" name="Bulletin Board" color="#000000" meeting="false" start="2016-02-15" duration="6" complete="0" expand="true">
+                <task id="54" name="get data" meeting="false" start="2016-02-15" duration="6" complete="0" expand="true"/>
+                <task id="55" name="update data" meeting="false" start="2016-02-15" duration="6" complete="0" expand="true"/>
+                <task id="56" name="posts" meeting="false" start="2016-02-15" duration="6" complete="0" expand="true">
                     <depend id="33" type="2" difference="0" hardness="Strong"/>
                 </task>
             </task>
