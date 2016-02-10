@@ -25,6 +25,7 @@ CREATE TABLE bill_owed
   owed_to integer NOT NULL,
   owned_by integer NOT NULL,
   paid boolean NOT NULL,
+  amount money NOT NULL,
   CONSTRAINT bill_pkey PRIMARY KEY (bill_id, owed_to, owned_by),
   CONSTRAINT bill_id_fkey FOREIGN KEY (bill_id)
       REFERENCES finance (bill_id) MATCH SIMPLE
