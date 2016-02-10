@@ -58,14 +58,39 @@ router.get('/create', function(req, res, next) {
 
 router.get('/join', function(req,res,next){
 	var data = req.query;
-	console.log(data);
-	db.query("Insert into role (user_id,house_id,role) values ($1,$2,$3)",[req.session.user.uid, data.houseId, 0])
-			.then(function(data){
-				res.send("{}");
+
+	if (!data.invite) {
+		res.send("enter invite code");
+	}
+
+	db.task(function (t) {
+		return t.one("select * from house where invite_code=$1", req.query.invite)
+			.then (function(house){
+				console.log(house);
+				return t.one("insert into role (user_id, house_id, role) values ($1, $2, $3) returning *", [req.session.user.uid, house.house_id, 0])
+					.then (function(d){
+						console.log(d);
+						var newHouse = {house_id:house.house_id, address: house.address.trim()};
+						req.session.house.all_houses.push(newHouse);
+						res.send(house);
+					})
+					.catch(function (error) {
+						console.log(error);
+						res.send(error);
+					});
 			})
-			.catch(function(error){
+			.catch(function (error) {
+				console.log(error);
 				res.send(error);
 			});
+		})
+		.then(function (events) {
+			res.send(events);
+		})
+		.catch(function (error) {
+			console.log(error);
+			res.send(error);
+		});
 });
 
 
@@ -102,11 +127,16 @@ router.post('/leave', function(req, res, next) {
 
 	db.none('delete from role where user_id=$1 and house_id=$2', [req.session.user.uid, req.body.house_id])
 		.then(function(data){
-			res.send('{deleted:true}');
+			for (i = 0; i < req.session.house.all_houses.length; i++){
+				if (req.session.house.all_houses[i].house_id == req.body.house_id) {
+					req.session.house.all_houses.splice(i, 1);
+				}
+			}
+			res.send('{"deleted":true}');
 		})
 		.catch(function(error){
 			console.log(error);
-			res.send('{failed:false}');
+			res.send('{"failed":false}');
 		})
 });
 

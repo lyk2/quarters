@@ -22,17 +22,18 @@ style.
               br
               p  (Select houses to leave. Only one house may be set as default.)
               #house-list.radio
-                each val in house.all_houses
-                  span
-                    span(style='display:inline-block')
-                      label.radio-inline
-                        if val.house_id == house.active_house_id
-                          input(type='radio', name='optradio' value='#{val.house_id}' checked)
-                          |  #{val.address}
-                        else
-                          input(type='radio', name='optradio' value='#{val.house_id}')
-                          |  #{val.address}
-                    img(src='../img/avatars/house.jpg', style='width:100px;height:100px;')
+                if house.all_houses!=null
+                  each val in house.all_houses
+                    span
+                      span(style='display:inline-block')
+                        label.radio-inline
+                          if val.house_id == house.active_house_id
+                            input(type='radio', name='optradio' value='#{val.house_id}' checked)
+                            |  #{val.address}
+                          else
+                            input(type='radio', name='optradio' value='#{val.house_id}')
+                            |  #{val.address}
+                      img(src='../img/avatars/house.jpg', style='width:100px;height:100px;')
       .modal-footer
         .col-lg-8
           button#join-button.btn.btn-info.btn-primary(type='button') Join New
@@ -109,12 +110,12 @@ style.
               form
                 .input-group.col-xs-8
                   span#invite-code.input-group-addon.input-label Invitation Code
-                  input.form-control(type='text', placeholder='Required')
+                  input#joincode.form-control(type='text', placeholder='Required')
       // Modal Footer
       .modal-footer
         button.btn.btn-defult(type='safe-close', data-dismiss='modal') Close
         button#safe-back2.btn.btn-defult(type='button', data-dismiss='modal') Back
-        button.btn.btn-primary(type='button') Join
+        button#joinhouse.btn.btn-primary(type='button') Join
     // end modal content
   // end modal dialog
 // end modal
@@ -207,7 +208,7 @@ script.
         return;
       
       var data = {
-        house_id : $('input[name=optradio]:checked').val()
+        house_id : $('input[name="optradio"]:checked').val()
       };
       
       $.ajax({
@@ -215,8 +216,44 @@ script.
         data : data,
         method: 'post',
         dataType: 'json',
-        sucess: function(response){
+        success: function(response){
           console.log("response");
+          $("input[name='optradio'][value='"+data.house_id+"']").closest('span').parent('span').remove();
+        },
+        error: function(error){
+          console.log(error);
+        }
+        
+      }); 
+    });
+    
+script.
+    $("#joinhouse").click(function(){
+      
+      var data = {
+        invite : $('#joincode').val()
+      };
+      
+      $.ajax({
+        url : "../db/house/join",
+        data : data,
+        method: 'get',
+        dataType: 'json',
+        success: function(response){
+          if (Object.keys(response).length > 0) {
+            alert("Joined House " + response.address.trim());
+            
+            var listing = '<span><span style="display:inline-block"><label class="radio-inline"><input type="radio" name="optradio" value="'+response.house_id+'" checked="">'+response.address.trim()+'</label></span><img src="../img/avatars/house.jpg" style="width:100px;height:100px;" class="mCS_img_loaded"></span>';
+            
+            // add listing
+            $('#house-list > div .mCSB_container').append(listing);
+            $("#safe-back2").trigger("click");
+          } else {
+            alert("invite code is incorrect");
+          }
+        },
+        error: function(error) {
+          alert("invite code is incorrect");
         }
         
       }); 
