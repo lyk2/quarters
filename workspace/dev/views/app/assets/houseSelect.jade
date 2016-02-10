@@ -13,65 +13,22 @@ style.
         h3.modal-title.text-center Join, Create, or Select a House
       // Modal Body
       .modal-body
-        .container
+        .container(style="width:auto")
           .row
-            .col-xs-8
+            .col-xs-12
               button.btn.btn-info.btn-primary(type='button') Leave House
               button.btn.btn-info.btn-primary(type='button') Set Default
               br
               br
               p  (Select houses to leave. Only one house may be set as default.)
               #house-list.radio
-                span
-                  span(style='display:inline-block')
-                    label.radio-inline
-                      input(type='radio', name='optradio')
-                      |  Default
-                    br
-                    label.checkbox-inline
-                      input(type='checkbox', value='')
-                      |  Option 1
-                  img(src='../img/avatars/house.jpg', style='width:100px;height:100px;')
-                span
-                  span(style='display:inline-block')
-                    label.radio-inline
-                      input(type='radio', name='optradio')
-                      |  Default
-                    br
-                    label.checkbox-inline
-                      input(type='checkbox', value='')
-                      |  Option 2
-                  img(src='../img/avatars/house.jpg', style='width:100px;height:100px;')
-                span
-                  span(style='display:inline-block')
-                    label.radio-inline
-                      input(type='radio', name='optradio')
-                      |  Default
-                    br
-                    label.checkbox-inline
-                      input(type='checkbox', value='')
-                      |  Option 3
-                  img(src='../img/avatars/house.jpg', style='width:100px;height:100px;')
-                span
-                  span(style='display:inline-block')
-                    label.radio-inline
-                      input(type='radio', name='optradio')
-                      |  Default
-                    br
-                    label.checkbox-inline
-                      input(type='checkbox', value='')
-                      |  Option 4
-                  img(src='../img/avatars/house.jpg', style='width:100px;height:100px;')
-                span
-                  span(style='display:inline-block')
-                    label.radio-inline
-                      input(type='radio', name='optradio')
-                      |  Default
-                    br
-                    label.checkbox-inline
-                      input(type='checkbox', value='')
-                      |  Option 5
-                  img(src='../img/avatars/house.jpg', style='width:100px;height:100px;')
+                each val in house.all_houses
+                  span
+                    span(style='display:inline-block')
+                      label.radio-inline
+                        input(type='radio', name='optradio')
+                        |  #{val.house_id}
+                    img(src='../img/avatars/house.jpg', style='width:100px;height:100px;')
       .modal-footer
         .col-lg-8
           button#join-button.btn.btn-info.btn-primary(type='button') Join New
@@ -236,14 +193,3 @@ script.
   });
   })(jQuery);
 // END SCROLLBAR SCRIPT
-
-script.
-  (function($){
-    $(window).load(function(){
-      $("#house-list").mCustomScrollbar({
-      axis:"x",
-      advanced:{autoExpandHorizontalScroll:true},
-      theme:"dark-thick"
-    });
-  });
-  })(jQuery);
