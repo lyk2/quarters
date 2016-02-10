@@ -8,13 +8,7 @@ router.use(function timeLog(req, res, next) {
 	if(req.session.user)
 		next();
 	else {
-
-		//res.send('please log in');
-
-		// uncomment this to allow testing
-		req.session.user = {};
-		req.session.user.uid = 6;
-		next();
+		res.send('please log in');
 	}
 });
 
@@ -100,6 +94,22 @@ router.get('/connection', function(req, res, next) {
 
 });
 
+router.post('/leave', function(req, res, next) {
+
+	if (!req.body.house_id) {
+		res.send("provide house id");
+	}
+
+	db.one('delete from role where user_id=$1 and house_id=$2', req.session.user.uid, req.body.house_id)
+		.then(function(data){
+			res.send('{deleted:true}');
+		})
+		.catch(function(error){
+			console.log(error);
+			res.send('{failed:false}');
+		})
+});
+
 router.get('/test', function(req, res, next) {
 
 	db.tx(function(t) {
@@ -120,7 +130,6 @@ router.get('/test', function(req, res, next) {
 		.catch(function(error) {
 			// error;
 		});
-
 });
 
 router.get('/wtf', function(req,res, next) {

@@ -16,7 +16,7 @@ style.
         .container(style="width:auto")
           .row
             .col-xs-12
-              button.btn.btn-info.btn-primary(type='button') Leave House
+              button#leavehouse.btn.btn-info.btn-primary(type='button') Leave House
               button.btn.btn-info.btn-primary(type='button') Set Default
               br
               br
@@ -26,8 +26,12 @@ style.
                   span
                     span(style='display:inline-block')
                       label.radio-inline
-                        input(type='radio', name='optradio')
-                        |  #{val.house_id}
+                        if val.house_id == house.active_house_id
+                          input(type='radio', name='optradio' value='#{val.house_id}' checked)
+                          |  #{val.address}
+                        else
+                          input(type='radio', name='optradio' value='#{val.house_id}')
+                          |  #{val.address}
                     img(src='../img/avatars/house.jpg', style='width:100px;height:100px;')
       .modal-footer
         .col-lg-8
@@ -193,3 +197,27 @@ script.
   });
   })(jQuery);
 // END SCROLLBAR SCRIPT
+
+script.
+    $("#leavehouse").click(function(){
+      
+      var d = confirm("Are you sure you want to leave?");
+      
+      if (!d)
+        return;
+      
+      var data = {
+        house_id : $('input[name=optradio]:checked').val()
+      };
+      
+      $.ajax({
+        url : "../db/house/leave",
+        data : data,
+        method: 'post',
+        dataType: 'json',
+        sucess: function(response){
+          console.log("response");
+        }
+        
+      }); 
+    });
