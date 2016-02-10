@@ -22,17 +22,18 @@ style.
               br
               p  (Select houses to leave. Only one house may be set as default.)
               #house-list.radio
-                each val in house.all_houses
-                  span
-                    span(style='display:inline-block')
-                      label.radio-inline
-                        if val.house_id == house.active_house_id
-                          input(type='radio', name='optradio' value='#{val.house_id}' checked)
-                          |  #{val.address}
-                        else
-                          input(type='radio', name='optradio' value='#{val.house_id}')
-                          |  #{val.address}
-                    img(src='../img/avatars/house.jpg', style='width:100px;height:100px;')
+                if house.all_houses!=null
+                  each val in house.all_houses
+                    span
+                      span(style='display:inline-block')
+                        label.radio-inline
+                          if val.house_id == house.active_house_id
+                            input(type='radio', name='optradio' value='#{val.house_id}' checked)
+                            |  #{val.address}
+                          else
+                            input(type='radio', name='optradio' value='#{val.house_id}')
+                            |  #{val.address}
+                      img(src='../img/avatars/house.jpg', style='width:100px;height:100px;')
       .modal-footer
         .col-lg-8
           button#join-button.btn.btn-info.btn-primary(type='button') Join New
