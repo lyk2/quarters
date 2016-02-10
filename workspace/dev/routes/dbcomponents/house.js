@@ -100,7 +100,7 @@ router.post('/leave', function(req, res, next) {
 		res.send("provide house id");
 	}
 
-	db.one('delete from role where user_id=$1 and house_id=$2', req.session.user.uid, req.body.house_id)
+	db.none('delete from role where user_id=$1 and house_id=$2', [req.session.user.uid, req.body.house_id])
 		.then(function(data){
 			res.send('{deleted:true}');
 		})

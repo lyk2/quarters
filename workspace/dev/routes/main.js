@@ -4,6 +4,11 @@ var router = express.Router();
 // this is occurs on every request, use to check against session for valid use
 router.use(function timeLog(req, res, next) {
 
+	req.session.user = {
+		uid: 6,
+		email: "hacked test"
+	};
+
 	if (req.session.user && req.session.house) {
 		next();
 	}
@@ -57,19 +62,19 @@ router.get('/bulletin', function(req, res, next) {
 });
 
 router.get('/calendar', function(req, res, next) {
-	res.render('app/calendar', genPageData(req.session));
+	res.render('app/calendar', req.session);
 });
 
 router.get('/finances', function(req, res, next) {
-	res.render('app/finances', genPageData(req.session));
+	res.render('app/finances', req.session);
 });
 
 router.get('/maintenance', function(req, res, next) {
-	res.render('app/maintenance', genPageData(req.session));
+	res.render('app/maintenance', req.session);
 });
 
 router.get('/messages', function(req, res, next) {
-	res.render('app/messages', genPageData(req.session));
+	res.render('app/messages', req.session);
 });
 
 router.get('/userprofile', function(req, res, next) {
@@ -83,7 +88,7 @@ router.get('/userprofile', function(req, res, next) {
 });
 
 router.get('/accountsettings', function(req, res, next) {
-	res.render('app/accountsettings', genPageData(req.session));
+	res.render('app/accountsettings', req.session);
 });
 
 router.get('/documents', function(req, res, next) {
@@ -98,18 +103,5 @@ router.get("/logout", function(req, res, next) {
 
 	req.session.destroy();
 });
-
-function genPageData(x) {
-
-	x.user = {
-		uid : 6,
-	};
-	x.house = {
-		hid: 30,
-		address: ""
-	}
-
-	return x;
-}
 
 module.exports = router;
