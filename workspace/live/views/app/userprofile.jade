@@ -3,7 +3,7 @@ extends ./app.jade
 block content
 	div.row
 		div.col-lg-12
-			h3.page-header James Anthony
+			h3.page-header= profile.full_name
 			button.btn.btn-default(style="margin-top:-60px; float:right") Send Message
 		div.col-xs-3
 			img.img-circle.center(src='../img/avatars/avatar.jpg', width='90%')
@@ -12,17 +12,24 @@ block content
 				table.table
 					tr
 						td Age
-						td 90
+						td
+							input.form-control(type='text' readonly=true value='#{profile.age}' )
 					tr
 						td Date of Birth
-						td 01/01/01
+						td
+							input.form-control(type='text' readonly=true value='#{profile.date_of_birth}' )
 					tr
 						td Contact Number
-						td (905) 905 9050
+						td
+							input.form-control(type='text' readonly=true value='#{profile.cell_num}' )
 					tr
 						td Contact Email
-						td email@email.com
+						td
+							input.form-control(type='text' readonly=true value='#{profile.email}' )
 					tr 
 						td Rating
-						td 5
-
+						td 2/5
+					tr
+						td Description
+						td
+							textarea.form-control(type='text' readonly=true)= description

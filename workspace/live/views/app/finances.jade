@@ -1,11 +1,13 @@
 extends ./app.jade
 
+
 block content
+	include addBill.jade
 	div.row
 		div.col-lg-12
 			h1.page-header Finances
 	div.row
-		a.btn.btn-success(href='#' style='margin-top: 30px; margin-bottom: 30px')
+		a#i-login.btn.btn-success.btn-md(data-toggle="modal" data-target="#billModal" style='margin-top: 30px; margin-bottom: 30px')
 			i.fa.fa-plus.fa-xl
 	div.row
 		h4 Lucy owes you $29.98

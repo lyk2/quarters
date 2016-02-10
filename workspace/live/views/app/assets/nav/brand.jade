@@ -1,20 +1,14 @@
 .navbar-header
-  button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-    span.sr-only Toggle navigation
-    span.icon-bar
-    span.icon-bar
-    span.icon-bar
-  a.header.navbar-brand(href='#', style='margin-left:15px') Quarters
-  span.glyphicon.glyphicon-menu-right.header.navbar-brand
-  .dropdown.navbar-brand
-    a.dropdown-toggle(aria-expanded='false', aria-haspopup='true', role='button', href='#', data-toggle='dropdown', style='color: #777')
-      | 20 Hollywood St North
-      span.caret
-    ul.dropdown-menu(style='top:initial')
-      li
-        a(href='#') 11 Norfolk Street S
-      li
-        a(href='#') 1280 Main Street W
-      li.divider(role='separator')
-      li
-        a(href='#') Manage All Joined Houses
+    button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+    a.header.navbar-brand(href='#', style='margin-left:15px') Quarters
+    span.glyphicon.glyphicon-menu-right.header.navbar-brand
+    .dropdown.navbar-brand.navbar-address
+        span(style="margin-right:10px")= house.address
+        button#openhouseselect.btn.btn-default(data-toggle='modal', data-target='#selectHouseModal')
+            i.fa.fa-home(style="float:left")
+            i.fa.fa-exchange(style="float:left")
+script(src='../js/jquery.js')

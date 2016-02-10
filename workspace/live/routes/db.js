@@ -1,20 +1,25 @@
-#!/usr/bin/env node
-var pg = require("pg");
+var express = require('express');
+var router = express.Router();
 
-var conString = "postgres://quarters:qadmin@system.quarters.space/quarters";
+var house = require('./dbcomponents/house');
+var auth = require('./dbcomponents/authentication');
+var finance  = require('./dbcomponents/finance')
 
-var client = new pg.Client(conString);
-client.connect(function(err){
-  if(err){
-    //check to see if postgres is working
-    return console.error('could not connect to postgres', err);
-  }
-  client.query('SELECT NOW() AS "theTime"', function(err, result){
-    if(err){
-      return console.error('error running query', err);
-    }
-    console.log(result.rows[0].theTime);
-    //output: the date
-    client.end();
-  });
+var app = express();
+
+/* GET users listing. */
+router.get('/', function(req, res, next) {
+  res.send('respond with a DB INTERFACE');
 });
+
+router.use('/house', house);
+router.use('/auth', auth);
+router.use('/finance',finance);
+
+
+
+
+
+
+
+module.exports = router;
