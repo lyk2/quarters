@@ -114,7 +114,7 @@
                                 Name
                             </div>
                             <div class="col-xs-3">
-                                <input id="name_field" type="text" class="form-control" placeholder="Jon Snow" aria-describedby="sizing-addon2">
+                                <input id="name_field" type="text" class="form-control" placeholder="Enter Name" aria-describedby="sizing-addon2">
                             </div>
                         </div>
 
@@ -125,7 +125,7 @@
                                 Amount
                             </div>
                             <div class="col-xs-3">
-                                <input id="amount_field" type="text" class="form-control" placeholder="$0.00" aria-describedby="sizing-addon2">
+                                <input id="amount_field" type="text" class="form-control" placeholder="Enter amount" aria-describedby="sizing-addon2">
                             </div>
                         </div>
 
@@ -198,7 +198,9 @@
 <script>
 function add_users() {
     var amount = $("#amount_field").val()
+    $("#amount_field").val("");
     var name = $("#name_field").val()
+    $("#name_field").val("");
     document.getElementById('financeList').innerHTML += '<span><h4>' + name + " owes $"+ amount + '</h4></span>\r\n';
 }
 </script>
