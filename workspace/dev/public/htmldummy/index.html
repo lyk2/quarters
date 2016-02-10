@@ -183,15 +183,6 @@
 <script src="../js/bootstrap.min.js"></script>
 
 <script>
-    $("#test").click(function () {
-
-        console.log('aasdf');
-
-        $.get("/db/house/create", {
-            address: "1280 main st w"
-        });
-
-    });
     $(function(){
 
         $(".dropdown-menu li a").click(function(){
@@ -200,21 +191,17 @@
             $("$bill_type").val($(this).text());
 
         });
-
     });
+
+    function add_users() {
+        var amount = $("#amount_field").val()
+        $("#amount_field").val("");
+        var name = $("#name_field").val()
+        $("#name_field").val("");
+        document.getElementById('financeList').innerHTML += '<span><h4>' + name + " owes $"+ amount + '</h4></span>\r\n';
+    }
 </script>
 
-
-<script>
-function add_users() {
-    var amount = $("#amount_field").val()
-    $("#amount_field").val("");
-    var name = $("#name_field").val()
-    $("#name_field").val("");
-    document.getElementById('financeList').innerHTML += '<span><h4>' + name + " owes $"+ amount + '</h4></span>\r\n';
-}
-
-</script>
 </body>
 
 </html>
