@@ -472,7 +472,7 @@ The web application shall keep accurate time by working in UTC. All monetary
 amounts shall be accurate to two decimal places. 
 \subsubsection{Reliability and Availability Requirements}
 The web application shall be available for use 24 hours per day, 365 days per 
-year.
+year, with the exception of one hour per week for maintenance and bug fixes.
 \subsubsection{Robustness or Fault-Tolerance Requirements}
 The web application shall successfully display an error message to the user 
 should an incorrect username/password combination be input, or in the event one of its features crashes.
@@ -488,17 +488,13 @@ housing rental market.
 \subsubsection{Expected Physical Environment}
 N/A.
 \subsubsection{Requirements for Interfacing with Adjacent Systems}
-The web application shall work on the last three releases of the five most 
-popular web browsers (Chrome, Firefox, Internet Explorer, Opera, Safari). The 
-web application shall interface with PayPal to handle monetary transactions 
-between users. The web application shall interface with Google Sign-In and 
-Facebook Login to enable users to login with social media accounts. The details 
-of the communication standards/protocols will be outlined in the Design Document 
-after implementation is completed.
+The web application shall work on the last three major releases of the five most 
+popular web browsers (Chrome, Firefox, Internet Explorer, Opera, Safari). The details 
+of the communication standards/protocols will be outlined in the Design Document.
 \subsubsection{Productization Requirements}
 The web application shall be accessible on the World Wide Web.
 \subsubsection{Release Requirements}
-The initial release of the web application will be in February 2016. The next 
+The initial release of the web application will be February 10, 2016. The next 
 release will be in April 2016.
 \subsection{Maintainability and Support Requirements}
 \subsubsection{Maintenance Requirements}
@@ -510,18 +506,15 @@ The web application is expected to run on web browsers on mobile phones, tablets
 and desktop computers.
 \subsection{Security Requirements}
 \subsubsection{Access Requirements}
-Only the user has access to edit their own personal stored information and 
-choose what information of their profile is visible to other users. Users have 
-access to view other users' profiles. Only the landlords and tenants belonging 
+Only the user has access to edit their own personal stored information. Only members belonging 
 to the same property can view the property's group and add content to the 
 property's group.
 \subsubsection{Integrity Requirements}
 The web application shall prevent incorrect data from being introduced and 
 protect itself from unwanted attacks by unauthorized users. The web application 
-shall have a back-up of its stored data on an alternate server.
+shall have a back-up of its stored data on an alternate server. Back-ups will be completed once per day.
 \subsubsection{Privacy Requirements}
-The web application shall make its users aware of its information practices 
-before collecting data from them. The data shall be stored securely and be tamper-proof.
+Data shall be stored securely and be tamper-proof.
 \subsubsection{Audit Requirements}
 N/A.
 \subsubsection{Immunity Requirements}
