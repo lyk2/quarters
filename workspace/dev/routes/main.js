@@ -17,7 +17,7 @@ router.use(function timeLog(req, res, next) {
 		var db = require('./dbcomponents/db-con');
 		db.tx(function(t) {
 			return t.batch([
-				t.any('select address, house_id from user_info, house where user_id=$1 and house.house_id=user_info.default_house_id', req.session.user.uid),
+				t.query('select address, house_id from user_info, house where user_id=$1 and house.house_id=user_info.default_house_id', req.session.user.uid),
 				t.query('select house.house_id, house.address from role, house where user_id=$1 and role.house_id = house.house_id;', req.session.user.uid)
 			]);
 		})
