@@ -1,0 +1,90 @@
+%&pdflatex
+\documentclass[12pt]{article}
+
+
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{colortbl}
+\usepackage{xr}
+\usepackage{longtable}
+\usepackage{xfrac}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{xcolor} % for different colour comments
+\usepackage{fullpage}
+\newcounter{rowcount}
+\setcounter{rowcount}{0}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+
+%% Diagram formatting
+\tikzstyle{block} = [draw, rectangle, minimum height=1.5em, minimum
+width=2em, text centered]
+\tikzstyle{arrow} = [thick,-,>=stealth]
+
+
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    colorlinks=true,        % false: boxed links; true: colored links
+    linkcolor=blue,        % color of internal links (change box color with linkbordercolor)
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+%% Comments
+\newif\ifcomments\commentstrue
+\ifcomments
+\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\else
+\newcommand{\authornote}[3]{}
+\newcommand{\todo}[1]{}
+\fi
+\newcommand{\wss}[1]{\authornote{magenta}{SS}{#1}}
+\newcommand{\ds}[1]{\authornote{blue}{DS}{#1}}
+\newcommand{\kly}[1]{\authornote{green}{KL}{#1}}
+\newcommand{\cc}[1]{\authornote{orange}{CC}{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{Detailed Design for Quarters}
+\author{Team 6\\ \\James Anthony (anthonjb)\\ Wenqiang Chen (chenw25)\\ Carolyn Chong
+(chongce)\\ Kevin Ly (lyk2)}
+\date{\today}
+
+\maketitle
+
+\pagebreak
+
+\tableofcontents
+\listoffigures
+
+\section*{Revision History}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Date}  & \textbf{Comments} \\ \hline
+February 28, 2016 & Revision 0 \\ \hline
+\end{tabular}
+
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Introduction
+\section{Introduction}
+
+Words
+
+% About this Manual
+\section{About this Manual}
+\subsection{Words 1}
+Wordz
+\subsection{Words 2}
+Werdzzz
+
+\end{document}
