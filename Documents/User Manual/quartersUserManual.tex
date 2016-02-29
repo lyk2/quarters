@@ -1,193 +1,192 @@
--%&pdflatex
- -\documentclass[12pt]{article}
- -
- -
- -\usepackage{graphicx}
- -\graphicspath{ {images/} }
- -\usepackage{colortbl}
- -\usepackage{xr}
- -\usepackage{longtable}
- -\usepackage{xfrac}
- -\usepackage{tabularx}
- -\usepackage{booktabs}
- -\usepackage{hyperref}
- -\usepackage{xcolor} % for different colour comments
- -\usepackage{fullpage}
- -\newcounter{rowcount}
- -\setcounter{rowcount}{0}
- -\usepackage{tikz}
- -\usetikzlibrary{shapes,arrows}
- -
- -
- -%% Diagram formatting
- -\tikzstyle{block} = [draw, rectangle, minimum height=1.5em, minimum
- -width=2em, text centered]
- -\tikzstyle{arrow} = [thick,-,>=stealth]
- -
- -
- -\hypersetup{
- -    bookmarks=true,         % show bookmarks bar?
- -    colorlinks=true,        % false: boxed links; true: colored links
- -    linkcolor=blue,        % color of internal links (change box color with linkbordercolor)
- -    citecolor=green,        % color of links to bibliography
- -    filecolor=magenta,      % color of file links
- -    urlcolor=cyan           % color of external links
- -}
- -
- -%% Comments
- -\newif\ifcomments\commentstrue
- -\ifcomments
- -\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
- -\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
- -\else
- -\newcommand{\authornote}[3]{}
- -\newcommand{\todo}[1]{}
- -\fi
- -\newcommand{\wss}[1]{\authornote{magenta}{SS}{#1}}
- -\newcommand{\ds}[1]{\authornote{blue}{DS}{#1}}
- -\newcommand{\kly}[1]{\authornote{green}{KL}{#1}}
- -\newcommand{\cc}[1]{\authornote{orange}{CC}{#1}}
- -
- -%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- -
- -\begin{document}
- -
- -\title{User Manual}
- -\author{Team 6\\ \\James Anthony (anthonjb)\\ Wenqiang Chen (chenw25)\\ Carolyn Chong
- -(chongce)\\ Kevin Ly (lyk2)}
- -\date{\today}
- -
- -\maketitle
- -
- -\pagebreak
- -
- -\tableofcontents
- -\listoffigures
- -
- -\section*{Revision History}
- -\begin{tabular}{|c|c|}
- -\hline
- -\textbf{Date}  & \textbf{Comments} \\ \hline
- -February 28, 2016 & Revision 0 \\ \hline
- -\end{tabular}
- -
- -\pagebreak
- -
- -%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- -
- -%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Introduction
- -\section{Introduction}
- -
- -Words
- -
- -%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Copyright
- -\section{Copyright}
- -
- -%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% About this Manual
- -\section{About this Manual}
- -
- -%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- -\section{Installation}
- -
- -%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Tasks
- -\section{Tasks}
- -
- -\subsection{Registration}
- -\subsection{Login}
- -
- -\subsection{House Management} %%%%
- -If the user has just registered on Quarters and they are not yet a member of a house, the user shall be prompted with a modal window asking them to either Join or Create a house. If the user is already a member of a house this same modal can be accessed by pressing the House Management button on the  left side of the navigation bar at the top of the page. ****** ADD IMAGE OF THE HOUSE MANAGEMENT BUTTON HERE ******
- -
- -\subsubsection{Create House}
- -\begin{enumerate}
- -\item From the House Management modal window, press the ``Create'' button, which can be found in the bottom right corner of the modal window. The contents of the modal window will now display a form that the user must complete in order to create the house.
- -\item Once all of the required fields have been completed (required fields are labelled), press the ``Create'' button, which can be found in the bottom right corner of the modal window. From here the user will be redirected to the House Management modal.
- -\end{enumerate}
- -
- -\subsubsection{Join House}
- -\begin{enumerate}
- -\item From the House Management modal window, press the ``Join New'' button, which can be hound in the bototm right corner of the modal window. The contents of the modal window will now display a text field labelled ``Invitation Code''.
- -\item Enter the invitation code corresponding to the house they wish to join, and then press the ``Join'' button, which can be found in the bottom right corner of the modal window. From here the user will be redirected to the House Management modal.
- -\end{enumerate}
- -
- -\subsubsection{Leave House}
- -\begin{enumerate}
- -\item From the House Management modal window the user shall select the house that they wish to leave by using the radio buttons associated with each house.
- -\item Once the house has been selected, press the ``Leave House'' button, which can be found at the top left of the modal window. A new modal window will then pop up, asking the user to confirm that they want to leave the house.
- -\item Press the ``OK'' button at the bottom right of the modal window. From here the user will be redrected to the House Management modal, and the house that they left will no longer be included in the list of available houses.
- -\end{enumerate}
- -
- -\subsubsection{Set Default House}
- -\begin{enumerate}
- -\item From the House Management modal window the user shall select the house that they wish to set as default by using the radio buttons associated with each house.
- -\item Once the house has been selected, press the ``Set Default'' button, which can be found at the top left of the modal window. From here the user will be redrected to the House Management modal, and the house that they set as default will already be selected (indicated by the radio button associated with the house).
- -\end{enumerate}
- -
- -\subsubsection{Select House}
- -\begin{enumerate}
- -\item From the House Management modal window the user shall select the house that they wish to select by using the radio buttons associated with each house.
- -\item Once the house has been selected, press the ``Select'' button, which can be found at the bottom right of the modal window. From here the user will be redrected to the House Management modal. The contents of the rest of the site will now correspond to the house that the user has selected.
- -\end{enumerate}
- -
- -\subsection{User Profile} %%%%
- -\subsubsection{View User Profile}
- -\begin{enumerate}
- -\item On the right side of the navigation bar, found at the top of the page, the email address of the user will be displayed with an arrow indicating a drop down menu. Press this button to reveal the ``User profile'' option.
- -\item Press the ``User Profile'' option. From here the user will be able to see all of the information relevant to their account.
- -\end{enumerate}
- -
- -\subsubsection{Edit User Profile Information}
- -(Note: Users are only able to edit their own information)
- -\begin{enumerate}
- -\item From the user profile page (see previous section for how to access this page), press the ``Edit'' button, which is located to the right of the user's name. This will allow the user to manually edit any fields they wish to update.
- -\item To edit an item click the related input field and type the new information.
- -\item To complete the editing process click the ``Save'' button located at the bottom of the form.
- -\end{enumerate}
- -
- -\subsection{House Information} %%%%
- -\subsubsection{View House Information}
- -\begin{enumerate}
- -\item Click the house information button, which is the first option listed in the side bar of the application. The label of the button will be the address of the house that the user is currently viewing.
- -\item The user will now see the House Information page which is divided into three sections, General Information, Members, and Documents.
- -\item Beside each member of the house there is a button labelled ``View'', which will take the user to the User Profile page for that member.
- -\end{enumerate}
- -
- -\subsubsection{Edit House Information}
- -(Note: In order to edit house information the user must be the Administrator of that house)
- -\begin{enumerate}
- -\item From the House Information page, click the button labelled ``Modify'', which is located on the right side of the General Information bar.
- -\item To edit an item click the related input field and type the new information.
- -\item To complete the editing process click the ``Save'' button located at the bottom of the form.
- -\end{enumerate}
- -
- -\subsection{Document Upload} %%%%
- -\begin{enumerate}
- -\item To view documents that are associated with a house, or to upload new documents, first navigate to the House Information page (the steps for this are described in the previous section).
- -\item Click the button labelled ``Upload'', which is located on the right side of the Documents section of the page.
- -\item A modal window will appear prompting the user to select a file from their system that they wish to upload.
- -\item Select the file to be uploaded and press the button labelled ``Confirm''.
- -\item The file will now appear in the list of documents that are associated with the current house.
- -\end{enumerate}
- -
- -\subsection{Bulletin Board}
- -
- -\subsection{Finance}
- -
- -\subsection{Ticketing}
- -
- -\subsection{Calendar}
- -
- -\subsection{Notifications}
- -
- -
- -
- -%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Troubleshooting
- -\section{Troubleshooting}
- -
- -%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Frequently Asked Questions
- -\section{Frequently Asked Questions}
- -
- -%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Safety and Precautions
- -
- -\end{document}
-View
+%&pdflatex
+\documentclass[12pt]{article}
+
+
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{colortbl}
+\usepackage{xr}
+\usepackage{longtable}
+\usepackage{xfrac}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{xcolor} % for different colour comments
+\usepackage{fullpage}
+\newcounter{rowcount}
+\setcounter{rowcount}{0}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+
+%% Diagram formatting
+\tikzstyle{block} = [draw, rectangle, minimum height=1.5em, minimum
+width=2em, text centered]
+\tikzstyle{arrow} = [thick,-,>=stealth]
+
+
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    colorlinks=true,        % false: boxed links; true: colored links
+    linkcolor=blue,        % color of internal links (change box color with linkbordercolor)
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+%% Comments
+\newif\ifcomments\commentstrue
+\ifcomments
+\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\else
+\newcommand{\authornote}[3]{}
+\newcommand{\todo}[1]{}
+\fi
+\newcommand{\wss}[1]{\authornote{magenta}{SS}{#1}}
+\newcommand{\ds}[1]{\authornote{blue}{DS}{#1}}
+\newcommand{\kly}[1]{\authornote{green}{KL}{#1}}
+\newcommand{\cc}[1]{\authornote{orange}{CC}{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{User Manual}
+\author{Team 6\\ \\James Anthony (anthonjb)\\ Wenqiang Chen (chenw25)\\ Carolyn Chong
+(chongce)\\ Kevin Ly (lyk2)}
+\date{\today}
+
+\maketitle
+
+\pagebreak
+
+\tableofcontents
+\listoffigures
+
+\section*{Revision History}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Date}  & \textbf{Comments} \\ \hline
+February 28, 2016 & Revision 0 \\ \hline
+\end{tabular}
+
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Introduction
+\section{Introduction}
+
+Words
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Copyright
+\section{Copyright}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% About this Manual
+\section{About this Manual}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Installation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Tasks
+\section{Tasks}
+
+\subsection{Registration}
+\subsection{Login}
+
+\subsection{House Management} %%%%
+If the user has just registered on Quarters and they are not yet a member of a house, the user shall be prompted with a modal window asking them to either Join or Create a house. If the user is already a member of a house this same modal can be accessed by pressing the House Management button on the  left side of the navigation bar at the top of the page. ****** ADD IMAGE OF THE HOUSE MANAGEMENT BUTTON HERE ******
+
+\subsubsection{Create House}
+\begin{enumerate}
+\item From the House Management modal window, press the ``Create'' button, which can be found in the bottom right corner of the modal window. The contents of the modal window will now display a form that the user must complete in order to create the house.
+\item Once all of the required fields have been completed (required fields are labelled), press the ``Create'' button, which can be found in the bottom right corner of the modal window. From here the user will be redirected to the House Management modal.
+\end{enumerate}
+
+\subsubsection{Join House}
+\begin{enumerate}
+\item From the House Management modal window, press the ``Join New'' button, which can be hound in the bototm right corner of the modal window. The contents of the modal window will now display a text field labelled ``Invitation Code''.
+\item Enter the invitation code corresponding to the house they wish to join, and then press the ``Join'' button, which can be found in the bottom right corner of the modal window. From here the user will be redirected to the House Management modal.
+\end{enumerate}
+
+\subsubsection{Leave House}
+\begin{enumerate}
+\item From the House Management modal window the user shall select the house that they wish to leave by using the radio buttons associated with each house.
+\item Once the house has been selected, press the ``Leave House'' button, which can be found at the top left of the modal window. A new modal window will then pop up, asking the user to confirm that they want to leave the house.
+\item Press the ``OK'' button at the bottom right of the modal window. From here the user will be redrected to the House Management modal, and the house that they left will no longer be included in the list of available houses.
+\end{enumerate}
+
+\subsubsection{Set Default House}
+\begin{enumerate}
+\item From the House Management modal window the user shall select the house that they wish to set as default by using the radio buttons associated with each house.
+\item Once the house has been selected, press the ``Set Default'' button, which can be found at the top left of the modal window. From here the user will be redrected to the House Management modal, and the house that they set as default will already be selected (indicated by the radio button associated with the house).
+\end{enumerate}
+
+\subsubsection{Select House}
+\begin{enumerate}
+\item From the House Management modal window the user shall select the house that they wish to select by using the radio buttons associated with each house.
+\item Once the house has been selected, press the ``Select'' button, which can be found at the bottom right of the modal window. From here the user will be redrected to the House Management modal. The contents of the rest of the site will now correspond to the house that the user has selected.
+\end{enumerate}
+
+\subsection{User Profile} %%%%
+\subsubsection{View User Profile}
+\begin{enumerate}
+\item On the right side of the navigation bar, found at the top of the page, the email address of the user will be displayed with an arrow indicating a drop down menu. Press this button to reveal the ``User profile'' option.
+\item Press the ``User Profile'' option. From here the user will be able to see all of the information relevant to their account.
+\end{enumerate}
+
+\subsubsection{Edit User Profile Information}
+(Note: Users are only able to edit their own information)
+\begin{enumerate}
+\item From the user profile page (see previous section for how to access this page), press the ``Edit'' button, which is located to the right of the user's name. This will allow the user to manually edit any fields they wish to update.
+\item To edit an item click the related input field and type the new information.
+\item To complete the editing process click the ``Save'' button located at the bottom of the form.
+\end{enumerate}
+
+\subsection{House Information} %%%%
+\subsubsection{View House Information}
+\begin{enumerate}
+\item Click the house information button, which is the first option listed in the side bar of the application. The label of the button will be the address of the house that the user is currently viewing.
+\item The user will now see the House Information page which is divided into three sections, General Information, Members, and Documents.
+\item Beside each member of the house there is a button labelled ``View'', which will take the user to the User Profile page for that member.
+\end{enumerate}
+
+\subsubsection{Edit House Information}
+(Note: In order to edit house information the user must be the Administrator of that house)
+\begin{enumerate}
+\item From the House Information page, click the button labelled ``Modify'', which is located on the right side of the General Information bar.
+\item To edit an item click the related input field and type the new information.
+\item To complete the editing process click the ``Save'' button located at the bottom of the form.
+\end{enumerate}
+
+\subsection{Document Upload} %%%%
+\begin{enumerate}
+\item To view documents that are associated with a house, or to upload new documents, first navigate to the House Information page (the steps for this are described in the previous section).
+\item Click the button labelled ``Upload'', which is located on the right side of the Documents section of the page.
+\item A modal window will appear prompting the user to select a file from their system that they wish to upload.
+\item Select the file to be uploaded and press the button labelled ``Confirm''.
+\item The file will now appear in the list of documents that are associated with the current house.
+\end{enumerate}
+
+\subsection{Bulletin Board}
+
+\subsection{Finance}
+
+\subsection{Ticketing}
+
+\subsection{Calendar}
+
+\subsection{Notifications}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Troubleshooting
+\section{Troubleshooting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Frequently Asked Questions
+\section{Frequently Asked Questions}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Safety and Precautions
+
+\end{document}
