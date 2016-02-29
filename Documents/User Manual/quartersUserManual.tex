@@ -144,7 +144,7 @@ width=2em, text centered]
 
 
     \subsection{Login}
-    All user must be logged in to use any of the Quarters' features. If you do you have an account, please refer to \hyperref[sec:registration]{Registration} section to create an account. \\\\
+    All users must be logged in to use any of the Quarters' features. If you do you have an account, please refer to \hyperref[sec:registration]{Registration} section to create an account. \\\\
     Figure \ref{fig:login} shows a screen image of the login window.\\\\
     You can login by following these instructions:
     \begin{enumerate}
@@ -160,14 +160,28 @@ width=2em, text centered]
     \end{figure}
     \subsection{House Management} %%%%
     \label{sec:housemanagement}
-    If the user has just registered on Quarters and they are not yet a member of a house, the user shall be prompted with a modal window asking them to either Join or Create a house. If the user is already a member of a house this same modal can be accessed by pressing the House Management button on the  left side of the navigation bar at the top of the page. ****** ADD IMAGE OF THE HOUSE MANAGEMENT BUTTON HERE ******
+    If the user has just registered on Quarters and they are not yet a member of a house, the user shall be prompted with a modal window asking them to either Join or Create a house. If the user is already a member of a house this same modal can be accessed by pressing the House Management button on the  left side of the navigation bar at the top of the page. The House Management button can be seen in figure \ref{fig:house_mgmt_button}.
+    
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.2\textwidth]{house_mgmt_button}
+        \caption{House Management Button}
+        \label{fig:house_mgmt_button}
+    \end{figure}
 
     \subsubsection{Create House}
     \begin{enumerate}
-        \item From the House Management modal window, press the ``Create'' button, which can be found in the bottom right corner of the modal window. The contents of the modal window will now display a form that the user must complete in order to create the house.
+        \item From the House Management modal window, press the ``Create'' button, which can be found in the bottom right corner of the modal window. The contents of the modal window will now display a form that the user must complete in order to create the house. The House Management modal window can be seen in figure \ref{fig:house_mgmt_modal}
         \item Once all of the required fields have been completed (required fields are labeled), press the ``Create'' button, which can be found in the bottom right corner of the modal window. From here the user will be redirected to the House Management modal.
     \end{enumerate}
 
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.6\textwidth]{house_mgmt_modal}
+        \caption{House Management Modal Window}
+        \label{fig:house_mgmt_modal}
+    \end{figure}
+    
     \subsubsection{Join House}
     \begin{enumerate}
         \item From the House Management modal window, press the ``Join New'' button, which can be hound in the bottom right corner of the modal window. The contents of the modal window will now display a text field labeled ``Invitation Code''.
@@ -197,8 +211,15 @@ width=2em, text centered]
     \subsubsection{View User Profile}
     \begin{enumerate}
         \item On the right side of the navigation bar, found at the top of the page, the email address of the user will be displayed with an arrow indicating a drop down menu. Press this button to reveal the ``User profile'' option.
-        \item Press the ``User Profile'' option. From here the user will be able to see all of the information relevant to their account.
+        \item Press the ``User Profile'' option. From here the user will be able to see all of the information relevant to their account. This section can be seen in figure \ref{fig:user_profile}.
     \end{enumerate}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.6\textwidth]{user_profile}
+        \caption{User Profile Section}
+        \label{fig:user_profile}
+    \end{figure}
 
     \subsubsection{Edit User Profile Information}
     (Note: Users are only able to edit their own information)
@@ -212,9 +233,16 @@ width=2em, text centered]
     \subsubsection{View House Information}
     \begin{enumerate}
         \item Click the house information button, which is the first option listed in the side bar of the application. The label of the button will be the address of the house that the user is currently viewing.
-        \item The user will now see the House Information page which is divided into three sections, General Information, Members, and Documents.
+        \item The user will now see the House Information page which is divided into three sections, General Information, Members, and Documents. This page can be seen in figure \ref{fig:house_information}.
         \item Beside each member of the house there is a button labeled ``View'', which will take the user to the User Profile page for that member.
     \end{enumerate}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.6\textwidth]{house_information}
+        \caption{House Information Section}
+        \label{fig:house_information}
+    \end{figure}
 
     \subsubsection{Edit House Information}
     (Note: In order to edit house information the user must be the Administrator of that house)
