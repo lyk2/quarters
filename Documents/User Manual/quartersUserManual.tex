@@ -77,16 +77,16 @@ width=2em, text centered]
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Introduction
     \section{Introduction}
-	Quarters is a web application designed to serve as a communication platform between landlords and tenants. More specifically, it is a centralized management solution to solve the unreliable and ineffective methods of communication currently used by landlords and tenants. Registered users can create a profile, create or join a house, and access all of Quarters’ features. Quarters includes five core features to streamline and document shared information within each house: document storage, finances history, a calendar, maintenance ticketing, and a bulletin board. 
+	Quarters is a web application designed to serve as a communication platform between landlords and tenants. More specifically, it is a centralized management solution to solve the unreliable and ineffective methods of communication currently used by landlords and tenants. Registered users can create a profile, create or join a house, and access all of Quarters’ features. Quarters includes five core features to streamline and document shared information within each house: document storage, finances history, a calendar, maintenance ticketing, and a bulletin board.
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Copyright
     \section{Copyright Information}
-    The Quarters: The Living Network is owned and managed by Team 6 of CS4ZP6 apart of McMaster University. Collaborators include Kevin Ly, Carolyn Chong, Wenchiang Chen, James Anthony. This is an open source project hosted on GitHub. Fair usage with Common Development an Distribution License (CDDL-1.0).
+    The Quarters: The Living Network is owned and managed by Team 6 of CS4ZP6 apart of McMaster University. Collaborators include Kevin Ly, Carolyn Chong, Wenqiang Chen, James Anthony. This is an open source project hosted on GitHub. Fair usage with Common Development an Distribution License (CDDL-1.0).
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% About this Manual
     \section{About this Manual}
     This manual describes how to use the Quarters web application. It gets the user going by first instructing the user how to register an account and login, and then the manual provides an overview of the core functionalities and features of Quarters. The user manual ends with instructions for troubleshooting, and finally, answers to our most frequently asked questions. Enjoy!
-    
+
     \section{Naming Conventions and Terminology}
     \label{sec:conventions}
     \begin{itemize}
@@ -103,47 +103,85 @@ width=2em, text centered]
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \section{Browser Requirements}
-    Quarters is an online web application, available to all browsers with internet connection, HTML5, CSS3, Javascript-enabled. Below are compatiable browers:
+    \label{sec:browserRequirement}
+    Quarters is an online web application, available to all browsers with internet connection, HTML5, CSS3, JavaScript-enabled. Below are compatible browser:
     \begin{itemize}
         \item Microsoft Internet Explorer (10 +)
         \item Microsoft Edge (any)
         \item Google Chrome (any)
         \item Mozilla Firefox (13 +)
     \end{itemize}
-    Quarters may be functional on other browers.
+    Quarters may be functional on other browsers.
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Tasks
     \section{Tasks}
 
     \subsection{Registration}
     \label{sec:registration}
+    Figure \ref{fig:homepage} shows a screen image of the home page.\\
     All user must have a registered account before using Quarters. Registration process is simple and easy, only a valid email and a password is required.\\\\
+    Figure \ref{fig:register} shows a screen image of the register window.\\\\
     You can create an account by following these instructions:
 
     \begin{enumerate}
-        \item Click on "SIGN UP" button on the top of the homepage, or Click on "LOGIN" button then select "Register" tab
+        \item Click on ``SIGN UP'' button on the top of the homepage, or Click on ``LOGIN'' button then select ``Register'' tab
         \item Enter a valid email address and password
-        \item Click on "REGISTER NOW"
+        \item Click on ``REGISTER NOW''
         \item An email will be sent to the specified email address, which will contain a link for you to activate your account.
     \end{enumerate}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{homepage}
+        \caption{Screen image of home page}
+        \label{fig:homepage}
+    \end{figure}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{register}
+        \caption{Screen image of register window}
+        \label{fig:register}
+    \end{figure}
+
+
     \subsection{Login}
-    All user must be logged in to use any of the Quarters' features. If you do you have an account, please refer to \hyperref[sec:registration]{Registration} to create an account. \\ \\
+    All users must be logged in to use any of the Quarters' features. If you do you have an account, please refer to \hyperref[sec:registration]{Registration} section to create an account. \\\\
+    Figure \ref{fig:login} shows a screen image of the login window.\\\\
     You can login by following these instructions:
     \begin{enumerate}
-        \item Click on "LOGIN" on the top of the homepage, or Click on "SIGN UP" button and switch to "Login" tab
+        \item Click on ``LOGIN'' on the top of the homepage, or Click on ``SIGN UP'' button and switch to ``Login'' tab
         \item Enter your registered email address and password
-        \item Click on "LOG IN"
+        \item Click on ``LOG IN''
     \end{enumerate}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{login}
+        \caption{Screen image of login window}
+        \label{fig:login}
+    \end{figure}
     \subsection{House Management} %%%%
     \label{sec:housemanagement}
-    If the user has just registered on Quarters and they are not yet a member of a house, the user shall be prompted with a modal window asking them to either Join or Create a house. If the user is already a member of a house this same modal can be accessed by pressing the House Management button on the  left side of the navigation bar at the top of the page. ****** ADD IMAGE OF THE HOUSE MANAGEMENT BUTTON HERE ******
+    If the user has just registered on Quarters and they are not yet a member of a house, the user shall be prompted with a modal window asking them to either Join or Create a house. If the user is already a member of a house this same modal can be accessed by pressing the House Management button on the  left side of the navigation bar at the top of the page. The House Management button can be seen in figure \ref{fig:house_mgmt_button}.
+    
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.2\textwidth]{house_mgmt_button}
+        \caption{House Management Button}
+        \label{fig:house_mgmt_button}
+    \end{figure}
 
     \subsubsection{Create House}
     \begin{enumerate}
-        \item From the House Management modal window, press the ``Create'' button, which can be found in the bottom right corner of the modal window. The contents of the modal window will now display a form that the user must complete in order to create the house.
+        \item From the House Management modal window, press the ``Create'' button, which can be found in the bottom right corner of the modal window. The contents of the modal window will now display a form that the user must complete in order to create the house. The House Management modal window can be seen in figure \ref{fig:house_mgmt_modal}
         \item Once all of the required fields have been completed (required fields are labeled), press the ``Create'' button, which can be found in the bottom right corner of the modal window. From here the user will be redirected to the House Management modal.
     \end{enumerate}
 
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.6\textwidth]{house_mgmt_modal}
+        \caption{House Management Modal Window}
+        \label{fig:house_mgmt_modal}
+    \end{figure}
+    
     \subsubsection{Join House}
     \begin{enumerate}
         \item From the House Management modal window, press the ``Join New'' button, which can be hound in the bottom right corner of the modal window. The contents of the modal window will now display a text field labeled ``Invitation Code''.
@@ -173,8 +211,15 @@ width=2em, text centered]
     \subsubsection{View User Profile}
     \begin{enumerate}
         \item On the right side of the navigation bar, found at the top of the page, the email address of the user will be displayed with an arrow indicating a drop down menu. Press this button to reveal the ``User profile'' option.
-        \item Press the ``User Profile'' option. From here the user will be able to see all of the information relevant to their account.
+        \item Press the ``User Profile'' option. From here the user will be able to see all of the information relevant to their account. This section can be seen in figure \ref{fig:user_profile}.
     \end{enumerate}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.6\textwidth]{user_profile}
+        \caption{User Profile Section}
+        \label{fig:user_profile}
+    \end{figure}
 
     \subsubsection{Edit User Profile Information}
     (Note: Users are only able to edit their own information)
@@ -188,9 +233,16 @@ width=2em, text centered]
     \subsubsection{View House Information}
     \begin{enumerate}
         \item Click the house information button, which is the first option listed in the side bar of the application. The label of the button will be the address of the house that the user is currently viewing.
-        \item The user will now see the House Information page which is divided into three sections, General Information, Members, and Documents.
+        \item The user will now see the House Information page which is divided into three sections, General Information, Members, and Documents. This page can be seen in figure \ref{fig:house_information}.
         \item Beside each member of the house there is a button labeled ``View'', which will take the user to the User Profile page for that member.
     \end{enumerate}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.6\textwidth]{house_information}
+        \caption{House Information Section}
+        \label{fig:house_information}
+    \end{figure}
 
     \subsubsection{Edit House Information}
     (Note: In order to edit house information the user must be the Administrator of that house)
@@ -251,38 +303,52 @@ width=2em, text centered]
     \subsubsection{Filtering post types}
     \begin{enumerate}
         \item Click on the types button on the top left, this will display a dropdown menu with different types
-        \item Select the type the desired type
+        \item Select the desired type
         \item Display will be updated with posts displayed from that specific type
     \end{enumerate}
 
 
     \subsection{Finance}
-    To access the Finance page, click on "Finance" under the navigation bar. The Finance page displays a list of all "shared bills" to be split between tenants in the house. It keeps track of when the bills occurred, its participants, how much is owed by each person, and whether they've paid or not.
+    To access the Finance page, click on ``Finances'' under the navigation bar. The Finance page displays a list of all ``shared bills'' to be split between members in the house. It keeps track of when the bills took place, its participants, how much is owed by each person, and whether they've paid or not.\\
+    Figure \ref{fig:finances} shows a screen image of Finances page.
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{finances}
+        \caption{Screen image of Finances page}
+        \label{fig:finances}
+    \end{figure}
 
     \subsubsection{Add a bill}
+    Figure \ref{fig:addBill} shows a screen image of ``Add bill'' modal window.
     \begin{enumerate}
-        \item To add a bill, click on the "+" button at the top of the Finance page. A pop-up modal will appear with the fields for user input.
-        \item Select an event type for the bill(choose "other" if none of the predefined type applies)
+        \item To add a bill, click on the ``+'' button at the top of the Finance page. A pop-up modal will appear with the fields for user input.
+        \item Select an event type for the bill(choose ``other'' if none of the predefined type applies)
         \item Fill out a description of the bill
         \item Pick the date the bill took place
-        \item Choose the name of a payee of the bill
-        \item Enter the amount that payee owes
-        \item Click "Add"
-        \item Repeat step 5-7 for other payees
-        \item Click "Save" when all informations are filled out
+        \item Choose the name of a payer of the bill
+        \item Enter the amount that payer owes
+        \item Click ``Add''
+        \item Repeat step 5-7 for other payers
+        \item Click ``Save'' when all informations are filled out
     \end{enumerate}
 
-    \subsubsection{Mark bill as "Paid"}
-    Once a portion of the bill has been paid, the payee or the payer can mark that portion of the bill as "Paid"
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{addBill}
+        \caption{Screen image of "Add bill" modal window}
+        \label{fig:addBill}
+    \end{figure}
+
+    \subsubsection{Mark bill as ``Paid''}
+    Once a portion of the bill has been paid, the payee or the payer can mark that portion of the bill as ``Paid''
     \begin{enumerate}
-        \item Click on "Pay now" button beside the bill
+        \item Click on ``Pay now'' button beside the bill entry, a prompt window will open.
+        \item Click ``Confirm''
     \end{enumerate}
-
-
 
 
     \subsection{Maintenance}
-    To access the Maintenance page, click on "Maintenance" under the navigation bar. The Maintenance page displays a list of all the maintenance tickets created in the house in chronological order. It  allows a user to send maintenance requests to another user for them to address and resolve. Any user can send a request to any user in the same house. Each request has a priority level assigned to it to inform the receiver of the urgency of a response. Figure \ref{fig:maintenance} shows a screen image of the Maintenance page.
+    To access the Maintenance page, click on ``Maintenance'' under the navigation bar. The Maintenance page displays a list of all the maintenance tickets created in the house in chronological order. It  allows a user to send maintenance requests to another user for them to address and resolve. Any user can send a request to any user in the same house. Each request has a priority level assigned to it to inform the receiver of the urgency of a response. Figure \ref{fig:maintenance} shows a screen image of the Maintenance page.
 
     \begin{figure}
         \centering
@@ -293,9 +359,9 @@ width=2em, text centered]
 
     \subsubsection{Add a Ticket}
     \begin{enumerate}
-        \item To add a ticket, click on the "New Request" button' at the top of the Maintenance page. A pop-up modal will appear with fields for user input.
+        \item To add a ticket, click on the ``New Request'' button' at the top of the Maintenance page. A pop-up modal will appear with fields for user input.
         \item Fill out the fields. Note: All fields marked with an asterisk (*) must be filled.
-        \item Click the "Submit" button at the bottom of the modal. The modal will close.
+        \item Click the ``Submit'' button at the bottom of the modal. The modal will close.
         \item The new request will display at the top of the Maintenance page above all of the other tickets.
     \end{enumerate}
 
@@ -304,15 +370,15 @@ width=2em, text centered]
     \begin{enumerate}
         \item To edit a ticket, click on the blue pencil to the right of the relevant ticket. A pop-up modal will appear with editable fields.
         \item Edit the appropriate fields.
-        \item Click on the "Submit" button at the bottom of the modal. The modal will close.
+        \item Click on the ``Submit'' button at the bottom of the modal. The modal will close.
         \item The updated ticket will display in its original ordering.
     \end{enumerate}
 
     \subsubsection{Delete a Ticket}
     Only the creator of a ticket can delete the same ticket.
     \begin{enumerate}
-        \item To delete a ticket, click on the red "X" to the right of the relevant ticket. A confirm modal will appear.
-        \item Click "OK" to delete the ticket. The modal will close.
+        \item To delete a ticket, click on the red ``X'' to the right of the relevant ticket. A confirm modal will appear.
+        \item Click ``OK'' to delete the ticket. The modal will close.
         \item The deleted ticket will no longer be displayed.
     \end{enumerate}
 
@@ -320,13 +386,13 @@ width=2em, text centered]
     Only the receiver of a ticket can resolve the same ticket.
     \begin{enumerate}
         \item To resolve a ticket, click on the green checkmark to the right of the relevant ticket. A confirm modal will appear.
-        \item Click "OK". The modal will close.
+        \item Click ``OK''. The modal will close.
         \item The resolved ticket will display at the top of the Maintenance page above all of the other tickets. A green checkmark will replace the priority level symbol that was originally displayed on the left of the ticket.
     \end{enumerate}
 
 
     \subsection{Calendar}
-    To access the Calendar page, click on "Calendar" under the navigation bar. The Calendar page displays a calendar showing all events created by members of the same house. Any user can add an event to the house's calendar. Figure \ref{fig:calendar} shows a screen image of the Calendar page.
+    To access the Calendar page, click on ``Calendar'' under the navigation bar. The Calendar page displays a calendar showing all events created by members of the same house. Any user can add an event to the house's calendar. Figure \ref{fig:calendar} shows a screen image of the Calendar page.
 
     \begin{figure}
         \centering
@@ -337,13 +403,13 @@ width=2em, text centered]
 
     \subsubsection{Change Calendar View}
     \begin{enumerate}
-        \item The default calendar view is monthly. To change the calendar view, above the calendar, to the right, click the "Month" or "Week" or "Day" button. The calendar view will change.
+        \item The default calendar view is monthly. To change the calendar view, above the calendar, to the right, click the ``Month'' or ``Week'' or ``Day'' button. The calendar view will change.
     \end{enumerate}
 
     \subsubsection{Move Forward or Backward}
     \begin{enumerate}
-        \item To move the calendar forward to the next month/week/day,  above the calendar, to the left, click the "$>$" button.
-        \item To move the calendar backward to the previous month/week/day,  above the calendar, to the left, click the "$<$" button.
+        \item To move the calendar forward to the next month/week/day,  above the calendar, to the left, click the ``$>$'' button.
+        \item To move the calendar backward to the previous month/week/day,  above the calendar, to the left, click the ``$<$'' button.
     \end{enumerate}
 
     \subsubsection{Add an Event}
@@ -353,14 +419,14 @@ width=2em, text centered]
         \item Navigate to the desired day (and time if in week or day view).
         \item Click on the desired day (and time if in week or day view). A pop-up modal will appear with fields for user input.
         \item Fill out the fields. Note: All fields marked with an asterisk (*) must be filled.
-        \item Click the "Submit" button at the bottom of the modal. The modal will close.
+        \item Click the ``Submit'' button at the bottom of the modal. The modal will close.
         \item The new event will display on the calendar.
     \end{enumerate}
     Method 2:
     \begin{enumerate}
-        \item Click on the "New Event" button at the top of the Calendar page. A pop-up modal will appear with fields for user input.
+        \item Click on the ``New Event'' button at the top of the Calendar page. A pop-up modal will appear with fields for user input.
         \item Fill out the fields. Note: All fields marked with an asterisk (*) must be filled.
-        \item Click the "Submit" button at the bottom of the modal. The modal will close.
+        \item Click ``Submit'' button at the bottom of the modal. The modal will close.
         \item The new event will display on the calendar.
     \end{enumerate}
 
@@ -370,7 +436,7 @@ width=2em, text centered]
         \item To edit an event, navigate to the desired event on the calendar.
         \item Click on the desired event. A pop-up modal will appear with editable fields.
         \item Edit the appropriate fields.
-        \item Click on the "Submit" button at the bottom of the modal. The modal will close.
+        \item Click on the ``Submit'' button at the bottom of the modal. The modal will close.
         \item The updated event will display on the calendar.
     \end{enumerate}
 
@@ -379,19 +445,19 @@ width=2em, text centered]
     \begin{enumerate}
         \item To delete an event, navigate to the desired event on the calendar.
         \item Click on the desired event. A pop-up modal will appear.
-        \item Click on the "Delete" button beside the "Submit" button at the bottom of the modal.  A confirm modal will appear.
-        \item Click "OK" to delete the event. The modals will close.
+        \item Click on the ``Delete'' button beside the ``Submit'' button at the bottom of the modal.  A confirm modal will appear.
+        \item Click ``OK'' to delete the event. The modals will close.
         \item The deleted event will no longer be displayed on the calendar.
     \end{enumerate}
 
     \subsection{Notifications}
     Various alerts will be sent to the user when requested. They can be viewed in the notifications dropdown as well as the notifications page.
-    These notifications include updates and changes in a bulletin post, tagged in finance, ticking or bulletin post, upcoming events in calendar etc.
+    These notifications include updates and changes in a bulletin post, tagged in finances, ticking or bulletin post, upcoming events in calendar etc.
     \subsubsection{Viewing Notifications}
     \begin{enumerate}
         \item Clicking on the bell icon on the navbar will dropdown
         \item Latest notifications can be viewed here
-        \item Further alerts can be found by click on the last item in the drop down "View all notifications";
+        \item Further alerts can be found by click on the last item in the drop down ``View all notifications'';
     \end{enumerate}
     \subsubsection{Accessing post related to notification}
     \begin{enumerate}
@@ -403,6 +469,21 @@ width=2em, text centered]
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Troubleshooting
     \section{Troubleshooting}
 
+    \subsection{Overview}
+    Quarters has ensured that no fatal errors will occur on the client's machine, with weekly thorough unit-tests all possible cases are covered. This section will attempt to cover common problems that will occur while running quarters.
+
+    \subsection{Internet Connection}
+    Quarters is a web application that must have an active communication to the world wide web. If quarters does not load or other actions cease to function please double check the internet status.
+
+    \subsection{Visual Glitches}
+    Since quarters relies on the functionality of HTML5 and CSS3, as well as JavaScript, the browser you use must be compatible with these markup languages. Visual Glitches may occur if the browser does not satisfy these requirements. See \hyperref[sec:browserRequirement]{Browser Requirements} to get full list of compatible browsers.
+
+    \subsection{File not Uploaded}
+    Large files uploaded may be interrupted during the file transfer process. Please ensure stable internet connection and try again
+
+    \subsection{Pages loading slowly}
+    Server may be under going high demands. Connection may be unstable.
+
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Frequently Asked Questions
     \section{Frequently Asked Questions}
     \begin{enumerate}
@@ -411,15 +492,15 @@ width=2em, text centered]
     \item \textbf{How do I change my password?} \\
     Head on over to User Profile settings. There you will find a field to change your password. You'll need to know your current password to make the change.
     \item \textbf{I am a tenant and a landlord, can I be both?} \\
-    Yes! Of course you can, however, Quarters does not differentiate between tenants and landlords in terms of accessibility of features. Instead, users are either designated as basic members of a house, or as an administrator of a house. By default, whoever created the house is the administrator. But a house can have more than one administrator, so if you are a landlord, just send a message to your current administrator requesting administrative access. Check out what additional access Administrators get in the \hyperref[sec:conventions]{Naming Conventions and Terminology} 
+    Yes! Of course you can, however, Quarters does not differentiate between tenants and landlords in terms of accessibility of features. Instead, users are either designated as basic members of a house, or as an administrator of a house. By default, whoever created the house is the administrator. But a house can have more than one administrator, so if you are a landlord, just send a message to your current administrator requesting administrative access. Check out what additional access Administrators get in the \hyperref[sec:conventions]{Naming Conventions and Terminology}
     \item \textbf{Can there be more than one administrator in a house?} \\
     Yes! Just send a message to your current administrator requesting administrative access.
     \item \textbf{Can I be a member of more than one house?} \\
     Totally! Check out the \hyperref[sec:housemanagement]{House Management}  section for instructions on how to create or join another house.
     \item \textbf{Is Quarters free?} \\
+    You betcha!
     \item \textbf{How can I trust that members of my house only add legitimate bills?} \\
-    As of now, Quarters doesn't yet have a solution preventing this from happening, so any discrepancies will have to be resolved via the discussion board. 
-    
+    As of now, Quarters doesn't yet have a solution preventing this from happening, so any discrepancies will have to be resolved via the discussion board.
     \end{enumerate}
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Safety and Precautions
