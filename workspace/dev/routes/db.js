@@ -3,7 +3,8 @@ var router = express.Router();
 
 var house = require('./dbcomponents/house');
 var auth = require('./dbcomponents/authentication');
-var finance  = require('./dbcomponents/finance')
+var finance  = require('./dbcomponents/finance');
+var calendar = require('./dbcomponents/calendar');
 
 var app = express();
 
@@ -15,6 +16,7 @@ router.get('/', function(req, res, next) {
 router.use('/house', house);
 router.use('/auth', auth);
 router.use('/finance',finance);
+router.use('/calendar',calendar);
 
 
 

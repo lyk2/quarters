@@ -2,78 +2,16 @@ extends ./app.jade
 
 block css
 	link(rel='stylesheet' href='../css/fullcalendar.css')
-	//- link(href='../css/fullcalendar.print.css', rel='stylesheet', media='print')
+	link(rel='stylesheet' href='../css/calendar.css')
 	
 
 block js
 
 	script(src='../js/moment.min.js')
+	script(src='../js/fullcalendar.js')
 	script(src='../js/calendar.js')
 	script(src='../js/gcal.js')
-
-	script.
-		$(document).ready(function() {
-
-			var calendar = $('#calendar').fullCalendar({
-
-				header: {
-					left: 'prev,next today',
-					center: 'title',
-					right: 'month,agendaWeek,agendaDay'
-				},
-				
-				editable: true,
-				eventLimit: true, // allow "more" link when too many events
-				nowIndicator: true,
-				selectable: true,
-				selectHelper: true,
-
-				// Google Calendar API
-				//- googleCalendarApiKey: 'AIzaSyABDKnGkEvFCN9UDlq7GCyep99uMvnclYM',
-				//- events: {
-				//- 	googleCalendarId: 'oomoup4h350ojq5dsh6nl2qtu0@group.calendar.google.com'
-				//- },
-
-				select: function (start, end, allDay) {
-					mEnd = moment(end).format('h:mma');
-					mStart = moment(start).format('dddd, MMMM D, h:mma');
-					var mWhen = mStart + ' - ' + mEnd;
-
-					$('#createEventModal #eventStartTime').val(start);
-					$('#createEventModal #eventEndTime').val(end);
-					$('#createEventModal #eventAllDay').val(allDay);
-					$('#createEventModal #when').text(mWhen);
-					$('#createEventModal').modal('show');
-				},
-
-				eventClick: function (event, jsEvent, view) {
-					$('#calendar').fullCalendar('removeEvents', event._id);
-				}
-			});
-
-			$('#submitButton').on('click', function(e) {
-				e.preventDefault();
-
-				doSubmit();
-				});
-
-			function doSubmit() {
-				$('#createEventModal').modal('hide');
-
-				$('#calendar').fullCalendar('renderEvent', 
-		        	{
-					title: $('#eventName').val(),
-					start: $('#eventStartTime').val(),
-					end: $('#eventEndTime').val(),
-					allDay: true,
-					},
-					true); // stick the event
-		        
-				$('#calendar').fullCalendar('unselect');
-
-			}
-
-		});
+			
 
 block content
 
@@ -84,7 +22,7 @@ block content
 	// Calendar
 	#calendar
 
-	// Modal
+	// Create Event Modal
 	#createEventModal.modal(tabindex='-1', role='dialog')
 		.modal-dialog.modal-sm
 			// Modal content
@@ -105,6 +43,53 @@ block content
 						.form-group
 							label.col-sm-2.control-label(for='when') When:
 							#when.col-sm-10
+						.btn-group
+							//- label.col-sm-2.control-label Calendar:
+							span Calendar:
+							label
+								input(type='radio', name='cal', value='#C9302C')
+								| Chores
+							label
+								input(type='radio', name='cal', value='#449D44')
+								| Finances
+							label
+								input(type='radio', name='cal', value='#EC971F')
+								| Maintenance
+							label
+								input(type='radio', name='cal', value='#31B0D5')
+								| Other
 				.modal-footer
 					button.btn(data-dismiss='modal', aria-hidden='true') Cancel
 					button#submitButton.btn.btn-primary(type='submit') Create Event
+
+	// Edit Event Modal
+	#editEventModal.modal(tabindex='-1', role='dialog')
+		.modal-dialog.modal-sm
+			// Modal content
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal')
+						span(aria-hidden='true') &times
+					h4.modal-title Edit Event
+				.modal-body
+					form#editEventForm.form-horizontal(role='form', action='')
+						.form-group
+							label.col-sm-2.control-label(for='eventName') Event:
+							.col-sm-10
+								input#eventName.form-control(type='text', name='eventName')
+								input#eventStartTime(type='hidden', name='eventStartTime')
+								input#eventEndTime(type='hidden', name='eventEndTime')
+								input#eventAllDay(type='hidden', name='eventAllDay')
+						.form-group
+							label.col-sm-2.control-label(for='when') When:
+							#when.col-sm-10
+						.form-group
+							label.col-sm-2.control-label(for='cal') Calendar:
+								input#blue.form-control(type='radio', name='cal', value='#ff00ff')
+								|	Blue
+								input#red.form-control(type='radio', name='cal', value='#ff0000')
+								|	Red
+				.modal-footer
+					button#deleteEvent.btn.btn-danger.delete(type='button' data-dismiss="modal") Delete
+					button.btn(data-dismiss='modal', aria-hidden='true') Cancel
+					button#submitButton.btn.btn-primary(type='submit') Save
