@@ -77,7 +77,7 @@
      }
 
      // set up request
-     var xhr = new XMHttpRequest();
+     var xhr = new XMLHttpRequest();
 
      // open connection
      xhr.open('POST', 'handler.php', true);
