@@ -31,7 +31,7 @@ router.use(function timeLog(req, res, next) {
 				all_houses: data[1]
 			};
 
-			console.log(req.session.house);
+			//console.log(req.session.house);
 			next();
 		})
 		.catch(function(error){
@@ -48,7 +48,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/bulletin', function(req, res, next) {
-	res.render('app/bulletin', req.session);
+	//res.render('app/bulletin', req.session);
+	var bulletin = require('./app-utils/bulletin-utils');
+	bulletin.render(req.session, res);
 });
 
 router.get('/calendar', function(req, res, next) {

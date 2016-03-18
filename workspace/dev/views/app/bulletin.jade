@@ -1,5 +1,10 @@
 extends ./app.jade
 
+block css
+	link(rel='stylesheet' href='../css/bulletin.css')
+
+block js
+
 block content
 	div.row
 		div.col-lg-12
@@ -37,9 +42,54 @@ block content
 							a(href='#') Separated link
 
 
-
-
 	div.row
 		div.col-lg-1
 		div.col-lg-10.col-xs-12
 			h5.page-header today
+
+	div.row
+		div.col-lg-1
+		div.col-lg-10.col-xs-12
+		.col-lg-10.col-xs-12
+			.panel.panel-primary
+				.panel-heading
+					img.img(src='../img/boy.png', width='20px')
+					h3.panel-title(style='\
+					display: inline-block;\
+					') Kevin Ly
+					h3.panel-title(style='float:right') 8:50a 
+				.panel-body Stuff i want to say is here lol :D
+				ul.list-group
+					li.list-group-item.expand-comment
+						a view all comments
+					li.list-group-item.comment-blob 
+						span 
+							img.img(src='../img/boy.png', width='15px')
+							span oscar kwan :
+							span.comment hello its me!
+				.panel-body
+					.input-group
+						input.form-control(type='text', placeholder='Message...')
+						span.input-group-btn
+							button.btn.btn-default(type='button') Reply
+	each val in posts
+		div.row
+			div.col-lg-1
+			div.col-lg-10.col-xs-12
+			.col-lg-10.col-xs-12
+				.panel.panel-primary
+					.panel-heading
+						img.img(src='../img/boy.png', width='20px')
+						h3.panel-title(style='\
+						display: inline-block;\
+						') #{val.full_name}
+						h3.panel-title(style='float:right') #{val.date_time}
+					.panel-body #{val.comment}
+					ul.list-group
+					.panel-body
+						.input-group
+							input.form-control(type='text', placeholder='Message...')
+							span.input-group-btn
+								button.btn.btn-default(type='button') Reply
+
+							

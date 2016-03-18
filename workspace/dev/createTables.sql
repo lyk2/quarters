@@ -70,3 +70,35 @@ CREATE TABLE user_info
     REFERENCES "user" (user_id) MATCH SIMPLE
     ON UPDATE CASCADE ON DELETE CASCADE
 );
+
+CREATE TABLE bulletin_posts
+(
+    post_id serial NOT NULL,
+    user_id integer NOT NULL,
+    house_id integer NOT NULL,
+    comment varchar(255) NOT NULL,
+    date_time timestamp,
+    CONSTRAINT bulletin_posts_pkey PRIMARY KEY(post_id),
+    CONSTRAINT user_id_fkey FOREIGN KEY (user_id)
+        REFERENCES "user" (user_id) MATCH SIMPLE
+        ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT house_id_fkey FOREIGN KEY (house_id)
+        REFERENCES "house" (house_id) MATCH SIMPLE
+        ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE bulletin_replies
+(
+    post_id integer NOT NULL,
+    user_id integer NOT NULL,
+    house_id integer NOT NULL,
+    comment varchar(255) NOT NULL,
+    date_time timestamp,
+    CONSTRAINT bulletin_replies_pkey PRIMARY KEY(post_id, user_id, house_id),
+    CONSTRAINT user_id_fkey FOREIGN KEY (user_id)
+        REFERENCES "user" (user_id) MATCH SIMPLE
+        ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT house_id_fkey FOREIGN KEY (house_id)
+        REFERENCES "house" (house_id) MATCH SIMPLE
+        ON UPDATE CASCADE ON DELETE CASCADE
+);
