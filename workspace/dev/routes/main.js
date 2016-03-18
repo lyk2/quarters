@@ -4,10 +4,10 @@ var router = express.Router();
 // this is occurs on every request, use to check against session for valid use
 router.use(function timeLog(req, res, next) {
 
-	// req.session.user = {
-	// 	uid: 6,
-	// 	email: "hacked test"
-	// };
+	req.session.user = {
+		uid: 6,
+		email: "hacked test"
+	};
 
 	if (req.session.user && req.session.house) {
 		next();
@@ -22,16 +22,16 @@ router.use(function timeLog(req, res, next) {
 			]);
 		})
 		.then(function(data) {
-			console.log(data);
-			console.log("here");
-			var address = (data[0].address) ? data[0].address.trim() : "";
-			var active_house_id = (data[0].house_id) ? data[0].house_id : -1;
+			var address = (data[0][0].address) ? data[0][0].address.trim() : "";
+			var active_house_id = (data[0][0].house_id) ? data[0][0].house_id : -1;
 
 			req.session.house = {
 				active_house_id: active_house_id,
 				address: address,
 				all_houses: data[1]
 			};
+
+			//console.log(req.session.house);
 			next();
 		})
 		.catch(function(error){
@@ -48,7 +48,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/bulletin', function(req, res, next) {
-	res.render('app/bulletin', req.session);
+	//res.render('app/bulletin', req.session);
+	var bulletin = require('./app-utils/bulletin-utils');
+	bulletin.render(req.session, res);
 });
 
 router.get('/calendar', function(req, res, next) {

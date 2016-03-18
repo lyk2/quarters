@@ -29,3 +29,7 @@
 	border: solid 2px grey;
 	min-height: 100px;
 }
+
+.page-header{
+	margin:20px 0 20px;
+}

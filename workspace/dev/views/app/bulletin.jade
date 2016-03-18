@@ -1,42 +1,95 @@
 extends ./app.jade
 
+block css
+	link(rel='stylesheet' href='../css/bulletin.css')
+
+block js
+
 block content
 	div.row
 		div.col-lg-12
 			h1.page-header Bulletin Board
 	div.row
-		div.col-xs-9
-			textarea.form-control(rows='2',placeholder='Add something to share!' style='margin-bottom: 30px')
-		div.col-xs-3
-			button.btn.btn-primary(type='submit') Submit
+		div.col-lg-1
+		div.col-xs-12.col-lg-10
+			.input-group
+				.input-group-btn
+					button.btn.btn-default(type="button")
+						span.glyphicon.glyphicon-plus
+						span.hidden-xs New Post
+					button.btn.btn-default(type="button")
+						span.glyphicon.glyphicon-option-vertical
+				input.form-control(type='text', placeholder="Search for")
+				.input-group-btn(style="border-left: 0; border-right: 0;")
+					button.btn.btn-default(type="button")
+						span.glyphicon.glyphicon-search
+				.input-group-btn
+					button.btn.btn-default(type="button")
+						span.glyphicon.glyphicon-option-vertical
+				.input-group-btn
+					button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+						span.hidden-xs Action 
+						span.caret
+					ul.dropdown-menu.dropdown-menu-right
+						li
+							a(href='#') Action
+						li
+							a(href='#') Another action
+						li
+							a(href='#') Something else here
+						li.divider(role='separator')
+						li
+							a(href='#') Separated link
+
+
 	div.row
-		div.col-lg-9
-			.panel.panel-default
-				.panel-body(style='background-color: #91C957')
-					.row 
-						.col-xs-3
-							i.glyphicon.glyphicon-usd(style='font-size: 35px; color: white; display: inline-block')
-						.col-xs-6
-							.panel-title Carolyn paid Kevin $2
-						.col-xs-3
-							| 3 min ago
-				.panel-footer
-							.input-group
-								input.form-control(type='text', placeholder='Write a reply...')
-								span.input-group-btn
-									button.btn.btn-default(type='button') Reply
-		div.col-lg-9
-			.panel.panel-default
-				.panel-body(style='background-color: #46BBDC')
-					.row 
-						.col-xs-3
-							img.media-object.img-circle(style='max-height:40px;', src='../img/boy2.png')
-						.col-xs-6
-							.panel-title Who wants to grab food?
-						.col-xs-3
-							| 3 min ago
-				.panel-footer
-							.input-group
-								input.form-control(type='text', placeholder='Write a reply...')
-								span.input-group-btn
-									button.btn.btn-default(type='button') Reply
+		div.col-lg-1
+		div.col-lg-10.col-xs-12
+			h5.page-header today
+
+	div.row
+		div.col-lg-1
+		div.col-lg-10.col-xs-12
+		.col-lg-10.col-xs-12
+			.panel.panel-primary
+				.panel-heading
+					img.img(src='../img/boy.png', width='20px')
+					h3.panel-title(style='\
+					display: inline-block;\
+					') Kevin Ly
+					h3.panel-title(style='float:right') 8:50a 
+				.panel-body Stuff i want to say is here lol :D
+				ul.list-group
+					li.list-group-item.expand-comment
+						a view all comments
+					li.list-group-item.comment-blob 
+						span 
+							img.img(src='../img/boy.png', width='15px')
+							span oscar kwan :
+							span.comment hello its me!
+				.panel-body
+					.input-group
+						input.form-control(type='text', placeholder='Message...')
+						span.input-group-btn
+							button.btn.btn-default(type='button') Reply
+	each val in posts
+		div.row
+			div.col-lg-1
+			div.col-lg-10.col-xs-12
+			.col-lg-10.col-xs-12
+				.panel.panel-primary
+					.panel-heading
+						img.img(src='../img/boy.png', width='20px')
+						h3.panel-title(style='\
+						display: inline-block;\
+						') #{val.full_name}
+						h3.panel-title(style='float:right') #{val.date_time}
+					.panel-body #{val.comment}
+					ul.list-group
+					.panel-body
+						.input-group
+							input.form-control(type='text', placeholder='Message...')
+							span.input-group-btn
+								button.btn.btn-default(type='button') Reply
+
+							
