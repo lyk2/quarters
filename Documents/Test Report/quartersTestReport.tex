@@ -74,7 +74,16 @@ This testing report shows the results of both system tests and non-functional te
 %Automated Testing
 \section{Automated Testing}
 \cc{Explain use of automated testing, or explain why it was not feasible for this project.}
-All tests that will be automated will be completed for the Final Demo April 1. We will automate testing for every feature, except financing, notification and chat. We will also test the integrity of the database using automated testing. We will also check if every page is reachable, to ensure there are no unhandled HTTP errors. We plan to run automated tests on a weekly basis, every Sunday night. Automated testing tools include Grunt, SinonJS and custom Python scripts. All unit tests will be automated. Since the majority of modules will be Javascript, we will be using QUnit. QUnit is a Javascript unit testing framework. 
+Automatic testing is being used in this project to unit test various parts of the system. The project's components are broken up in to several parts: Client side javascript components, Server side access and security.
+\\ \\
+The client side javascript is tested every week once a week on an alternate web server using QUnit, a javascript unit-testing framework. Unit tests were written for each component to ensure every method does their intended action. The unit tests are rigorously tested to ensure all exceptions are handled.
+\\ \\
+Server Side access is tested via a python web crawler. To ensure that ever page is reachable. This is ran once a week similarly to the client side tests. The web crawler also crawls through all available link in a demonstration and checks for broken links. Security also tested within the web crawler by crawling with authentication and without authentication. A predetermined set of pages can only be accessible with out authentication such as the landing page, login and registration.
+\\ \\
+The unit tests will be updated and modified as more development continues. In practice these unit tests should ensure that updates to the code base and other changes to the server end do not break the system.
+%System Tests
+\section{System Tests}
+\cc{Specific system tests.  All tests should be fully summarized in terms of initial state, input and expected output. Tests should be named. In cases where there are many similar tests just summarize the results. Provide enough info that someone could reproduce your tests. Provide traceability to test plan by referring to test case numbers or modules.}
 
 %System Tests
 \section{System Tests}
