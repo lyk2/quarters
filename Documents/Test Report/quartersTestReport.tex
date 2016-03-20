@@ -80,16 +80,17 @@ All tests that will be automated will be completed for the Final Demo April 1. W
 \section{System Tests}
 \cc{Specific system tests.  All tests should be fully summarized in terms of initial state, input and expected output. Tests should be named. In cases where there are many similar tests just summarize the results. Provide enough info that someone could reproduce your tests. Provide traceability to test plan by referring to test case numbers or modules.}
 
-\begin{table}[ht]
-\centering
-\resizebox{\textwidth}{!}{\begin{tabular}{|l|l|l|l|l|l|l|}
+\begin{longtable}{|p{2.5cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{4cm}|p{2cm}|p{1.5cm}|}
 \hline
 \textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\ 
 \hline
-No from Test Plan & Login, Calendar, Finances, etc. & blabla & blabla & blabla & As expected. & PASS / FAIL \\
+3. Calendar & Add event to Calendar. & Calendar page. & User selects date to add new event, enters information, clicks save. & Modal opens with fields, and closes upon save. Event is updated correctly on Calendar. The same output results if user selects existing event to modify. & As expected. & PASS \\
 \hline
-\end{tabular}}
-\end{table}
+3. Calendar & Delete event from Calendar & Calendar page. & User selects  event to delete, clicks delete. & Modal opens with fields. Upon clicking delete, the modal closes and the event is removed from the Calendar. & As expected. & PASS \\
+\hline
+6. Landing Page & Landing Page & Not logged in. & Clicks on login. & Modal opens and email and password fields appear. The same output results if user clicks on register. & As expected. & PASS \\
+\hline
+\end{longtable}
 
 %4.1 User Registration
 \subsection{User Registration} 
@@ -134,39 +135,6 @@ No from Test Plan & Login, Calendar, Finances, etc. & blabla & blabla & blabla &
 2.4 & Application main page. & Clicks logout. & User is successfully logged out from system. Redirected to login page. \\
 \hline
 2.5 & Landing page. Empty username and password fields. User attempting to login on another device while already logged in on a device. & Valid username and password combination. Clicks login. & Stays on the same page. Error message appears. \\ 
-\hline
-\end{longtable}
-
-
-
-%4.3 Calendar
-\subsection{Calendar}
-\textbf{Test Type:} Functional, Dynamic, Automated. \\
-\textbf{Tools Used:} Custom Scripts. \\
-\textbf{Schedule:} Begin testing after the PoC Demo. Complete automated tests by Final Demo April 1. \\
-\textbf{Team Member Responsible:} Carolyn Chong. \\
-\textbf{Methodology:} The Calendar feature allows users to add/delete events and chores to a shared Calendar between members of a house. This shared Calendar can be synched with a user's personal Calendar. Testing is automated. Automated testing involves a script that will go through the process of adding/deleting an event or chore to the Calendar in real-time as a user, and then checking if those updates are properly synched with the user's personal Calendar. 
-
-\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
-\hline
-\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-3.1 & Calendar page. & Select Calendar view (Year, Month, Week, or Day). & Calendar view is displayed. \\ 
-\hline
-3.2 & Calendar page. & Select current or future date. & Form opens. \\ 
-\hline
-3.3 & Calendar page. & User(A) selects event/chore that User(A) created. & Form opens. \\ 
-\hline
-3.4 & Calendar page. & User(B) selects event/chore that User(A) created. & Nothing. \\ 
-\hline
-3.5 & Calendar page. Existing form created by User(A) is open. & User(A) modifies event details and saves changes. & Form closes and updated Calendar is displayed. \\ 
-\hline
-3.6 & Calendar page. & Select past date. & Nothing. \\ 
-\hline
-3.7 & Calendar page. Empty form. & Add event/chore. Text entered in fields and saves. & Form closes. Event/chore is updated on Calendar. \\ 
-\hline
-3.8 & Calendar page. Empty form. & Add event/chore. Empty field(s). Clicks save. & Form remains open. Error message appears. Empty fields are highlighted. \\
-\hline
-3.9 & Calendar page. & Click to delete event/chore. & Event/chore is no longer displayed on Calendar. \ds{Who can delete events/chores?} \\
 \hline
 \end{longtable}
 
@@ -247,25 +215,6 @@ No from Test Plan & Login, Calendar, Finances, etc. & blabla & blabla & blabla &
 5.14 & Member Dialog, admin. & Clicks on cancel. & Window closes.\\
 \hline
 \end{longtable}
-
-%4.6 landing page
-\subsection{Landing Page}
-\textbf{Test Type:} Functional, Dynamic, Static, Automated. \\
-\textbf{Tools Used:} Custom scripts. \\
-\textbf{Schedule:} Begin testing November 8. Complete manual tests by PoC Demo November 16. Complete automated dynamic tests by Final Demo April 1. \\
-\textbf{Team Member Responsible:} Kevin Ly.\\
-\textbf{Methodology:} The landing page allows users to login and create new accounts. This page also displays information about the application for visitors. This feature will be manually tested since there are not many test cases.
-
-\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
-\hline
-\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-6.1 & Landing Page, not logged in. & Clicks on login. & Username field appears, password field appears.\\
-\hline
-6.2 & Landing Page, not logged in. & Clicks on registration. & Email and password fields appear.\\
-\hline
-\end{longtable}
-
-\ds{So how does registration work? What happens if someone tries to register an existing email/username?}
 
 %4.7 Finance
 \subsection{Finance}
