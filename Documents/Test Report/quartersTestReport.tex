@@ -80,18 +80,6 @@ All tests that will be automated will be completed for the Final Demo April 1. W
 \section{System Tests}
 \cc{Specific system tests.  All tests should be fully summarized in terms of initial state, input and expected output. Tests should be named. In cases where there are many similar tests just summarize the results. Provide enough info that someone could reproduce your tests. Provide traceability to test plan by referring to test case numbers or modules.}
 
-\begin{longtable}{|p{2.5cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{4cm}|p{2cm}|p{1.5cm}|}
-\hline
-\textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\ 
-\hline
-3. Calendar & Add event to Calendar. & Calendar page. & User selects date to add new event, enters information, clicks save. & Modal opens with fields, and closes upon save. Event is updated correctly on Calendar. The same output results if user selects existing event to modify. & As expected. & PASS \\
-\hline
-3. Calendar & Delete event from Calendar & Calendar page. & User selects  event to delete, clicks delete. & Modal opens with fields. Upon clicking delete, the modal closes and the event is removed from the Calendar. & As expected. & PASS \\
-\hline
-6. Landing Page & Landing Page & Not logged in. & Clicks on login. & Modal opens and email and password fields appear. The same output results if user clicks on register. & As expected. & PASS \\
-\hline
-\end{longtable}
-
 %4.1 User Registration
 \subsection{User Registration} 
 \textbf{Test Type:} Functional, Dynamic, Automated. \\
@@ -135,6 +123,19 @@ All tests that will be automated will be completed for the Final Demo April 1. W
 2.4 & Application main page. & Clicks logout. & User is successfully logged out from system. Redirected to login page. \\
 \hline
 2.5 & Landing page. Empty username and password fields. User attempting to login on another device while already logged in on a device. & Valid username and password combination. Clicks login. & Stays on the same page. Error message appears. \\ 
+\hline
+\end{longtable}
+
+%4.3 Calendar
+\subsection{Calendar}
+
+\begin{longtable}{|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{4cm}|p{2cm}|p{1.5cm}|}
+\hline
+\textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\ 
+\hline
+3.1-3.4 & Add event to Calendar. & Calendar page. & User selects date to add new event, enters information, clicks save. & Modal opens with fields, and closes upon save. Event is updated correctly on Calendar. The same output results if user selects existing event to modify. & As expected. & PASS \\
+\hline
+3.5 & Delete event from Calendar & Calendar page. & User selects  event to delete, clicks delete. & Modal opens with fields. Upon clicking delete, the modal closes and the event is removed from the Calendar. & As expected. & PASS \\
 \hline
 \end{longtable}
 
@@ -215,6 +216,19 @@ All tests that will be automated will be completed for the Final Demo April 1. W
 5.14 & Member Dialog, admin. & Clicks on cancel. & Window closes.\\
 \hline
 \end{longtable}
+
+
+%4.6 landing page
+\subsection{Landing Page}
+
+\begin{longtable}{|p{2.5cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{4cm}|p{2cm}|p{1.5cm}|}
+\hline
+\textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\ 
+\hline
+6.1,6.2 & Access login or registration. & Not logged in. & Clicks on login. & Modal opens and email and password fields appear. The same output results if user clicks on register. & As expected. & PASS \\
+\hline
+\end{longtable}
+
 
 %4.7 Finance
 \subsection{Finance}
