@@ -211,7 +211,7 @@ The unit tests will be updated and modified as more development continues. In pr
 \begin{longtable}{|L{1.5cm}|L{2cm}|L{2cm}|L{2.25cm}|L{3cm}|L{1.75cm}|L{1.5cm}|}
 \hline
 \textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\ 
-7.6 & Add a new bill to the house & Finance page & User clicks on ``+'' button, fills in all informations in modal window and click "save" & Modal window opens with fields, upon save with all fields filled in, a list of tenants that owes the user money will be added to the page & As expected. & PASS\\
+7.6 & Add a new bill to the house & Finance page & User clicks on ``+'' button, fills in all required information in modal window and click "save" & Modal window opens with fields, upon save with all fields filled in, a list of tenants that owes the user money will be added to the page & As expected. & PASS\\
 \hline
 7.7 & Mark bill as paid & Finance page & User clicks on ``Paid'' button beside the bill, clicks ok on the confirmation window & Confirmation window will appear, upon clicking ok, the bill will have a \checkmark beside it  & As expected. & PASS\\
 \hline
@@ -226,8 +226,9 @@ The unit tests will be updated and modified as more development continues. In pr
 \hline
 8.1-8.15 & User Logs in & Quarters & no input required & Number of unread notifications is displayed & As Expected & PASS \\ 
 \hline
-8.16 & Viewed Notification & Quarters & viewed notifications & notifcation count is cleared & As expected & PASS\\
-8.17 & Clicking on notification & Quarters & click on notification & brings up updated post * As expected & PASS\\
+8.16 & Viewed Notification & Quarters & viewed notifications & notification count is cleared & As expected & PASS\\
+\hline
+8.17 & Clicking on notification & Quarters & click on notification & brings up updated post & As expected & PASS\\
 \hline
 \end{longtable}
 
