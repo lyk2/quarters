@@ -90,38 +90,40 @@ The unit tests will be updated and modified as more development continues. In pr
 \cc{Specific system tests.  All tests should be fully summarized in terms of initial state, input and expected output. Tests should be named. In cases where there are many similar tests just summarize the results. Provide enough info that someone could reproduce your tests. Provide traceability to test plan by referring to test case numbers or modules.} In this section the test cases carried out on each individual module are described. Trivial cases for some modules are not explicitly written out but instead described at a high level. Additional details are provided when necessary.
 
 %4.1 User Registration
-\subsection{User Registration} 
+%\subsection{User Registration} 
 
-\begin{longtable}{|p{0.5cm}|p{1.5cm}|p{1.5cm}|p{3.5cm}|p{4cm}|p{2cm}|p{1.5cm}|}
-\hline
-\textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\ 
-1.1 & User Registration & Landing page. Empty fields. & Email and password entered. Clicks register. & Redirected to application main page. & As expected. & PASS \\ 
-\hline
-1.2 & User Registration & Landing page. Empty fields. & Empty field(s). Clicks register. & Stays on the same page. Error message appears. Empty field is highlighted. & As expected. & PASS \\
-\hline
-1.3 & User Registration & Landing page. Empty fields. & Email address already stored in database. Clicks register. & Stays on the same page. Error message appears. Email field is highlighted. & As expected. & PASS \\
-\hline
-\end{longtable}
+%\begin{longtable}{|p{0.5cm}|p{1.5cm}|p{1.5cm}|p{3.5cm}|p{4cm}|p{2cm}|p{1.5cm}|}
+%\hline
+%\textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\
+%\hline
+%1.1 & User Registration & Landing page. Empty fields. & Email and password entered. Clicks register. & Redirected to application main page. & As expected. & PASS \\ 
+%\hline
+%1.2 & User Registration & Landing page. Empty fields. & Empty field(s). Clicks register. & Stays on the same page. Error message appears. Empty field is highlighted. & As expected. & PASS \\
+%\hline
+%1.3 & User Registration & Landing page. Empty fields. & Email address already stored in database. Clicks register. & Stays on the same page. Error message appears. Email field is highlighted. & As expected. & PASS \\
+%\hline
+%\end{longtable}
 
 
 
 %4.2 User Login 
-\subsection{User Login}
+%\subsection{User Login}
 
-\begin{longtable}{|p{0.5cm}|p{1.5cm}|p{2cm}|p{3.0cm}|p{4cm}|p{2cm}|p{1.5cm}|}
-\hline
-\textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\ 
-2.1 & User Login & Landing page. Empty username and password fields. & Valid username and password combination. Clicks login. & Redirected to application main page. & As expected. & PASS \\ 
-\hline
-2.2 & User Login & Landing page. Empty username and password fields. & Invalid username and password combination. Clicks login. & Stays on the same page. Error message appears. Fields are highlighted. After 5 unsuccessful attempts, user cannot login for 10 minutes. & As expected. & PASS \\
-\hline
-2.3 & User Login & Landing page. Empty username and password fields. & Empty username and/or password fields. Clicks login. & Stays on the same page. Error message appears. Fields are highlighted. & As expected. & PASS \\
-\hline
-2.4 & User Logout & Application main page. & Clicks logout. & User is successfully logged out from system. Redirected to login page. & As expected. & PASS \\
-\hline
-2.5 & User Login & Landing page. Empty username and password fields. User attempting to login on another device while already logged in on a device. & Valid username and password combination. Clicks login. & Stays on the same page. Error message appears. & As expected. & PASS \\ 
-\hline
-\end{longtable}
+%\begin{longtable}{|p{0.5cm}|p{1.5cm}|p{2cm}|p{3.0cm}|p{4cm}|p{2cm}|p{1.5cm}|}
+%\hline
+%\textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\
+%\hline
+%2.1 & User Login & Landing page. Empty username and password fields. & Valid username and password combination. Clicks login. & Redirected to application main page. & As expected. & PASS \\ 
+%\hline
+%2.2 & User Login & Landing page. Empty username and password fields. & Invalid username and password combination. Clicks login. & Stays on the same page. Error message appears. Fields are highlighted. After 5 unsuccessful attempts, user cannot login for 10 minutes. & As expected. & PASS \\
+%\hline
+%2.3 & User Login & Landing page. Empty username and password fields. & Empty username and/or password fields. Clicks login. & Stays on the same page. Error message appears. Fields are highlighted. & As expected. & PASS \\
+%\hline
+%2.4 & User Logout & Application main page. & Clicks logout. & User is successfully logged out from system. Redirected to login page. & As expected. & PASS \\
+%\hline
+%2.5 & User Login & Landing page. Empty username and password fields. User attempting to login on another device while already logged in on a device. & Valid username and password combination. Clicks login. & Stays on the same page. Error message appears. & As expected. & PASS \\ 
+%\hline
+%\end{longtable}
 
 %4.3 Calendar
 \subsection{Calendar}
@@ -174,40 +176,41 @@ The unit tests will be updated and modified as more development continues. In pr
 \end{longtable}
 
 %4.5 house management
-\subsection{House Management}
+%\subsection{House Management}
 
-\begin{longtable}{|p{0.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{3cm}|p{2cm}|p{1.5cm}|}
-\hline
-\textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\ \hline
-5.1 & Modify house information, not admin. & House Management, not admin. & Click modify information. & Nothing. & As expected. & PASS \\ 
-\hline
-5.2 & Modify house information as admin. & House Management, admin. & Click modify information. & Input fields become editable. & As expected. & PASS \\
-\hline
-5.3 & Modify house information as admin. & House Management, admin. & Modify information fields. & Save button opens, discard changes appears. & As expected. & PASS \\
-\hline
-5.4 & Modify house information as user. & House Management, any user. & Click on View Documents. & Redirects to new page showing all uploaded documents in House. & As expected. & PASS \\
-\hline
-5.5 & Modify house information as user. & House Documents, any user. & Clicks on a document. & Retrieves documents and initiates file transfer. & As expected. & PASS \\
-\hline
-5.6 & Modify house information as admin. & House Documents, admin. & Clicks on Add Documents. & Upload window opens for user upload, file will be transfer to server and information is updated in database. & As expected. & PASS \\
-\hline
-5.7 & Modify house information as admin. & House Documents, admin. & Clicks on delete document. & Prompt opens. & As expected. & PASS \\
-\hline
-5.8 & Modify house information as admin. & Deletion prompt, admin. & Clicks on yes. & Prompt closed, file is removed from display, database is updated. & As expected. & PASS \\
-\hline
-5.9 & Modify house information as admin. & Deletion prompt, admin. & Clicks on no. & Prompt closed. & As expected. & PASS \\
-\hline
-5.10 & Modify house information as user & House Management, any user. & Clicks on view members. & Shows all memebers of the house and their role. & As expected. & PASS \\
-\hline
-5.11 & Modify house information as admin. & House Management, admin, members list visible. & Clicks on add member. & Dialog will appear. & As expected. & PASS \\
-\hline
-5.12 & Modify house information as admin. & Member Dialog, admin, fields empty. & Clicks on ok. & Prompt opens, notifying missing fields. & As expected. & PASS \\
-\hline
-5.13 & Modify house information as admin. & Member Dialog, admin, fields complete. & Clicks on ok. & Window closes, new user is notified, database is updated, member status pending. & As expected. & PASS \\
-\hline
-5.14 & Modify house information as admin. & Member Dialog, admin. & Clicks on cancel. & Window closes. & As expected. & PASS \\
-\hline
-\end{longtable}
+%\begin{longtable}{|p{0.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{3cm}|p{2cm}|p{1.5cm}|}
+%\hline
+%\textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\
+%\hline
+%5.1 & Modify house information, not admin. & House Management, not admin. & Click modify information. & Nothing. & As expected. & PASS \\ 
+%\hline
+%5.2 & Modify house information as admin. & House Management, admin. & Click modify information. & Input fields become editable. & As expected. & PASS \\
+%\hline
+%5.3 & Modify house information as admin. & House Management, admin. & Modify information fields. & Save button opens, discard changes appears. & As expected. & PASS \\
+%\hline
+%5.4 & Modify house information as user. & House Management, any user. & Click on View Documents. & Redirects to new page showing all uploaded documents in House. & As expected. & PASS \\
+%\hline
+%5.5 & Modify house information as user. & House Documents, any user. & Clicks on a document. & Retrieves documents and initiates file transfer. & As expected. & PASS \\
+%\hline
+%5.6 & Modify house information as admin. & House Documents, admin. & Clicks on Add Documents. & Upload window opens for user upload, file will be transfer to server and information is updated in database. & As expected. & PASS \\
+%\hline
+%5.7 & Modify house information as admin. & House Documents, admin. & Clicks on delete document. & Prompt opens. & As expected. & PASS \\
+%\hline
+%5.8 & Modify house information as admin. & Deletion prompt, admin. & Clicks on yes. & Prompt closed, file is removed from display, database is updated. & As expected. & PASS \\
+%\hline
+%5.9 & Modify house information as admin. & Deletion prompt, admin. & Clicks on no. & Prompt closed. & As expected. & PASS \\
+%\hline
+%5.10 & Modify house information as user & House Management, any user. & Clicks on view members. & Shows all memebers of the house and their role. & As expected. & PASS \\
+%\hline
+%5.11 & Modify house information as admin. & House Management, admin, members list visible. & Clicks on add member. & Dialog will appear. & As expected. & PASS \\
+%\hline
+%5.12 & Modify house information as admin. & Member Dialog, admin, fields empty. & Clicks on ok. & Prompt opens, notifying missing fields. & As expected. & PASS \\
+%\hline
+%5.13 & Modify house information as admin. & Member Dialog, admin, fields complete. & Clicks on ok. & Window closes, new user is notified, database is updated, member status pending. & As expected. & PASS \\
+%\hline
+%5.14 & Modify house information as admin. & Member Dialog, admin. & Clicks on cancel. & Window closes. & As expected. & PASS \\
+%\hline
+%\end{longtable}
 
 
 %4.6 landing page
@@ -292,35 +295,31 @@ The unit tests will be updated and modified as more development continues. In pr
 \end{longtable}
 
 %4.9 Administrative File Storage
-\subsection{Administrative File Storage}
-\textbf{Test Type:} Functional, Dynamic, Automated. \\
-\textbf{Tools Used:} Custom Scripts. \\
-\textbf{Schedule:} Begin testing after the PoC Demo. Complete automated tests by Final Demo April 1. \\
-\textbf{Team Member Responsible:} James Anthony. \\
-\textbf{Methodology:} A script can be used to test the process of uploading and downloading multiple files of different types and sizes.
+%\subsection{File Storage}
 
-\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
-\hline
-\textbf{Test Case} & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-9.1 & 0 files in storage. & User tries to upload a file of size $s$, where $s \le$ max file size. & Successful file upload.\\
-\hline
-9.2 & 0 files in storage. & User tries to upload a file of size $s$, where $s >$ max file size. & Error message indicating file has not been uploaded.\\
-\hline
-9.3 & $n$ files in storage. & User tries to upload a file of size $s$, where $s \le$ total remaining space. & Successful file upload.\\
-\hline
-9.4 & $n$ files in storage. & User tries to upload a file of size $s$, where $s >$ total remaining space. & Error message indicating file has not been uploaded.\\
-\hline
-9.5 & $n$ files in storage. & User tries to upload a file with an invalid type. & Error message indicating file has not been uploaded.\\
-\hline
-9.6 & $n$ files in storage. & User requests to download a file. & Successful file download.\\
-\hline
-9.7 & $n$ files in storage. & Connection interrupted while download is in progress. & Error message indicating file has not been downloaded.\\
-\hline
-9.8 & $n$ files in storage. & User tries to upload  $n > 1$ files. & Error message indicating only one file can be uploaded at a time.\\
-\hline
-9.9 & $n$ files in storage. & User clicks delete file. & File removed. \\
-\hline
-\end{longtable}
+%\begin{longtable}{|p{0.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{3cm}|p{2cm}|p{1.5cm}|}
+%\hline
+%\textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\
+%\hline
+%9.1 & File Upload & 0 files in storage. & User tries to upload a file of size $s$, where $s \le$ max file size. & Successful file upload. & As expected. & PASS \\
+%\hline
+%9.2 & File Upload & 0 files in storage. & User tries to upload a file of size $s$, where $s >$ max file size. & Error message indicating file has not been uploaded. & As expected. & PASS \\
+%\hline
+%9.3 & File Upload & $n$ files in storage. & User tries to upload a file of size $s$, where $s \le$ total remaining space. & Successful file upload. & As expected. & PASS \\
+%\hline
+%9.4 & File Upload & $n$ files in storage. & User tries to upload a file of size $s$, where $s >$ total remaining space. & Error message indicating file has not been uploaded. & As expected. & PASS \\
+%\hline
+%9.5 & File Upload & $n$ files in storage. & User tries to upload a file with an invalid type. & Error message indicating file has not been uploaded. & As expected. & PASS \\
+%\hline
+%9.6 & File Download & $n$ files in storage. & User requests to download a file. & Successful file download. & As expected. & PASS \\
+%\hline
+%9.7 & File Download & $n$ files in storage. & Connection interrupted while download is in progress. & Error message indicating file has not been downloaded. & As expected. & PASS \\
+%\hline
+%9.8 & File Upload & $n$ files in storage. & User tries to upload  $n > 1$ files. & Error message indicating only one file can be uploaded at a time. & As expected. & PASS \\
+%\hline
+%9.9 & File Delete & $n$ files in storage. & User clicks delete file. & File removed. & As expected. & PASS \\
+%\hline
+%\end{longtable}
 
 %4.10 Bulletin Board
 \subsection{Bulletin Board}
