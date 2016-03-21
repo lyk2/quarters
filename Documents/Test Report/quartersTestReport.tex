@@ -6,14 +6,18 @@
 \usepackage{xr}
 \usepackage{longtable}
 \usepackage{xfrac}
+\usepackage{amssymb}
 \usepackage{tabularx}
 \usepackage{booktabs}
 \usepackage{hyperref}
+\usepackage{array}
 \usepackage{xcolor} % for different colour comments
 \usepackage{fullpage}
 \newcounter{rowcount}
 \setcounter{rowcount}{0}
-
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
 
 \hypersetup{
     bookmarks=true,         % show bookmarks bar?
@@ -140,38 +144,15 @@ The unit tests will be updated and modified as more development continues. In pr
 
 %4.4 Maintenance Ticketing System
 \subsection{Maintenance Tracking}
-\textbf{Test Type:} Functional, Dynamic, Static, Automated. \\
-\textbf{Tools Used:} QUnit, Chron Scripts. \ds{Chron scripts?}\\
-\textbf{Schedule:} Begin testing after the PoC Demo. Complete automated tests by Final Demo April 1. \\
-\textbf{Team Member Responsible:} Kevin Ly. \\
-\textbf{Methodology:} The maintenance tracking system allows tenants to create maintenance requests, where the landlord then responds and updates with further information. This portion of the system is restricted based on the user type; tenants cannot modify maintenance ticket properties. This component will be tested using unit tests for functionality, with automated testing to ensure the permissions are handled properly. Static database checkers will be used in conjunction with the automated test cases to check for proper database modifications.
-
-\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\begin{longtable}{|p{1.5cm}|p{2.5cm}|p{2.5cm}|p{3cm}|p{3cm}|p{1.75cm}|p{1.25cm}|}
 \hline
-\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.1 & Quarters Web Application. & Open maintenance system. & Maintenance system opens and shows new maintenance tickets with existing tickets in chronological order. \\ 
+\textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\ 
 \hline
-4.2 & Maintenance System. & Click on maintenance ticket. & Inner dialog opens displaying all properties in a maintenance ticket. \\
+4.1-4.5 & Navigating to maintenance page & Quarters application. & User clicks on maintenance tab in the navigation bar & Application navigates to maintenance page, all maintenance tickets relevant to the house are shown & As expected & PASS\\ 
 \hline
-4.3 & Maintenance System. & Entering a search query or adding a filter. & Sort and filter maintenance tickets and reveal only successful tickets. \\
+4.6 & Delete ticket from maintenance page & Maintenance System. & User clicks on "X" button beside the maintenance ticket, user clicks confirm when confirmation window pops up.& confirmation window will appear. upon deletion conformation, close confirmation window, and ticket is removed from the page. & As expected & PASS\\
 \hline
-4.4 & Maintenance Ticket Window. & Modifying properties of a ticket. & Save icon appears in dialog to confirm changes.\\
-\hline
-4.5 & Maintenance Ticket Window. & Saving ticket properties & Window will close, and database will be updated to reflect changes.\\
-\hline
-4.6 & Maintenance Ticket Window. & Deleting Ticket. & Confirmation window will appear. Upon deletion confirmation, close window and remove data from database.\\
-\hline
-4.7 & Maintenance System & Click on create new request. & Opens a new ticket window.\\
-\hline
-4.8 & New Maintenance ticket window. & Click on create empty fields. & Window will remain opening, prompt will display error message.\\
-\hline
-4.9 & New Maintenance ticket window. & Click on create, required fields filled. & Window closes, database will be updated with new ticket.\\
-\hline
-4.10 & New Maintenance ticket window. & Click on cancel with fields filled. & Window remains open, prompt will ask for confirmation on close.\\
-\hline
-4.11 & Confirmation Prompt. & Click on OK. & Closes prompt and dialog. \\
-\hline
-4.12 & Confirmation Prompt. & Click on cancel. & Closes prompt, dialog remains open.\\
+4.7-4.12 & Create new maintenance ticket & Maintenance System. & User clicks on "new request". & Modal opens with fields, and closes upon save. New ticket is added into the page & As expected & PASS\\
 \hline
 \end{longtable}
 
@@ -225,26 +206,16 @@ The unit tests will be updated and modified as more development continues. In pr
 \end{longtable}
 
 
+
+
 %4.7 Finance
 \subsection{Finance}
-\textbf{Test Type:} Functional, Dynamic, Manual. \\
-\textbf{Tools Used:} None. \\
-\textbf{Schedule:} Begin testing after the PoC Demo. Complete automated tests by Final Demo April 1. \\
-\textbf{Team Member Responsible:} James Anthony. \\
-\textbf{Methodology:} Tests can be performed by having one user add payment deadlines, and having another user send arbitrary amounts of money via PayPal. Speed and accuracy of transactions can be tracked. Transaction records can be manually evaluated for correctness.
-
-\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\begin{longtable}{|C{1.5cm}|L{2.5cm}|L{2.5cm}|L{3cm}|L{3cm}|L{1.75cm}|L{1.25cm}|}
 \hline
-\textbf{Test Case} & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-7.1 & No payments due. & User initiates PayPal transaction. & Error message indicating that no payments are due at the current time.\\
+\textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\ 
+7.6 & Add a new bill to the house & Finance page & User clicks on ``+'' button, fills in all informations in modal window and click "save" & Modal window opens with fields, upon save with all fields filled in, a list of tenants that owes the user money will be added to the page & As expected. & PASS\\
 \hline
-7.2 & No payments due. & User posts payment request with some deadline. & New payment deadline added.\\
-\hline
-7.3 & Payment due. & User initiates PayPal transaction. & Transaction is handled by PayPal. All users involved are notified of the completed payment. Deadline is removed from list of current payments due.\\
-\hline
-7.4 & Payment due. & Payment has not been completed, and deadline has passed. & All users involved are notified that the deadline has passed. Deadline is marked as past due, and users will continue to be notified until either the payment has been completed, or the due payment is removed.\\
-\hline
-7.5 & Payment due. & User who posted the original due payment removes the request. & Payment request is removed from the list of due payments.\\
+7.7 & Mark bill as paid & Finance page & User clicks on ``Paid'' button beside the bill, clicks ok on the confirmation window & Confirmation window will appear, upon clicking ok, the bill will have a \checkmark beside it  & As expected. & PASS\\
 \hline
 \end{longtable}
 
