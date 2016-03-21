@@ -21,22 +21,37 @@ router.get('/', function(req, res, next) {
     res.send('db finance interface');
 });
 
-
-router.get('/addBill', function(req,res,next){
-    var data = req.query;
-    db.query("Insert into finance (house_id,owner_id,bill_type,bill_date) values ($1,$2,$3,$4)",[req.session.house.active_house_id,req.session.user.uid, data.bill_type, data.bill_date])
+router.post('/getHouseMembers',function(req,res,next){
+    db.query("select full_name from role,user_info where role.house_id = $1 and role.user_id = user_info.user_id;",[req.session.house.active_house_id])
         .then(function(data){
-            res.send("{}");
+            res.send('{"name":hahaha}');
         })
         .catch(function(error){
-            res.send(error);
+            res.send("error while fetching user info");
+        });
+
+});
+
+router.post('/addBill', function(req,res,next){
+    var bill_type = req.body.bill_type;
+    var bill_date = req.body.date;
+    var description = req.body.description;
+    db.query("Insert into finance (house_id,owner_id,bill_type,bill_date) values ($1,$2,$3,$4) RETURNING bill_id;",[req.session.house.active_house_id,req.session.user.uid, bill_type, bill_date])
+        .then(function(data){
+            res.send('{"bill_id":'+data[0].bill_id+"}");
+        })
+        .catch(function(error){
+            res.send('error occured while adding bills');
         });
 });
 
-router.get('/addPayee',function(req,res,next){
-    var data = req.query;
-    for ( i = 0;i<data.owedByList.length();i++){
-        db.query ("Insert into bill_owed (bill_id,house_id,user_id,amount,paid) values ($1,$2,$3,$4)",[data.bill_id,data.owedByList[i],data.owedAmount[i],false]).then(function(data){
+router.post('/addPayer',function(req,res,next){
+    var payerList = req.body.payerList;
+    var bill_type = req.body.bill_type;
+    var bill_date = req.body.date;
+    var description = req.body.description;
+    for (var payer in payerList){
+        db.query ("Insert into bill_owed (bill_id,house_id,user_id,amount,paid) values ($1,$2,$3,$4)",[data.bill_id,payer,payerList[payer],false]).then(function(data){
                 res.send("{}");
             })
             .catch(function(error){
