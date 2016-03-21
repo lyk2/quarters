@@ -265,46 +265,14 @@ The unit tests will be updated and modified as more development continues. In pr
 
 %4.8 Notification
 \subsection{Notifications}
-\textbf{Test Type:} Functional, Dynamic, Manual. \\
-\textbf{Tools Used:} None. \\
-\textbf{Schedule:} Begin testing after the PoC Demo. Complete automated tests by Final Demo April 1. \\
-\textbf{Team Member Responsible:} Wenqiang Chen. \\
-\textbf{Methodology:} The main objective of notification is to remind user of events that has had happened; users should be notified immediate after the event has taken place. The testing involves one user completing different actions which generates notification and have another user related to this event receive notification.
-
-\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\begin{longtable}{|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{4cm}|p{2cm}|p{1.5cm}|}
 \hline
-\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-8.1 & Main page. User(A) logged in. & User(B) sends money request. & User(A) sees notification of pending payment due.  \\ 
+\textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\ 
 \hline
-8.2 & Main page. User(A) logged in. & User(A) pays user(B). & User(B) sees notification of payment completed.  \\ 
+8.1-8.15 & User Logs in & Quarters & no input required & Number of unread notifications is displayed & As Expected & PASS \\ 
 \hline
-8.3 & Main page. User(A) logged in. & User(A) has late payment. & User(A) sees notification of late payment.  \\ 
-\hline
-8.4 & Main page. User(A) logged in. & User(A) joins a house.  & Other users in that house sees notification that user(A) joined the house. \\
-\hline
-8.5 & Main page. User(A)(landlord) logged in. & User(B) sends maintenance ticket(Critical). & User(A) sees notification of unresolved maintenance ticket, receives email, receives text message. \\
-\hline
-8.6 & Main page. User(A)(landlord) logged in. & User(B) sends maintenance ticket(Major.) & User(A) sees notification of unresolved maintenance ticket, receives email.\\
-\hline
-8.7 & Main page. User(A)(landlord) logged in. & User(B) sends maintenance ticket(Minor). & User(A) sees notification of unresolved maintenance ticket. \\
-\hline
-8.8 & Main page. User(A) logged in. & User(B)(Landlord) resolves a maintenance ticket. & User(A) sees notification of resolved maintenance ticket. \\
-\hline
-8.9 & Main page. User(A) logged in. & User(B) sends user(A) a message. & User(A) sees notification of unread message. \\
-\hline
-8.10 & Main page. User(A) logged in. & User(B) makes a post in discussion board. & User(A) sees notification of unread post. \\
-\hline
-8.11 & Main page. User(A) logged in. & User(B) replies to a post made by user(A). & User(A) sees notification of unread reply. \\
-\hline
-8.12 & Main page. User(A) logged in. & User(A) leaves a house.  & Other users in that house sees notification that user(A) left the house. \\
-\hline
-8.13 & Main page. User(A) logged in. & User(B) adds event to Calendar. & User(A) sees notification of added post. \\
-\hline
-8.14 & Main page. User(A) logged in. & User(B) deletes event from Calendar. & User(A) sees notification of deleted event. \\
-\hline
-8.15 & Main page. User(A) logged in. & User(A)has event happening on day. & User(A) sees notification of event. \\
-\hline
-8.16 & Main page. User(A) logged in. Notification displayed. & User clicks on Notification icon. & Notification disappears. \\
+8.16 & Viewed Notification & Quarters & viewed notifications & notifcation count is cleared & As expected & PASS\\
+8.17 & Clicking on notification & Quarters & click on notification & brings up updated post * As expected & PASS\\
 \hline
 \end{longtable}
 
@@ -341,30 +309,17 @@ The unit tests will be updated and modified as more development continues. In pr
 
 %4.10 Bulletin Board
 \subsection{Bulletin Board}
-\textbf{Test Type:} Functional, Dynamic, Automated. \\
-\textbf{Tools Used:} Custom Scripts. \\
-\textbf{Schedule:} Begin testing after the PoC Demo. Complete automated tests by Final Demo April 1. \\
-\textbf{Team Member Responsible:} James Anthony. \\
-\textbf{Methodology:} A script can be used to test the process of posting on the discussion board, and commenting on existing posts.
-
-\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\begin{longtable}{|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{4cm}|p{2cm}|p{1.5cm}|}
 \hline
-\textbf{Test Case} & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-10.1 & No posts on bulletin board. & A post with 0 characters & Empty post is disgarded
-\ds{``discarded"}
-and not added to bulletin board.\\
+\textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\ 
 \hline
-10.2 & No posts on bulletin board. & A post with $n$ characters, where $n > 0$. & Bulletin board is updated with the post of $n$ characters.\\
+10.2-10.6 & Open Bulletin Board & In quarters& opening action & latest 15 posts are displayed & As expected & PASS\\
 \hline
-10.3 & $p$ posts on bulletin board, where $p > 0$. & A post with 0 characters & Empty post is disgarded and not added to bulletin board.\\
+10.7 & Adding a post & Bulletin Board & Data for the new post is added; text, or files & Posts is added to the database, and displayed on the board&As expected & PASS\\
 \hline
-10.4 & $p$ posts on bulletin board, where $p > 0$. & A post with $n$ characters, where $n > 0$. & Bulletin board is updated with the post of $n$ characters.\\
+10.8 & Adding sub-reply & Bulletin Board & text reply for a comment&Reply added to the database, and displayed under the post&As expected&Pass\\
 \hline
-10.5 & $p$ posts on bulletin board, where $p > 0$. & A comment with 0 characters on an existing post $p$. & Empty comment is disgarded
-\ds{discarded}
-and not added to bulletin board.\\
-\hline
-10.6 & $p$ posts on bulletin board, where $p > 0$. & A comment with $n$ characters where $n > 0$, on an existing post $p_i$. & Comment is added to the list of comments associated with post $p_i$.\\
+10.9-10.10 & Removing post, sub-reply & Bulletin Board & request for removing a post, subreply & reply is deleted from database and from display & As expected & Pass\\
 \hline
 \end{longtable}
 
