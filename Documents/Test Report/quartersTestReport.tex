@@ -9,6 +9,7 @@
 \usepackage{amssymb}
 \usepackage{tabularx}
 \usepackage{booktabs}
+\usepackage{multirow}
 \usepackage{hyperref}
 \usepackage{array}
 \usepackage{xcolor} % for different colour comments
@@ -21,7 +22,7 @@
 
 \hypersetup{
     bookmarks=true,         % show bookmarks bar?
-      colorlinks=true,       % false: boxed links; true: colored links
+    colorlinks=true,       % false: boxed links; true: colored links
     linkcolor=black,          % color of internal links (change box color with linkbordercolor)
     citecolor=green,        % color of links to bibliography
     filecolor=magenta,      % color of file links
@@ -77,28 +78,29 @@ This testing report shows the results of both system tests and non-functional te
 
 %Automated Testing
 \section{Automated Testing}
-\cc{Explain use of automated testing, or explain why it was not feasible for this project.}
-Automatic testing is being used in this project to unit test various parts of the system. The project's components are broken up in to several parts: Client side javascript components, Server side access and security.
+Automatic testing is being used in this project to unit test various parts of the system. The project's components are broken up into several parts: Client-side JavaScript components, Server-side access and security.
 \\ \\
-The client side javascript is tested every week once a week on an alternate web server using QUnit, a javascript unit-testing framework. Unit tests were written for each component to ensure every method does their intended action. The unit tests are rigorously tested to ensure all exceptions are handled.
+The client side JavaScript is tested every week once a week on an alternate web server using QUnit, a JavaScript unit-testing framework. Unit tests were written for each component to ensure every method does their intended action. The unit tests are rigorously tested to ensure all exceptions are handled.
 \\ \\
-Server Side access is tested via a python web crawler. To ensure that ever page is reachable. This is ran once a week similarly to the client side tests. The web crawler also crawls through all available link in a demonstration and checks for broken links. Security also tested within the web crawler by crawling with authentication and without authentication. A predetermined set of pages can only be accessible with out authentication such as the landing page, login and registration.
+Server Side access is tested via a Python web crawler. To ensure that ever page is reachable. This is run once a week similarly to the client-side tests. The web crawler also crawls through all available link in a demonstration and checks for broken links. Security also tested within the web crawler by crawling with authentication and without authentication. A predetermined set of pages can only be accessible with out authentication such as the landing page, login and registration.
 \\ \\
-The unit tests will be updated and modified as more development continues. In practice these unit tests should ensure that updates to the code base and other changes to the server end do not break the system.
+The unit tests will be updated and modified as more development continues. In practice, these unit tests should ensure that updates to the code base and other changes to the server end do not break the system.
 
 
 %System Tests
 \section{System Tests}
-\cc{Specific system tests.  All tests should be fully summarized in terms of initial state, input and expected output. Tests should be named. In cases where there are many similar tests just summarize the results. Provide enough info that someone could reproduce your tests. Provide traceability to test plan by referring to test case numbers or modules.} In this section the test cases carried out on each individual module are described. Trivial cases for some modules are not explicitly written out but instead described at a high level. Additional details are provided when necessary.
+In this section the test cases carried out on each individual module are described. Trivial cases for some modules are not explicitly written out but instead described at a high level. Additional details are provided when necessary.
+
+\pagebreak
 
 %4.1 User Registration
-\subsection{User Registration} 
+\subsection{User Registration}
 
 \begin{longtable}{|L{0.5cm}|L{1.5cm}|L{1.5cm}|L{3.5cm}|L{4cm}|L{2cm}|L{1.5cm}|}
 \hline
 \textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\
 \hline
-1.1 & User Registration & Landing page. Empty fields. & Email and password entered. Clicks register. & Redirected to application main page. & As expected. & PASS \\ 
+1.1 & User Registration & Landing page. Empty fields. & Email and password entered. Clicks register. & Redirected to application main page. & As expected. & PASS \\
 \hline
 1.2 & User Registration & Landing page. Empty fields. & Empty field(s). Clicks register. & Stays on the same page. Error message appears. Empty field is highlighted. & As expected. & PASS \\
 \hline
@@ -115,7 +117,7 @@ The unit tests will be updated and modified as more development continues. In pr
 \hline
 \textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\
 \hline
-2.1 & User Login & Landing page. Empty username and password fields. & Valid username and password combination. Clicks login. & Redirected to application main page. & As expected. & PASS \\ 
+2.1 & User Login & Landing page. Empty username and password fields. & Valid username and password combination. Clicks login. & Redirected to application main page. & As expected. & PASS \\
 \hline
 2.2 & User Login & Landing page. Empty username and password fields. & Invalid username and password combination. Clicks login. & Stays on the same page. Error message appears. Fields are highlighted. After 5 unsuccessful attempts, user cannot login for 10 minutes. & As expected. & PASS \\
 \hline
@@ -123,7 +125,7 @@ The unit tests will be updated and modified as more development continues. In pr
 \hline
 2.4 & User Logout & Application main page. & Clicks logout. & User is successfully logged out from system. Redirected to login page. & As expected. & PASS \\
 \hline
-2.5 & User Login & Landing page. Empty username and password fields. User attempting to login on another device while already logged in on a device. & Valid username and password combination. Clicks login. & Stays on the same page. Error message appears. & As expected. & PASS \\ 
+2.5 & User Login & Landing page. Empty username and password fields. User attempting to login on another device while already logged in on a device. & Valid username and password combination. Clicks login. & Stays on the same page. Error message appears. & As expected. & PASS \\
 \hline
 \end{longtable}
 
@@ -161,7 +163,7 @@ The unit tests will be updated and modified as more development continues. In pr
 \hline
 \textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\
 \hline
-5.1 & Modify house information, not admin. & House Management, not admin. & Click modify information. & Nothing. & As expected. & PASS \\ 
+5.1 & Modify house information, not admin. & House Management, not admin. & Click modify information. & Nothing. & As expected. & PASS \\
 \hline
 5.2 & Modify house information as admin. & House Management, admin. & Click modify information. & Input fields become editable. & As expected. & PASS \\
 \hline
@@ -179,7 +181,7 @@ The unit tests will be updated and modified as more development continues. In pr
 \hline
 5.9 & Modify house information as admin. & Deletion prompt, admin. & Clicks on no. & Prompt closed. & As expected. & PASS \\
 \hline
-5.10 & Modify house information as user & House Management, any user. & Clicks on view members. & Shows all memebers of the house and their role. & As expected. & PASS \\
+5.10 & Modify house information as user & House Management, any user. & Clicks on view members. & Shows all members of the house and their role. & As expected. & PASS \\
 \hline
 5.11 & Modify house information as admin. & House Management, admin, members list visible. & Clicks on add member. & Dialog will appear. & As expected. & PASS \\
 \hline
@@ -191,6 +193,7 @@ The unit tests will be updated and modified as more development continues. In pr
 \hline
 \end{longtable}
 
+\pagebreak
 
 %4.6 landing page
 \subsection{Landing Page}
@@ -215,12 +218,14 @@ The unit tests will be updated and modified as more development continues. In pr
 \hline
 7.7 & Mark bill as paid & Finance page & User clicks on ``Paid'' button beside the bill, clicks ok on the confirmation window & Confirmation window will appear, upon clicking ok, the bill will have a \checkmark beside it  & As expected. & PASS\\
 \hline
+7.8 & Delete bill & Finance page & User clicks on ``Delete'' button beside the bill, clicks ok on the confirmation window & Confirmation window will appear, upon clicking ok, the bill will be deleted from the page  & As expected. & PASS\\
+\hline
 \end{longtable}
 
 
 %4.8 Notification
 \subsection{Notifications}
-\begin{longtable}{|L{1.5cm}|L{1.5cm}|L{1.5cm}|L{2cm}|L{4cm}|L{2cm}|L{1.5cm}|}
+\begin{longtable}{|L{1.5cm}|L{2cm}|L{2cm}|L{2.25cm}|L{3cm}|L{1.75cm}|L{1.5cm}|}
 \hline
 \textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\ 
 \hline
@@ -259,9 +264,11 @@ The unit tests will be updated and modified as more development continues. In pr
 \hline
 \end{longtable}
 
+\pagebreak
+
 %4.10 Bulletin Board
 \subsection{Bulletin Board}
-\begin{longtable}{|L{1.5cm}|L{1.5cm}|L{1.5cm}|L{2cm}|L{4cm}|L{2cm}|L{1.5cm}|}
+\begin{longtable}{|L{1.5cm}|L{2cm}|L{2cm}|L{2.25cm}|L{3cm}|L{1.75cm}|L{1.5cm}|}
 \hline
 \textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\ 
 \hline
@@ -269,9 +276,9 @@ The unit tests will be updated and modified as more development continues. In pr
 \hline
 10.7 & Adding a post & Bulletin Board & Data for the new post is added; text, or files & Posts is added to the database, and displayed on the board&As expected & PASS\\
 \hline
-10.8 & Adding sub-reply & Bulletin Board & text reply for a comment&Reply added to the database, and displayed under the post&As expected&Pass\\
+10.8 & Adding sub-reply & Bulletin Board & text reply for a comment&Reply added to the database, and displayed under the post&As expected & PASS\\
 \hline
-10.9-10.10 & Removing post, sub-reply & Bulletin Board & request for removing a post, subreply & reply is deleted from database and from display & As expected & Pass\\
+10.9-10.10 & Removing post, sub-reply & Bulletin Board & request for removing a post, subreply & reply is deleted from database and from display & As expected & PASS\\
 \hline
 \end{longtable}
 
@@ -314,17 +321,56 @@ Quarters was not without its weaknesses though. Not every participant saw the va
 
 
 \subsection{Performance}
-To test the server, we will do a load testing to make sure the server can handle 100 simultaneous requests.
+To load test our server, we used the free trial of Load Impact(loadimpact.com) to simulate 25 users making requests to the server simultaneously; result is shown in \ref{fig:loadTest}.
+\\From the graph, you can see that the load time is fairly consistent as the number of users increase.
 
-\ds{How?}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/loadtest.JPG}
+    \caption{Load Test result}
+    \label{fig:loadTest}
+\end{figure}
+
 
 \subsection{Robustness}
-To test the security of the system, including file access, failed password attempts, SQL injections, and expired sessions, we will do manual testing.
+Quarters application is tested against various browser and hardware devices to ensure that it will work in all environments.
 
-\ds{Be more descriptive.}
+\begin{longtable}{|L{2cm}|L{2cm}|L{5cm}|L{3.5cm}|L{1.5cm}|}
+    \hline
+    \textbf{Browser} & \textbf{Device} & \textbf{Look and feel} & \textbf{Functionalities} & \textbf{Bugs}\\
+    \hline
+    \textbf{Edge} & Computer & As expected & As expected & None \\
+    \hline
+    \multirow{3}{3em}{\textbf{Firefox}} & Computer & As expected & As expected & None \\
+    \cline{2-5}
+    & Android & As expected (Auto resize) & As expected & None \\
+    \cline{2-5}
+    & iOS & As expected (Auto resize) & As expected & None \\
+    \hline
+    \multirow{3}{3em}{\textbf{Chrome}} & Computer & As expected & As expected & None \\
+    \cline{2-5}
+    & Android & As expected (Auto resize) & As expected & None \\
+    \cline{2-5}
+    & iOS & As expected (Auto resize) & As expected & None \\
+    \hline
+    \multirow{3}{3em}{\textbf{Opera}} & Computer & As expected & As expected & None \\
+    \cline{2-5}
+    & Android & As expected (Auto resize) & As expected & None \\
+    \cline{2-5}
+    & iOS & As expected (Auto resize) & As expected & None \\
+    \hline
+    \multirow{2}{3em}{\textbf{Safari}} & Computer & As expected & As expected & None \\
+    \cline{2-5}
+    & iOS & As expected (Auto resize) & As expected & None \\
+    \hline
+\end{longtable}
+
+\textbf{Permission}: When the user logs in and select a house, he is assigned a role(admin/member), each role has different permissions, for example, only admin can invite new members into the house. In additional to having different roles, the user can only edit/delete ``contents'' owned by himself.\\
+
+\textbf{Session time out}: Session timed out after 30 minutes of inactivity, in which the user is logged out.
+
 
 \section{Summary of Changes}
-\cc{Summarize changes made in response to testing.}
 Moving forward, there is room for improvement with regard to the non-functional tests. Removing the Chat feature is something to consider to ensure all of our features collectively integrate well into Quarters. Redesigning the Finances feature or adding more functionality to it may help users understand its purpose more intuitively. Devoting more time and focus to styling would help resolve any design concerns and give the interface a more polished and professional appearance. Hopefully, with these changes, more participants would consider using Quarters more frequently and recommending the application to a friend. The results of the usability test have low external validity; in future usability tests, it would be worthwhile to seek a more diverse testing population outside of a school setting, with more landlords participating. Furthermore, a more complex set of tasks for test participants could give a more accurate reading of the effectiveness and efficiency of our application.
 
 
