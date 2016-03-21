@@ -59,7 +59,7 @@
 \textbf{Date}  & \textbf{Comments} \\ \hline
 October 21, 2015 & Created first draft. \\ 
 \hline
-March 20, 2016 & Removed Chat system tests, and updated test case numbers. \\ 
+March 20, 2016 & Removed Chat system tests, updated test case numbers and Usability section. \\ 
 \hline
 \end{tabular}
 
@@ -157,23 +157,15 @@ majority of them ahead of time.}
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-3.1 & Calendar page. & Select Calendar view (Year, Month, Week, or Day). & Calendar view is displayed. \\ 
+3.1 & Calendar page. & Select date. & Form opens. \\ 
 \hline
-3.2 & Calendar page. & Select current or future date. & Form opens. \\ 
+3.2 & Calendar page. Existing form is open. & User modifies event details and saves changes. & Form closes and updated Calendar is displayed. \\ 
 \hline
-3.3 & Calendar page. & User(A) selects event/chore that User(A) created. & Form opens. \\ 
+3.3 & Calendar page. Empty form. & Add event/chore. Text entered in fields and saves. & Form closes. Event/chore is updated on Calendar. \\ 
 \hline
-3.4 & Calendar page. & User(B) selects event/chore that User(A) created. & Nothing. \\ 
+3.4 & Calendar page. Empty form. & Add event/chore. Empty field(s). Clicks save. & Form remains open. Error message appears. Empty fields are highlighted. \\
 \hline
-3.5 & Calendar page. Existing form created by User(A) is open. & User(A) modifies event details and saves changes. & Form closes and updated Calendar is displayed. \\ 
-\hline
-3.6 & Calendar page. & Select past date. & Nothing. \\ 
-\hline
-3.7 & Calendar page. Empty form. & Add event/chore. Text entered in fields and saves. & Form closes. Event/chore is updated on Calendar. \\ 
-\hline
-3.8 & Calendar page. Empty form. & Add event/chore. Empty field(s). Clicks save. & Form remains open. Error message appears. Empty fields are highlighted. \\
-\hline
-3.9 & Calendar page. & Click to delete event/chore. & Event/chore is no longer displayed on Calendar. \ds{Who can delete events/chores?} \\
+3.5 & Calendar page. & Click to delete event/chore. & Event/chore is no longer displayed on Calendar. \ds{Who can delete events/chores?} \\
 \hline
 \end{longtable}
 
@@ -407,15 +399,33 @@ and not added to bulletin board.\\
 %5. Non-Functional Tests
 \section{Non-Functional Tests}
 
-\subsection{Look and Feel}
-To test that the system is attractive and intuitive and appears professional and secure, we will survey ten users to rate the user interface on a scale of 1 to 10, where a 1 means "ugly, unprofessional and would not return to the site", and a 10 means "captivating, professional, and would refer a friend". We will also ask users to provide comments or suggestions for qualitative feedback. The testing schedule will include a test December 7 and February 22. The first test will be used as a baseline. We will do a second test before the Final Demo to see if we improved.
-
-\ds{If you are providing a survey, you should include a copy of it as an appendix.}
-
 \subsection{Usability}
-To test that the system is intuitive to use and navigate, we will ask ten users to complete a set of tasks on the site. Five users will act as landlords, who will create an account, login, send an email invitation to invite users to a house, and then create a post on the discussion board. Five other users will act as tenants who will accept an email invitation, create an account, login, and then create a post on the discussion board. Users will rate their experience on a scale of 1 to 10, where a 1 is "frustrated, could not complete task(s), would not recommend", and a 10 means "user friendly, easy to navigate, would recommend to a friend".  We will also ask users to provide comments or suggestions for qualitative feedback. The testing schedule will include a test December 7 and February 22. The first test will be used as a baseline. We will do a second test before the Final Demo to see if we improved.
+This section describes a test plan for conducting a usability test for the Quarters application. 
 
-\ds{Can you more accurately describe what the users will be tasked with doing?}
+\subsubsection{Participants}
+The participants' responsibilities were to attempt to complete a set of representative task scenarios presented to them in as efficient and timely a manner as possible, and to provide feedback regarding the usability and acceptability of the user interface.  The participants were directed to provide honest opinions regarding the usability of the application, and to participate in a post-session subjective questionnaire.\\ \\
+Eight participants, who were tenants themselves, were selected from Thode library at McMaster University. Four females and four males participated as tenants. They were between the ages of 18-22 years old. Participants were recruited by approaching students during day-time hours while they were studying. We recruited participants who were willing to use either their personal laptop or mobile device and run the application on their web browser. Participants were given a background on the project and were told the methodology of the test. Participants were then asked if they would volunteer their time to participate. No certain skills and/or background were required, however, it was expected that participants were familiar with using a web browser on a computer. Additionally, two participants, who were landlords themselves, were approached and selected by Quarters developers as they were the current landlords of the developers.
+
+\subsubsection{Training}
+The participants received an overview of Quarters and written instructions of the usability test procedure. No training was delivered on how to use Quarters; only a link to the landing page was given. The test environment was that of where the user was located at the time of recruitment, since that was most convenient for participants. All tenant participants took the test seated at a table on the first floor of Thode library. The first floor of Thode Library is known to be loud relative to a typical library setting. All participants were surrounded by non-participants talking at a conversational noise level. The library was considered ‘busy’, as every seat at every table was occupied at the time of testing. Landlord participants took the test at the rental house, also seated, but in a quieter setting relative to the library.
+
+\subsubsection{Procedure}
+The participants used their own laptop or mobile device to complete the usability test. The only requirement was that they completed the test on either Chrome, Opera, Explorer, Firefox, or Safari. The participant’s interaction with Quarters was monitored by the facilitator seated beside the participant. \\ \\
+The facilitator briefed the participants on Quarters and instructed the participant that they were evaluating the application, rather than the facilitator evaluating the participant. Participants were informed that participation was voluntary and that participation could cease at any time. The facilitator asked the participant if they had any questions. \\ \\
+Participants completed a pretest demographic and background information questionnaire as part of Task 1. Then, the facilitator explained that the amount of time taken to complete the test task would be measured. Participants were instructed that exploratory behavior outside the task flow should not occur. At the start of each task, the participant read aloud the task description from the printed copy and began the task. Time-on-task began when the participant started each task. \\ \\
+The facilitator instructed the participant to ‘think aloud’ so that a verbal record existed of their interaction with Quarters. The facilitator observed and recorded user behaviour and user comments in a text editor. \\ \\
+Task 2a required the landlord participants to create an account, login, create a house, and then create a post on the bulletin board. The facilitator explained that the number of button clicks and the amount of time taken to complete the test task would be measured. \\ \\
+Task 2b required the tenant participants to create an account, login, and then create a post on the discussion board. The facilitator explained that the number of button clicks and the amount of time taken to complete the test task would be measured. \\ \\
+After all task scenarios were attempted, the participant completed the post-test satisfaction questionnaire as part of Task 3. 
+Due to the range and extent of functionality provided in the application, and the short time for which each participant was available, the tasks were the most common and relatively complex of available functions. Furthermore, the tasks represent a high-level goal of the software, that is, the ability to effectively and efficiently communicate. The tasks were identical for all participants in each subset in the study. \\ \\
+A sample of the usability test instructions and questionnaires given to participants is in the Appendix, labelled Figure \ref{fig:test}. 
+
+\subsubsection{Success Metrics}
+Success metrics were guided by task completion success rates, task completion times, and subjective evaluations.
+Completion rate was the percentage of test participants who successfully completed Task 2. In other words, the completion rate represented the percentage of participants who, when they were finished with the specified task, had an output that was correct. If a participant required assistance in order to achieve a correct output then the task would not be scored as completed. A completion rate of 100\% was the goal for Task 2 in this usability test.\\ \\ 
+Task completion time was the time to complete the task.  It was measured from the time the person began the task to the time he/she signaled completion. An average task completion time of less than 60 seconds was the goal for the task in this usability test. \\ \\
+Subjective evaluations regarding ease of use and satisfaction were collected via a questionnaire.  The questionnaire utilized rating scales. This data was used to assess attitudes of the participants.
+
 
 \subsection{Performance}
 To test the server, we will do a load testing to make sure the server can handle 100 simultaneous requests.
@@ -426,6 +436,14 @@ To test the server, we will do a load testing to make sure the server can handle
 To test the security of the system, including file access, failed password attempts, SQL injections, and expired sessions, we will do manual testing.
 
 \ds{Be more descriptive.}
+
+\section{Appendix}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{usabilityTest.pdf}
+    \caption{Sample Usability Test Questionnaire}
+    \label{fig:test}
+\end{figure}
 
 
 \end{document}
