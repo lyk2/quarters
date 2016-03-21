@@ -85,9 +85,7 @@ The client side javascript is tested every week once a week on an alternate web 
 Server Side access is tested via a python web crawler. To ensure that ever page is reachable. This is ran once a week similarly to the client side tests. The web crawler also crawls through all available link in a demonstration and checks for broken links. Security also tested within the web crawler by crawling with authentication and without authentication. A predetermined set of pages can only be accessible with out authentication such as the landing page, login and registration.
 \\ \\
 The unit tests will be updated and modified as more development continues. In practice these unit tests should ensure that updates to the code base and other changes to the server end do not break the system.
-%System Tests
-\section{System Tests}
-\cc{Specific system tests.  All tests should be fully summarized in terms of initial state, input and expected output. Tests should be named. In cases where there are many similar tests just summarize the results. Provide enough info that someone could reproduce your tests. Provide traceability to test plan by referring to test case numbers or modules.}
+
 
 %System Tests
 \section{System Tests}
@@ -132,7 +130,7 @@ The unit tests will be updated and modified as more development continues. In pr
 %4.3 Calendar
 \subsection{Calendar}
 
-\begin{longtable}{|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{4cm}|p{2cm}|p{1.5cm}|}
+\begin{longtable}{|L{1.5cm}|L{2cm}|L{2cm}|L{2.25cm}|L{3cm}|L{1.75cm}|L{1.5cm}|}
 \hline
 \textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\ 
 \hline
@@ -144,7 +142,7 @@ The unit tests will be updated and modified as more development continues. In pr
 
 %4.4 Maintenance Ticketing System
 \subsection{Maintenance Tracking}
-\begin{longtable}{|p{1.5cm}|p{2.5cm}|p{2.5cm}|p{3cm}|p{3cm}|p{1.75cm}|p{1.25cm}|}
+\begin{longtable}{|L{1.5cm}|L{2cm}|L{2cm}|L{2.25cm}|L{3cm}|L{1.75cm}|L{1.5cm}|}
 \hline
 \textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\ 
 \hline
@@ -159,7 +157,7 @@ The unit tests will be updated and modified as more development continues. In pr
 %4.5 house management
 %\subsection{House Management}
 
-%\begin{longtable}{|p{0.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{3cm}|p{2cm}|p{1.5cm}|}
+%\begin{longtable}{|L{1.5cm}|L{2cm}|L{2cm}|L{2.25cm}|L{3cm}|L{1.75cm}|L{1.5cm}|}
 %\hline
 %\textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\
 %\hline
@@ -197,7 +195,7 @@ The unit tests will be updated and modified as more development continues. In pr
 %4.6 landing page
 \subsection{Landing Page}
 
-\begin{longtable}{|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{4cm}|p{2cm}|p{1.5cm}|}
+\begin{longtable}{|L{1.5cm}|L{2cm}|L{2cm}|L{2.25cm}|L{3cm}|L{1.75cm}|L{1.5cm}|}
 \hline
 \textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\ 
 \hline
@@ -210,7 +208,7 @@ The unit tests will be updated and modified as more development continues. In pr
 
 %4.7 Finance
 \subsection{Finance}
-\begin{longtable}{|C{1.5cm}|L{2.5cm}|L{2.5cm}|L{3cm}|L{3cm}|L{1.75cm}|L{1.25cm}|}
+\begin{longtable}{|L{1.5cm}|L{2cm}|L{2cm}|L{2.25cm}|L{3cm}|L{1.75cm}|L{1.5cm}|}
 \hline
 \textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\ 
 7.6 & Add a new bill to the house & Finance page & User clicks on ``+'' button, fills in all informations in modal window and click "save" & Modal window opens with fields, upon save with all fields filled in, a list of tenants that owes the user money will be added to the page & As expected. & PASS\\
@@ -268,7 +266,7 @@ The unit tests will be updated and modified as more development continues. In pr
 %4.9 Administrative File Storage
 %\subsection{File Storage}
 
-%\begin{longtable}{|p{0.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{3cm}|p{2cm}|p{1.5cm}|}
+%\begin{longtable}{|L{1.5cm}|L{2cm}|L{2cm}|L{2.25cm}|L{3cm}|L{1.75cm}|L{1.5cm}|}
 %\hline
 %\textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\
 %\hline
@@ -355,7 +353,6 @@ Figure \ref{fig:participants} shows the participants. This data was collected du
 \subsubsection{Discussion}
 The usability evaluation proved there were many positive aspects of the Quarters user interface. Every participant was able to complete their task, and in an efficient time, regardless of the browser or the device. The straightforward navigation of the application allowed the participants to navigate easily across the web application and communicate quickly, which is a high-level goal of the software. The questionnaire results showed that participants agreed that Quarters was easy and intuitive to use. Based on these usability results, one could infer that the design and implementation support Norman’s Design Principles, as discussed in the Detailed Design document. The participants of the usability test unanimously strongly agreed that they would use the Maintenance Ticketing, File Upload and Notifications features. After testing Quarters, in response to how frequently they would use Quarters, participants either did not change their mind, or said they would use it more frequently relative to what they had stated prior to testing Quarters. Several participants noted during the ‘talk-aloud’ that they could see Quarters solving a lot of issues they experience in their current households. These positive test results prove that Quarters has marketability. \\ \\
 Quarters was not without its weaknesses though. Not every participant saw the value in using Quarters on a daily basis and not every participant would recommend Quarters to a friend. Additionally, Quarters performed poorly on questions 5 and 6, which tested the usability of the Chat feature and the Finances feature, respectively. Participants noted during the ‘talk-aloud’ that they could not see a use for the Chat feature when the Bulletin Board allowed them the same functionality. Additionally, they noted that the purpose of the Finances feature was not initially clear. One landlord noted that they saw value in the File Upload feature, but not so much in the other features. Lastly, some users with a keen eye for design noted some glitches or flaws in our interface. \\ \\
-Moving forward, there is room for improvement with regard to the non-functional tests. Removing the Chat feature is something to consider to ensure all of our features collectively integrate well into Quarters. Redesigning the Finances feature or adding more functionality to it may help users understand its purpose more intuitively. Devoting more time and focus to styling would help resolve any design concerns and give the interface a more polished and professional appearance. Hopefully, with these changes, more participants would consider using Quarters more frequently and recommending the application to a friend. The results of the usability test have low external validity; in future usability tests, it would be worthwhile to seek a more diverse testing population outside of a school setting, with more landlords participating. Furthermore, a more complex set of tasks for test participants could give a more accurate reading of the effectiveness and efficiency of our application.
  
 
 
@@ -372,6 +369,7 @@ To test the security of the system, including file access, failed password attem
 
 \section{Summary of Changes}
 \cc{Summarize changes made in response to testing.}
+Moving forward, there is room for improvement with regard to the non-functional tests. Removing the Chat feature is something to consider to ensure all of our features collectively integrate well into Quarters. Redesigning the Finances feature or adding more functionality to it may help users understand its purpose more intuitively. Devoting more time and focus to styling would help resolve any design concerns and give the interface a more polished and professional appearance. Hopefully, with these changes, more participants would consider using Quarters more frequently and recommending the application to a friend. The results of the usability test have low external validity; in future usability tests, it would be worthwhile to seek a more diverse testing population outside of a school setting, with more landlords participating. Furthermore, a more complex set of tasks for test participants could give a more accurate reading of the effectiveness and efficiency of our application.
 
 
 \end{document}
