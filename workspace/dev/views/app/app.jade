@@ -10,3 +10,7 @@ html(lang='en')
 		include ./assets/footer.jade
 		block js
 		include ./assets/houseSelect.jade
+		
+	script.
+		var active_user_name = "#{user.full_name}";
+		var active_user_id = "#{user.uid}";

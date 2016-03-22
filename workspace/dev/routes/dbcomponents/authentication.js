@@ -46,7 +46,7 @@ router.post('/login', function(req, res, next) {
 	var password = req.body.password;
 	var bcrypt = require('bcryptjs');
 
-	db.query('SELECT * from "user" WHERE email = $1', [email])
+	db.query('select * from "user" as u, user_info as ui where email=$1', [email])
 		.then(function(data) {
 			if (data.length === 0) {
 				res.send('failed - err code 1');
@@ -55,9 +55,12 @@ router.post('/login', function(req, res, next) {
 				if (!bcrypt.compareSync(password, data[0].password.trim())) {
 					res.send('failed - err code 2');
 				} else {
+
+					console.log(data[0]);
 					req.session.user = {
 						uid: data[0].user_id,
-						email: email
+						email: email,
+						full_name:data[0].full_name
 					};
 					res.send('{"success":true}');
 				}

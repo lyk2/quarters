@@ -5,6 +5,7 @@ var house = require('./dbcomponents/house');
 var auth = require('./dbcomponents/authentication');
 var finance  = require('./dbcomponents/finance');
 var calendar = require('./dbcomponents/calendar');
+var bulletin = require('./dbcomponents/bulletin-db');
 
 var app = express();
 
@@ -17,6 +18,7 @@ router.use('/house', house);
 router.use('/auth', auth);
 router.use('/finance',finance);
 router.use('/calendar',calendar);
+router.use('/bulletin', bulletin);
 
 
 

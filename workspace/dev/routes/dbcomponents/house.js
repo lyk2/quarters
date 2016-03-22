@@ -176,7 +176,17 @@ router.get('/select', function(req,res, next) {
 
 	req.session.house.active_house_id = req.query.house_id;
 	req.session.house.address = req.query.address;
-	res.send('{"WOO": true}');
+
+	db.query('select distinct * from role, user_info where house_id=$1 and role.user_id=user_info.user_id', req.session.house.active_house_id)
+			.then(function(data){
+				req.session.house.members = data[0];
+				res.send('{"WOO": true}');
+			}).catch(function(error){
+		res.send(error);
+	});
+
+
+
 });
 
 
