@@ -1,0 +1,7 @@
+<?php
+
+// still need to add server side valudation and error handling
+
+$data = array();
+
+if(isset($_ET['files']))

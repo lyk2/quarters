@@ -10,10 +10,10 @@
                     .col-xs-6
                         | Event
                     .col-xs-6
-                        button#bill_type.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                        button#bill_type.btn.btn-default.dropdown-toggle.col-xs-6(type='button', data-toggle='dropdown' value="Household")
                             | Household
                             span.caret
-                        ul.dropdown-menu
+                        ul#bill_type_data.dropdown-menu
                             li
                                 a(href='#') Groceries
                             li
@@ -27,14 +27,16 @@
                 .row
                     .col-xs-6
                         | Name
-                    .col-xs-3
-                        input#name_field.form-control(type='text', placeholder='Enter Name', aria-describedby='sizing-addon2')
+                    .col-xs-6
+                        button#name_field.btn.btn-default.dropdown-toggle.col-xs-6(type='button', data-toggle='dropdown' placeholder='Name' )
+                            span.caret
+                        ul#member_name_data.dropdown-menu
                 br
                 .row
                     .col-xs-6
                         | Amount
                     .col-xs-3
-                        input#amount_field.form-control(type='text', placeholder='Enter amount', aria-describedby='sizing-addon2')
+                        input#amount_field.form-control(type='number', placeholder='Amount', aria-describedby='sizing-addon2')
                 br
                 .row
                     .col-xs-6
@@ -46,26 +48,110 @@
                         | Description
                     .col-xs-6
                         textarea#description_field
-                input#more_fields(type='button', onclick='add_users();', value='Add')
+                input#adduser(type='button', onclick='add_users();' , value='Add')
+                input#deleteuser(type='button', onclick='delete_last();' , value='Delete')
                 br
                 br
                 .row.user-list
                     .col-xs-12
                         form#financeList
             .modal-footer
-                button.btn.btn-primary(type='button', data-dismiss='modal') Save
-                button.btn.btn-default(type='button') Cancel
+                button#save.btn.btn-primary(type='button', data-dismiss='modal') Save
+                button.btn.btn-default(type='button', data-dismiss='modal') Cancel
 script.
     $(function () {
-        $(".dropdown-menu li a").click(function () {
-            $("#bill_type").text($(this).text());
-            $("$bill_type").val($(this).text());
+        $("#bill_type_data.dropdown-menu li a").click(function () {
+            $("#bill_type:first-child").text($(this).text());
+            $("#bill_type").val($(this).text());
         });
     });
+
+    $("#member_name_data").delegate('a','click',  function () {
+        $("#name_field:first-child").text($(this).text());
+        $("#name_field").val($(this).text());
+    });
+
+
+    $(document).ready(function() {
+        $("#billModal").on('hidden.bs.modal', function (e) {
+            $(this).find("#date_field").val("");
+            $(this).find("#description_field").val("");
+            $(this).find("#financeList").empty();
+        });
+        $.ajax({
+            url: "../db/finance/getHouseMembers",
+            method: 'post',
+            dataType: 'json',
+            success: function (response) {
+                alert(response.name);
+            },
+            error: function (error) {
+                alert(error);
+            }
+        });
+
+        $('#member_name_data').append('<li><a href="#">just testing</a></li>');
+    });
+
     function add_users() {
-        var amount = $("#amount_field").val()
-        $("#amount_field").val("");
-        var name = $("#name_field").val()
-        $("#name_field").val("");
-        document.getElementById('financeList').innerHTML += '<span><h4>' + name + " owes $" + amount + '</h4></span>\r\n';
+        var amount = $("#amount_field").val();
+        var name = $("#name_field").val();
+        if (amount && name){
+            $("#amount_field").val("");
+            $("#name_field").val("");
+            document.getElementById('financeList').innerHTML += '<span><h4>' + name + " owes $" + amount + '</h4></span>\r\n';
+        }
     }
+
+    function delete_last() {
+        var billList = $("#financeList > span");
+        if (billList.length>0){
+            billList[billList.length-1].remove();
+        }
+    }
+
+script.
+    $("#save").click(function(){
+        var billList = $("#financeList > span > h4");
+        var i;
+        var data={};
+        var payerList = new Array();
+        var payerListString="";
+        for (i=0;i<billList.length;i++){
+            var p = $(billList[i]).text().split("owes $");
+            if (i==0){
+                payerListString += p[0].trim() + ":" + p[1].trim();
+            }else{
+                payerListString += ","+p[0].trim() + ":" + p[1].trim();
+            }
+        }
+        data['payerList'] = payerListString;
+        data['bill_type'] = $("#bill_type").val();
+        data['date'] = $('#date_field').val();
+        data['description'] = $('#description_field').val();
+        var output;
+        $.ajax({
+            url : "../db/finance/addBill",
+            data : data,
+            method: 'post',
+            dataType: 'json',
+            success: function(response){
+                data['bill_id']=response.bill_id;
+                $.ajax({
+                    url: "../db/finance/addPayer",
+                    data: data,
+                    method: 'post',
+                    dataType: 'json',
+                    success: function (response) {
+                        alert("payer added");
+                    },
+                    error: function (error) {
+                        alert("payer error");
+                    }
+                });
+            },
+            error: function(error) {
+                alert("bill error");
+            }
+        });
+    });

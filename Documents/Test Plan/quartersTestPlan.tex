@@ -59,6 +59,8 @@
 \textbf{Date}  & \textbf{Comments} \\ \hline
 October 21, 2015 & Created first draft. \\ 
 \hline
+March 20, 2016 & Removed Chat system tests, updated test case numbers and Usability section. \\ 
+\hline
 \end{tabular}
 
 \section*{Template}
@@ -107,13 +109,13 @@ majority of them ahead of time.}
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.1.1 & Landing page. Empty fields. & Email and password entered and passes reCAPTCHA test. Clicks register. & Verification email sent. Redirected to application main page. \\ 
+1.1 & Landing page. Empty fields. & Email and password entered and passes reCAPTCHA test. Clicks register. & Verification email sent. Redirected to application main page. \\ 
 \hline
-4.1.2 & Landing page. Empty fields. & Empty field(s). Clicks register. & Stays on the same page. Error message appears. Empty field is highlighted. \\
+1.2 & Landing page. Empty fields. & Empty field(s). Clicks register. & Stays on the same page. Error message appears. Empty field is highlighted. \\
 \hline
-4.1.3 & Landing page. Empty fields. & Email address already stored in database. Clicks register. & Stays on the same page. Error message appears. Email field is highlighted. \\
+1.3 & Landing page. Empty fields. & Email address already stored in database. Clicks register. & Stays on the same page. Error message appears. Email field is highlighted. \\
 \hline
-4.1.4 & Landing page. Empty fields. & Fails reCAPTCHA test. & Stays on the same page. Error message appears. Test field is highlighted. \\
+1.4 & Landing page. Empty fields. & Fails reCAPTCHA test. & Stays on the same page. Error message appears. Test field is highlighted. \\
 \hline
 \end{longtable}
 
@@ -130,15 +132,15 @@ majority of them ahead of time.}
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.2.1 & Landing page. Empty username and password fields. & Valid username and password combination. Clicks login. & Redirected to application main page. \\ 
+2.1 & Landing page. Empty username and password fields. & Valid username and password combination. Clicks login. & Redirected to application main page. \\ 
 \hline
-4.2.2 & Landing page. Empty username and password fields. & Invalid username and password combination. Clicks login. & Stays on the same page. Error message appears. Fields are highlighted. After 5 unsuccessful attempts, user cannot login for 10 minutes. \\
+2.2 & Landing page. Empty username and password fields. & Invalid username and password combination. Clicks login. & Stays on the same page. Error message appears. Fields are highlighted. After 5 unsuccessful attempts, user cannot login for 10 minutes. \\
 \hline
-4.2.3 & Landing page. Empty username and password fields. & Empty username and/or password fields. Clicks login. & Stays on the same page. Error message appears. Fields are highlighted. \\
+2.3 & Landing page. Empty username and password fields. & Empty username and/or password fields. Clicks login. & Stays on the same page. Error message appears. Fields are highlighted. \\
 \hline
-4.2.4 & Application main page. & Clicks logout. & User is successfully logged out from system. Redirected to login page. \\
+2.4 & Application main page. & Clicks logout. & User is successfully logged out from system. Redirected to login page. \\
 \hline
-4.2.5 & Landing page. Empty username and password fields. User attempting to login on another device while already logged in on a device. & Valid username and password combination. Clicks login. & Stays on the same page. Error message appears. \\ 
+2.5 & Landing page. Empty username and password fields. User attempting to login on another device while already logged in on a device. & Valid username and password combination. Clicks login. & Stays on the same page. Error message appears. \\ 
 \hline
 \end{longtable}
 
@@ -155,23 +157,15 @@ majority of them ahead of time.}
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.3.1 & Calendar page. & Select Calendar view (Year, Month, Week, or Day). & Calendar view is displayed. \\ 
+3.1 & Calendar page. & Select date. & Form opens. \\ 
 \hline
-4.3.2 & Calendar page. & Select current or future date. & Form opens. \\ 
+3.2 & Calendar page. Existing form is open. & User modifies event details and saves changes. & Form closes and updated Calendar is displayed. \\ 
 \hline
-4.3.3 & Calendar page. & User(A) selects event/chore that User(A) created. & Form opens. \\ 
+3.3 & Calendar page. Empty form. & Add event/chore. Text entered in fields and saves. & Form closes. Event/chore is updated on Calendar. \\ 
 \hline
-4.3.4 & Calendar page. & User(B) selects event/chore that User(A) created. & Nothing. \\ 
+3.4 & Calendar page. Empty form. & Add event/chore. Empty field(s). Clicks save. & Form remains open. Error message appears. Empty fields are highlighted. \\
 \hline
-4.3.5 & Calendar page. Existing form created by User(A) is open. & User(A) modifies event details and saves changes. & Form closes and updated Calendar is displayed. \\ 
-\hline
-4.3.6 & Calendar page. & Select past date. & Nothing. \\ 
-\hline
-4.3.7 & Calendar page. Empty form. & Add event/chore. Text entered in fields and saves. & Form closes. Event/chore is updated on Calendar. \\ 
-\hline
-4.3.8 & Calendar page. Empty form. & Add event/chore. Empty field(s). Clicks save. & Form remains open. Error message appears. Empty fields are highlighted. \\
-\hline
-4.3.9 & Calendar page. & Click to delete event/chore. & Event/chore is no longer displayed on Calendar. \ds{Who can delete events/chores?} \\
+3.5 & Calendar page. & Click to delete event/chore. & Event/chore is no longer displayed on Calendar. \ds{Who can delete events/chores?} \\
 \hline
 \end{longtable}
 
@@ -186,29 +180,29 @@ majority of them ahead of time.}
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.4.1 & Quarters Web Application. & Open maintenance system. & Maintenance system opens and shows new maintenance tickets with existing tickets in chronological order. \\ 
+4.1 & Quarters Web Application. & Open maintenance system. & Maintenance system opens and shows new maintenance tickets with existing tickets in chronological order. \\ 
 \hline
-4.4.2 & Maintenance System. & Click on maintenance ticket. & Inner dialog opens displaying all properties in a maintenance ticket. \\
+4.2 & Maintenance System. & Click on maintenance ticket. & Inner dialog opens displaying all properties in a maintenance ticket. \\
 \hline
-4.4.3 & Maintenance System. & Entering a search query or adding a filter. & Sort and filter maintenance tickets and reveal only successful tickets. \\
+4.3 & Maintenance System. & Entering a search query or adding a filter. & Sort and filter maintenance tickets and reveal only successful tickets. \\
 \hline
-4.4.4 & Maintenance Ticket Window. & Modifying properties of a ticket. & Save icon appears in dialog to confirm changes.\\
+4.4 & Maintenance Ticket Window. & Modifying properties of a ticket. & Save icon appears in dialog to confirm changes.\\
 \hline
-4.4.5 & Maintenance Ticket Window. & Saving ticket properties & Window will close, and database will be updated to reflect changes.\\
+4.5 & Maintenance Ticket Window. & Saving ticket properties & Window will close, and database will be updated to reflect changes.\\
 \hline
-4.4.6 & Maintenance Ticket Window. & Deleting Ticket. & Confirmation window will appear. Upon deletion confirmation, close window and remove data from database.\\
+4.6 & Maintenance Ticket Window. & Deleting Ticket. & Confirmation window will appear. Upon deletion confirmation, close window and remove data from database.\\
 \hline
-4.4.7 & Maintenance System & Click on create new request. & Opens a new ticket window.\\
+4.7 & Maintenance System & Click on create new request. & Opens a new ticket window.\\
 \hline
-4.4.8 & New Maintenance ticket window. & Click on create empty fields. & Window will remain opening, prompt will display error message.\\
+4.8 & New Maintenance ticket window. & Click on create empty fields. & Window will remain opening, prompt will display error message.\\
 \hline
-4.4.9 & New Maintenance ticket window. & Click on create, required fields filled. & Window closes, database will be updated with new ticket.\\
+4.9 & New Maintenance ticket window. & Click on create, required fields filled. & Window closes, database will be updated with new ticket.\\
 \hline
-4.4.10 & New Maintenance ticket window. & Click on cancel with fields filled. & Window remains open, prompt will ask for confirmation on close.\\
+4.10 & New Maintenance ticket window. & Click on cancel with fields filled. & Window remains open, prompt will ask for confirmation on close.\\
 \hline
-4.4.11 & Confirmation Prompt. & Click on OK. & Closes prompt and dialog. \\
+4.11 & Confirmation Prompt. & Click on OK. & Closes prompt and dialog. \\
 \hline
-4.4.12 & Confirmation Prompt. & Click on cancel. & Closes prompt, dialog remains open.\\
+4.12 & Confirmation Prompt. & Click on cancel. & Closes prompt, dialog remains open.\\
 \hline
 \end{longtable}
 
@@ -223,33 +217,33 @@ majority of them ahead of time.}
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.5.1 & House Management, not admin. & Click modify information. & Nothing.\\ 
+5.1 & House Management, not admin. & Click modify information. & Nothing.\\ 
 \hline
-4.5.2 & House Management, admin. & Click modify information. & Input fields become editable. \\
+5.2 & House Management, admin. & Click modify information. & Input fields become editable. \\
 \hline
-4.5.3 & House Management, admin. & Modify information fields. & Save button opens, discard changes appears. \\
+5.3 & House Management, admin. & Modify information fields. & Save button opens, discard changes appears. \\
 \hline
-4.5.4 & House Management, any user. & Click on View Documents. & Redirects to new page showing all uploaded documents in House. \\
+5.4 & House Management, any user. & Click on View Documents. & Redirects to new page showing all uploaded documents in House. \\
 \hline
-4.5.5 & House Documents, any user. & Clicks on a document. & Retrieves documents and initiates file transfer.\\
+5.5 & House Documents, any user. & Clicks on a document. & Retrieves documents and initiates file transfer.\\
 \hline
-4.5.6 & House Documents, admin. & Clicks on Add Documents. & Upload window opens for user upload, file will be transfer to server and information is updated in database.\\
+5.6 & House Documents, admin. & Clicks on Add Documents. & Upload window opens for user upload, file will be transfer to server and information is updated in database.\\
 \hline
-4.5.7 & House Documents, admin. & Clicks on delete document. & Prompt opens.\\
+5.7 & House Documents, admin. & Clicks on delete document. & Prompt opens.\\
 \hline
-4.5.8 & Deletion prompt, admin. & Clicks on yes. & Prompt closed, file is removed from display, database is updated.\\
+5.8 & Deletion prompt, admin. & Clicks on yes. & Prompt closed, file is removed from display, database is updated.\\
 \hline
-4.5.9 & Deletion prompt, admin. & Clicks on no. & Prompt closed.\\
+5.9 & Deletion prompt, admin. & Clicks on no. & Prompt closed.\\
 \hline
-4.5.10 & House Management, any user. & Clicks on view members. & Shows all memebers of the house and their role.\\
+5.10 & House Management, any user. & Clicks on view members. & Shows all memebers of the house and their role.\\
 \hline
-4.5.11 & House Management, admin, members list visible. & Clicks on add member. & Dialog will appear.\\
+5.11 & House Management, admin, members list visible. & Clicks on add member. & Dialog will appear.\\
 \hline
-4.5.12 & Member Dialog, admin, fields empty. & Clicks on ok. & Prompt opens, notifying missing fields. \\
+5.12 & Member Dialog, admin, fields empty. & Clicks on ok. & Prompt opens, notifying missing fields. \\
 \hline
-4.5.13 & Member Dialog, admin, fields complete. & Clicks on ok. & Window closes, new user is notified, database is updated, member status pending.\\
+5.13 & Member Dialog, admin, fields complete. & Clicks on ok. & Window closes, new user is notified, database is updated, member status pending.\\
 \hline
-4.5.14 & Member Dialog, admin. & Clicks on cancel. & Window closes.\\
+5.14 & Member Dialog, admin. & Clicks on cancel. & Window closes.\\
 \hline
 \end{longtable}
 
@@ -264,39 +258,40 @@ majority of them ahead of time.}
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.6.1 & Landing Page, not logged in. & Clicks on login. & Username field appears, password field appears.\\
+6.1 & Landing Page, not logged in. & Clicks on login. & Username field appears, password field appears.\\
 \hline
-4.6.2 & Landing Page, not logged in. & Clicks on registration. & Email and password fields appear.\\
+6.2 & Landing Page, not logged in. & Clicks on registration. & Email and password fields appear.\\
 \hline
 \end{longtable}
 
 \ds{So how does registration work? What happens if someone tries to register an existing email/username?}
 
-%4.7 Live chat
-\subsection{Live Chat}
+%4.7 Finance
+\subsection{Finance}
 \textbf{Test Type:} Functional, Dynamic, Manual. \\
 \textbf{Tools Used:} None. \\
 \textbf{Schedule:} Begin testing after the PoC Demo. Complete automated tests by Final Demo April 1. \\
-\textbf{Team Member Responsible:} Wenqiang Chen.\\
-\textbf{Methodology:} The main objective of live chat is to allow another means of communication inside the house, in addition to the Discussion Board. The testing involves one user establishing live chat with another user. Testing will be manual. Manual testing involves one user(A) sending a message to another user(B) and ensuring user(B) receives the message without delay. 
+\textbf{Team Member Responsible:} James Anthony. \\
+\textbf{Methodology:} Tests can be performed by having one user add payment deadlines, and having another user send arbitrary amounts of money via PayPal. Speed and accuracy of transactions can be tracked. Transaction records can be manually evaluated for correctness.
 
-\begin{longtable}[l]{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
+\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
-\textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.7.1 & Main page. User logged in. House selected. House members displayed. & Click on house member to send message. & Chat window opens, with target user's name as window name. \\ 
+\textbf{Test Case} & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
+7.1 & No payments due. & User initiates PayPal transaction. & Error message indicating that no payments are due at the current time.\\
 \hline
-4.7.2 & Main page. User logged in. Chat window open. & Input text and click send. & Chat windows displays user's message. Time stamp is displayed. \\ 
+7.2 & No payments due. & User posts payment request with some deadline. & New payment deadline added.\\
 \hline
-4.7.3 & Main page. User logged in. Chat windown 
-\ds{``window"} 
-open. & No text input and click send. & Chat windows does not change, nothing is sent. \\ 
+7.3 & Payment due. & User initiates PayPal transaction. & Transaction is handled by PayPal. All users involved are notified of the completed payment. Deadline is removed from list of current payments due.\\
 \hline
-4.7.4 & Main page. User logged in. Chat notification displayed. & Click on notification. & Chat window opens with sender's message and time stamp displayed. Notification disappears. \\
+7.4 & Payment due. & Payment has not been completed, and deadline has passed. & All users involved are notified that the deadline has passed. Deadline is marked as past due, and users will continue to be notified until either the payment has been completed, or the due payment is removed.\\
+\hline
+7.5 & Payment due. & User who posted the original due payment removes the request. & Payment request is removed from the list of due payments.\\
 \hline
 \end{longtable}
 
+
 %4.8 Notification
-\subsection{Notification}
+\subsection{Notifications}
 \textbf{Test Type:} Functional, Dynamic, Manual. \\
 \textbf{Tools Used:} None. \\
 \textbf{Schedule:} Begin testing after the PoC Demo. Complete automated tests by Final Demo April 1. \\
@@ -306,37 +301,37 @@ open. & No text input and click send. & Chat windows does not change, nothing is
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.8.1 & Main page. User(A) logged in. & User(B) sends money request. & User(A) sees notification of pending payment due.  \\ 
+8.1 & Main page. User(A) logged in. & User(B) sends money request. & User(A) sees notification of pending payment due.  \\ 
 \hline
-4.8.2 & Main page. User(A) logged in. & User(A) pays user(B). & User(B) sees notification of payment completed.  \\ 
+8.2 & Main page. User(A) logged in. & User(A) pays user(B). & User(B) sees notification of payment completed.  \\ 
 \hline
-4.8.3 & Main page. User(A) logged in. & User(A) has late payment. & User(A) sees notification of late payment.  \\ 
+8.3 & Main page. User(A) logged in. & User(A) has late payment. & User(A) sees notification of late payment.  \\ 
 \hline
-4.8.4 & Main page. User(A) logged in. & User(A) joins a house.  & Other users in that house sees notification that user(A) joined the house. \\
+8.4 & Main page. User(A) logged in. & User(A) joins a house.  & Other users in that house sees notification that user(A) joined the house. \\
 \hline
-4.8.5 & Main page. User(A)(landlord) logged in. & User(B) sends maintenance ticket(Critical). & User(A) sees notification of unresolved maintenance ticket, receives email, receives text message. \\
+8.5 & Main page. User(A)(landlord) logged in. & User(B) sends maintenance ticket(Critical). & User(A) sees notification of unresolved maintenance ticket, receives email, receives text message. \\
 \hline
-4.8.6 & Main page. User(A)(landlord) logged in. & User(B) sends maintenance ticket(Major.) & User(A) sees notification of unresolved maintenance ticket, receives email.\\
+8.6 & Main page. User(A)(landlord) logged in. & User(B) sends maintenance ticket(Major.) & User(A) sees notification of unresolved maintenance ticket, receives email.\\
 \hline
-4.8.7 & Main page. User(A)(landlord) logged in. & User(B) sends maintenance ticket(Minor). & User(A) sees notification of unresolved maintenance ticket. \\
+8.7 & Main page. User(A)(landlord) logged in. & User(B) sends maintenance ticket(Minor). & User(A) sees notification of unresolved maintenance ticket. \\
 \hline
-4.8.8 & Main page. User(A) logged in. & User(B)(Landlord) resolves a maintenance ticket. & User(A) sees notification of resolved maintenance ticket. \\
+8.8 & Main page. User(A) logged in. & User(B)(Landlord) resolves a maintenance ticket. & User(A) sees notification of resolved maintenance ticket. \\
 \hline
-4.8.9 & Main page. User(A) logged in. & User(B) sends user(A) a message. & User(A) sees notification of unread message. \\
+8.9 & Main page. User(A) logged in. & User(B) sends user(A) a message. & User(A) sees notification of unread message. \\
 \hline
-4.8.10 & Main page. User(A) logged in. & User(B) makes a post in discussion board. & User(A) sees notification of unread post. \\
+8.10 & Main page. User(A) logged in. & User(B) makes a post in discussion board. & User(A) sees notification of unread post. \\
 \hline
-4.8.11 & Main page. User(A) logged in. & User(B) replies to a post made by user(A). & User(A) sees notification of unread reply. \\
+8.11 & Main page. User(A) logged in. & User(B) replies to a post made by user(A). & User(A) sees notification of unread reply. \\
 \hline
-4.8.12 & Main page. User(A) logged in. & User(A) leaves a house.  & Other users in that house sees notification that user(A) left the house. \\
+8.12 & Main page. User(A) logged in. & User(A) leaves a house.  & Other users in that house sees notification that user(A) left the house. \\
 \hline
-4.8.13 & Main page. User(A) logged in. & User(B) adds event to Calendar. & User(A) sees notification of added post. \\
+8.13 & Main page. User(A) logged in. & User(B) adds event to Calendar. & User(A) sees notification of added post. \\
 \hline
-4.8.14 & Main page. User(A) logged in. & User(B) deletes event from Calendar. & User(A) sees notification of deleted event. \\
+8.14 & Main page. User(A) logged in. & User(B) deletes event from Calendar. & User(A) sees notification of deleted event. \\
 \hline
-4.8.15 & Main page. User(A) logged in. & User(A)has event happening on day. & User(A) sees notification of event. \\
+8.15 & Main page. User(A) logged in. & User(A)has event happening on day. & User(A) sees notification of event. \\
 \hline
-4.8.16 & Main page. User(A) logged in. Notification displayed. & User clicks on Notification icon. & Notification disappears. \\
+8.16 & Main page. User(A) logged in. Notification displayed. & User clicks on Notification icon. & Notification disappears. \\
 \hline
 \end{longtable}
 
@@ -351,23 +346,23 @@ open. & No text input and click send. & Chat windows does not change, nothing is
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Test Case} & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.9.1 & 0 files in storage. & User tries to upload a file of size $s$, where $s \le$ max file size. & Successful file upload.\\
+9.1 & 0 files in storage. & User tries to upload a file of size $s$, where $s \le$ max file size. & Successful file upload.\\
 \hline
-4.9.2 & 0 files in storage. & User tries to upload a file of size $s$, where $s >$ max file size. & Error message indicating file has not been uploaded.\\
+9.2 & 0 files in storage. & User tries to upload a file of size $s$, where $s >$ max file size. & Error message indicating file has not been uploaded.\\
 \hline
-4.9.3 & $n$ files in storage. & User tries to upload a file of size $s$, where $s \le$ total remaining space. & Successful file upload.\\
+9.3 & $n$ files in storage. & User tries to upload a file of size $s$, where $s \le$ total remaining space. & Successful file upload.\\
 \hline
-4.9.4 & $n$ files in storage. & User tries to upload a file of size $s$, where $s >$ total remaining space. & Error message indicating file has not been uploaded.\\
+9.4 & $n$ files in storage. & User tries to upload a file of size $s$, where $s >$ total remaining space. & Error message indicating file has not been uploaded.\\
 \hline
-4.9.5 & $n$ files in storage. & User tries to upload a file with an invalid type. & Error message indicating file has not been uploaded.\\
+9.5 & $n$ files in storage. & User tries to upload a file with an invalid type. & Error message indicating file has not been uploaded.\\
 \hline
-4.9.6 & $n$ files in storage. & User requests to download a file. & Successful file download.\\
+9.6 & $n$ files in storage. & User requests to download a file. & Successful file download.\\
 \hline
-4.9.7 & $n$ files in storage. & Connection interrupted while download is in progress. & Error message indicating file has not been downloaded.\\
+9.7 & $n$ files in storage. & Connection interrupted while download is in progress. & Error message indicating file has not been downloaded.\\
 \hline
-4.9.8 & $n$ files in storage. & User tries to upload  $n > 1$ files. & Error message indicating only one file can be uploaded at a time.\\
+9.8 & $n$ files in storage. & User tries to upload  $n > 1$ files. & Error message indicating only one file can be uploaded at a time.\\
 \hline
-4.9.9 & $n$ files in storage. & User clicks delete file. & File removed. \\
+9.9 & $n$ files in storage. & User clicks delete file. & File removed. \\
 \hline
 \end{longtable}
 
@@ -382,44 +377,21 @@ open. & No text input and click send. & Chat windows does not change, nothing is
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Test Case} & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.10.1 & No posts on bulletin board. & A post with 0 characters & Empty post is disgarded
+10.1 & No posts on bulletin board. & A post with 0 characters & Empty post is disgarded
 \ds{``discarded"}
 and not added to bulletin board.\\
 \hline
-4.10.2 & No posts on bulletin board. & A post with $n$ characters, where $n > 0$. & Bulletin board is updated with the post of $n$ characters.\\
+10.2 & No posts on bulletin board. & A post with $n$ characters, where $n > 0$. & Bulletin board is updated with the post of $n$ characters.\\
 \hline
-4.10.3 & $p$ posts on bulletin board, where $p > 0$. & A post with 0 characters & Empty post is disgarded and not added to bulletin board.\\
+10.3 & $p$ posts on bulletin board, where $p > 0$. & A post with 0 characters & Empty post is disgarded and not added to bulletin board.\\
 \hline
-4.10.4 & $p$ posts on bulletin board, where $p > 0$. & A post with $n$ characters, where $n > 0$. & Bulletin board is updated with the post of $n$ characters.\\
+10.4 & $p$ posts on bulletin board, where $p > 0$. & A post with $n$ characters, where $n > 0$. & Bulletin board is updated with the post of $n$ characters.\\
 \hline
-4.10.5 & $p$ posts on bulletin board, where $p > 0$. & A comment with 0 characters on an existing post $p$. & Empty comment is disgarded
+10.5 & $p$ posts on bulletin board, where $p > 0$. & A comment with 0 characters on an existing post $p$. & Empty comment is disgarded
 \ds{discarded}
 and not added to bulletin board.\\
 \hline
-4.10.6 & $p$ posts on bulletin board, where $p > 0$. & A comment with $n$ characters where $n > 0$, on an existing post $p_i$. & Comment is added to the list of comments associated with post $p_i$.\\
-\hline
-\end{longtable}
-  
-%4.11 Finance
-\subsection{Finance}
-\textbf{Test Type:} Functional, Dynamic, Manual. \\
-\textbf{Tools Used:} None. \\
-\textbf{Schedule:} Begin testing after the PoC Demo. Complete automated tests by Final Demo April 1. \\
-\textbf{Team Member Responsible:} James Anthony. \\
-\textbf{Methodology:} Tests can be performed by having one user add payment deadlines, and having another user send arbitrary amounts of money via PayPal. Speed and accuracy of transactions can be tracked. Transaction records can be manually evaluated for correctness.
-
-\begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
-\hline
-\textbf{Test Case} & \textbf{Initial State} & \textbf{Input} & \textbf{Output} \\ \hline
-4.11.1 & No payments due. & User initiates PayPal transaction. & Error message indicating that no payments are due at the current time.\\
-\hline
-4.11.2 & No payments due. & User posts payment request with some deadline. & New payment deadline added.\\
-\hline
-4.11.3 & Payment due. & User initiates PayPal transaction. & Transaction is handled by PayPal. All users involved are notified of the completed payment. Deadline is removed from list of current payments due.\\
-\hline
-4.11.4 & Payment due. & Payment has not been completed, and deadline has passed. & All users involved are notified that the deadline has passed. Deadline is marked as past due, and users will continue to be notified until either the payment has been completed, or the due payment is removed.\\
-\hline
-4.11.5 & Payment due. & User who posted the original due payment removes the request. & Payment request is removed from the list of due payments.\\
+10.6 & $p$ posts on bulletin board, where $p > 0$. & A comment with $n$ characters where $n > 0$, on an existing post $p_i$. & Comment is added to the list of comments associated with post $p_i$.\\
 \hline
 \end{longtable}
 
@@ -427,15 +399,33 @@ and not added to bulletin board.\\
 %5. Non-Functional Tests
 \section{Non-Functional Tests}
 
-\subsection{Look and Feel}
-To test that the system is attractive and intuitive and appears professional and secure, we will survey ten users to rate the user interface on a scale of 1 to 10, where a 1 means "ugly, unprofessional and would not return to the site", and a 10 means "captivating, professional, and would refer a friend". We will also ask users to provide comments or suggestions for qualitative feedback. The testing schedule will include a test December 7 and February 22. The first test will be used as a baseline. We will do a second test before the Final Demo to see if we improved.
-
-\ds{If you are providing a survey, you should include a copy of it as an appendix.}
-
 \subsection{Usability}
-To test that the system is intuitive to use and navigate, we will ask ten users to complete a set of tasks on the site. Five users will act as landlords, who will create an account, login, send an email invitation to invite users to a house, and then create a post on the discussion board. Five other users will act as tenants who will accept an email invitation, create an account, login, and then create a post on the discussion board. Users will rate their experience on a scale of 1 to 10, where a 1 is "frustrated, could not complete task(s), would not recommend", and a 10 means "user friendly, easy to navigate, would recommend to a friend".  We will also ask users to provide comments or suggestions for qualitative feedback. The testing schedule will include a test December 7 and February 22. The first test will be used as a baseline. We will do a second test before the Final Demo to see if we improved.
+This section describes a test plan for conducting a usability test for the Quarters application. 
 
-\ds{Can you more accurately describe what the users will be tasked with doing?}
+\subsubsection{Participants}
+The participants' responsibilities were to attempt to complete a set of representative task scenarios presented to them in as efficient and timely a manner as possible, and to provide feedback regarding the usability and acceptability of the user interface.  The participants were directed to provide honest opinions regarding the usability of the application, and to participate in a post-session subjective questionnaire.\\ \\
+Eight participants, who were tenants themselves, were selected from Thode library at McMaster University. Four females and four males participated as tenants. They were between the ages of 18-22 years old. Participants were recruited by approaching students during day-time hours while they were studying. We recruited participants who were willing to use either their personal laptop or mobile device and run the application on their web browser. Participants were given a background on the project and were told the methodology of the test. Participants were then asked if they would volunteer their time to participate. No certain skills and/or background were required, however, it was expected that participants were familiar with using a web browser on a computer. Additionally, two participants, who were landlords themselves, were approached and selected by Quarters developers as they were the current landlords of the developers.
+
+\subsubsection{Training}
+The participants received an overview of Quarters and written instructions of the usability test procedure. No training was delivered on how to use Quarters; only a link to the landing page was given. The test environment was that of where the user was located at the time of recruitment, since that was most convenient for participants. All tenant participants took the test seated at a table on the first floor of Thode library. The first floor of Thode Library is known to be loud relative to a typical library setting. All participants were surrounded by non-participants talking at a conversational noise level. The library was considered ‘busy’, as every seat at every table was occupied at the time of testing. Landlord participants took the test at the rental house, also seated, but in a quieter setting relative to the library.
+
+\subsubsection{Procedure}
+The participants used their own laptop or mobile device to complete the usability test. The only requirement was that they completed the test on either Chrome, Opera, Explorer, Firefox, or Safari. The participant’s interaction with Quarters was monitored by the facilitator seated beside the participant. \\ \\
+The facilitator briefed the participants on Quarters and instructed the participant that they were evaluating the application, rather than the facilitator evaluating the participant. Participants were informed that participation was voluntary and that participation could cease at any time. The facilitator asked the participant if they had any questions. \\ \\
+Participants completed a pretest demographic and background information questionnaire as part of Task 1. Then, the facilitator explained that the amount of time taken to complete the test task would be measured. Participants were instructed that exploratory behavior outside the task flow should not occur. At the start of each task, the participant read aloud the task description from the printed copy and began the task. Time-on-task began when the participant started each task. \\ \\
+The facilitator instructed the participant to ‘think aloud’ so that a verbal record existed of their interaction with Quarters. The facilitator observed and recorded user behaviour and user comments in a text editor. \\ \\
+Task 2a required the landlord participants to create an account, login, create a house, and then create a post on the bulletin board. The facilitator explained that the number of button clicks and the amount of time taken to complete the test task would be measured. \\ \\
+Task 2b required the tenant participants to create an account, login, and then create a post on the discussion board. The facilitator explained that the number of button clicks and the amount of time taken to complete the test task would be measured. \\ \\
+After all task scenarios were attempted, the participant completed the post-test satisfaction questionnaire as part of Task 3. 
+Due to the range and extent of functionality provided in the application, and the short time for which each participant was available, the tasks were the most common and relatively complex of available functions. Furthermore, the tasks represent a high-level goal of the software, that is, the ability to effectively and efficiently communicate. The tasks were identical for all participants in each subset in the study. \\ \\
+A sample of the usability test instructions and questionnaires given to participants is in the Appendix, labelled Figure \ref{fig:test}. 
+
+\subsubsection{Success Metrics}
+Success metrics were guided by task completion success rates, task completion times, and subjective evaluations.
+Completion rate was the percentage of test participants who successfully completed Task 2. In other words, the completion rate represented the percentage of participants who, when they were finished with the specified task, had an output that was correct. If a participant required assistance in order to achieve a correct output then the task would not be scored as completed. A completion rate of 100\% was the goal for Task 2 in this usability test.\\ \\ 
+Task completion time was the time to complete the task.  It was measured from the time the person began the task to the time he/she signaled completion. An average task completion time of less than 60 seconds was the goal for the task in this usability test. \\ \\
+Subjective evaluations regarding ease of use and satisfaction were collected via a questionnaire.  The questionnaire utilized rating scales. This data was used to assess attitudes of the participants.
+
 
 \subsection{Performance}
 To test the server, we will do a load testing to make sure the server can handle 100 simultaneous requests.
@@ -446,6 +436,14 @@ To test the server, we will do a load testing to make sure the server can handle
 To test the security of the system, including file access, failed password attempts, SQL injections, and expired sessions, we will do manual testing.
 
 \ds{Be more descriptive.}
+
+\section{Appendix}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{usabilityTest.pdf}
+    \caption{Sample Usability Test Questionnaire}
+    \label{fig:test}
+\end{figure}
 
 
 \end{document}
