@@ -1,0 +1,35 @@
+.list-group-item > span {
+    margin-left:35px;
+}
+
+.expand-comment {
+    text-align:right;
+    padding:3px;
+    padding-right:10px;
+}
+
+.expand-comment > a {
+    cursor:pointer;
+}
+
+.comment {
+    padding-left:15px;
+}
+
+.panel .input-group {
+    padding-left:35px
+}
+
+.modal-body textarea {
+    margin: 0px;
+    width:100%;
+}
+
+
+.remove-post {
+    float:right;
+    color:orange;
+    margin-top:2px;
+    marign-left:10px;
+    cursor:pointer;
+}

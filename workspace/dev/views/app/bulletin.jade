@@ -4,8 +4,10 @@ block css
 	link(rel='stylesheet' href='../css/bulletin.css')
 
 block js
-
+	script(src='../js/app/bulletin.js')
+	
 block content
+	include ./resources/bulletin/newpost
 	div.row
 		div.col-lg-12
 			h1.page-header Bulletin Board
@@ -14,7 +16,7 @@ block content
 		div.col-xs-12.col-lg-10
 			.input-group
 				.input-group-btn
-					button.btn.btn-default(type="button")
+					button.btn.btn-default(type="button" data-toggle="modal" data-target="#newPost")
 						span.glyphicon.glyphicon-plus
 						span.hidden-xs New Post
 					button.btn.btn-default(type="button")
@@ -45,7 +47,7 @@ block content
 	div.row
 		div.col-lg-1
 		div.col-lg-10.col-xs-12
-			h5.page-header today
+			h5.page-header 
 
 	div.row
 		div.col-lg-1
@@ -72,6 +74,7 @@ block content
 						input.form-control(type='text', placeholder='Message...')
 						span.input-group-btn
 							button.btn.btn-default(type='button') Reply
+	div#posts
 	each val in posts
 		div.row
 			div.col-lg-1
@@ -83,7 +86,10 @@ block content
 						h3.panel-title(style='\
 						display: inline-block;\
 						') #{val.full_name}
+						if user.uid = val.user_id
+							span.glyphicon.glyphicon-remove.remove-post
 						h3.panel-title(style='float:right') #{val.date_time}
+						
 					.panel-body #{val.comment}
 					ul.list-group
 					.panel-body
