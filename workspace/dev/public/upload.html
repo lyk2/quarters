@@ -31,7 +31,7 @@
         </div>
         
         <div class="modal-body"> <!-- Modal body -->
-          <form ref=""uploadForm" id="uploadForm" action="http://localhost:3002/upload" method="post" encType="multipart/form-data">
+          <form ref="uploadForm" id="uploadForm" action="http://localhost:3002/upload-test.html" method="post" encType="multipart/form-data">
             <input type="file" name="sampleFile" />
             <input type="submit" value="Upload!" />
           </form>
@@ -65,7 +65,7 @@
      }
 
      sampleFile = req.files.sampleFile;
-     sampleFile.mv('/public/uploads', function(err){
+     sampleFile.mv('uploads/', function(err){
          if (err) {
              res.status(500).send(err);
          }
