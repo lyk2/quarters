@@ -43,9 +43,23 @@ block content
 						.form-group
 							label.col-sm-2.control-label(for='when') When:
 							#when.col-sm-10
-						.btn-group
-							//- label.col-sm-2.control-label Calendar:
-							span Calendar:
+						//- .dropdown
+						//- 	button#menu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+						//- 		| Tutorials
+						//- 		span.caret
+						//- 			ul.dropdown-menu(role='menu', aria-labelledby='menu1')
+						//- 				li(role='presentation')
+						//- 					a(role='menuitem', tabindex='-1', href='#') HTML
+						//- 				li(role='presentation')
+						//- 					a(role='menuitem', tabindex='-1', href='#') CSS
+						//- 				li(role='presentation')
+						//- 					a(role='menuitem', tabindex='-1', href='#') JavaScript
+						//- 				li.divider(role='presentation')
+						//- 				li(role='presentation')
+						//- 					a(role='menuitem', tabindex='-1', href='#') About Us
+						
+						.btn-group-vertical
+							span.strong Calendar:
 							label
 								input(type='radio', name='cal', value='#C9302C')
 								| Chores
