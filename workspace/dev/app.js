@@ -6,13 +6,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var uuid = require('uuid');
+var fileUpload = require('express-fileupload');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var db = require('./routes/db');
 var main = require('./routes/main');
-
-var fileUpload = require('express-fileupload');
 
 var app = express();
 
@@ -62,7 +61,7 @@ app.use(function(req, res, next) {
 
 app.use(fileUpload());
 
-app.post("/upload", function(req, res) {
+app.post('/upload', function(req, res) {
     var sampleFile;
 
     if (!req.files) {
@@ -71,7 +70,7 @@ app.post("/upload", function(req, res) {
     }
 
     sampleFile = req.files.sampleFile;
-    sampleFile.mv('public/uploads/', function(err) {
+    sampleFile.mv('/public/uploads', function(err) {
         if (err) {
             res.status(500).send(err);
         }
