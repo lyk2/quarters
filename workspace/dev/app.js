@@ -12,6 +12,8 @@ var users = require('./routes/users');
 var db = require('./routes/db');
 var main = require('./routes/main');
 
+var fileUpload = require('express-fileupload');
+
 var app = express();
 
 // view engine setup
@@ -50,12 +52,33 @@ app.use('/users', users);
 app.use('/main', main);
 app.use('/db', db);
 
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
 	var err = new Error('Not Found');
 	err.status = 404;
 	next(err);
+});
+
+
+app.use(fileUpload());
+
+app.post("/upload", function(req, res) {
+    var sampleFile;
+
+    if (!req.files) {
+        res.send('No files were uploaded.');
+        return;
+    }
+
+    sampleFile = req.files.sampleFile;
+    sampleFile.mv('public/uploads/', function(err) {
+        if (err) {
+            res.status(500).send(err);
+        }
+        else {
+            res.send('File upload!');
+        }
+    });
 });
 
 // error handlers
