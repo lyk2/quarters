@@ -1,60 +1,12 @@
  <!-- References
-     http://blog.teamtreehouse.com/uploading-files-ajax
-     http://abandon.ie/notebook/simple-file-uploads-using-jquery-ajax
-     https://www.terlici.com/2015/05/16/uploading-files-locally.html
-   * https://www.npmjs.com/package/express-fileupload *
-   * http://thejackalofjavascript.com/uploading-files-made-fun *
--->
-
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-</head>
-<body>
-
-<div class="container">
-  
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#uploadModal">Upload File</button>
-
-  
-  <div class="modal fade" id="uploadModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <div class="modal-content">
-        <div class="modal-header"> 
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">File Upload</h4>
-        </div>
-        
-        <div class="modal-body"> 
-          <form ref="uploadForm" id="uploadForm" action="http://localhost:3002/upload" method="post" encType="multipart/form-data">
-            <input type="file" name="sampleFile" />
-            <input type="submit" value="Upload!" />
-          </form>
-        </div>
-        
-        <div class="modal-footer"> 
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-</div>
-</body>
-</html>
+   https://www.npmjs.com/package/express-fileupload
+   http://thejackalofjavascript.com/uploading-files-made-fun
+encType="multipart/form-data
 -->
 
 <html>
   <body>
-    <form ref="uploadForm" id="uploadForm" action="http://localhost:3002/upload" method="post" encType="multipart/form-data">
+    <form ref="uploadForm" id="uploadForm" action="/upload" method="post">
       <input type="file" name="sampleFile"/>
       <input type="submit" value="Upload!" />
     </form>
