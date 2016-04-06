@@ -1,14 +1,18 @@
  <!-- References
-   https://www.npmjs.com/package/express-fileupload
-   http://thejackalofjavascript.com/uploading-files-made-fun
-encType="multipart/form-data
+   **** These are old methods and they don't seem to work ****
+     https://www.npmjs.com/package/express-fileupload
+     http://thejackalofjavascript.com/uploading-files-made-fun
+   
+   **** These are newer methods that might work ****
+     https://www.npmjs.com/package/multer
+     https://joelennon.com/file-uploads-with-express-4-0/
 -->
 
 <html>
   <body>
-    <form ref="uploadForm" id="uploadForm" action="/upload" method="post">
+    <form ref='uploadForm' id='uploadForm' action='/upload' method='post' encType="multipart/form-data">
       <input type="file" name="sampleFile"/>
-      <input type="submit" value="Upload!" />
+      <input type='submit' value='Upload!' />
     </form>
   </body>
 </html>

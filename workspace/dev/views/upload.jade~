@@ -1,0 +1,13 @@
+<!--
+These are old methods and they don't seem to work
+  https://www.npmjs.com/package/express-fileupload
+  http://thejackalofjavascript.com/uploading-files-made-fun
+-->
+
+doctype html
+html
+  body
+    form#uploadForm(role="form", ref="uploadForm", action="/upload", method="post", enctype="multipart/form-data")
+      div(class="form-group")
+        label(for="sampleFile") Upload FILE File
+        input(type="file", name="sampleFile", id="sampleFile")
