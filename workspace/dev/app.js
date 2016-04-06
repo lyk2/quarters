@@ -9,6 +9,7 @@ var uuid = require('uuid');
 // used for file uploading
 var multer = require('multer');
 var upload = multer({dest: './public/uploads/'});
+var busboy = require('connect-busboy');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -22,6 +23,24 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 //app.set('trust proxy', 1);
+
+
+// file upload stuff ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+app.use(busboy());
+
+app.get('/upload', function(req, res) {
+    console.log("the first function might work...");
+    res.render('upload', { title: 'File Upload Test' });
+    console.log("yup!");
+});
+
+app.post('/upload', upload.single('userFile'), function(req, res) {
+    console.log("the second function might work...");
+    console.dir(req.file);
+    console.log("yup!");
+});
+
+// end of file upload stuff ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 // uncomment after placing your favicon in /public

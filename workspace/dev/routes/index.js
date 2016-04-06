@@ -12,16 +12,4 @@ router.get('/', function(req, res, next) {
 
 });
 
-router.get('/upload', function(req, res) {
-    console.log("the first function might work...");
-    res.render('upload', { title: 'File Upload Test' });
-    console.log("yup!");
-});
-
-router.post('/upload', function(req, res) {
-    console.log("the second function might work...");
-    console.dir(req.files);
-    console.log("yup!");
-});
-
 module.exports = router;
