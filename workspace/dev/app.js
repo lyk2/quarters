@@ -29,17 +29,15 @@ app.set('view engine', 'jade');
 app.use(busboy());
 
 app.get('/upload', function(req, res) {
-    console.log("the first function might work...");
-    res.render('upload', { title: 'File Upload Test' });
-    console.log("yup!");
+    res.render('upload', { title: 'File Upload' });
 });
 
-app.post('/upload', upload.single('userFile'), function(req, res) {
-    console.log("the second function might work...");
-    console.dir(req.file);
-    console.log("yup!");
+app.post('/upload', upload.array('userFiles[]'), function(req, res) {
+    console.log("uploading file...");
+    console.dir(req.files);
+    console.log("upload complete. redirecting...");
+    res.redirect('/upload');
 });
-
 // end of file upload stuff ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
