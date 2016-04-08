@@ -4,9 +4,12 @@
 
 doctype html
 html
+  head
+    title File Upload
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
   body
-    form#uploadForm(role="form", ref="uploadForm", action="/upload", method="post", enctype="multipart/form-data")
-      div(class="form-group")
-        label(for="userFiles[]") Select file(s) to upload
-        input(type="file", name="userFiles[]" multiple, id="userFiles[]")
-        input(type="submit", value="Upload!")
+    h4.
+        Select file(s) to upload
+    form(role="form", ref="uploadForm", action="/upload", method="post", enctype="multipart/form-data")
+      input(type="file", name="userFiles[]" multiple, id="userFiles[]")
+      input(type="submit", value="Upload")
