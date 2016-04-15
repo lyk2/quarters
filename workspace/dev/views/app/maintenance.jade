@@ -4,70 +4,19 @@ block content
 	div.row
 		div.col-lg-12
 			h1.page-header Maintenance
-	div.row.col-lg-12
-		a.btn.btn-success(href='#' style='margin-bottom: 30px')
-			i.fa.fa-plus.fa-lg
-				| New Request
+	div.row
+		div.col-lg-12
+			.btn-group(role='group', aria-label='...')
+				button.btn.btn-default(type='button') Left
+				button.btn.btn-default(type='button') Middle
+				button.btn.btn-default(type='button') Right
+
 	div.row
 		div.col-lg-12
 			table.table.table-responsive.table-striped
-					tr
-						td
-							i.glyphicon.glyphicon-warning-sign(style='font-size: 50px; color: red')
-						td 
-							h4.media-heading Deadbolt not working
-							h5 Submitted by Lucy
-							h5 Oct 11, 2015 at 3:30pm
-						td
-							h5(style='font-style: italic') The door doesn't seem to lock when I use my key.
-						td
-							img.media-object.img-responsive.img-thumbnail(src='../img/deadbolt.jpg', width='90')
-						td
-							i.glyphicon.glyphicon-ok-circle(style='font-size: 40px; color: green')
-						td
-							i.glyphicon.glyphicon-pencil(style='font-size: 40px; color: blue')
-					tr
-						td
-							i.glyphicon.glyphicon-warning-sign(style='font-size: 50px; color: orange')
-						td 
-							h4.media-heading Leaky faucet
-							h5 Submitted by Jane
-							h5 Sept 29, 2015 at 8:07am
-						td
-							h5(style='font-style: italic') The faucet in the kitchen is leaking, even when off.
-						td
-							
-						td
-							i.glyphicon.glyphicon-ok-circle(style='font-size: 40px; color: green')
-						td
-							i.glyphicon.glyphicon-pencil(style='font-size: 40px; color: blue')
-					tr
-						td
-							i.glyphicon.glyphicon-ok(style='font-size: 50px; color: green')
-						td 
-							h4.media-heading New garbage cans
-							h5 Resolved by Joe
-							h5 Sept 9, 2015 at 3:30pm
-						td
-							h5(style='font-style: italic') I put them on the side of the house.
-						td
-							img.media-object.img-responsive.img-thumbnail(src='../img/garbage.jpg', width='90')
-						td
-							
-						td
-					tr
-						td
-							i.glyphicon.glyphicon-warning-sign(style='font-size: 50px; color: yellow')
-						td 
-							h4.media-heading Garbage cans missing
-							h5 Submitted by John
-							h5 Sept 7, 2015 at 6:10pm
-						td
-							h5(style='font-style: italic') I went to put a bag of garbage in the trash, but I couldn't find it. I looked everywhere!
-						td
-							
-						td
-							i.glyphicon.glyphicon-ok-circle(style='font-size: 40px; color: green')
-						td
-							i.glyphicon.glyphicon-pencil(style='font-size: 40px; color: blue')
-							
+				tr
+					th Status
+					th Description
+					th Create date
+					th Last update
+					th Actions
