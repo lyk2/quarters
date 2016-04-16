@@ -59,6 +59,7 @@
                 button#save.btn.btn-primary(type='button', data-dismiss='modal') Save
                 button.btn.btn-default(type='button', data-dismiss='modal') Cancel
 script.
+    var payerListString="";
     $(function () {
         $("#bill_type_data.dropdown-menu li a").click(function () {
             $("#bill_type:first-child").text($(this).text());
@@ -68,7 +69,7 @@ script.
 
     $("#member_name_data").delegate('a','click',  function () {
         $("#name_field:first-child").text($(this).text());
-        $("#name_field").val($(this).text());
+        $("#name_field").val($(this)[0].parentNode.value);
     });
 
 
@@ -77,30 +78,42 @@ script.
             $(this).find("#date_field").val("");
             $(this).find("#description_field").val("");
             $(this).find("#financeList").empty();
+            payerListString="";
         });
+
         $.ajax({
             url: "../db/finance/getHouseMembers",
             method: 'post',
             dataType: 'json',
             success: function (response) {
-                alert(response.name);
+                var i;
+                for (i=0;i<response.length;i++){
+                    $('#member_name_data').append('<li value='+response[i].user_id +'><a href="#">'+response[i].full_name+'</a></li>');
+                }
             },
             error: function (error) {
-                alert(error);
+                alert("error");
             }
         });
 
-        $('#member_name_data').append('<li><a href="#">just testing</a></li>');
     });
 
     function add_users() {
         var amount = $("#amount_field").val();
-        var name = $("#name_field").val();
+        var name = $("#name_field").text();
         if (amount && name){
+            if (payerListString.length > 0) {
+                payerListString += "," +$("#name_field").val() + ":" + amount;
+            }else {
+                payerListString += $("#name_field").val() + ":" + amount;
+            }
             $("#amount_field").val("");
+            $("#name_field").text("");
             $("#name_field").val("");
+            $("#name_field").append('<span class="caret"></span>');
             document.getElementById('financeList').innerHTML += '<span><h4>' + name + " owes $" + amount + '</h4></span>\r\n';
         }
+
     }
 
     function delete_last() {
@@ -115,16 +128,18 @@ script.
         var billList = $("#financeList > span > h4");
         var i;
         var data={};
-        var payerList = new Array();
-        var payerListString="";
-        for (i=0;i<billList.length;i++){
-            var p = $(billList[i]).text().split("owes $");
-            if (i==0){
-                payerListString += p[0].trim() + ":" + p[1].trim();
-            }else{
-                payerListString += ","+p[0].trim() + ":" + p[1].trim();
-            }
-        }
+
+        //var payerList = {};
+       // var payerListString = "";
+       // for (i = 0; i < billList.length; i++) {
+        //    var p = $(billList[i]).text().split("owes $");
+            //payerList[p[0].trim()]=p[1].trim();
+         //   if (i == 0) {
+         //       payerListString += p[0].trim() + ":" + p[1].trim();
+         //   } else {
+         //       payerListString += "," + p[0].trim() + ":" + p[1].trim();
+         //   }
+       // }
         data['payerList'] = payerListString;
         data['bill_type'] = $("#bill_type").val();
         data['date'] = $('#date_field').val();
