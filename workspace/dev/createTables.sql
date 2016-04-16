@@ -102,3 +102,21 @@ CREATE TABLE bulletin_replies
         REFERENCES "house" (house_id) MATCH SIMPLE
         ON UPDATE CASCADE ON DELETE CASCADE
 );
+
+CREATE TABLE tickets
+(
+    ticket_id serial NOT NULL,
+    user_id integer NOT NULL,
+    house_id integer NOT NULL,
+    description varchar(255),
+    status varchar(255),
+    type int NOT NULL,
+    create_date_time timestamp,
+    updated_date_time timestamp,
+    CONSTRAINT user_id_fkey FOREIGN KEY (user_id)
+        REFERENCES "user" (user_id) MATCH SIMPLE
+        ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT house_id_fkey FOREIGN KEY (house_id)
+        REFERENCES "house" (house_id) MATCH SIMPLE
+        ON UPDATE CASCADE ON DELETE CASCADE
+);
