@@ -6,7 +6,7 @@ var info = {};
 info.render = function(session, res) {
 	db.tx(function(t){
 		return t.batch([
-			t.any('select full_name, comment, date_time, b.user_id from bulletin_posts as b, user_info as u where b.house_id=$1 and b.user_id=u.user_id ORDER BY date_time DESC;', session.house.active_house_id)
+			t.any('select full_name, comment, date_time, b.user_id, post_id from bulletin_posts as b, user_info as u where b.house_id=$1 and b.user_id=u.user_id ORDER BY date_time DESC;', session.house.active_house_id)
 		]);
 	}).then(function(data){
 		var renderdata = Object.create(session);

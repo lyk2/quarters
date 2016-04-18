@@ -89,12 +89,13 @@ CREATE TABLE bulletin_posts
 
 CREATE TABLE bulletin_replies
 (
+    subpost_id serial NOT NULL,
     post_id integer NOT NULL,
     user_id integer NOT NULL,
     house_id integer NOT NULL,
     comment varchar(255) NOT NULL,
     date_time timestamp,
-    CONSTRAINT bulletin_replies_pkey PRIMARY KEY(post_id, user_id, house_id),
+    CONSTRAINT bulletin_replies_pkey PRIMARY KEY(subpost_id),
     CONSTRAINT user_id_fkey FOREIGN KEY (user_id)
         REFERENCES "user" (user_id) MATCH SIMPLE
         ON UPDATE CASCADE ON DELETE CASCADE,
