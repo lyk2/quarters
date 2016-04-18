@@ -22,15 +22,28 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/getHouseMembers',function(req,res,next){
-    db.query("select full_name from role,user_info where role.house_id = $1 and role.user_id = user_info.user_id;",[req.session.house.active_house_id])
+    res.send(req.session.house.members);
+   /*db.query("select full_name from role,user_info where role.house_id = $1 and role.user_id = user_info.user_id;",[req.session.house.active_house_id])
         .then(function(data){
             res.send('{"name":hahaha}');
         })
         .catch(function(error){
             res.send("error while fetching user info");
-        });
+        });*/
 
 });
+
+router.post('/getBillTable',function(req,res,next){
+    var query = "select full_name, bill_type, '--' you_owed, concat(amount,' ') you_are_owed, TO_CHAR(bill_date, 'Mon DD YYYY HH:MI AM') bill_date, paid from (select finance.bill_type,finance.bill_date, bill_owed.* from finance,bill_owed where house_id=$1 and finance.bill_id = bill_owed.bill_id and owed_to = $2) allBills left join (select full_name,user_info.user_id from role,user_info where role.house_id = $1 and role.user_id=user_info.user_id) allUser on allBills.owned_by = allUser.user_id union select full_name, bill_type, concat(amount,' ') you_owed, '--' you_are_owed, TO_CHAR(bill_date, 'Mon DD YYYY HH:MI AM') bill_date, paid from (select finance.bill_type,finance.bill_date, bill_owed.* from finance,bill_owed where house_id=$1 and finance.bill_id = bill_owed.bill_id and owned_by = $2) allBills left join (select full_name,user_info.user_id from role,user_info where role.house_id = $1 and role.user_id=user_info.user_id) allUser on allBills.owned_by = allUser.user_id order by bill_date desc;"
+    db.query(query,[req.session.house.active_house_id,req.session.user.uid])
+     .then(function(data){
+        res.send(JSON.stringify(data));
+     })
+     .catch(function(error){
+        res.send("error while fetching finance data");
+     });
+});
+
 
 router.post('/addBill', function(req,res,next){
     var bill_type = req.body.bill_type;
@@ -46,17 +59,22 @@ router.post('/addBill', function(req,res,next){
 });
 
 router.post('/addPayer',function(req,res,next){
-    var payerList = req.body.payerList;
-    var bill_type = req.body.bill_type;
-    var bill_date = req.body.date;
-    var description = req.body.description;
-    for (var payer in payerList){
-        db.query ("Insert into bill_owed (bill_id,house_id,user_id,amount,paid) values ($1,$2,$3,$4)",[data.bill_id,payer,payerList[payer],false]).then(function(data){
-                res.send("{}");
+    var payerList = req.body.payerList.split(',')
+    var i;
+    var error = false;
+    for (i = 0; i < payerList.length; i++){
+        var payer=payerList[i].split(':');
+        var uid = payer[0];
+        var amount = payer[1];
+        db.query ("Insert into bill_owed (bill_id,owed_to,owned_by,paid,amount) values ($1,$2,$3,$4,$5);",[req.body.bill_id,req.session.user.uid,uid,false,amount])
+            .then(function(data){
             })
             .catch(function(error){
-                res.send(error);
+                error = true;
             });
+    }
+    if (error){
+        res.send("error");
     }
 });
 

@@ -5,6 +5,7 @@ $(document).ready(function() {
 	$('#calendar').fullCalendar({
 
 		// initialize the calendar
+		events: '/myfeed.php',
 		header: {
 			left: '',
 			center: 'prev title next',
@@ -50,6 +51,13 @@ $(document).ready(function() {
             });
 
 			$('#calendar').fullCalendar('updateEvent', event);
+		},
+
+		loading: function(bool) {
+		  if (bool) 
+		    $('#loading').show();
+		  else 
+		    $('#loading').hide();
 		},
 	});
 

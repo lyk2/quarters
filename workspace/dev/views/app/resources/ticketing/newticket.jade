@@ -1,0 +1,41 @@
+#myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+	.modal-dialog(role='document')
+		.modal-content
+			.modal-header
+				button.close(type='button', data-dismiss='modal', aria-label='Close')
+					span(aria-hidden='true') ×
+				h4#myModalLabel.modal-title New ticket
+			.modal-body
+				div.row
+					div.col-xs-12
+						.input-group(style="width:100%")
+							span#basic-addon1.input-group-addon(style="width:200px") Title
+							input.form-control(type='text', placeholder='Ticket Title', aria-describedby='basic-addon1')
+						.input-group(style="width:100%")
+							span#basic-addon1.input-group-addon(style="width:200px") Description
+							textarea.form-control(placeholder='Provide any additional details')
+						.input-group(style="width:100%")
+							span#basic-addon1.input-group-addon(style="width:200px") Urgency
+							.input-group-btn(style="width:100%")
+								button#type-button-status.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false', style="width:100%")
+									| Select Type 
+									span.caret
+								ul#newticket-type.dropdown-menu
+									li
+										a(href='#') Low
+									li
+										a(href='#') Medium
+									li
+										a(href='#') High
+
+							
+						
+			.modal-footer
+				button.btn.btn-primary(type='button') Create Ticket
+				button.btn.btn-default(type='button', data-dismiss='modal') Close
+
+script.
+	$('#newticket-type a').click(function(){
+		var status = $(this).text() + '<span class="caret"></span>';
+		$("#type-button-status").html(status);
+	})

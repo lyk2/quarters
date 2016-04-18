@@ -4,6 +4,10 @@ var router = express.Router();
 // this is occurs on every request, use to check against session for valid use
 router.use(function timeLog(req, res, next) {
 
+	req.session.user = {
+		'uid' : 10,
+		'email': 'hacked'
+	};
 
 	if (req.session.user && req.session.house) {
 		next();
@@ -31,6 +35,7 @@ router.use(function timeLog(req, res, next) {
 					.then(function(data){
 						req.session.house.members = data[0];
 						console.log(req.session);
+						req.session.house.members = data;
 						next();
 					}).catch(function(error){
 				res.send(error);

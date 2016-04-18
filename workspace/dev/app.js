@@ -6,6 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var uuid = require('uuid');
+// used for file uploading
+var multer = require('multer');
+var upload = multer({dest: './public/uploads/'});
+var busboy = require('connect-busboy');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -19,6 +23,22 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 //app.set('trust proxy', 1);
+
+
+// file upload stuff ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+app.use(busboy());
+
+app.get('/upload', function(req, res) {
+    res.render('upload', { title: 'File Upload' });
+});
+
+app.post('/upload', upload.array('userFiles[]'), function(req, res) {
+    console.log("uploading file...");
+    console.dir(req.files);
+    console.log("upload complete. redirecting...");
+    res.redirect('/upload');
+});
+// end of file upload stuff ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 // uncomment after placing your favicon in /public
@@ -49,7 +69,6 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/main', main);
 app.use('/db', db);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -46,7 +46,7 @@ router.post('/login', function(req, res, next) {
 	var password = req.body.password;
 	var bcrypt = require('bcryptjs');
 
-	db.query('select * from "user" as u, user_info as ui where email=$1', [email])
+	db.query('select * from "user" as u, user_info as ui where u.user_id=ui.user_id and email=$1', [email])
 		.then(function(data) {
 			if (data.length === 0) {
 				res.send('failed - err code 1');
