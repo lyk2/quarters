@@ -1,8 +1,22 @@
 extends ./app.jade
 
 
+
+
 block content
 	include addBill.jade
+	#confirm.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+		.modal-dialog(role='document')
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') ×
+					h4#newFinancePost.modal-title Pay bill
+				.modal-body
+					h4 Confirm that you have paid
+				.modal-footer
+					button#save.btn.btn-primary(type='button', data-dismiss='modal') Confirm
+					button.btn.btn-default(type='button', data-dismiss='modal') Cancel
 	div.row
 		div.col-lg-12
 			h1.page-header Finances
@@ -43,17 +57,22 @@ block content
 						if (response[i].paid){
 							paid = '<i class="fa fa-check fa-md"></i>';
 						}else{
-							paid = '<btn class="btn-danger" onclick="pay()" value="{bill_id:'+response[i].bill_id+', to:'+response[i].owed_to+', by:'+response[i].owed_by+'">Pay Now</btn>';
+							paid = '<btn class="btn btn-danger btn-xs" onclick="pay()" value="{bill_id:'+response[i].bill_id+', to:'+response[i].owed_to+', by:'+response[i].owed_by+'">Pay Now</btn>';
 						}
 						$('#finance_table').append('<tr><td>'+response[i].full_name+'</td><td>'+response[i].bill_type+'</td><td>'+response[i].you_owed+'</td><td>'+response[i].you_are_owed+'</td><td>'+response[i].bill_date+'</td><td>'+paid+'</td></tr>');
 						}
 					},
 				error: function (error) {
-					alert("error");
+					bootbox.alert("error");
 				}
 			});
 		}
 
 		function pay() {
-			alert("Handler for .click() called.");
+				console.log($(this).source)
+				var $form = $(this).closest('form');
+				$('#confirm').modal({backdrop: 'static', keyboard: false})
+						.one('click', '#delete', function () {
+							$form.trigger('submit'); // submit the form
+						});
 		};
