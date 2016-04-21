@@ -10,8 +10,8 @@ router.use(function timeLog(req, res, next) {
     else {
         //res.send('please log in');
         // uncomment this to allow testing
-        req.session.user = {};
-        req.session.user.uid = 6;
+        //req.session.user = {};
+        //req.session.user.uid = 6;
         next();
     }
 });
@@ -34,7 +34,7 @@ router.post('/getHouseMembers',function(req,res,next){
 });
 
 router.post('/getBillTable',function(req,res,next){
-    var query = "select full_name, bill_type, '--' you_owed, concat(amount,' ') you_are_owed, TO_CHAR(bill_date, 'Mon DD YYYY HH:MI AM') bill_date, paid from (select finance.bill_type,finance.bill_date, bill_owed.* from finance,bill_owed where house_id=$1 and finance.bill_id = bill_owed.bill_id and owed_to = $2) allBills left join (select full_name,user_info.user_id from role,user_info where role.house_id = $1 and role.user_id=user_info.user_id) allUser on allBills.owned_by = allUser.user_id union select full_name, bill_type, concat(amount,' ') you_owed, '--' you_are_owed, TO_CHAR(bill_date, 'Mon DD YYYY HH:MI AM') bill_date, paid from (select finance.bill_type,finance.bill_date, bill_owed.* from finance,bill_owed where house_id=$1 and finance.bill_id = bill_owed.bill_id and owned_by = $2) allBills left join (select full_name,user_info.user_id from role,user_info where role.house_id = $1 and role.user_id=user_info.user_id) allUser on allBills.owned_by = allUser.user_id order by bill_date desc;"
+    var query = "select allBills.bill_id, allBills.owned_by owed_by, "+req.session.user.uid+" owed_to, full_name, bill_type, '--' you_owed, concat(amount,' ') you_are_owed, TO_CHAR(bill_date, 'Mon DD YYYY HH:MI AM') bill_date, paid from (select finance.bill_type,finance.bill_date, bill_owed.* from finance,bill_owed where house_id=$1 and finance.bill_id = bill_owed.bill_id and owed_to = $2) allBills left join (select full_name,user_info.user_id from role,user_info where role.house_id = $1 and role.user_id=user_info.user_id) allUser on allBills.owned_by = allUser.user_id union select allBills.bill_id, "+req.session.user.uid+" owed_by, allBills.owed_to, full_name, bill_type, concat(amount,' ') you_owed, '--' you_are_owed, TO_CHAR(bill_date, 'Mon DD YYYY HH:MI AM') bill_date, paid from (select finance.bill_type,finance.bill_date, bill_owed.* from finance,bill_owed where house_id=$1 and finance.bill_id = bill_owed.bill_id and owned_by = $2) allBills left join (select full_name,user_info.user_id from role,user_info where role.house_id = $1 and role.user_id=user_info.user_id) allUser on allBills.owed_to = allUser.user_id order by bill_date desc;"
     db.query(query,[req.session.house.active_house_id,req.session.user.uid])
      .then(function(data){
         res.send(JSON.stringify(data));

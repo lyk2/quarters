@@ -36,7 +36,7 @@ app.post('/upload', upload.array('userFiles[]'), function(req, res) {
     console.log("uploading file...");
     console.dir(req.files);
     console.log("upload complete. redirecting...");
-    res.redirect('/upload');
+    res.redirect('/main/documents');
 });
 // end of file upload stuff ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
