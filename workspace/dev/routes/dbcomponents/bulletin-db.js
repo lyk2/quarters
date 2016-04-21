@@ -5,10 +5,10 @@ var db = require('./db-con');
 
 // this is occurs on every request, use to check against session for valid use
 router.use(function timeLog(req, res, next) {
-    req.session.user = {
-		uid: 6,
-		email: "hacked test"
-	};
+    //req.session.user = {
+	//	uid: 6,
+	//	email: "hacked test"
+	//};
 
     if (req.session.user && req.session.house) {
 		next();
