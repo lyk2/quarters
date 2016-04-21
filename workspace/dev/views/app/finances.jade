@@ -28,6 +28,10 @@ block content
 
 	script.
 		$(document).ready(function () {
+			refreshBillTable();
+		});
+		function refreshBillTable(){
+			$('#finance_table').empty();
 			$.ajax({
 				url: "../db/finance/getBillTable",
 				method: 'post',
@@ -39,13 +43,17 @@ block content
 						if (response[i].paid){
 							paid = '<i class="fa fa-check fa-md"></i>';
 						}else{
-							paid = '<btn class="btn-danger">Pay Now</btn>';
+							paid = '<btn class="btn-danger" onclick="pay()" value="{bill_id:'+response[i].bill_id+', to:'+response[i].owed_to+', by:'+response[i].owed_by+'">Pay Now</btn>';
 						}
 						$('#finance_table').append('<tr><td>'+response[i].full_name+'</td><td>'+response[i].bill_type+'</td><td>'+response[i].you_owed+'</td><td>'+response[i].you_are_owed+'</td><td>'+response[i].bill_date+'</td><td>'+paid+'</td></tr>');
-					}
-				},
+						}
+					},
 				error: function (error) {
 					alert("error");
 				}
 			});
-		});
+		}
+
+		function pay() {
+			alert("Handler for .click() called.");
+		};
