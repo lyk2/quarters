@@ -52,8 +52,24 @@
           var c = document.forms["houseUpdate"]["province"].value;
           var d = document.forms["houseUpdate"]["country"].value;
           var e = document.forms["houseUpdate"]["postal_code"].value;
-          if ((a || b || c || d || e) == null || (a || b || c || d || e) == "") {
-              alert("Fields cannot be left blank");
+          if (a == null || a == "") {
+              alert("Address cannot be left blank");
+              return false;
+          }
+          if (b == null || b == "") {
+              alert("City cannot be left blank");
+              return false;
+          }
+          if (c == null || c == "") {
+              alert("Province cannot be left blank");
+              return false;
+          }
+          if (d == null || d == "") {
+              alert("Country cannot be left blank");
+              return false;
+          }
+          if (e == null || e == "") {
+              alert("Postal Code cannot be left blank");
               return false;
           }
         }

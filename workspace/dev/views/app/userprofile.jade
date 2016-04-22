@@ -18,7 +18,7 @@ block content
             tr
               td Name
               td
-                input#fullname.form-control(type='text', name='full_name', value='#{profile.full_name}')
+                input#full_name.form-control(type='text', name='full_name', value='#{profile.full_name}')
             tr
               td Contact Email
               td=profile.email
@@ -42,11 +42,19 @@ block content
       $("input").attr("disabled","disabled");
     }
     function validateForm() {
-      var x = document.forms["updateForm"]["full_name"].vlaue;
+      var x = document.forms["updateForm"]["full_name"].value;
       var y = document.forms["updateForm"]["cell_num"].value;
       var z = document.forms["updateForm"]["description"].value;
-      if ((x || y || z) == null || (x || y || z) == "") {
-          alert("Fields cannot be left blank");
+      if (x == null || x == "") {
+          alert("Name cannot be left blank");
+          return false;
+      }
+      if (y == null || y == "") {
+          alert("Contact Number cannot be left blank");
+          return false;
+      }
+      if (z == null || z == "") {
+          alert("Description cannot be left blank");
           return false;
       }
     }

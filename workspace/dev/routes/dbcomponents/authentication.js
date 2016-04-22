@@ -18,8 +18,7 @@ router.post('/update', function(req, res, next) {
     console.log(cell);
     console.log(desc);
 
-    var update_query = "UPDATE user_info SET full_name ($1), cell_num = ($2), description = ($3) WHERE user_id = ($4)";
-
+    var update_query = "UPDATE user_info SET full_name = ($1), cell_num = ($2), description = ($3) WHERE user_id = ($4)";
     
     db.query(update_query, [name, cell, desc, user])
         .then(function(data) {
