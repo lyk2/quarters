@@ -199,17 +199,18 @@ router.post('/updateHouse', function(req, res, next) {
     var code = req.body.postal_code;
     var user = req.session.user.uid;
 
-    console.log(addr);
-    console.log(city);
-    console.log(prov);
-    console.log(ctry);
-    console.log(code);
-    console.log(user);
+    //console.log(addr);
+    //console.log(city);
+    //console.log(prov);
+    //console.log(ctry);
+    //console.log(code);
+    //console.log(user);
 
-    //var update_query = "UPDATE user_info SET cell_num = ($1), description = ($2) WHERE user_id = ($3)";
+    var update_query = "UPDATE house SET address = ($1), city = ($2), province = ($3),
+                        country = ($4), postal_code = ($5) WHERE user_id = ($6)";
 
-    /*
-    db.query(update_query, [cell, desc, user])
+    
+    db.query(update_query, [address, city, provice, country, postal_code, user])
         .then(function(data) {
             res.redirect('/main/userprofile');
 	    //res.send('{"success":true}');
@@ -217,7 +218,7 @@ router.post('/updateHouse', function(req, res, next) {
 	}).catch(function(error) {
             console.log("nope...");
             res.send(error);
-	});*/
+	});
 });
 
 
