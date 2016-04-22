@@ -123,7 +123,7 @@ ul.nav.navbar-top-links.navbar-right
             }else{
               time = sec + " seconds ago";
             }
-            $('#notification').append('<li><a href="'+response[i].action+'"><div>'+ response[i].description+'<span class="pull-right text-muted small">'+time+'</span></div></a></li><li class="divider"></li>');
+            $('#notification').append('<li><a href="'+response[i].action+'"><div>'+ response[i].description+' </br><span class="pull-right text-muted small">'+time+'</span></div></a></li><li class="divider"></li>');
           }
         },
         error: function (error) {

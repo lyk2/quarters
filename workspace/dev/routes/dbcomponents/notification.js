@@ -22,13 +22,15 @@ router.post('/newNotification',function(req,res,next){
             var notification_id = data[0].notification_id;
             var houseMembers = req.session.house.members;
             for (var i = 0; i < houseMembers.length; i++) {
-                db.query ('insert into notification_view (notification_id,user_id) values ($1,$2);',[notification_id,houseMembers[i].user_id])
-                    .then(function(data2)
-                    {
-                        //res.send({});
-                    }).catch(function (error2){
-                   // res.send(error2)
-                });
+                if (houseMembers[i].user_id != req.session.user.uid){
+                    db.query ('insert into notification_view (notification_id,user_id) values ($1,$2);',[notification_id,houseMembers[i].user_id])
+                        .then(function(data2)
+                        {
+                            //res.send({});
+                        }).catch(function (error2){
+                       // res.send(error2)
+                    });
+                }
             }
         }).catch(function (error) {
             //res.send(error);
