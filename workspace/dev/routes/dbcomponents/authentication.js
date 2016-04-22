@@ -9,17 +9,19 @@ router.get('/', function(req, res, next) {
 
 router.post('/update', function(req, res, next) {
 
+    var name = req.body.full_name;
     var cell = req.body.cell_num;
     var desc = req.body.description;
     var user = req.session.user.uid;
 
+    console.log(name);
     console.log(cell);
     console.log(desc);
 
-    var update_query = "UPDATE user_info SET cell_num = ($1), description = ($2) WHERE user_id = ($3)";
+    var update_query = "UPDATE user_info SET full_name ($1), cell_num = ($2), description = ($3) WHERE user_id = ($4)";
 
     
-    db.query(update_query, [cell, desc, user])
+    db.query(update_query, [name, cell, desc, user])
         .then(function(data) {
             res.redirect('/main/userprofile');
 	    //res.send('{"success":true}');

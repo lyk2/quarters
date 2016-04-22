@@ -30,7 +30,16 @@
             
               .row(style="padding-top:30px")
                 .col-lg-6.col-sm-12
-                  input.form-control.btn.btn-default(type='submit', value='Click to Apply Changes' style="width:50%")
+                  input.form-control.btn.btn-default(type='submit', value='Click to Apply Changes' style="width:200px")
+
+        .panel-body
+          .col-lg-6.col-sm-12
+            h4 House Image Upload
+              .input-group(style='width:90%')
+                form(role="form", ref="uploadForm", action="/uploadHouseFiles", method="post", enctype="multipart/form-data")
+                  input(type="file", name="userFiles[]" multiple, id="userFiles[]" style='padding-bottom:10px')
+                  input(type="submit", value="Upload")
+
 
       script.
         if (window.location.search!=""){

@@ -15,7 +15,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var db = require('./routes/db');
 var main = require('./routes/main');
-
+var dbfile = require('./routes/dbcomponents/db-con');
 //var fs = require('fs');
 var fs = require('fs-extra');
 
@@ -72,13 +72,21 @@ app.post('/uploadHouseFiles', upload.array('userFiles[]'), function(req, res) {
 	for (var i = 0; i < req.files.length; i++){
 		var file = req.files[i];
 		fs.move(file.path, 'public/uploads/'+houseid+'/'+file.originalname, function (err) {
-			 if (err) return console.error(err)
-			 console.log("success!")
+			 if (err) {
+				 return console.error(err)
+			 }
+			else{
+				dbfile.query('insert into house_files (house_id, filepath) values ($1, $2);',[req.session.house.active_house_id,file.originalname])
+						.then(function(data){
+							res.redirect('/main/documents');
+				}).catch(function(error){
+					res.redirect('/main/documents');
+				});
+				console.log("success!");
+			}
 		 });
 	}
-
-
-    res.redirect('/main/documents');
+    //res.redirect('/main/documents');
 });
 
 app.post('/uploadprofilepicture', upload.array('userFiles[]'), function(req, res) {

@@ -42,14 +42,11 @@ block content
       $("input").attr("disabled","disabled");
     }
     function validateForm() {
-      var x = document.forms["updateForm"]["cell_num"].value;
-      var y = document.forms["updateForm"]["description"].value;
-      if (x == null || x == "") {
-          alert("Contact number cannot be left blank");
-          return false;
-      }
-      if (y == null || y == "") {
-          alert("Description cannot be left blank");
+      var x = document.forms["updateForm"]["full_name"].vlaue;
+      var y = document.forms["updateForm"]["cell_num"].value;
+      var z = document.forms["updateForm"]["description"].value;
+      if ((x || y || z) == null || (x || y || z) == "") {
+          alert("Fields cannot be left blank");
           return false;
       }
     }
