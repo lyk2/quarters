@@ -32,6 +32,9 @@ info.render = function (session, res, otheruser) {
                 }
                 var renderdata = Object.create(session);
                 renderdata.profile = data[0];
+
+                renderdata.admin = (otheruser) ? false : true;
+                renderdata.useridid = user;
                 res.render('app/userprofile', renderdata);
             } else {
                 res.send("404");

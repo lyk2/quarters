@@ -22,15 +22,11 @@ ul.nav.navbar-top-links.navbar-right
       i.fa.fa-caret-down
     ul.dropdown-menu.dropdown-user
       li
-        img.img-circle.center(src='../img/avatars/avatar.jpg', width='100')
+        img.img-circle.center(src='../uploads/userpics/#{user.uid}', width='100', onerror="this.src='../img/avatars/avatar.jpg'")
       li
         a(href='userprofile')
           i.fa.fa-user.fa-fw
           |  User Profile
-      li
-        a(href='accountsettings')
-          i.fa.fa-gear.fa-fw
-          |  Account Settings
       li.divider
       li
         a(href='logout')
