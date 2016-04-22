@@ -82,6 +82,22 @@ script.
 			success: function(dat) {
 				populateReplies(dat);
 				$("#viewTicketModal .reply-text").val('');
+				
+				var notificationInfo={};
+				notificationInfo['description']= getMember(session.user.uid).full_name + " commented on Ticket["+getTicket($("#viewTicketModal .ticket-id").val()).title+"]";
+				notificationInfo['action']="maintenance";
+				$.ajax({
+					url: "../db/notification/newNotification",
+					data: notificationInfo,
+					method: 'post',
+					dataType: 'json',
+					success: function (response) {
+					},
+					error: function (error) {
+						//   alert("payer error");
+					}
+				});
+				
 			},
 			error: function(dat) {
 				console.log("nope");
@@ -107,6 +123,21 @@ script.
 			dataType: 'json',
 			success: function(dat) {
 				$("#viewTicketModal").modal("hide");
+				
+				var notificationInfo={};
+				notificationInfo['description']="Ticket Closed by" + getMember(session.user.uid).full_name;
+				notificationInfo['action']="#";
+				$.ajax({
+					url: "../db/notification/newNotification",
+					data: notificationInfo,
+					method: 'post',
+					dataType: 'json',
+					success: function (response) {
+					},
+					error: function (error) {
+						//   alert("payer error");
+					}
+				});
 				
 			},
 			error: function(dat) {

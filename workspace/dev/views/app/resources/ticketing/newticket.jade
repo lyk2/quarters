@@ -80,6 +80,20 @@ script.
 				showTicket(dat[0]);
 				$("#myModal").modal('hide');
 				
+				var notificationInfo={};
+				notificationInfo['description']="New Ticket created by " + getMember(session.user.uid).full_name;
+				notificationInfo['action']="maintenance";
+				$.ajax({
+					url: "../db/notification/newNotification",
+					data: notificationInfo,
+					method: 'post',
+					dataType: 'json',
+					success: function (response) {
+					},
+					error: function (error) {
+						//   alert("payer error");
+					}
+				});
 			},
 			error: function(dat) {
 				console.log("nope");
