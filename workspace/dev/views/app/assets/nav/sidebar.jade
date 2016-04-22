@@ -2,7 +2,7 @@
   .sidebar-nav.navbar-collapse
     ul#side-menu.nav
       li.hidden-xs
-        img.img.center(src='../img/avatars/house.jpg', width='100%')
+        img.img.center(src="../uploads/housepics/#{house.active_house_id}", onerror="this.src='../img/avatars/house.jpg'", width='100%')
       li
         a(href='documents')
           i.fa.fa-home.fa-fw

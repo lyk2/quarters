@@ -33,7 +33,7 @@ style.
                           else
                             input(type='radio', name='optradio' value='#{val.house_id}')
                             |  #{val.address}
-                      img(src='../img/avatars/house.jpg', style='width:100px;height:100px;')
+                      img(src="../uploads/housepics/#{val.house_id}" onerror="this.src='../img/avatars/house.jpg'", style='width:100px;height:100px;')
       .modal-footer
         .col-lg-8
           button#selectthishouse.btn.btn-info.btn-primary(type='button') Select
@@ -183,7 +183,7 @@ script.
     success: function(result){
         console.log(result);
         alert("House is created");
-        var listing = '<span><span style="display:inline-block"><label class="radio-inline"><input type="radio" name="optradio" value="'+result.house_id+'" checked="">'+result.address.trim()+'</label></span><img src="../img/avatars/house.jpg" style="width:100px;height:100px;" class="mCS_img_loaded"></span>';
+        var listing = '<span><span style="display:inline-block"><label class="radio-inline"><input type="radio" name="optradio" value="'+result.house_id+'" checked="">'+result.address.trim()+'</label></span><img src="../uploads/housepics/"'+result.house_id+' onerror="this.src=\'../img/avatars/house.jpg\'" style="width:100px;height:100px;" class="mCS_img_loaded"></span>';
         $('#house-list > div .mCSB_container').append(listing);
         $("#safe-back").trigger('click');
       }

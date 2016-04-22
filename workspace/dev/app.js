@@ -104,6 +104,21 @@ app.post('/uploadprofilepicture', upload.array('userFiles[]'), function(req, res
     res.redirect('/main/documents');
 });
 
+app.post('/uploadhousepicture', upload.array('userFiles[]'), function(req, res) {
+    console.log("uploading file...");
+    console.dir(req.files);
+    console.log("upload complete. redirecting...");
+
+	var file = req.files[0];
+	fs.move(file.path, 'public/uploads/housepics/'+req.session.house.active_house_id, function (err) {
+		 if (err) return console.error(err)
+		 console.log("success!")
+	 });
+
+
+    res.redirect('/main/documents');
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
 	var err = new Error('Not Found');
