@@ -39,46 +39,18 @@ ul.nav.navbar-top-links.navbar-right
     a.dropdown-toggle(data-toggle='dropdown', href='#')
       i.fa.fa-bell.fa-fw
       i.fa.fa-caret-down
-    ul.dropdown-menu.dropdown-alerts
-      li
-        a(href='#')
-          div
-            i.fa.fa-comment.fa-fw
-            |  New Comment
-            span.pull-right.text-muted.small 4 minutes ago
-      li.divider
-      li
-        a(href='#')
-          div
-            i.fa.fa-twitter.fa-fw
-            |  3 New Followers
-            span.pull-right.text-muted.small 12 minutes ago
-      li.divider
-      li
-        a(href='#')
-          div
-            i.fa.fa-envelope.fa-fw
-            |  Message Sent
-            span.pull-right.text-muted.small 4 minutes ago
-      li.divider
-      li
-        a(href='#')
-          div
-            i.fa.fa-tasks.fa-fw
-            |  New Task
-            span.pull-right.text-muted.small 4 minutes ago
-      li.divider
-      li
-        a(href='#')
-          div
-            i.fa.fa-upload.fa-fw
-            |  Server Rebooted
-            span.pull-right.text-muted.small 4 minutes ago
-      li.divider
-      li
-        a.text-center(href='#')
-          strong See All Alerts
-          i.fa.fa-angle-right
+    ul#notification.dropdown-menu.dropdown-alerts
+     // li
+      //  a(href='#')
+        //  div
+        //    i.fa.fa-comment.fa-fw
+        //    |  New Comment
+       //     span.pull-right.text-muted.small 4 minutes ago
+      //li.divider
+      //li
+      //  a.text-center(href='#')
+      //    strong See All Alerts
+      //    i.fa.fa-angle-right
   li.dropdown
     a.dropdown-toggle(data-toggle='dropdown', href='#')
       i.fa.fa-user.fa-fw
@@ -100,3 +72,38 @@ ul.nav.navbar-top-links.navbar-right
         a(href='logout')
           i.fa.fa-sign-out.fa-fw
           |  Logout
+
+  script.
+    refreshNotification();
+    setInterval(refreshNotification,5000);
+
+    function refreshNotification(){
+      $.ajax({
+        url: "../db/notification/getNotification",
+        method: 'post',
+        dataType: 'json',
+        success: function (response) {
+          $('#notification').empty();
+          var i;
+          for (i = 0; i < response.length; i++) {
+            var sec = Math.floor(response[i].time_passed);
+            var min=Math.floor(sec/60);
+            var hour=Math.floor(sec/60/60);
+            var day=Math.floor(sec/60/60/24);
+
+            var time="";
+            if (day>=1){
+            }else if (hour>=1){
+              time = hour + " hours ago";
+            }else if (min>=1){
+              time = min + " minutes ago";
+            }else{
+              time = sec + " seconds ago";
+            }
+            $('#notification').append('<li><a href="'+response[i].action+'"><div>'+ response[i].description+'<span class="pull-right text-muted small">'+time+'</span></div></a></li><li class="divider"></li>');
+          }
+        },
+        error: function (error) {
+          alert("error");
+        }
+      })};
