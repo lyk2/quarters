@@ -3,6 +3,7 @@ var db = require('../dbcomponents/db-con');
 
 var info = {};
 
+
 info.render = function(session, res) {
 	db.tx(function(t){
 		return t.batch([
@@ -15,7 +16,7 @@ info.render = function(session, res) {
 	}).then(function(data){
 
 		var renderdata = Object.create(session);
-		renderdata.info =  data[0];
+		renderdata.info =  data[0][0];
 		renderdata.members = data[1];
 		res.render('app/house-info', renderdata);
 	}).catch(function(error){
@@ -25,11 +26,5 @@ info.render = function(session, res) {
 };
 
 
-
-
-
-
-
-
-
 module.exports = info;
+

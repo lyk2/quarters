@@ -21,7 +21,7 @@ router.post('/addPost', function(req,res,next){
                      .getSeconds()) : (now.getSeconds())));
                  }
     console.log(getTimeStamp(data.date_time));
-    db.query("insert into bulletin_posts (user_id, house_id, comment, date_time) values($1, $2, $3, $4) returning post_id",
+    db.query("insert into bulletin_posts (user_id, house_id, comment, date_time) values($1, $2, $3, $4) returning *",
             [req.session.user.uid, req.session.house.active_house_id, data.comment, getTimeStamp(data.date_time)])
         .then(function(data){
             res.send(data);

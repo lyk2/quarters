@@ -9,18 +9,18 @@ router.get('/', function(req, res, next) {
 
 router.post('/update', function(req, res, next) {
 
+    var name = req.body.full_name;
     var cell = req.body.cell_num;
     var desc = req.body.description;
     var user = req.session.user.uid;
 
+    console.log(name);
     console.log(cell);
     console.log(desc);
-    console.log(req.session.user.email);
 
-    var update_query = "UPDATE user_info SET cell_num = ($1), description = ($2) WHERE user_id = ($3)";
-
+    var update_query = "UPDATE user_info SET full_name = ($1), cell_num = ($2), description = ($3) WHERE user_id = ($4)";
     
-    db.query(update_query, [cell, desc, user])
+    db.query(update_query, [name, cell, desc, user])
         .then(function(data) {
             res.redirect('/main/userprofile');
 	    //res.send('{"success":true}');
@@ -42,9 +42,15 @@ router.post('/signup', function(req, res, next) {
 	// Hash the password with the salt
 	var hash = bcrypt.hashSync(password, salt);
 
-	db.query('INSERT INTO "user"(email, password) values($1, $2)', [email, hash])
+	db.query('INSERT INTO "user"(email, password) values($1, $2) returning user_id', [email, hash])
 		.then(function(data) {
-			res.send('{"success":true}');
+			var uid = data[0].user_id;
+			db.query('insert into user_info (user_id) values ($1);',[uid])
+					.then(function(data) {
+						res.send('{"success":true}');
+					}).catch(function(error) {
+						res.send(error);
+					});
 		}).catch(function(error) {
 			res.send(error);
 		});

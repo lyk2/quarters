@@ -1,41 +1,5 @@
 ul.nav.navbar-top-links.navbar-right
   li.dropdown
-    a.dropdown-toggle(data-toggle='dropdown', href='#')
-      i.fa.fa-envelope.fa-fw
-      i.fa.fa-caret-down
-    ul.dropdown-menu.dropdown-messages
-      li
-        a(href='#')
-          div
-            strong John Smith
-            span.pull-right.text-muted
-              em Yesterday
-          div
-            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
-      li.divider
-      li
-        a(href='#')
-          div
-            strong John Smith
-            span.pull-right.text-muted
-              em Yesterday
-          div
-            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
-      li.divider
-      li
-        a(href='#')
-          div
-            strong John Smith
-            span.pull-right.text-muted
-              em Yesterday
-          div
-            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
-      li.divider
-      li
-        a.text-center(href='#')
-          strong Read All Messages
-          i.fa.fa-angle-right
-  li.dropdown
     a#notificationButton.dropdown-toggle(data-toggle='dropdown', href='#',aria-expanded="false")
       i.fa.fa-bell.fa-fw
       i.fa.fa-caret-down
@@ -58,15 +22,11 @@ ul.nav.navbar-top-links.navbar-right
       i.fa.fa-caret-down
     ul.dropdown-menu.dropdown-user
       li
-        img.img-circle.center(src='../img/avatars/avatar.jpg', width='100')
+        img.img-circle.center(src='../uploads/userpics/#{user.uid}', width='100', onerror="this.src='../img/avatars/avatar.jpg'")
       li
         a(href='userprofile')
           i.fa.fa-user.fa-fw
           |  User Profile
-      li
-        a(href='accountsettings')
-          i.fa.fa-gear.fa-fw
-          |  Account Settings
       li.divider
       li
         a(href='logout')
@@ -123,10 +83,10 @@ ul.nav.navbar-top-links.navbar-right
             }else{
               time = sec + " seconds ago";
             }
-            $('#notification').append('<li><a href="'+response[i].action+'"><div>'+ response[i].description+'<span class="pull-right text-muted small">'+time+'</span></div></a></li><li class="divider"></li>');
+            $('#notification').append('<li><a href="'+response[i].action+'"><div>'+ response[i].description+' </br><span class="pull-right text-muted small">'+time+'</span></div></a></li><li class="divider"></li>');
           }
         },
         error: function (error) {
-          alert("error");
+          console.log("error");
         }
       })};

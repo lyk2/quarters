@@ -80,6 +80,20 @@ script.
 				showTicket(dat[0]);
 				$("#myModal").modal('hide');
 				
+				var notificationInfo={};
+				notificationInfo['description']="New Ticket created by " + getMember(session.user.uid).full_name;
+				notificationInfo['action']="maintenance";
+				$.ajax({
+					url: "../db/notification/newNotification",
+					data: notificationInfo,
+					method: 'post',
+					dataType: 'json',
+					success: function (response) {
+					},
+					error: function (error) {
+						//   alert("payer error");
+					}
+				});
 			},
 			error: function(dat) {
 				console.log("nope");
@@ -204,7 +218,7 @@ script.
 	}
 	
 	function genReply(reply){
-		var html = '<div class="panel-footer"><span><img src="../img/boy.png" width="15px" class="img">';
+		var html = '<div class="panel-footer"><span><img src="../uploads/userpics/'+reply.user_id+'" onerror="this.src=\'../img/avatars/avatar.jpg\'" width="15px" class="img">';
 		html += '<span>'+getMember(reply.user_id).full_name.trim()+' : </span>';
 		html += '<span class="comment">'+reply.comment+'</span></span></div>';
 		

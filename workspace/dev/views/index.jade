@@ -21,8 +21,8 @@ html(lang='en')
     nav.navbar.navbar-custom.navbar-custom1.navbar-fixed-top(role='navigation')
       .container
         .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-main-collapse')
-            a.btn.btn-ghost.btn-sm(href='#') Login
+          button.navbar-toggle(type='button')
+            a#smallthing.btn.btn-ghost.btn-sm(href='#') Login
           a.navbar-brand.page-scroll(href='#page-top')
             a.navbar-brand.navbar(href='#') Quarters
         // Collect the nav links, forms, and other content for toggling
@@ -267,4 +267,9 @@ html(lang='en')
 
         
 
-      })
+      });
+      
+      $("#smallthing").click(function(){
+          console.log("asdf");
+          $('#i-login').trigger('click');
+        });

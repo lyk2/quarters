@@ -4,10 +4,6 @@ var router = express.Router();
 // this is occurs on every request, use to check against session for valid use
 router.use(function timeLog(req, res, next) {
 
-	// req.session.user = {
-	// 	'uid' : 9,
-	// 	'email': 'hacked'
-	// };
 
 	if (req.session.user && req.session.house) {
 		next();
@@ -24,22 +20,28 @@ router.use(function timeLog(req, res, next) {
 			]);
 		})
 		.then(function(data) {
-			var address = (data[0][0].address) ? data[0][0].address.trim() : "";
-			var active_house_id = (data[0][0].house_id) ? data[0][0].house_id : -1;
+			try {
+				var address = (data[0][0].address) ? data[0][0].address.trim() : "";
+				var active_house_id = (data[0][0].house_id) ? data[0][0].house_id : -1;
 
-			req.session.house = {
-				active_house_id: active_house_id,
-				address: address,
-				all_houses: data[1]
-			};
+				req.session.house = {
+					active_house_id: active_house_id,
+					address: address,
+					all_houses: data[1]
+				};
 
-			db.query('select distinct * from role, user_info where house_id=$1 and role.user_id=user_info.user_id', req.session.house.active_house_id)
-					.then(function(data){
-						req.session.house.members = data;
-						next();
-					}).catch(function(error){
-				res.send(error);
-			});
+				db.query('select distinct * from role, user_info where house_id=$1 and role.user_id=user_info.user_id', req.session.house.active_house_id)
+						.then(function (data) {
+							req.session.house.members = data;
+							next();
+						}).catch(function (error) {
+					res.send(error);
+				});
+			}catch (err){
+				req.session.house = {};
+				req.session.house.active_house_id=-1;
+				next();
+			}
 		})
 		.catch(function(error){
 			console.log(error);
