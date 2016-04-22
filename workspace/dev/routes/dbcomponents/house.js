@@ -189,6 +189,36 @@ router.get('/select', function(req,res, next) {
 
 });
 
+router.post('/updateHouse', function(req, res, next) {
+    console.log("ok!");
+
+    var addr = req.body.address;
+    var city = req.body.city;
+    var prov = req.body.province;
+    var ctry = req.body.country;
+    var code = req.body.postal_code;
+    var user = req.session.user.uid;
+
+    console.log(addr);
+    console.log(city);
+    console.log(prov);
+    console.log(ctry);
+    console.log(code);
+    console.log(user);
+
+    //var update_query = "UPDATE user_info SET cell_num = ($1), description = ($2) WHERE user_id = ($3)";
+
+    /*
+    db.query(update_query, [cell, desc, user])
+        .then(function(data) {
+            res.redirect('/main/userprofile');
+	    //res.send('{"success":true}');
+            console.log("ok");
+	}).catch(function(error) {
+            console.log("nope...");
+            res.send(error);
+	});*/
+});
 
 
 

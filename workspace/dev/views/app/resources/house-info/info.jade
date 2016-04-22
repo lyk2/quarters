@@ -1,40 +1,44 @@
 // includes the general information section for documents
 
 .row(style="padding-top:30px")
-	.col-lg-12
-		.panel.panel-info
-			.panel-heading
-				h3.panel-title General Information
-				input.btn.btn-default.panel-btn(type='button', value='Modify')
-			.panel-body
-				.col-lg-6.col-sm-12
-					h4 House
-					.input-group(style='width:90%')
-						span.input-group-addon.readonly(style='width:30%') Address
-						input.form-control(type='text' value='#{info.address}')
-					.input-group(style='width:90%')
-						span.input-group-addon.readonly(style='width:30%') City
-						input.form-control(type='text' value='#{info.city}')
-					.input-group(style='width:90%')
-						span.input-group-addon.readonly(style='width:30%') Province
-						input.form-control(type='text' value='#{info.province}')
-					.input-group(style='width:90%')
-						span.input-group-addon.readonly(style='width:30%') Country
-						input.form-control(type='text' value='#{info.country}')
-					.input-group(style='width:90%')
-						span.input-group-addon.readonly(style='width:30%') Postal Code
-						input.form-control(type='text' value='#{info.postal_code}')
-				.col-lg-6.col-sm-12
-					h4 Financials
-					.input-group(style='width:90%')
-						span.input-group-addon.readonly(style='width:40%') Rent Information
-						input.form-control(type='text')
-					.input-group(style='width:90%')
-						span.input-group-addon.readonly(style='width:40%') Utilities
-						input.form-control(type='text')
-					.input-group(style='width:90%')
-						span.input-group-addon.readonly(style='width:40%') Internet
-						input.form-control(type='text')
-					.input-group(style='width:90%')
-						span.input-group-addon.readonly(style='width:40%') Security Deposits
-						input.form-control(type='text')
+  .col-lg-12
+    .panel.panel-info
+        .panel-heading
+          h3.panel-title General Information
+        .panel-body
+          form(name="houseUpdate", role="form", ref="updateForm", action="../db/house/updateHouse", method="post")  
+            .col-lg-6.col-sm-12
+              h4 House
+              .input-group(style='width:90%')
+                span.input-group-addon.readonly(style='width:30%') Address
+                input.form-control(type='text' name='address' value='#{info.address}')
+              .input-group(style='width:90%')
+                span.input-group-addon.readonly(style='width:30%') City
+                input.form-control(type='text' name='city' value='#{info.city}')
+              .input-group(style='width:90%')
+                span.input-group-addon.readonly(style='width:30%') Province
+                input.form-control(type='text' name='province' value='#{info.province}')
+              .input-group(style='width:90%')
+                span.input-group-addon.readonly(style='width:30%') Country
+                input.form-control(type='text' name='country' value='#{info.country}')
+              .input-group(style='width:90%')
+                span.input-group-addon.readonly(style='width:30%') Postal Code
+                input.form-control(type='text' name='postal_code' value='#{info.postal_code}')
+            .col-lg-6.col-sm-12
+              h4 Financials
+              .input-group(style='width:90%')
+                span.input-group-addon.readonly(style='width:40%') Rent Information
+                input.form-control(type='text')
+              .input-group(style='width:90%')
+                span.input-group-addon.readonly(style='width:40%') Utilities
+                input.form-control(type='text')
+              .input-group(style='width:90%')
+                span.input-group-addon.readonly(style='width:40%') Internet
+                input.form-control(type='text')
+              .input-group(style='width:90%')
+                span.input-group-addon.readonly(style='width:40%') Security Deposits
+                input.form-control(type='text')
+
+            .row(style="padding-top:30px")
+              .col-lg-6.col-sm-12
+                input.form-control.btn.btn-default(type='submit', value='Click to Apply Changes' style="width:40%")
