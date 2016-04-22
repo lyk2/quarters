@@ -120,3 +120,18 @@ CREATE TABLE tickets
         REFERENCES "house" (house_id) MATCH SIMPLE
         ON UPDATE CASCADE ON DELETE CASCADE
 );
+
+CREATE TABLE events
+(
+    event_id serial NOT NULL,
+    event_title varchar(255),
+    event_start timestamp NOT NULL,
+    event_end timestamp DEFAULT NULL,
+    event_color varchar(10),
+    house_id integer NOT NULL,
+    -- allDay boolean DEFAULT "false",
+    CONSTRAINT event_id_pkey PRIMARY KEY (event_id),
+    CONSTRAINT house_id_fkey FOREIGN KEY (house_id)
+        REFERENCES "house" (house_id) MATCH SIMPLE
+        ON UPDATE CASCADE ON DELETE CASCADE
+);
