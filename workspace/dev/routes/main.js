@@ -4,10 +4,6 @@ var router = express.Router();
 // this is occurs on every request, use to check against session for valid use
 router.use(function timeLog(req, res, next) {
 
-	//req.session.user = {
-	//	'uid' : 9,
-	//	'email': 'hacked'
-	//};
 
 	if (req.session.user && req.session.house) {
 		next();

@@ -11,3 +11,14 @@ block content
   include ./resources/house-info/members
   include ./resources/house-info/upload
   include ./resources/house-info/display-images
+  
+  script.
+    $("#uploadimage").click(function(){
+        $("#fileup").trigger("click");
+      })
+      
+    $("#fileup").change(function(){
+      console.log("uploaded");
+      $("#filesub").trigger('click');
+    })
+    

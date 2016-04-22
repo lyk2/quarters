@@ -68,7 +68,7 @@ function addNewPostLayout(postid){
     date = date.toLocaleDateString() +" "+ date.toLocaleTimeString("en-US", {hour: '2-digit', minute:'2-digit'});
     var comment = $('#newPostContent').val();
     var user = active_user_name.trim();
-    var html = '<div postid="'+postid["post_id"]+'"class="row"><div class="col-lg-1"></div><div class="col-lg-10 col-xs-12"></div><div class="col-lg-10 col-xs-12"><div class="panel panel-primary"><div class="panel-heading"><img src="../img/boy.png" width="20px" class="img"><h3 style=" display: inline-block; " class="panel-title">'+user+'</h3><span class="glyphicon glyphicon-remove remove-post"></span><h3 style="float:right" class="panel-title">'+date+'</h3></div><div class="panel-body">'+comment+'</div><ul class="list-group"></ul><div class="panel-body"><div class="input-group"><input type="text" placeholder="Message..." class="form-control"><span class="input-group-btn"><button type="button" class="btn btn-default reply-post">Reply</button></span></div></div></div></div></div>';
+    var html = '<div postid="'+postid["post_id"]+'"class="row"><div class="col-lg-1"></div><div class="col-lg-10 col-xs-12"></div><div class="col-lg-10 col-xs-12"><div class="panel panel-primary"><div class="panel-heading"><img src="../uploads/userpics/'+postid.user_id+'" onerror="this.src="../img/boy.png"" class="img-circle" style="margin:0px; width:50px"><h3 style=" display: inline-block; " class="panel-title">'+user+'</h3><span class="glyphicon glyphicon-remove remove-post"></span><h3 style="float:right" class="panel-title">'+date+'</h3></div><div class="panel-body">'+comment+'</div><ul class="list-group"></ul><div class="panel-body"><div class="input-group"><input type="text" placeholder="Message..." class="form-control"><span class="input-group-btn"><button type="button" class="btn btn-default reply-post">Reply</button></span></div></div></div></div></div>';
 
     $("#posts").before(html);
 
@@ -211,7 +211,7 @@ $("#posts > div").each(function(){
 function subpostHTML(data, owner) {
     var html = "";
     html += '<li subpostid="'+data['subpost_id']+'"class="list-group-item comment-blob">';
-    html += '<span> <img src="../img/boy.png" width="15px" class="img"><span>'+data['full_name']+
+    html += '<span> <img src="../uploads/userpics/'+data.user_id+'" onerror="this.src=\'../img/avatars/avatar.jpg\'" width="15px" class="img"><span>'+data['full_name']+
         ':</span><span class="comment">'+data['comment']+'</span>';
 
     if(owner)
