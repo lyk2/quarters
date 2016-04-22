@@ -16,6 +16,9 @@ var users = require('./routes/users');
 var db = require('./routes/db');
 var main = require('./routes/main');
 
+//var fs = require('fs');
+var fs = require('fs-extra');
+
 var app = express();
 
 // view engine setup
@@ -27,17 +30,6 @@ app.set('view engine', 'jade');
 
 // file upload stuff ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 app.use(busboy());
-
-app.get('/upload', function(req, res) {
-    res.render('upload', { title: 'File Upload' });
-});
-
-app.post('/upload', upload.array('userFiles[]'), function(req, res) {
-    console.log("uploading file...");
-    console.dir(req.files);
-    console.log("upload complete. redirecting...");
-    res.redirect('/main/documents');
-});
 // end of file upload stuff ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -69,6 +61,25 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/main', main);
 app.use('/db', db);
+
+app.post('/uploadHouseFiles', upload.array('userFiles[]'), function(req, res) {
+    console.log("uploading file...");
+    console.dir(req.files);
+    console.log("upload complete. redirecting...");
+
+	var houseid = req.session.house.active_house_id;
+
+	for (var i = 0; i < req.files.length; i++){
+		var file = req.files[i];
+		fs.move(file.path, 'public/uploads/'+houseid+'/'+file.originalname, function (err) {
+			 if (err) return console.error(err)
+			 console.log("success!")
+		 });
+	}
+
+
+    res.redirect('/main/documents');
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
