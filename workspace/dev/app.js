@@ -71,7 +71,7 @@ app.post('/uploadHouseFiles', upload.array('userFiles[]'), function(req, res) {
 
 	for (var i = 0; i < req.files.length; i++){
 		var file = req.files[i];
-		fs.move(file.path, 'public/uploads/'+houseid+'/'+file.originalname, function (err) {
+		fs.move(file.path, 'public/uploads/'+houseid+'/'+file.originalname, {clobber:true}, function (err) {
 			 if (err) {
 				 return console.error(err)
 			 }
@@ -95,7 +95,7 @@ app.post('/uploadprofilepicture', upload.array('userFiles[]'), function(req, res
     console.log("upload complete. redirecting...");
 
 	var file = req.files[0];
-	fs.move(file.path, 'public/uploads/userpics/'+req.session.user.uid, function (err) {
+	fs.move(file.path, 'public/uploads/userpics/'+req.session.user.uid, {clobber:true}, function (err) {
 		 if (err) return console.error(err)
 		 console.log("success!")
 	 });
@@ -110,7 +110,7 @@ app.post('/uploadhousepicture', upload.array('userFiles[]'), function(req, res) 
     console.log("upload complete. redirecting...");
 
 	var file = req.files[0];
-	fs.move(file.path, 'public/uploads/housepics/'+req.session.house.active_house_id, function (err) {
+	fs.move(file.path, 'public/uploads/housepics/'+req.session.house.active_house_id, {clobber:true},function (err) {
 		 if (err) return console.error(err)
 		 console.log("success!")
 	 });
