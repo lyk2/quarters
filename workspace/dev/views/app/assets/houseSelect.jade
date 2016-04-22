@@ -292,5 +292,6 @@ if house.active_house_id == -1
       keyboard: false
     })
 
-    $("#openhouseselect").trigger('click');
+    $("#selectHouseModal").modal("show");
+    $("#selectHouseModal button[type='safe-close']").remove();
     var wtf = #{house.active_house_id} 
