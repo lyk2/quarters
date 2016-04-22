@@ -33,6 +33,10 @@ block content
 
 
   script.
+    if (window.location.search!=""){
+      $("#modify-info").hide();
+      $("input").attr("disabled","disabled");
+    }
     function validateForm() {
       var x = document.forms["updateForm"]["cell_num"].value;
       var y = document.forms["updateForm"]["description"].value;
