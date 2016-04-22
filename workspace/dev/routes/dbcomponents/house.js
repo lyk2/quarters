@@ -190,29 +190,27 @@ router.get('/select', function(req,res, next) {
 });
 
 router.post('/updateHouse', function(req, res, next) {
-    console.log("ok!");
 
     var addr = req.body.address;
     var city = req.body.city;
     var prov = req.body.province;
     var ctry = req.body.country;
     var code = req.body.postal_code;
-    var user = req.session.user.uid;
+    var invc = req.body.invite_code;
 
-    //console.log(addr);
-    //console.log(city);
-    //console.log(prov);
-    //console.log(ctry);
-    //console.log(code);
-    //console.log(user);
+    console.log(addr);
+    console.log(city);
+    console.log(prov);
+    console.log(ctry);
+    console.log(code);
+    console.log(invc);
 
-    var update_query = "UPDATE house SET address = ($1), city = ($2), province = ($3),
-                        country = ($4), postal_code = ($5) WHERE user_id = ($6)";
+    var update_query = "UPDATE house SET address = ($1), city = ($2), province = ($3), country = ($4), postal_code = ($5), invite_code = ($6)";
 
     
-    db.query(update_query, [address, city, provice, country, postal_code, user])
+    db.query(update_query, [addr, city, prov, ctry, code, invc])
         .then(function(data) {
-            res.redirect('/main/userprofile');
+            res.redirect('/main/documents');
 	    //res.send('{"success":true}');
             console.log("ok");
 	}).catch(function(error) {

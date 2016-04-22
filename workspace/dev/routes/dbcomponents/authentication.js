@@ -15,7 +15,6 @@ router.post('/update', function(req, res, next) {
 
     console.log(cell);
     console.log(desc);
-    console.log(req.session.user.email);
 
     var update_query = "UPDATE user_info SET cell_num = ($1), description = ($2) WHERE user_id = ($3)";
 
