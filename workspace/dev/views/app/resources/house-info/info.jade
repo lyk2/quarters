@@ -6,7 +6,7 @@
         .panel-heading
           h3.panel-title General Information
         .panel-body
-          form(name="houseUpdate", role="form", ref="updateForm", action="../db/house/updateHouse", method="post")  
+          form(name="houseUpdate", role="form", ref="houseUpdate", onsubmit="return validateForm()", action="../db/house/updateHouse", method="post")  
             .col-lg-6.col-sm-12
               h4 House
               .input-group(style='width:90%')
@@ -26,7 +26,7 @@
                 input.form-control(type='text' name='postal_code' value='#{info.postal_code}')
               .input-group(style='width:90%')
                 span.input-group-addon.readonly(style='width:30%') Invite Code
-                input.form-control(type='text' name='invite_code' value='#{info.invite_code}')
+                input.form-control(type='text' name='invite_code' disabled value='#{info.invite_code}')
             .col-lg-6.col-sm-12
               h4 Financials
               .input-group(style='width:90%')
@@ -45,3 +45,23 @@
             .row(style="padding-top:30px")
               .col-lg-6.col-sm-12
                 input.form-control.btn.btn-default(type='submit', value='Click to Apply Changes' style="width:40%")
+
+  script.
+    if (window.location.search!=""){
+      $("#modify-info").hide();
+      $("input").attr("disabled","disabled");
+    }
+    function validateForm() {
+      var a = document.forms["houseUpdate"]["address"].value;
+      var b = document.forms["houseUpdate"]["city"].value;
+      var c = document.forms["houseUpdate"]["province"].value;
+      var d = document.forms["houseUpdate"]["country"].value;
+      var e = document.forms["houseUpdate"]["postal_code"].value;
+      if ((a || b || c || d || e) == null || (a || b || c || d || e) == "") {
+          alert("Field cannot be left blank");
+          return false;
+      }
+      if (e == null || e == "") {
+          alert("Postal code cannot be left blank");
+          return false;
+      }

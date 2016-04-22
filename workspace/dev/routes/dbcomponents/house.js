@@ -196,19 +196,17 @@ router.post('/updateHouse', function(req, res, next) {
     var prov = req.body.province;
     var ctry = req.body.country;
     var code = req.body.postal_code;
-    var invc = req.body.invite_code;
 
     console.log(addr);
     console.log(city);
     console.log(prov);
     console.log(ctry);
     console.log(code);
-    console.log(invc);
 
-    var update_query = "UPDATE house SET address = ($1), city = ($2), province = ($3), country = ($4), postal_code = ($5), invite_code = ($6)";
+    var update_query = "UPDATE house SET address = ($1), city = ($2), province = ($3), country = ($4), postal_code = ($5)";
 
     
-    db.query(update_query, [addr, city, prov, ctry, code, invc])
+    db.query(update_query, [addr, city, prov, ctry, code])
         .then(function(data) {
             res.redirect('/main/documents');
 	    //res.send('{"success":true}');
