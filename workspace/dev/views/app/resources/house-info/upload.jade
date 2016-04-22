@@ -1,0 +1,13 @@
+// file upload form
+
+.row(style="padding-top:30px")
+  .col-lg-12
+    .panel.panel-info
+      .panel-heading
+        h3.panel-title File Upload
+      .panel-body
+        .col-lg-6.col-sm-12
+          h4 Select a file to upload
+          form(role="form", ref="uploadForm", action="/upload", method="post", enctype="multipart/form-data")
+            input(type="file", name="userFiles[]" multiple, id="userFiles[]" style='padding-bottom:10px')
+            input(type="submit", value="Upload")

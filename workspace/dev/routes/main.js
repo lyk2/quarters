@@ -4,10 +4,10 @@ var router = express.Router();
 // this is occurs on every request, use to check against session for valid use
 router.use(function timeLog(req, res, next) {
 
-	req.session.user = {
-		'uid' : 10,
-		'email': 'hacked'
-	};
+	//req.session.user = {
+	//	'uid' : 10,
+	//	'email': 'hacked'
+	//};
 
 	if (req.session.user && req.session.house) {
 		next();
@@ -33,6 +33,8 @@ router.use(function timeLog(req, res, next) {
 
 			db.query('select distinct * from role, user_info where house_id=$1 and role.user_id=user_info.user_id', req.session.house.active_house_id)
 					.then(function(data){
+						req.session.house.members = data[0];
+						//console.log(req.session);
 						req.session.house.members = data;
 						next();
 					}).catch(function(error){
@@ -49,12 +51,13 @@ router.use(function timeLog(req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
+	console.log(req.session);
 	res.redirect('/main/bulletin');
 });
 
 router.get('/bulletin', function(req, res, next) {
-	//res.render('app/bulletin', req.session);
 	var bulletin = require('./app-utils/bulletin-utils');
+	console.log(req.session);
 	bulletin.render(req.session, res);
 });
 

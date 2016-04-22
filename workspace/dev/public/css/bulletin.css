@@ -26,10 +26,23 @@
 }
 
 
+.remove-sub-post {
+    float:right;
+    color:orange;
+    margin-top:2px;
+    marign-left:10px;
+    cursor:pointer;
+}
+
 .remove-post {
     float:right;
     color:orange;
     margin-top:2px;
     marign-left:10px;
     cursor:pointer;
+}
+
+.comment-blob{
+    display:none;
+    list-style:none;
 }
