@@ -34,7 +34,7 @@ block content
 				.col-lg-10.col-xs-12
 					.panel.panel-primary
 						.panel-heading
-							img.img(src='../img/boy.png', width='20px')
+							img.img-circle(src='../uploads/userpics/#{val.user_id}', onerror="this.src='../img/avatars/avatar.jpg'", style="margin:0px; width:50px")
 							h3.panel-title(style='\
 							display: inline-block;\
 							') #{val.full_name}
