@@ -16,7 +16,8 @@
 					tbody
 						each val in members
 							tr
-								th(scope='row') pic
+								th(scope='row')
+									img.img-circle.center(src='../uploads/userpics/#{val.user_id}', width='20%', onerror="this.src='../img/avatars/avatar.jpg'", style="margin:0px")
 								td= val.full_name
 								td= val.email
 								td= val.cell_num

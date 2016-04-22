@@ -3,6 +3,7 @@ var db = require('../dbcomponents/db-con');
 
 var info = {};
 
+
 info.render = function(session, res) {
 	db.tx(function(t){
 		return t.batch([
@@ -25,11 +26,5 @@ info.render = function(session, res) {
 };
 
 
-
-
-
-
-
-
-
 module.exports = info;
+

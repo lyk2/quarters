@@ -4,9 +4,13 @@ block content
   div.row
   div.col-lg-12
       h3.page-header= profile.full_name
-      button.btn.btn-default(style="margin-top:-60px; float:right") Send Message
     div.col-xs-3
-      img.img-circle.center(src='../img/avatars/avatar.jpg', width='90%')
+      img.img-circle.center(src='../uploads/userpics/#{useridid}', width='90%', onerror="this.src='../img/avatars/avatar.jpg'")
+      if admin
+        form(role="form", ref="asdf", action="/uploadprofilepicture", method="post", enctype="multipart/form-data")
+          input#fileup(type="file", name="userFiles[]" multiple style='padding-bottom:10px; display:none')
+          input#filesub(type="submit", value="Upload", style="display:none")
+          input#uploadimage.btn.btn-default(type="button" value="Upload Image")
     form(name="updateForm", role="form", ref="updateForm",  onsubmit="return validateForm()", action="../db/auth/update", method="post")
       div.col-xs-9
         div.table-responsive
@@ -49,4 +53,14 @@ block content
           return false;
       }
     }
-          
+    
+    $("#uploadimage").click(function(){
+        $("#fileup").trigger("click");
+      })
+      
+    $("#fileup").change(function(){
+      console.log("uploaded");
+      $("#filesub").trigger('click');
+    })
+    
+      
