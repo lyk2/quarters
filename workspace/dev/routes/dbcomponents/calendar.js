@@ -4,17 +4,17 @@ var db = require('./db-con');
 
 
 // this is occurs on every request, use to check against session for valid use
-router.use(function timeLog(req, res, next) {
-    if(req.session.user)
-        next();
-    else {
-        //res.send('please log in');
-        // uncomment this to allow testing
-        req.session.user = {};
-        req.session.user.uid = 6;
-        next();
-    }
-});
+// router.use(function timeLog(req, res, next) {
+//     if(req.session.user)
+//         next();
+//     else {
+//         //res.send('please log in');
+//         // uncomment this to allow testing
+//         req.session.user = {};
+//         req.session.user.uid = 6;
+//         next();
+//     }
+// });
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -23,13 +23,13 @@ router.get('/', function(req, res, next) {
 
 // load all events into calendar
 router.post('/getEvents',function(req,res,next){
-    var query = "SELECT event_id, event_title, event_start, event_end, event_ color, house_id FROM events WHERE house_id=$1 ORDER BY event_id;"
+    var query = "SELECT event_id AS id, event_title AS title, event_start AS start, event_end AS end, event_color AS color, house_id FROM events WHERE house_id=$1 ORDER BY event_id;"
     db.query(query,[req.session.house.active_house_id])
      .then(function(data){
-        res.send(JSON.stringify(data));
+        res.send(data);
      })
      .catch(function(error){
-        res.send("error while fetching calendar data");
+        res.send(error);
      });
 });
 
@@ -59,7 +59,7 @@ router.post('/editEvent', function(req,res,next){
     var query = "UPDATE events SET event_title=$1,event_start=$2,event_end=$3,event_color=$4 WHERE event_id=$5 AND house_id=$6;"
     db.query(query,[event_title,event_start,event_end,event_color,event_id,req.session.house.active_house_id])
         .then(function(data){
-            
+            // need stuff here
         })
         .catch(function(error){
             res.send('error occured while editing calendar event');
@@ -72,7 +72,7 @@ router.post('/deleteEvent', function(req,res,next){
     var query = "DELETE from events WHERE event_id=event_id;"
     db.query(query,[event_id])
         .then(function(data){
-            
+            res.send('{"event_id": ' + event_id + '}');
         })
         .catch(function(error){
             res.send('error occured while deleting calendar event');
