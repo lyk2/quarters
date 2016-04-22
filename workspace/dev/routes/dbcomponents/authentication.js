@@ -55,8 +55,6 @@ router.post('/login', function(req, res, next) {
 				if (!bcrypt.compareSync(password, data[0].password.trim())) {
 					res.send('failed - err code 2');
 				} else {
-
-					console.log(data[0]);
 					req.session.user = {
 						uid: data[0].user_id,
 						email: email,

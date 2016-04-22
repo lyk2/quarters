@@ -4,7 +4,6 @@ var db = require('../dbcomponents/db-con');
 var info = {};
 
 info.render = function(session, res) {
-
 	db.tx(function(t){
 		return t.batch([
 			t.any('select full_name, comment, date_time, b.user_id, post_id from bulletin_posts as b, user_info as u where b.house_id=$1 and b.user_id=u.user_id ORDER BY date_time DESC;', session.house.active_house_id)
@@ -23,6 +22,10 @@ info.render = function(session, res) {
             var date = new Date(renderdata.posts[i]['date_time']);
             renderdata.posts[i]['date_time'] = date.toLocaleDateString() +" "+ date.toLocaleTimeString("en-US", {hour: '2-digit', minute:'2-digit'});
         }
+
+		console.log("HERE1");
+		console.log(session.user);
+		console.log("HERE1");
 
 		res.render('app/bulletin', renderdata);
 	}).catch(function(error){

@@ -5,7 +5,7 @@ var router = express.Router();
 router.use(function timeLog(req, res, next) {
 
 	//req.session.user = {
-	//	'uid' : 10,
+	//	'uid' : 13,
 	//	'email': 'hacked'
 	//};
 
@@ -14,6 +14,8 @@ router.use(function timeLog(req, res, next) {
 	}
 	else if (req.session.user &&!req.session.house) {
 		// get default house
+
+
 		var db = require('./dbcomponents/db-con');
 		db.tx(function(t) {
 			return t.batch([
@@ -33,8 +35,6 @@ router.use(function timeLog(req, res, next) {
 
 			db.query('select distinct * from role, user_info where house_id=$1 and role.user_id=user_info.user_id', req.session.house.active_house_id)
 					.then(function(data){
-						req.session.house.members = data[0];
-						//console.log(req.session);
 						req.session.house.members = data;
 						next();
 					}).catch(function(error){
@@ -51,13 +51,11 @@ router.use(function timeLog(req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-	console.log(req.session);
-	res.redirect('/main/bulletin');
+	res.redirect('/main/maintence');
 });
 
 router.get('/bulletin', function(req, res, next) {
 	var bulletin = require('./app-utils/bulletin-utils');
-	console.log(req.session);
 	bulletin.render(req.session, res);
 });
 

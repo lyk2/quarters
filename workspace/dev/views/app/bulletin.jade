@@ -61,7 +61,7 @@ block content
 							h3.panel-title(style='\
 							display: inline-block;\
 							') #{val.full_name}
-							if user.uid = val.user_id
+							if user.uid == val.user_id
 								span.glyphicon.glyphicon-remove.remove-post
 							h3.panel-title(style='float:right') #{val.date_time}
 							
