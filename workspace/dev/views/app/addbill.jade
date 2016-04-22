@@ -159,17 +159,18 @@ script.
                     method: 'post',
                     dataType: 'json',
                     success: function (response) {
-                        alert("payer added");
-
+                        //alert("hahahaha");
+                      //  refreshBillTable();
                     },
                     error: function (error) {
-                        alert("payer error");
+                     //   alert("payer error");
                     }
                 });
+                refreshBillTable();
             },
             error: function(error) {
                 alert("bill error");
             }
         });
-        refreshBillTable();
+
     });
