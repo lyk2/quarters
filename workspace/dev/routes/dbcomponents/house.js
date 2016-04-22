@@ -43,6 +43,9 @@ router.get('/create', function(req, res, next) {
 	db.task(function (t) {
         return t.one("insert into house (address, city, province, country, postal_code, invite_code) values (${address}, ${city}, $(province), $(country), $(postalCode), $(invite)) returning *", data)
             .then(function (house) {
+				if (!req.session.house.all_houses){
+					req.session.house.all_houses=[];
+				}
 				req.session.house.all_houses.push({house_id:house.house_id, address:house.address});
                 return t.one("insert into role (user_id, house_id, role) values ($1, $2, $3) returning *", [req.session.user.uid, house.house_id, 1])
 				.then(function(d){

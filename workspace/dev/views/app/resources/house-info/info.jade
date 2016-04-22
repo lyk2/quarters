@@ -11,22 +11,22 @@
               h4 House
               .input-group(style='width:90%')
                 span.input-group-addon.readonly(style='width:30%') Address
-                input.form-control(type='text' name='address' value='#{info.address}')
+                input.form-control(type='text' name='address' value='#{info.address.trim()}')
               .input-group(style='width:90%')
                 span.input-group-addon.readonly(style='width:30%') City
-                input.form-control(type='text' name='city' value='#{info.city}')
+                input.form-control(type='text' name='city' value='#{info.city.trim()}')
               .input-group(style='width:90%')
                 span.input-group-addon.readonly(style='width:30%') Province
-                input.form-control(type='text' name='province' value='#{info.province}')
+                input.form-control(type='text' name='province' value='#{info.province.trim()}')
               .input-group(style='width:90%')
                 span.input-group-addon.readonly(style='width:30%') Country
-                input.form-control(type='text' name='country' value='#{info.country}')
+                input.form-control(type='text' name='country' value='#{info.country.trim()}')
               .input-group(style='width:90%')
                 span.input-group-addon.readonly(style='width:30%') Postal Code
-                input.form-control(type='text' name='postal_code' value='#{info.postal_code}')
+                input.form-control(type='text' name='postal_code' value='#{info.postal_code.trim()}')
               .input-group(style='width:90%')
                 span.input-group-addon.readonly(style='width:30%') Invite Code
-                input.form-control(type='text' name='invite_code' disabled value='#{info.invite_code}')
+                input.form-control(type='text' name='invite_code' disabled value='#{info.invite_code.trim()}')
             
               .row(style="padding-top:30px")
                 .col-lg-6.col-sm-12
