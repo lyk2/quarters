@@ -7,6 +7,30 @@ router.get('/', function(req, res, next) {
 	res.send('authentication interface');
 });
 
+router.post('/update', function(req, res, next) {
+
+    var cell = req.body.cell_num;
+    var desc = req.body.description;
+    var user = req.session.user.uid;
+
+    console.log(cell);
+    console.log(desc);
+    console.log(req.session.user.email);
+
+    var update_query = "UPDATE user_info SET cell_num = ($1), description = ($2) WHERE user_id = ($3)";
+
+    
+    db.query(update_query, [cell, desc, user])
+        .then(function(data) {
+            res.redirect('/main/userprofile');
+	    //res.send('{"success":true}');
+            console.log("ok");
+	}).catch(function(error) {
+            console.log("nope...");
+            res.send(error);
+	});
+});
+
 router.post('/signup', function(req, res, next) {
 	var email = req.body.email;
 	var password = req.body.password;
