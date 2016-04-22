@@ -88,6 +88,7 @@ script.
             success: function (response) {
                 var i;
                 for (i=0;i<response.length;i++){
+                    //if (response[i].user_id!=req)
                     $('#member_name_data').append('<li value='+response[i].user_id +'><a href="#">'+response[i].full_name+'</a></li>');
                 }
             },
@@ -120,27 +121,21 @@ script.
         var billList = $("#financeList > span");
         if (billList.length>0){
             billList[billList.length-1].remove();
+            payerListString= payerListString.substr(0,payerListString.lastIndexOf(','));
         }
     }
 
 script.
     $("#save").click(function(){
-        //add checks to see if values are there
-        var billList = $("#financeList > span > h4");
-        var i;
         var data={};
-
-        //var payerList = {};
-       // var payerListString = "";
-       // for (i = 0; i < billList.length; i++) {
-        //    var p = $(billList[i]).text().split("owes $");
-            //payerList[p[0].trim()]=p[1].trim();
-         //   if (i == 0) {
-         //       payerListString += p[0].trim() + ":" + p[1].trim();
-         //   } else {
-         //       payerListString += "," + p[0].trim() + ":" + p[1].trim();
-         //   }
-       // }
+        if (payerListString==""){
+            alert("Please add payers")
+            return;
+        }
+        if ($("#date_field").val()==""){
+            alert("Please add date");
+            return;
+        }
         data['payerList'] = payerListString;
         data['bill_type'] = $("#bill_type").val();
         data['date'] = $('#date_field').val();
