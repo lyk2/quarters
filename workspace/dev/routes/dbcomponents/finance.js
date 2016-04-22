@@ -22,7 +22,14 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/getHouseMembers',function(req,res,next){
-    res.send(req.session.house.members);
+    var data=[];
+    var houseMembers = req.session.house.members;
+    for (var i = 0; i < houseMembers.length; i++) {
+        if (houseMembers[i].user_id != req.session.user.uid){
+            data.push(houseMembers[i]);
+        }
+    }
+    res.send(data);
    /*db.query("select full_name from role,user_info where role.house_id = $1 and role.user_id = user_info.user_id;",[req.session.house.active_house_id])
         .then(function(data){
             res.send('{"name":hahaha}');
