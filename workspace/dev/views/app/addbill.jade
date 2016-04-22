@@ -1,0 +1,175 @@
+#billModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+    .modal-dialog(role='document')
+        .modal-content
+            .modal-header
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') ×
+                h4#newFinancePost.modal-title New Finance Post
+            .modal-body
+                .row.finance
+                    .col-xs-6
+                        | Event
+                    .col-xs-6
+                        button#bill_type.btn.btn-default.dropdown-toggle.col-xs-6(type='button', data-toggle='dropdown' value="Household")
+                            | Household
+                            span.caret
+                        ul#bill_type_data.dropdown-menu
+                            li
+                                a(href='#') Groceries
+                            li
+                                a(href='#') Electricity
+                            li
+                                a(href='#') Internet
+                            li
+                                a(href='#') Household
+                            li
+                                a(href='#') Other
+                .row
+                    .col-xs-6
+                        | Name
+                    .col-xs-6
+                        button#name_field.btn.btn-default.dropdown-toggle.col-xs-6(type='button', data-toggle='dropdown' placeholder='Name' )
+                            span.caret
+                        ul#member_name_data.dropdown-menu
+                br
+                .row
+                    .col-xs-6
+                        | Amount
+                    .col-xs-3
+                        input#amount_field.form-control(type='number', placeholder='Amount', aria-describedby='sizing-addon2')
+                br
+                .row
+                    .col-xs-6
+                        | Date
+                    .col-xs-3
+                        input#date_field(type='date')
+                .row.finance
+                    .col-xs-6
+                        | Description
+                    .col-xs-6
+                        textarea#description_field
+                input#adduser(type='button', onclick='add_users();' , value='Add')
+                input#deleteuser(type='button', onclick='delete_last();' , value='Delete')
+                br
+                br
+                .row.user-list
+                    .col-xs-12
+                        form#financeList
+            .modal-footer
+                button#save.btn.btn-primary(type='button', data-dismiss='modal') Save
+                button.btn.btn-default(type='button', data-dismiss='modal') Cancel
+script.
+    var payerListString="";
+    $(function () {
+        $("#bill_type_data.dropdown-menu li a").click(function () {
+            $("#bill_type:first-child").text($(this).text());
+            $("#bill_type").val($(this).text());
+        });
+    });
+
+    $("#member_name_data").delegate('a','click',  function () {
+        $("#name_field:first-child").text($(this).text());
+        $("#name_field").val($(this)[0].parentNode.value);
+    });
+
+
+    $(document).ready(function() {
+        $("#billModal").on('hidden.bs.modal', function (e) {
+            $(this).find("#date_field").val("");
+            $(this).find("#description_field").val("");
+            $(this).find("#financeList").empty();
+            payerListString="";
+        });
+
+        $.ajax({
+            url: "../db/finance/getHouseMembers",
+            method: 'post',
+            dataType: 'json',
+            success: function (response) {
+                var i;
+                for (i=0;i<response.length;i++){
+                    $('#member_name_data').append('<li value='+response[i].user_id +'><a href="#">'+response[i].full_name+'</a></li>');
+                }
+            },
+            error: function (error) {
+                alert("error");
+            }
+        });
+
+    });
+
+    function add_users() {
+        var amount = $("#amount_field").val();
+        var name = $("#name_field").text();
+        if (amount && name){
+            if (payerListString.length > 0) {
+                payerListString += "," +$("#name_field").val() + ":" + amount;
+            }else {
+                payerListString += $("#name_field").val() + ":" + amount;
+            }
+            $("#amount_field").val("");
+            $("#name_field").text("");
+            $("#name_field").val("");
+            $("#name_field").append('<span class="caret"></span>');
+            document.getElementById('financeList').innerHTML += '<span><h4>' + name + " owes $" + amount + '</h4></span>\r\n';
+        }
+
+    }
+
+    function delete_last() {
+        var billList = $("#financeList > span");
+        if (billList.length>0){
+            billList[billList.length-1].remove();
+        }
+    }
+
+script.
+    $("#save").click(function(){
+        //add checks to see if values are there
+        var billList = $("#financeList > span > h4");
+        var i;
+        var data={};
+
+        //var payerList = {};
+       // var payerListString = "";
+       // for (i = 0; i < billList.length; i++) {
+        //    var p = $(billList[i]).text().split("owes $");
+            //payerList[p[0].trim()]=p[1].trim();
+         //   if (i == 0) {
+         //       payerListString += p[0].trim() + ":" + p[1].trim();
+         //   } else {
+         //       payerListString += "," + p[0].trim() + ":" + p[1].trim();
+         //   }
+       // }
+        data['payerList'] = payerListString;
+        data['bill_type'] = $("#bill_type").val();
+        data['date'] = $('#date_field').val();
+        data['description'] = $('#description_field').val();
+        var output;
+        $.ajax({
+            url : "../db/finance/addBill",
+            data : data,
+            method: 'post',
+            dataType: 'json',
+            success: function(response){
+                data['bill_id']=response.bill_id;
+                $.ajax({
+                    url: "../db/finance/addPayer",
+                    data: data,
+                    method: 'post',
+                    dataType: 'json',
+                    success: function (response) {
+                        alert("payer added");
+
+                    },
+                    error: function (error) {
+                        alert("payer error");
+                    }
+                });
+            },
+            error: function(error) {
+                alert("bill error");
+            }
+        });
+        refreshBillTable();
+    });
