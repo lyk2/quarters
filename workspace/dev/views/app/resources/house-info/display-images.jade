@@ -7,4 +7,20 @@
         h3.panel-title House Files
       .panel-body
         .col-lg-6.col-sm-12          
-          img(src='../uploads/*.jpg', alt='No files uploaded.', style='width:100px;height:100px;')
+          ul#filelist.list-group
+
+  script.
+    $.ajax({
+      url: "../db/house_file/getFilePaths",
+      method: 'post',
+      dataType: 'json',
+      success: function (response) {
+        var i;
+        for (i = 0; i < response.length; i++) {
+          $('#filelist').append('<li class="list-group-item"><a href="../uploads/'+response[i].house_id+'/'+ response[i].filepath + '">'+response[i].filepath+'</a></li>');
+        }
+      },
+      error: function (error) {
+        alert("error");
+      }
+    });
