@@ -162,6 +162,20 @@ script.
                     }
                 });
                 refreshBillTable();
+                var notificationInfo={};
+                notificationInfo['description']="New bill added";
+                notificationInfo['action']="finances";
+                $.ajax({
+                    url: "../db/notification/newNotification",
+                    data: notificationInfo,
+                    method: 'post',
+                    dataType: 'json',
+                    success: function (response) {
+                    },
+                    error: function (error) {
+                        //   alert("payer error");
+                    }
+                });
             },
             error: function(error) {
                 alert("bill error");

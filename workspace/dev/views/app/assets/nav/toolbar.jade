@@ -36,7 +36,7 @@ ul.nav.navbar-top-links.navbar-right
           strong Read All Messages
           i.fa.fa-angle-right
   li.dropdown
-    a.dropdown-toggle(data-toggle='dropdown', href='#')
+    a#notificationButton.dropdown-toggle(data-toggle='dropdown', href='#',aria-expanded="false")
       i.fa.fa-bell.fa-fw
       i.fa.fa-caret-down
     ul#notification.dropdown-menu.dropdown-alerts
@@ -77,6 +77,22 @@ ul.nav.navbar-top-links.navbar-right
     refreshNotification();
     setInterval(refreshNotification,5000);
 
+    $("#notificationButton").on("click",function (){
+      if ($("#notificationButton").attr("aria-expanded") == "false"){
+        $('#notificationButton').css("color","#428bca");
+        $.ajax({
+          url: "../db/notification/markViewed",
+          method: 'post',
+          dataType: 'json',
+          success: function (response) {
+          },
+          error: function (error) {
+            alert("error while updating notification");
+          }
+        });
+      }
+    });
+
     function refreshNotification(){
       $.ajax({
         url: "../db/notification/getNotification",
@@ -85,6 +101,13 @@ ul.nav.navbar-top-links.navbar-right
         success: function (response) {
           $('#notification').empty();
           var i;
+          if (response.length>0){
+            if(!response[0].viewed){
+              $('#notificationButton').css("color","red");
+            }else{
+              $('#notificationButton').css("color","#428bca");
+            }
+          }
           for (i = 0; i < response.length; i++) {
             var sec = Math.floor(response[i].time_passed);
             var min=Math.floor(sec/60);
