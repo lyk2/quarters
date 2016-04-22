@@ -57,10 +57,14 @@ block content
 						if (response[i].paid){
 							paid = '<i class="fa fa-check fa-md"></i>';
 						}else{
-							paid = '<btn class="btn btn-danger btn-xs" onclick="pay()" value="{bill_id:'+response[i].bill_id+', to:'+response[i].owed_to+', by:'+response[i].owed_by+'">Pay Now</btn>';
+							paid = '<btn class="btn btn-danger btn-xs" data-billInfo="{"bill_id":'+response[i].bill_id+', "to":'+response[i].owed_to+', "from":'+response[i].owed_by+'}">Pay Now</btn>';
 						}
 						$('#finance_table').append('<tr><td>'+response[i].full_name+'</td><td>'+response[i].bill_type+'</td><td>'+response[i].you_owed+'</td><td>'+response[i].you_are_owed+'</td><td>'+response[i].bill_date+'</td><td>'+paid+'</td></tr>');
 						}
+					$(".btn-danger").click(function(){
+						console.log($(this).data("billInfo"));
+						//pay($(this).,32,3);
+					});
 					},
 				error: function (error) {
 					bootbox.alert("error");
@@ -68,11 +72,11 @@ block content
 			});
 		}
 
-		function pay() {
-				console.log($(this).source)
-				var $form = $(this).closest('form');
-				$('#confirm').modal({backdrop: 'static', keyboard: false})
-						.one('click', '#delete', function () {
-							$form.trigger('submit'); // submit the form
-						});
+		function pay(bill_id,to_id,from_id) {
+			console.log(bill_id);
+			//var $form = $(this).closest('form');
+			$('#confirm').modal({backdrop: 'static', keyboard: false})
+					.one('click', '#delete', function () {
+						//$form.trigger('submit'); // submit the form
+					});
 		};
