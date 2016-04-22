@@ -6,6 +6,7 @@ $(document).ready(function() {
 	$('#submitButton').on('click', function(e) {
 		e.preventDefault();
 		$('#createEventModal').modal('hide');
+		$('#eventName').val();
 
 		//send to database
 		$.ajax({
@@ -36,6 +37,7 @@ $(document).ready(function() {
 			true); // stick the event
 
 		$('#calendar').fullCalendar('unselect');
+
 
 	});
 
@@ -87,20 +89,19 @@ $(document).ready(function() {
 		},
 
 		// Convert the allDay from string to boolean
-		eventRender: function(event, element, view) {
-			if (event.allDay === 'true') {
-			 	event.allDay = true;
-			} else {
-			 	event.allDay = true;
-			}
-		},
+		// eventRender: function(event, element, view) {
+		// 	if (event.allDay === 'true') {
+		// 	 	event.allDay = true;
+		// 	} else {
+		// 	 	event.allDay = true;
+		// 	}
+		// },
 
 		// edit date of event
 		eventDrop: function(event, delta, revertFunc) {
 			// var end = event.end.format('dddd, MMMM D');
 			// var start = event.start.format('dddd, MMMM D');
 			// var title = event.title;
-			alert(event.title + " was dropped on " + event.start.format());
 			$.ajax({
 				url: '../db/calendar/editEvent',
 				type: 'post',
@@ -114,8 +115,6 @@ $(document).ready(function() {
 				},
 				type: "POST",
 				success: function(json) {
-
-					alert("Updated Successfully");
 				},
 				error: function (error) {
                     alert("Update not successful");
@@ -123,40 +122,24 @@ $(document).ready(function() {
 			});
 		},
 
-		// eventAfterRender:function(event, element, view ) { 
-		// 	$(element).attr("id","event_id_"+event.id);
-		// },
-
 		// to delete event
 		eventClick: function (event) {
-			alert('Event id: ' + event.id);
-			// var event_id = event.id;
 			$('#deleteEventModal').modal('show');
 			$("#deleteEvent").click(function() { // event handler to delete event
-				// function confirm() {
-				// 	confirm("Are you sure you want to delete this event?");
-				// }
-				// if (confirm) {
-					$.ajax({
-						url: '../db/calendar/deleteEvent',
-						data: {
-							'event_id': event.id
-						},
-						type: "POST",
-						success: function(data) {
-							alert("Event deleted");
-							$('#calendar').fullCalendar('removeEvents', event._id);
-						},
-						error: function (error) {
-		                    alert("Deletion not successful");
-		                }
-					});
-				// }
-				// else {
-
+				$.ajax({
+					url: '../db/calendar/deleteEvent',
+					data: {
+						'event_id': event.id
+					},
+					type: "POST",
+					success: function(data) {
+						$('#calendar').fullCalendar('removeEvents', event._id);
+					},
+					error: function (error) {
+	                    alert("Deletion not successful");
+	                }
+				});
 			});
-				
-            // });
 
 			$('#calendar').fullCalendar('updateEvent', event);
 		}
