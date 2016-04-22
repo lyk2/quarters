@@ -4,10 +4,10 @@ var router = express.Router();
 // this is occurs on every request, use to check against session for valid use
 router.use(function timeLog(req, res, next) {
 
-	//req.session.user = {
-	//	'uid' : 13,
-	//	'email': 'hacked'
-	//};
+	// req.session.user = {
+	// 	'uid' : 9,
+	// 	'email': 'hacked'
+	// };
 
 	if (req.session.user && req.session.house) {
 		next();
@@ -51,7 +51,7 @@ router.use(function timeLog(req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-	res.redirect('/main/maintence');
+	res.redirect('/main/maintenance');
 });
 
 router.get('/bulletin', function(req, res, next) {
