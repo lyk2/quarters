@@ -1,35 +1,44 @@
 extends ./app.jade
 
 block content
-	div.row
-		div.col-lg-12
-			h3.page-header= profile.full_name
-			button.btn.btn-default(style="margin-top:-60px; float:right") Send Message
-		div.col-xs-3
-			img.img-circle.center(src='../img/avatars/avatar.jpg', width='90%')
-		div.col-xs-9
-			div.table-responsive
-				table.table
-					tr
-						td Age
-						td
-							input.form-control(type='text' readonly=true value='#{profile.age}' )
-					tr
-						td Date of Birth
-						td
-							input.form-control(type='text' readonly=true value='#{profile.date_of_birth}' )
-					tr
-						td Contact Number
-						td
-							input.form-control(type='text' readonly=true value='#{profile.cell_num}' )
-					tr
-						td Contact Email
-						td
-							input.form-control(type='text' readonly=true value='#{profile.email}' )
-					tr 
-						td Rating
-						td 2/5
-					tr
-						td Description
-						td
-							textarea.form-control(type='text' readonly=true)= profile.description
+  div.row
+  div.col-lg-12
+      h3.page-header= profile.full_name
+      button.btn.btn-default(style="margin-top:-60px; float:right") Send Message
+    div.col-xs-3
+      img.img-circle.center(src='../img/avatars/avatar.jpg', width='90%')
+    form(name="updateForm", role="form", ref="updateForm",  onsubmit="return validateForm()", action="../db/auth/update", method="post")
+      div.col-xs-9
+        div.table-responsive
+          table.table
+            tr
+              td Contact Email
+              td=profile.email
+            tr
+              td Contact Number
+              td
+                input#cell_num.form-control(type='text', name='cell_num', value='#{profile.cell_num}' )
+            tr
+              td Description
+              td
+                input#description.form-control(type='text', name='description', value='#{profile.description}')
+           tr
+             td
+             td
+               input#modify-info.form-control.btn.btn-default(type='submit', name='modify-info', style="float:right" value='Click to Apply Changes')
+
+
+  script.
+    function validateForm() {
+      var x = document.forms["updateForm"]["cell_num"].value;
+      var y = document.forms["updateForm"]["description"].value;
+      if (x == null || x == "") {
+          alert("Contact number cannot be left blank");
+          return false;
+      }
+      if (y == null || y == "") {
+          alert("Description cannot be left blank");
+          return false;
+      }
+    }
+          

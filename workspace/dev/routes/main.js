@@ -51,7 +51,7 @@ router.use(function timeLog(req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-	res.redirect('/main/maintenance');
+	res.redirect('/main/bulletin');
 });
 
 router.get('/bulletin', function(req, res, next) {
