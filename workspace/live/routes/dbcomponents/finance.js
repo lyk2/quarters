@@ -10,8 +10,8 @@ router.use(function timeLog(req, res, next) {
     else {
         //res.send('please log in');
         // uncomment this to allow testing
-        req.session.user = {};
-        req.session.user.uid = 6;
+        //req.session.user = {};
+        //req.session.user.uid = 6;
         next();
     }
 });

@@ -10,15 +10,15 @@
 					div.col-xs-12
 						.input-group(style="width:100%")
 							span#basic-addon1.input-group-addon(style="width:200px") Title
-							input.form-control(type='text', placeholder='Ticket Title', aria-describedby='basic-addon1')
+							input#ticket-title.form-control(type='text', placeholder='Ticket Title', aria-describedby='basic-addon1')
 						.input-group(style="width:100%")
 							span#basic-addon1.input-group-addon(style="width:200px") Description
-							textarea.form-control(placeholder='Provide any additional details')
+							textarea#ticket-desc.form-control(placeholder='Provide any additional details')
 						.input-group(style="width:100%")
 							span#basic-addon1.input-group-addon(style="width:200px") Urgency
 							.input-group-btn(style="width:100%")
 								button#type-button-status.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false', style="width:100%")
-									| Select Type 
+									| Low
 									span.caret
 								ul#newticket-type.dropdown-menu
 									li
@@ -31,7 +31,7 @@
 							
 						
 			.modal-footer
-				button.btn.btn-primary(type='button') Create Ticket
+				button#createticket.btn.btn-primary(type='button') Create Ticket
 				button.btn.btn-default(type='button', data-dismiss='modal') Close
 
 script.
@@ -39,3 +39,46 @@ script.
 		var status = $(this).text() + '<span class="caret"></span>';
 		$("#type-button-status").html(status);
 	})
+	
+	$('#createticket').click(function(){
+		
+		var type = $("#type-button-status").text();
+		
+		if (type.indexOf('Low') >= 0) {
+			type = 0;
+		} else if (type.indexOf('Medium') >= 0) {
+			type = 1;
+		} else if (type.indexOf('High') >= 0){
+			type = 2;
+		} else {
+			alert("Urgency not stated");
+			return;
+		}
+		
+		var ticketinfo = {
+			"title": $('#ticket-title').val(),
+			"description": $('#ticket-desc').val(),
+			"type" : type
+		}
+		
+		console.log(ticketinfo);
+		
+		makeTicket(ticketinfo);
+		
+	});
+	
+	function makeTicket(ticketinfo){
+		$.ajax({
+			url: '../db/ticket/new',
+			type: 'post',
+			data: ticketinfo,
+			dataType: 'json',
+			success: function(dat) {
+				console.log(dat);
+			},
+			error: function(dat) {
+				console.log("nope");
+			}
+		});
+	}
+	

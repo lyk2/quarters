@@ -5,7 +5,7 @@ var router = express.Router();
 router.use(function timeLog(req, res, next) {
 
 	//req.session.user = {
-	//	'uid' : 10,
+	//	'uid' : 13,
 	//	'email': 'hacked'
 	//};
 
@@ -14,6 +14,8 @@ router.use(function timeLog(req, res, next) {
 	}
 	else if (req.session.user &&!req.session.house) {
 		// get default house
+
+
 		var db = require('./dbcomponents/db-con');
 		db.tx(function(t) {
 			return t.batch([
@@ -53,7 +55,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/bulletin', function(req, res, next) {
-	//res.render('app/bulletin', req.session);
 	var bulletin = require('./app-utils/bulletin-utils');
 	bulletin.render(req.session, res);
 });

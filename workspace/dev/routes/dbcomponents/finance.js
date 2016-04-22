@@ -58,23 +58,39 @@ router.post('/addBill', function(req,res,next){
         });
 });
 
+router.post('/payBill', function(req,res,next){
+    var bill_id = req.body.bill_id;
+    var to_id = req.body.to;
+    var from_id = req.body.from;
+    db.query("update bill_owed set paid=true where bill_id = $1 and owed_to = $2 and owned_by = $3;",[bill_id, to_id, from_id])
+        .then(function(data){
+            res.send('{}');
+        })
+        .catch(function(error){
+            res.send('error occured while updating bills');
+        });
+});
+
+
+
 router.post('/addPayer',function(req,res,next){
     var payerList = req.body.payerList.split(',')
     var i;
-    var error = false;
+    var err = false;
     for (i = 0; i < payerList.length; i++){
         var payer=payerList[i].split(':');
         var uid = payer[0];
         var amount = payer[1];
+
         db.query ("Insert into bill_owed (bill_id,owed_to,owned_by,paid,amount) values ($1,$2,$3,$4,$5);",[req.body.bill_id,req.session.user.uid,uid,false,amount])
             .then(function(data){
             })
             .catch(function(error){
-                error = true;
+                err = true;
             });
     }
-    if (error){
-        res.send("error");
+    if (err){
+        res.send({});
     }
 });
 
