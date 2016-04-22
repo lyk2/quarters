@@ -58,7 +58,8 @@ script.
 		var ticketinfo = {
 			"title": $('#ticket-title').val(),
 			"description": $('#ticket-desc').val(),
-			"type" : type
+			"urgency" : type,
+			"date_time": new Date()
 		}
 		
 		console.log(ticketinfo);
@@ -74,7 +75,25 @@ script.
 			data: ticketinfo,
 			dataType: 'json',
 			success: function(dat) {
-				console.log(dat);
+				console.log(dat[0]);
+				tickets.push(dat[0]);
+				showTicket(dat[0]);
+				$("#myModal").modal('hide');
+				
+				var notificationInfo={};
+				notificationInfo['description']="New Ticket created by " + getMember(session.user.uid).full_name;
+				notificationInfo['action']="maintenance";
+				$.ajax({
+					url: "../db/notification/newNotification",
+					data: notificationInfo,
+					method: 'post',
+					dataType: 'json',
+					success: function (response) {
+					},
+					error: function (error) {
+						//   alert("payer error");
+					}
+				});
 			},
 			error: function(dat) {
 				console.log("nope");
@@ -82,3 +101,139 @@ script.
 		});
 	}
 	
+	function getAllTickets(){
+		$.ajax({
+			url: '../db/ticket/show',
+			type: 'post',
+			data: {},
+			dataType: 'json',
+			success: function(dat) {
+				console.log(dat);
+				tickets = dat;
+				
+				for (var i = 0; i < tickets.length; i++){
+					showTicket(tickets[i]);
+				}
+			},
+			error: function(dat) {
+				console.log("nope");
+			}
+		});
+	}
+	
+	function showTicket(row){
+		
+		var html = '<tr><td>'+row.status+'</td><td>'+row.title+'</td><td>'+getUrgency(row.urgency)+'</td><td>'+htmlDateTime(row.create_date_time)+'</td><td>'+htmlDateTime(row.updated_date_time)+'</td><td><button class="btn btn-default" ticket='+row.ticket_id+'>View</button></td><tr>'
+		$("table th").parent().after(html);
+		
+		var button = $("button[ticket=\""+row.ticket_id+"\"]");
+		button.click(function(){
+			var ticket_id = parseInt($(this).attr("ticket"));
+			populateView(getTicket(ticket_id));
+			getReplies();
+			$("#replies").empty();
+			
+			if (getTicket(ticket_id).user_id != session.user.uid){
+				$("#actionsrow").hide();
+			} else {
+				$("#actionsrow").show();
+			}
+			$("#viewTicketModal").modal("show");
+			
+			
+		});
+	}
+	
+	function populateView(ticket) {
+		$("#viewTicketModal .ticket-id").val(ticket.ticket_id);
+		$("#viewTicketModal .status").text(ticket.status);
+		$("#viewTicketModal .title").val(ticket.title);
+		$("#viewTicketModal .desc").text(ticket.description);
+		$("#viewTicketModal .urgency").text(getUrgency(ticket.urgency));
+	}
+	
+	function getUrgency(x){
+		switch (x) {
+			case 0:
+				return "Low";
+				break;
+			case 1:
+			 	return "Medium";
+				break;
+			case 2:
+				return "High";
+				break;
+		}
+	}
+	
+	function getTicket(id){
+		for (var i = 0; i < tickets.length; i++){
+			if (tickets[i].ticket_id == id) {
+				return tickets[i];
+			}
+		}
+		
+		return {};
+	}
+	function htmlDateTime(x){
+		var now = new Date(x);
+		return (now.getFullYear()  + '/' + (now.getMonth() + 1) + '/' + (now.getDate()) + " " + now.getHours() + ':' + ((now.getMinutes())))
+	}
+	
+	function setSession(){
+		$.ajax({
+			url: '../db/ticket/sesh',
+			async:false,
+			type: 'post',
+			data: {},
+			dataType: 'json',
+			success: function(dat) {
+				session = dat;
+			},
+			error: function(dat) {
+				console.log("nope");
+			}
+		});
+	}
+	
+	function getReplies(){
+		$.ajax({
+			url: '../db/ticket/getreply',
+			type: 'post',
+			data: {ticket_id :$("#viewTicketModal .ticket-id").val()},
+			dataType: 'json',
+			success: function(dat) {
+				populateReplies(dat);
+			},
+			error: function(dat) {
+				console.log("nope");
+			}
+		});
+	}
+	
+	function populateReplies(list) {
+		for (var i = 0; i < list.length; i ++) {
+			$("#replies").append(genReply(list[i]));
+		}
+	}
+	
+	function genReply(reply){
+		var html = '<div class="panel-footer"><span><img src="../img/boy.png" width="15px" class="img">';
+		html += '<span>'+getMember(reply.user_id).full_name.trim()+' : </span>';
+		html += '<span class="comment">'+reply.comment+'</span></span></div>';
+		
+		return html;
+	}
+	
+	function getMember(id){
+		for (var i = 0; i < session.house.members.length; i++){
+			if (session.house.members[i].user_id == id) {
+				return session.house.members[i];
+			}
+		}
+		
+		return {};
+	}
+	
+	setSession();
+	getAllTickets();

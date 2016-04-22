@@ -1,0 +1,148 @@
+#viewTicketModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='viewTicketModalLabel')
+	.modal-dialog(role='document')
+		.modal-content
+			.modal-header
+				button.close(type='button', data-dismiss='modal', aria-label='Close')
+					span(aria-hidden='true') ×
+				h4#viewTicketModalLabel.modal-title Viewing Ticket
+			.modal-body
+				div.row
+					div.col-xs-12
+						input.ticket-id(type="text" style="display:none")
+						.input-group(style="width:100%")
+							span#basic-addon1.input-group-addon(style="width:200px") Status
+							.input-group-btn(style="width:100%")
+								button.status.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false', style="width:100%")
+									| New
+									span.caret
+								ul.status-dropdown.dropdown-menu
+									li
+										a(href='#') New
+									li
+										a(href='#') In Progress
+									li
+										a(href='#') On Hold
+									li
+										a(href='#') Done
+						.input-group(style="width:100%")
+							span#basic-addon1.input-group-addon(style="width:200px") Title
+							input.title.form-control(type='text', placeholder='Ticket Title', aria-describedby='basic-addon1', disabled)
+						.input-group(style="width:100%")
+							span#basic-addon1.input-group-addon(style="width:200px") Description
+							textarea.desc.form-control(placeholder='Provide any additional details', disabled)
+						.input-group(style="width:100%")
+							span#basic-addon1.input-group-addon(style="width:200px") Urgency
+							.input-group-btn(style="width:100%")
+								button.urgency.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false', style="width:100%", disabled)
+									| Low
+									span.caret
+								ul#newticket-type.dropdown-menu
+									li
+										a(href='#') Low
+									li
+										a(href='#') Medium
+									li
+										a(href='#') High
+				div.row
+					div.col-xs-12
+						h4 Comments
+						div#replies.panel.panel-default
+						.input-group
+							input.reply-text.form-control(type='text', placeholder='Message...')
+							span.input-group-btn
+								button.btn.btn-default.reply-post(type='button') Reply
+				div#actionsrow.row
+					div.col-xs-12
+						h4 Actions
+						.btn-group.btn-group-sm(role='group', aria-label='Small button group')
+							button#updateticket.btn.btn-default(type='button') Update
+							button#closeticket.btn.btn-default(type='button') Close Ticket
+
+						
+										
+
+							
+						
+			.modal-footer
+				button.btn.btn-default(type='button', data-dismiss='modal') Close
+script. 
+	$("#viewTicketModal .reply-post").click(function(){
+	
+		var info = {
+			ticket_id 	: $("#viewTicketModal .ticket-id").val(),
+			comment		: $("#viewTicketModal .reply-text").val(),
+			date_time	: new Date()
+		};
+		
+		$.ajax({
+			url: '../db/ticket/reply',
+			type: 'post',
+			data: info,
+			dataType: 'json',
+			success: function(dat) {
+				populateReplies(dat);
+				$("#viewTicketModal .reply-text").val('');
+				
+				var notificationInfo={};
+				notificationInfo['description']= getMember(session.user.uid).full_name + " commented on Ticket["+getTicket($("#viewTicketModal .ticket-id").val()).title+"]";
+				notificationInfo['action']="maintenance";
+				$.ajax({
+					url: "../db/notification/newNotification",
+					data: notificationInfo,
+					method: 'post',
+					dataType: 'json',
+					success: function (response) {
+					},
+					error: function (error) {
+						//   alert("payer error");
+					}
+				});
+				
+			},
+			error: function(dat) {
+				console.log("nope");
+			}
+		});
+		
+	});
+	
+	$("#closeticket").click(function(){
+	
+		var info = {
+			ticket_id 	: $("#viewTicketModal .ticket-id").val(),
+			comment		: $("#viewTicketModal .reply-text").val(),
+			date_time	: new Date()
+		};
+		
+		$("button[ticket='"+info.ticket_id+"']").closest("tr").remove();
+		
+		$.ajax({
+			url: '../db/ticket/rm',
+			type: 'post',
+			data: info,
+			dataType: 'json',
+			success: function(dat) {
+				$("#viewTicketModal").modal("hide");
+				
+				var notificationInfo={};
+				notificationInfo['description']="Ticket Closed by" + getMember(session.user.uid).full_name;
+				notificationInfo['action']="#";
+				$.ajax({
+					url: "../db/notification/newNotification",
+					data: notificationInfo,
+					method: 'post',
+					dataType: 'json',
+					success: function (response) {
+					},
+					error: function (error) {
+						//   alert("payer error");
+					}
+				});
+				
+			},
+			error: function(dat) {
+				console.log("nope");
+			}
+		});
+		
+	});

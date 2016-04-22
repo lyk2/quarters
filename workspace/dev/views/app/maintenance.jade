@@ -2,6 +2,7 @@ extends ./app.jade
 
 block content
 	include ./resources/ticketing/newticket
+	include ./resources/ticketing/viewticket
 	div.row
 		div.col-lg-12
 			h1.page-header Maintenance
@@ -16,8 +17,8 @@ block content
 			table.table.table-responsive.table-striped
 				tr
 					th Status
-					th Description
-					th Type
+					th Title
+					th Urgency
 					th Create date
-					th Last update
+					th Last updated
 					th Actions

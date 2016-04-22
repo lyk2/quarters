@@ -287,5 +287,11 @@ script.
     
 if house.active_house_id == -1
   script.
-    $("#openhouseselect").trigger('click');
+    $('#selectHouseModal').modal({
+      backdrop: 'static',
+      keyboard: false
+    })
+
+    $("#selectHouseModal").modal("show");
+    $("#selectHouseModal button[type='safe-close']").remove();
     var wtf = #{house.active_house_id} 

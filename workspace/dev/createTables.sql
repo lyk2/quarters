@@ -109,11 +109,13 @@ CREATE TABLE tickets
     ticket_id serial NOT NULL,
     user_id integer NOT NULL,
     house_id integer NOT NULL,
+    title varchar(255),
     description varchar(255),
     status varchar(255),
-    type int NOT NULL,
+    urgency int NOT NULL,
     create_date_time timestamp,
     updated_date_time timestamp,
+    CONSTRAINT tickets_pkey PRIMARY KEY(ticket_id),
     CONSTRAINT user_id_fkey FOREIGN KEY (user_id)
         REFERENCES "user" (user_id) MATCH SIMPLE
         ON UPDATE CASCADE ON DELETE CASCADE,
@@ -134,5 +136,21 @@ CREATE TABLE events
     CONSTRAINT event_id_pkey PRIMARY KEY (event_id),
     CONSTRAINT house_id_fkey FOREIGN KEY (house_id)
         REFERENCES "house" (house_id) MATCH SIMPLE
+        ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE tickets_replies
+(
+    reply_id serial NOT NULL,
+    ticket_id integer NOT NULL,
+    user_id integer NOT NULL,
+    comment varchar(255),
+    date_time timestamp,
+    CONSTRAINT tickets_replies_pkey PRIMARY KEY(reply_id),
+    CONSTRAINT user_id_fkey FOREIGN KEY (user_id)
+        REFERENCES "user" (user_id) MATCH SIMPLE
+        ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT ticket_id_fkey FOREIGN KEY (ticket_id)
+        REFERENCES "tickets" (ticket_id) MATCH SIMPLE
         ON UPDATE CASCADE ON DELETE CASCADE
 );

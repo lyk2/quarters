@@ -1,3 +1,28 @@
+function setSession(){
+    $.ajax({
+        url: '../db/ticket/sesh',
+        async:false,
+        type: 'post',
+        data: {},
+        dataType: 'json',
+        success: function(dat) {
+            session = dat;
+        },
+        error: function(dat) {
+            console.log("nope");
+        }
+    });
+}
+setSession();
+function getMember(id){
+    for (var i = 0; i < session.house.members.length; i++){
+        if (session.house.members[i].user_id == id) {
+            return session.house.members[i];
+        }
+    }
+
+    return {};
+}
 function hello() {
     console.log('fml');
 }
@@ -16,6 +41,21 @@ function newPost(comment) {
         dataType: 'json',
         success: function(da) {
             addNewPostLayout(da[0]);
+
+            var notificationInfo={};
+			notificationInfo['description']=getMember(session.user.uid).full_name + " posted on the buletin";
+			notificationInfo['action']="bulletin";
+			$.ajax({
+				url: "../db/notification/newNotification",
+				data: notificationInfo,
+				method: 'post',
+				dataType: 'json',
+				success: function (response) {
+				},
+				error: function (error) {
+					//   alert("payer error");
+				}
+			});
         },
         error: function(data) {
             console.log("ddd")
@@ -199,6 +239,21 @@ $("#posts .reply-post").click(function(){
         success: function(dat) {
             displaySubReply(dat[0]);
             $("div[postid='"+dat[0]['post_id']+"'] input").val("");
+
+            var notificationInfo={};
+			notificationInfo['description']=getMember(session.user.uid).full_name + " replied to a post";
+			notificationInfo['action']="bulletin";
+			$.ajax({
+				url: "../db/notification/newNotification",
+				data: notificationInfo,
+				method: 'post',
+				dataType: 'json',
+				success: function (response) {
+				},
+				error: function (error) {
+					//   alert("payer error");
+				}
+			});
         },
         error: function(dat) {
             console.log("nope")
