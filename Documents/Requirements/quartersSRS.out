@@ -1,90 +1,90 @@
-\BOOKMARK [1][-]{section.1}{Project Drivers}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{The Purpose of the Project}{section.1}% 2
-\BOOKMARK [3][-]{subsubsection.1.1.1}{Project Background}{subsection.1.1}% 3
-\BOOKMARK [3][-]{subsubsection.1.1.2}{Project Goal}{subsection.1.1}% 4
-\BOOKMARK [2][-]{subsection.1.2}{The Client, the Customer, and Other Stakeholders}{section.1}% 5
-\BOOKMARK [3][-]{subsubsection.1.2.1}{The Client}{subsection.1.2}% 6
-\BOOKMARK [3][-]{subsubsection.1.2.2}{The Customer}{subsection.1.2}% 7
-\BOOKMARK [3][-]{subsubsection.1.2.3}{Other Stakeholders}{subsection.1.2}% 8
-\BOOKMARK [2][-]{subsection.1.3}{Users of the Product}{section.1}% 9
-\BOOKMARK [1][-]{section.2}{Project Constraints}{}% 10
-\BOOKMARK [2][-]{subsection.2.1}{Solution Constraints}{section.2}% 11
-\BOOKMARK [2][-]{subsection.2.2}{Implementation Environment of the Current System}{section.2}% 12
-\BOOKMARK [2][-]{subsection.2.3}{Partner or Collaborative Applications}{section.2}% 13
-\BOOKMARK [2][-]{subsection.2.4}{Off-the-Shelf Software}{section.2}% 14
-\BOOKMARK [2][-]{subsection.2.5}{Anticipated Workplace Environment}{section.2}% 15
-\BOOKMARK [2][-]{subsection.2.6}{Schedule Constraints}{section.2}% 16
-\BOOKMARK [2][-]{subsection.2.7}{Budget Constraints}{section.2}% 17
-\BOOKMARK [2][-]{subsection.2.8}{Enterprise Constraints}{section.2}% 18
-\BOOKMARK [1][-]{section.3}{Naming Conventions and Terminology}{}% 19
-\BOOKMARK [1][-]{section.4}{Relevant Facts and Assumptions}{}% 20
-\BOOKMARK [2][-]{subsection.4.1}{Relevant Facts}{section.4}% 21
+\BOOKMARK [1][-]{section.1}{Project\040Drivers}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{The\040Purpose\040of\040the\040Project}{section.1}% 2
+\BOOKMARK [3][-]{subsubsection.1.1.1}{Project\040Background}{subsection.1.1}% 3
+\BOOKMARK [3][-]{subsubsection.1.1.2}{Project\040Goal}{subsection.1.1}% 4
+\BOOKMARK [2][-]{subsection.1.2}{The\040Client,\040the\040Customer,\040and\040Other\040Stakeholders}{section.1}% 5
+\BOOKMARK [3][-]{subsubsection.1.2.1}{The\040Client}{subsection.1.2}% 6
+\BOOKMARK [3][-]{subsubsection.1.2.2}{The\040Customer}{subsection.1.2}% 7
+\BOOKMARK [3][-]{subsubsection.1.2.3}{Other\040Stakeholders}{subsection.1.2}% 8
+\BOOKMARK [2][-]{subsection.1.3}{Users\040of\040the\040Product}{section.1}% 9
+\BOOKMARK [1][-]{section.2}{Project\040Constraints}{}% 10
+\BOOKMARK [2][-]{subsection.2.1}{Solution\040Constraints}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.2}{Implementation\040Environment\040of\040the\040Current\040System}{section.2}% 12
+\BOOKMARK [2][-]{subsection.2.3}{Partner\040or\040Collaborative\040Applications}{section.2}% 13
+\BOOKMARK [2][-]{subsection.2.4}{Off-the-Shelf\040Software}{section.2}% 14
+\BOOKMARK [2][-]{subsection.2.5}{Anticipated\040Workplace\040Environment}{section.2}% 15
+\BOOKMARK [2][-]{subsection.2.6}{Schedule\040Constraints}{section.2}% 16
+\BOOKMARK [2][-]{subsection.2.7}{Budget\040Constraints}{section.2}% 17
+\BOOKMARK [2][-]{subsection.2.8}{Enterprise\040Constraints}{section.2}% 18
+\BOOKMARK [1][-]{section.3}{Naming\040Conventions\040and\040Terminology}{}% 19
+\BOOKMARK [1][-]{section.4}{Relevant\040Facts\040and\040Assumptions}{}% 20
+\BOOKMARK [2][-]{subsection.4.1}{Relevant\040Facts}{section.4}% 21
 \BOOKMARK [2][-]{subsection.4.2}{Assumptions}{section.4}% 22
-\BOOKMARK [1][-]{section.5}{Functional Requirements}{}% 23
-\BOOKMARK [2][-]{subsection.5.1}{The Scope of the Work}{section.5}% 24
-\BOOKMARK [3][-]{subsubsection.5.1.1}{The Current Situation}{subsection.5.1}% 25
-\BOOKMARK [3][-]{subsubsection.5.1.2}{The Context of the Work}{subsection.5.1}% 26
-\BOOKMARK [3][-]{subsubsection.5.1.3}{Work Partitioning}{subsection.5.1}% 27
-\BOOKMARK [2][-]{subsection.5.2}{Business Data Model and Data Dictionary}{section.5}% 28
-\BOOKMARK [2][-]{subsection.5.3}{The Scope of the Product}{section.5}% 29
-\BOOKMARK [3][-]{subsubsection.5.3.1}{Product Boundary}{subsection.5.3}% 30
-\BOOKMARK [2][-]{subsection.5.4}{Functional and Data Requirements}{section.5}% 31
-\BOOKMARK [1][-]{section.6}{Nonfunctional Requirements}{}% 32
-\BOOKMARK [2][-]{subsection.6.1}{Look and Feel Requirements}{section.6}% 33
-\BOOKMARK [3][-]{subsubsection.6.1.1}{Appearance Requirements}{subsection.6.1}% 34
-\BOOKMARK [3][-]{subsubsection.6.1.2}{Style Requirements}{subsection.6.1}% 35
-\BOOKMARK [2][-]{subsection.6.2}{Usability and Humanity Requirements}{section.6}% 36
-\BOOKMARK [3][-]{subsubsection.6.2.1}{Ease of Use Requirements}{subsection.6.2}% 37
-\BOOKMARK [3][-]{subsubsection.6.2.2}{Personalization and Internationalization Requirements}{subsection.6.2}% 38
-\BOOKMARK [3][-]{subsubsection.6.2.3}{Learning Requirements}{subsection.6.2}% 39
-\BOOKMARK [3][-]{subsubsection.6.2.4}{Understandability and Politeness Requirements}{subsection.6.2}% 40
-\BOOKMARK [3][-]{subsubsection.6.2.5}{Accessibility Requirements}{subsection.6.2}% 41
-\BOOKMARK [2][-]{subsection.6.3}{Performance Requirements}{section.6}% 42
-\BOOKMARK [3][-]{subsubsection.6.3.1}{Speed and Latency Requirements}{subsection.6.3}% 43
-\BOOKMARK [3][-]{subsubsection.6.3.2}{Safety-Critical Requirements}{subsection.6.3}% 44
-\BOOKMARK [3][-]{subsubsection.6.3.3}{Precision or Accuracy Requirements}{subsection.6.3}% 45
-\BOOKMARK [3][-]{subsubsection.6.3.4}{Reliability and Availability Requirements}{subsection.6.3}% 46
-\BOOKMARK [3][-]{subsubsection.6.3.5}{Robustness or Fault-Tolerance Requirements}{subsection.6.3}% 47
-\BOOKMARK [3][-]{subsubsection.6.3.6}{Capacity Requirements}{subsection.6.3}% 48
-\BOOKMARK [3][-]{subsubsection.6.3.7}{Scalability or Extensibility Requirements}{subsection.6.3}% 49
-\BOOKMARK [3][-]{subsubsection.6.3.8}{Longevity Requirements}{subsection.6.3}% 50
-\BOOKMARK [2][-]{subsection.6.4}{Operational and Environmental Requirements}{section.6}% 51
-\BOOKMARK [3][-]{subsubsection.6.4.1}{Expected Physical Environment}{subsection.6.4}% 52
-\BOOKMARK [3][-]{subsubsection.6.4.2}{Requirements for Interfacing with Adjacent Systems}{subsection.6.4}% 53
-\BOOKMARK [3][-]{subsubsection.6.4.3}{Productization Requirements}{subsection.6.4}% 54
-\BOOKMARK [3][-]{subsubsection.6.4.4}{Release Requirements}{subsection.6.4}% 55
-\BOOKMARK [2][-]{subsection.6.5}{Maintainability and Support Requirements}{section.6}% 56
-\BOOKMARK [3][-]{subsubsection.6.5.1}{Maintenance Requirements}{subsection.6.5}% 57
-\BOOKMARK [3][-]{subsubsection.6.5.2}{Supportability Requirements}{subsection.6.5}% 58
-\BOOKMARK [3][-]{subsubsection.6.5.3}{Adaptability Requirements}{subsection.6.5}% 59
-\BOOKMARK [2][-]{subsection.6.6}{Security Requirements}{section.6}% 60
-\BOOKMARK [3][-]{subsubsection.6.6.1}{Access Requirements}{subsection.6.6}% 61
-\BOOKMARK [3][-]{subsubsection.6.6.2}{Integrity Requirements}{subsection.6.6}% 62
-\BOOKMARK [3][-]{subsubsection.6.6.3}{Privacy Requirements}{subsection.6.6}% 63
-\BOOKMARK [3][-]{subsubsection.6.6.4}{Audit Requirements}{subsection.6.6}% 64
-\BOOKMARK [3][-]{subsubsection.6.6.5}{Immunity Requirements}{subsection.6.6}% 65
-\BOOKMARK [2][-]{subsection.6.7}{Cultural and Political Requirements}{section.6}% 66
-\BOOKMARK [2][-]{subsection.6.8}{Legal Requirements}{section.6}% 67
-\BOOKMARK [1][-]{section.7}{Project Issues}{}% 68
-\BOOKMARK [2][-]{subsection.7.1}{Open Issues}{section.7}% 69
-\BOOKMARK [2][-]{subsection.7.2}{Off the Shelf Solutions}{section.7}% 70
-\BOOKMARK [3][-]{subsubsection.7.2.1}{Ready-Made Products}{subsection.7.2}% 71
-\BOOKMARK [3][-]{subsubsection.7.2.2}{Reusable Components}{subsection.7.2}% 72
-\BOOKMARK [3][-]{subsubsection.7.2.3}{Products That Can Be Copied}{subsection.7.2}% 73
-\BOOKMARK [2][-]{subsection.7.3}{New Problems}{section.7}% 74
-\BOOKMARK [3][-]{subsubsection.7.3.1}{Effects on the Current Environment}{subsection.7.3}% 75
-\BOOKMARK [3][-]{subsubsection.7.3.2}{Effects on the Installed Systems}{subsection.7.3}% 76
-\BOOKMARK [3][-]{subsubsection.7.3.3}{Potential User Problems}{subsection.7.3}% 77
-\BOOKMARK [3][-]{subsubsection.7.3.4}{Limitations in the Anticipated Implementation Environment That May Inhibit the New Product}{subsection.7.3}% 78
-\BOOKMARK [3][-]{subsubsection.7.3.5}{Follow-Up Problems}{subsection.7.3}% 79
+\BOOKMARK [1][-]{section.5}{Functional\040Requirements}{}% 23
+\BOOKMARK [2][-]{subsection.5.1}{The\040Scope\040of\040the\040Work}{section.5}% 24
+\BOOKMARK [3][-]{subsubsection.5.1.1}{The\040Current\040Situation}{subsection.5.1}% 25
+\BOOKMARK [3][-]{subsubsection.5.1.2}{The\040Context\040of\040the\040Work}{subsection.5.1}% 26
+\BOOKMARK [3][-]{subsubsection.5.1.3}{Work\040Partitioning}{subsection.5.1}% 27
+\BOOKMARK [2][-]{subsection.5.2}{Business\040Data\040Model\040and\040Data\040Dictionary}{section.5}% 28
+\BOOKMARK [2][-]{subsection.5.3}{The\040Scope\040of\040the\040Product}{section.5}% 29
+\BOOKMARK [3][-]{subsubsection.5.3.1}{Product\040Boundary}{subsection.5.3}% 30
+\BOOKMARK [2][-]{subsection.5.4}{Functional\040and\040Data\040Requirements}{section.5}% 31
+\BOOKMARK [1][-]{section.6}{Nonfunctional\040Requirements}{}% 32
+\BOOKMARK [2][-]{subsection.6.1}{Look\040and\040Feel\040Requirements}{section.6}% 33
+\BOOKMARK [3][-]{subsubsection.6.1.1}{Appearance\040Requirements}{subsection.6.1}% 34
+\BOOKMARK [3][-]{subsubsection.6.1.2}{Style\040Requirements}{subsection.6.1}% 35
+\BOOKMARK [2][-]{subsection.6.2}{Usability\040and\040Humanity\040Requirements}{section.6}% 36
+\BOOKMARK [3][-]{subsubsection.6.2.1}{Ease\040of\040Use\040Requirements}{subsection.6.2}% 37
+\BOOKMARK [3][-]{subsubsection.6.2.2}{Personalization\040and\040Internationalization\040Requirements}{subsection.6.2}% 38
+\BOOKMARK [3][-]{subsubsection.6.2.3}{Learning\040Requirements}{subsection.6.2}% 39
+\BOOKMARK [3][-]{subsubsection.6.2.4}{Understandability\040and\040Politeness\040Requirements}{subsection.6.2}% 40
+\BOOKMARK [3][-]{subsubsection.6.2.5}{Accessibility\040Requirements}{subsection.6.2}% 41
+\BOOKMARK [2][-]{subsection.6.3}{Performance\040Requirements}{section.6}% 42
+\BOOKMARK [3][-]{subsubsection.6.3.1}{Speed\040and\040Latency\040Requirements}{subsection.6.3}% 43
+\BOOKMARK [3][-]{subsubsection.6.3.2}{Safety-Critical\040Requirements}{subsection.6.3}% 44
+\BOOKMARK [3][-]{subsubsection.6.3.3}{Precision\040or\040Accuracy\040Requirements}{subsection.6.3}% 45
+\BOOKMARK [3][-]{subsubsection.6.3.4}{Reliability\040and\040Availability\040Requirements}{subsection.6.3}% 46
+\BOOKMARK [3][-]{subsubsection.6.3.5}{Robustness\040or\040Fault-Tolerance\040Requirements}{subsection.6.3}% 47
+\BOOKMARK [3][-]{subsubsection.6.3.6}{Capacity\040Requirements}{subsection.6.3}% 48
+\BOOKMARK [3][-]{subsubsection.6.3.7}{Scalability\040or\040Extensibility\040Requirements}{subsection.6.3}% 49
+\BOOKMARK [3][-]{subsubsection.6.3.8}{Longevity\040Requirements}{subsection.6.3}% 50
+\BOOKMARK [2][-]{subsection.6.4}{Operational\040and\040Environmental\040Requirements}{section.6}% 51
+\BOOKMARK [3][-]{subsubsection.6.4.1}{Expected\040Physical\040Environment}{subsection.6.4}% 52
+\BOOKMARK [3][-]{subsubsection.6.4.2}{Requirements\040for\040Interfacing\040with\040Adjacent\040Systems}{subsection.6.4}% 53
+\BOOKMARK [3][-]{subsubsection.6.4.3}{Productization\040Requirements}{subsection.6.4}% 54
+\BOOKMARK [3][-]{subsubsection.6.4.4}{Release\040Requirements}{subsection.6.4}% 55
+\BOOKMARK [2][-]{subsection.6.5}{Maintainability\040and\040Support\040Requirements}{section.6}% 56
+\BOOKMARK [3][-]{subsubsection.6.5.1}{Maintenance\040Requirements}{subsection.6.5}% 57
+\BOOKMARK [3][-]{subsubsection.6.5.2}{Supportability\040Requirements}{subsection.6.5}% 58
+\BOOKMARK [3][-]{subsubsection.6.5.3}{Adaptability\040Requirements}{subsection.6.5}% 59
+\BOOKMARK [2][-]{subsection.6.6}{Security\040Requirements}{section.6}% 60
+\BOOKMARK [3][-]{subsubsection.6.6.1}{Access\040Requirements}{subsection.6.6}% 61
+\BOOKMARK [3][-]{subsubsection.6.6.2}{Integrity\040Requirements}{subsection.6.6}% 62
+\BOOKMARK [3][-]{subsubsection.6.6.3}{Privacy\040Requirements}{subsection.6.6}% 63
+\BOOKMARK [3][-]{subsubsection.6.6.4}{Audit\040Requirements}{subsection.6.6}% 64
+\BOOKMARK [3][-]{subsubsection.6.6.5}{Immunity\040Requirements}{subsection.6.6}% 65
+\BOOKMARK [2][-]{subsection.6.7}{Cultural\040and\040Political\040Requirements}{section.6}% 66
+\BOOKMARK [2][-]{subsection.6.8}{Legal\040Requirements}{section.6}% 67
+\BOOKMARK [1][-]{section.7}{Project\040Issues}{}% 68
+\BOOKMARK [2][-]{subsection.7.1}{Open\040Issues}{section.7}% 69
+\BOOKMARK [2][-]{subsection.7.2}{Off\040the\040Shelf\040Solutions}{section.7}% 70
+\BOOKMARK [3][-]{subsubsection.7.2.1}{Ready-Made\040Products}{subsection.7.2}% 71
+\BOOKMARK [3][-]{subsubsection.7.2.2}{Reusable\040Components}{subsection.7.2}% 72
+\BOOKMARK [3][-]{subsubsection.7.2.3}{Products\040That\040Can\040Be\040Copied}{subsection.7.2}% 73
+\BOOKMARK [2][-]{subsection.7.3}{New\040Problems}{section.7}% 74
+\BOOKMARK [3][-]{subsubsection.7.3.1}{Effects\040on\040the\040Current\040Environment}{subsection.7.3}% 75
+\BOOKMARK [3][-]{subsubsection.7.3.2}{Effects\040on\040the\040Installed\040Systems}{subsection.7.3}% 76
+\BOOKMARK [3][-]{subsubsection.7.3.3}{Potential\040User\040Problems}{subsection.7.3}% 77
+\BOOKMARK [3][-]{subsubsection.7.3.4}{Limitations\040in\040the\040Anticipated\040Implementation\040Environment\040That\040May\040Inhibit\040the\040New\040Product}{subsection.7.3}% 78
+\BOOKMARK [3][-]{subsubsection.7.3.5}{Follow-Up\040Problems}{subsection.7.3}% 79
 \BOOKMARK [2][-]{subsection.7.4}{Tasks}{section.7}% 80
-\BOOKMARK [3][-]{subsubsection.7.4.1}{Project Planning}{subsection.7.4}% 81
-\BOOKMARK [3][-]{subsubsection.7.4.2}{Planning of the Development Phases}{subsection.7.4}% 82
-\BOOKMARK [2][-]{subsection.7.5}{Migration to New Product}{section.7}% 83
+\BOOKMARK [3][-]{subsubsection.7.4.1}{Project\040Planning}{subsection.7.4}% 81
+\BOOKMARK [3][-]{subsubsection.7.4.2}{Planning\040of\040the\040Development\040Phases}{subsection.7.4}% 82
+\BOOKMARK [2][-]{subsection.7.5}{Migration\040to\040New\040Product}{section.7}% 83
 \BOOKMARK [2][-]{subsection.7.6}{Risks}{section.7}% 84
 \BOOKMARK [2][-]{subsection.7.7}{Costs}{section.7}% 85
-\BOOKMARK [2][-]{subsection.7.8}{User Documentation and Training}{section.7}% 86
-\BOOKMARK [3][-]{subsubsection.7.8.1}{User Documentation Requirements}{subsection.7.8}% 87
-\BOOKMARK [3][-]{subsubsection.7.8.2}{Training Requirements}{subsection.7.8}% 88
-\BOOKMARK [2][-]{subsection.7.9}{Waiting Room}{section.7}% 89
-\BOOKMARK [2][-]{subsection.7.10}{Ideas for Solutions}{section.7}% 90
+\BOOKMARK [2][-]{subsection.7.8}{User\040Documentation\040and\040Training}{section.7}% 86
+\BOOKMARK [3][-]{subsubsection.7.8.1}{User\040Documentation\040Requirements}{subsection.7.8}% 87
+\BOOKMARK [3][-]{subsubsection.7.8.2}{Training\040Requirements}{subsection.7.8}% 88
+\BOOKMARK [2][-]{subsection.7.9}{Waiting\040Room}{section.7}% 89
+\BOOKMARK [2][-]{subsection.7.10}{Ideas\040for\040Solutions}{section.7}% 90
