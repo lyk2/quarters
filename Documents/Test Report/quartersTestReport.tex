@@ -96,17 +96,17 @@ In this section the test cases carried out on each individual module are describ
 \pagebreak
 
 %4.1 User Registration
-\subsection{User Registration}
+\subsection{Account Registration}
 
 \begin{longtable}{|L{0.5cm}|L{1.5cm}|L{1.5cm}|L{3.5cm}|L{4cm}|L{2cm}|L{1.5cm}|}
 \hline
 \textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\
 \hline
-1.1 & User Registration & Landing page. Empty fields. & Email and password entered. Clicks register. & Redirected to application main page. & As expected. & PASS \\
+1.1 & Account Registration & Landing page. Empty fields. & Email and password entered. Clicks register. & Redirected to application main page. & As expected. & PASS \\
 \hline
-1.2 & User Registration & Landing page. Empty fields. & Empty field(s). Clicks register. & Stays on the same page. Error message appears. Empty field is highlighted. & As expected. & PASS \\
+1.2 & Account Registration & Landing page. Empty fields. & Empty field(s). Clicks register. & Stays on the same page. Error message appears. Empty field is highlighted. & As expected. & PASS \\
 \hline
-1.3 & User Registration & Landing page. Empty fields. & Email address already stored in database. Clicks register. & Stays on the same page. Error message appears. Email field is highlighted. & As expected. & PASS \\
+1.3 & Account Registration & Landing page. Empty fields. & Email address already stored in database. Clicks register. & Stays on the same page. Error message appears. Email field is highlighted. & As expected. & PASS \\
 \hline
 \end{longtable}
 
@@ -115,7 +115,7 @@ In this section the test cases carried out on each individual module are describ
 %4.2 User Login 
 \subsection{User Login}
 
-\begin{longtable}{|L{0.5cm}|L{1.5cm}|L{2cm}|L{3.0cm}|L{4cm}|L{2cm}|L{1.5cm}|}
+\begin{longtable}{|L{0.5cm}|L{1.5cm}|L{2cm}|L{3.0cm}|L{4cmapplication}|L{2cm}|L{1.5cm}|}
 \hline
 \textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\
 \hline
@@ -246,23 +246,13 @@ In this section the test cases carried out on each individual module are describ
 \hline
 \textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\
 \hline
-9.1 & File Upload & 0 files in storage. & User tries to upload a file of size $s$, where $s \le$ max file size. & Successful file upload. & As expected. & PASS \\
+9.1 & File Upload & 0 files in storage. & User tries to upload a file. & Successful file upload. & As expected. & PASS \\
 \hline
-9.2 & File Upload & 0 files in storage. & User tries to upload a file of size $s$, where $s >$ max file size. & Error message indicating file has not been uploaded. & As expected. & PASS \\
+9.2 & File Upload & $n$ files in storage. & User tries to upload a file of size $s$, where $s \le$ total remaining space. & Successful file upload. & As expected. & PASS \\
 \hline
-9.3 & File Upload & $n$ files in storage. & User tries to upload a file of size $s$, where $s \le$ total remaining space. & Successful file upload. & As expected. & PASS \\
+9.3 & File Download & $n$ files in storage. & User requests to download a file. & Successful file download. & As expected. & PASS \\
 \hline
-9.4 & File Upload & $n$ files in storage. & User tries to upload a file of size $s$, where $s >$ total remaining space. & Error message indicating file has not been uploaded. & As expected. & PASS \\
-\hline
-9.5 & File Upload & $n$ files in storage. & User tries to upload a file with an invalid type. & Error message indicating file has not been uploaded. & As expected. & PASS \\
-\hline
-9.6 & File Download & $n$ files in storage. & User requests to download a file. & Successful file download. & As expected. & PASS \\
-\hline
-9.7 & File Download & $n$ files in storage. & Connection interrupted while download is in progress. & Error message indicating file has not been downloaded. & As expected. & PASS \\
-\hline
-9.8 & File Upload & $n$ files in storage. & User tries to upload  $n > 1$ files. & Error message indicating only one file can be uploaded at a time. & As expected. & PASS \\
-\hline
-9.9 & File Delete & $n$ files in storage. & User clicks delete file. & File removed. & As expected. & PASS \\
+9.4 & File Download & $n$ files in storage. & Connection interrupted while download is in progress. & Error message indicating file has not been downloaded. & As expected. & PASS \\
 \hline
 \end{longtable}
 
