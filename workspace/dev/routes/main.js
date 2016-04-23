@@ -27,7 +27,7 @@ router.use(function timeLog(req, res, next) {
 				req.session.house = {
 					active_house_id: active_house_id,
 					address: address,
-					all_houses: data[1]
+					all_houses: (data[1]) ? data[1] : [] 
 				};
 
 				db.query('select distinct * from role, user_info where house_id=$1 and role.user_id=user_info.user_id', req.session.house.active_house_id)
