@@ -66,6 +66,8 @@ January 18, 2016 & Fixed Constraints and Ideas for Solutions. \\
 \hline
 February 8-10, 2016 & Updated Naming Conventions and Terminology, Users of the Product, Work Partitioning Table, Functional Requirements, Waiting Room. \\ 
 \hline
+April 23, 2016 & Addressed all key questions asked by the marker in feedback comments and ensured overall read was clear and logical. Updated requirements on the role of the administrator and the user, as well as clearer requirements of a house. Revised our core features to reflect our April demonstration.  \\ 
+\hline
 \end{longtable}
 
 \section*{Template}
@@ -209,60 +211,65 @@ See Figure \ref{fig:workcontext}.
 \end{figure}
 
 \subsubsection{Work Partitioning} 
-See Table \ref{tab:workpartition}.
+See Table \ref{tab:workpartition}. The numbering of these events coincide with the numbers of the event/use cases in Section \ref{functional}.
 \begin{longtable}{|p{5cm}|p{5cm}|p{5cm}|}
 \hline
-\textbf{Event Name}  & \textbf{Input and Output} & \textbf{Summary} \\ 
+\textbf{Event Number and Name}  & \textbf{Input and Output} & \textbf{Summary} \\ 
 \hline
 1. User creates account. & \mbox{User email (IN)} \linebreak User password (IN) & User creates 
 an account. The system then adds the account to the database. \\ 
 \hline
-2. User deletes account. & \mbox{User email (IN)} \linebreak \mbox{User password 
+1. User deletes account. & \mbox{User email (IN)} \linebreak \mbox{User password 
 (IN)} & User deletes their account. The system then removes the account from the 
 database. \\ 
 \hline
-3. User logs in. & \mbox{User email (IN)} \linebreak User password (IN) & User logs 
+2. User logs in. & \mbox{User email (IN)} \linebreak User password (IN) & User logs 
 in to app. \\ 
 \hline
-4. User logs out. & User email (IN) & User logs out of app. \\
+2. User logs out. & User email (IN) & User logs out of app. \\
+\hline
+3. User adds chore/event. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Chore/Event (IN)} 
+\linebreak Calendar (OUT) & User submits a chore or event to be displayed 
+on the Calendar. \\ \hline
+3. User deletes chore/event. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Chore/Event (IN)} 
+\linebreak Calendar (OUT) & User deletes a chore to be removed from the Calendar. \\
+\hline
+4. User submits maintenance request. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak \mbox{Request (IN)} \linebreak Request (OUT) & User submits a 
+maintenance request to be received by another user of the same house. \\
+\hline
+4. User updates maintenance request. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak \mbox{Request (IN)} \linebreak Request (OUT) & User marks a maintenance request as complete. \\
 \hline
 5. User creates house. & \mbox{House address (IN)} \linebreak Invitation code (OUT) & User 
 inputs the house address into system. The system then saves the house in the 
 database. The user that created the house becomes, by default, the administrator of the house. A unique invitation code is generated that the house creator uses to invite other users to join the house. \\
 \hline
-6. User joins house. & \mbox{User email (IN)} \linebreak Invitation code (IN) & User 
+5. User joins house. & \mbox{User email (IN)} \linebreak Invitation code (IN) & User 
 enters invitation code. The system adds the user to the house. \\
 \hline
-7. User leaves house. & \mbox{User email (IN)} \linebreak House address (IN) & User 
+5. User leaves house. & \mbox{User email (IN)} \linebreak House address (IN) & User 
 selects a house to leave. The system removes the user from the house. \\
 \hline
-8. User uploads file. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak File (IN) & User adds a 
+6. Landing Page. & \mbox{Choose Login or Signup (IN)} \linebreak Redirected to appropriate page (OUT) & Displays information about Quarters and buttons to login or signup. \\
+\hline
+7. User adds record of financial transaction. & \mbox{User A email (IN)} \linebreak \mbox{User B email (IN)} \linebreak \mbox{House address (IN)} \linebreak \mbox{Record of transaction (IN)} \linebreak \mbox{Transaction history (OUT)} & User A enters the monetary amount and the name of User B (another user belonging to the same house) with whom they completed an external financial transaction. A record of the transaction is 
+displayed. \\
+\hline
+8. Notifications. & \mbox{Updates from  sections (IN)} \linebreak \mbox{Notification displayed (OUT)} & Updates from sections displayed in notification bar. \\
+\hline
+9. User uploads file. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak File (IN) & User adds a 
 file to be visible to house. The system then saves the file in the database. \\
 \hline
-9. User submits maintenance request. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak \mbox{Request (IN)} \linebreak Request (OUT) & User submits a 
-maintenance request to be received by another user of the same house. \\
-\hline
-10. User updates maintenance request. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak \mbox{Request (IN)} \linebreak Request (OUT) & User marks a maintenance request as complete. \\
-\hline
-11. User adds chore/event. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Chore/Event (IN)} 
-\linebreak Calendar (OUT) & User submits a chore or event to be displayed 
-on the Calendar. \\ \hline
-12. User deletes chore/event. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Chore/Event (IN)} 
-\linebreak Calendar (OUT) & User deletes a chore to be removed from the Calendar. \\
-\hline
-13. User adds post. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Post (IN)} \linebreak 
+10. User adds post. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Post (IN)} \linebreak 
 Bulletin Board (OUT) & User adds post to bulletin board. \\
 \hline
-14. User comments on post. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Comment (IN)} 
+10. User comments on post. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Comment (IN)} 
 \linebreak Bulletin Board (OUT) & User comments on post on bulletin board. 
 \\
 \hline
-15. User deletes post. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Post (IN)} \linebreak 
+10. User deletes post. & \mbox{User email (IN)} \linebreak \mbox{House address (IN)} \linebreak\mbox{Post (IN)} \linebreak 
 Bulletin Board (OUT) & User deletes post from bulletin board. \\
 \hline
-16. User adds record of financial transaction. & \mbox{User A email (IN)} \linebreak \mbox{User B email (IN)} \linebreak \mbox{House address (IN)} \linebreak \mbox{Record of transaction (IN)} \linebreak \mbox{Transaction history (OUT)} & User A enters the monetary amount and the name of User B (another user belonging to the same house) with whom they completed an external financial transaction. A record of the transaction is 
-displayed. \\
-\hline
+
 \caption{Work Partitioning}
 \label{tab:workpartition}
 \end{longtable}
@@ -274,7 +281,7 @@ N/A.
 \subsubsection{Product Boundary}
 N/A.
 
-\subsection{Functional and Data Requirements}
+\subsection{Functional and Data Requirements} \label{functional}
 \NumTabs{5}
 \textbf{Requirement \#:} 1
       \tab{\textbf{Event/Use Case:} 1}
@@ -284,19 +291,13 @@ N/A.
       \textbf{Fit Criterion: }{Only a registered user can use the application.} \\ \\ 
 \textbf{Requirement \#:} 2
       \tab{\textbf{Event/Use Case:} 2}
-      \tab{\textbf{Priority:} 2} \\
-      \textbf{Description: }{Account removal.} \\
-      \textbf{Rationale: }{For users who wish to delete their account from the system.} \\
-      \textbf{Fit Criterion: }{Once a user deletes their account they cannot use the application unless they create a new account.} \\ \\ 
-\textbf{Requirement \#:} 3
-      \tab{\textbf{Event/Use Case:} 3}
       \tab{\textbf{Priority:} 5} \\
       \textbf{Description: }{User login.} \\
       \textbf{Rationale: }{All users should be able to securely login.} \\
       \textbf{Fit Criterion: }{Upon passing proper credentials, user completes 
 the login process. If user inputs incorrect email/password combination, the user is prompted to try again.} \\ \\
 \textbf{Requirement \#:} 4
-      \tab{\textbf{Event/Use Case:} 4}
+      \tab{\textbf{Event/Use Case:} 2}
       \tab{\textbf{Priority:} 5} \\
       \textbf{Description: }{User logout.} \\
       \textbf{Rationale: }{All users should be able to securely logout.} \\
@@ -309,7 +310,7 @@ the login process. If user inputs incorrect email/password combination, the user
       \textbf{Fit Criterion:} A house object is created in the database, with
       the creator as its default administrator. \\ \\  
 \textbf{Requirement \#:} 7
-      \tab{\textbf{Event/Use Case:} 6}
+      \tab{\textbf{Event/Use Case:} 5}
       \tab{\textbf{Priority:} 5} \\
       \textbf{Description:} User joins a house. \\
       \textbf{Rationale:} To allow multiple users to join house groups which
@@ -317,21 +318,21 @@ the login process. If user inputs incorrect email/password combination, the user
       \textbf{Fit Criterion:} The user is added to the list of members
       associated with the house they are joining. \\ \\
 \textbf{Requirement \#:} 8
-      \tab{\textbf{Event/Use Case:} 7}
+      \tab{\textbf{Event/Use Case:} 5}
       \tab{\textbf{Priority:} 5} \\
       \textbf{Description:} User leaves a house. \\
       \textbf{Rationale:} To allow a user that is a member of a house to leave the house group. \\
       \textbf{Fit Criterion:} The user is removed from the list of members
       associated with the house they are leaving. \\ \\
 \textbf{Requirement \#:} 9
-      \tab{\textbf{Event/Use Case:} }
+      \tab{\textbf{Event/Use Case:} 5}
       \tab{\textbf{Priority:} 5} \\
       \textbf{Description:} House management section. \\
       \textbf{Rationale:} To view: the list of houses a user belongs to, house documents, member profiles, and house details. Also, to allow user to switch house views.\\
       \textbf{Fit Criterion:} House information is accurate and user can switch which house to view. \\ \\
 \textbf{Requirement \#:} 10
-      \tab{\textbf{Event/Use Case:} 11}
-      \tab{\textbf{Priority:} 4} \\
+      \tab{\textbf{Event/Use Case:} 3}
+      \tab{\textbf{Priority:} 5} \\
       \textbf{Description: }{Calendar section.} \\
       \textbf{Rationale: }{To allow users to keep track of upcoming chores and events.} \\
       \textbf{Fit Criterion: }{Calendar format should be based off the 
@@ -343,7 +344,43 @@ standardized ICS structure. This platform should support the addition and deleti
       \textbf{Rationale: }{Users may have different devices with different 
 screen resolutions. The application should be able to support all types.} \\
       \textbf{Fit Criterion: }{Web platform should support mobile screens and 
-desktop screens, including both horizontal and vertical layouts.} 
+desktop screens, including both horizontal and vertical layouts.} \\ \\
+\textbf{Requirement \#:} 11
+      \tab{\textbf{Event/Use Case: }7
+      \tab{\textbf{Priority:} 5} \\
+      \textbf{Description: }{Finance Tracking.} \\
+      \textbf{Rationale: }{To keep a history log of external payments between users.} \\
+      \textbf{Fit Criterion: }{Users log the relevant information regarding the transaction in a form, and the information is displayed in a table.} \\ \\
+\textbf{Requirement \#:} 11
+      \tab{\textbf{Event/Use Case: }10
+      \tab{\textbf{Priority:} 5} \\
+      \textbf{Description: }{Bulletin Board.} \\
+      \textbf{Rationale: }{A discussion board to allow easy and quick communication between members of the house in one centralized location.} \\
+      \textbf{Fit Criterion: }{This feature should allow users to make posts and comment on posts.} \\ \\
+\textbf{Requirement \#:} 11
+      \tab{\textbf{Event/Use Case: }9
+      \tab{\textbf{Priority:} 5} \\
+      \textbf{Description: }{Document Storage.} \\
+      \textbf{Rationale: }{A section under House management that allows users to upload and store documents relative to their house.} \\
+      \textbf{Fit Criterion: }{This feature should allow users to upload a file and have it stored.} \\ \\
+\textbf{Requirement \#:} 11
+      \tab{\textbf{Event/Use Case: }8
+      \tab{\textbf{Priority:} 5} \\
+      \textbf{Description: }{Notifications.} \\
+      \textbf{Rationale: }{To give users real-time updates of changes made in different sections in an accessible location.} \\
+      \textbf{Fit Criterion: }{This feature should show a notifications icon in the top navigation bar with a drop-down showing the notifications in chronological order.} \\ \\
+\textbf{Requirement \#:} 11
+      \tab{\textbf{Event/Use Case: }4
+      \tab{\textbf{Priority:} 5} \\
+      \textbf{Description: }{Maintenance Ticketing.} \\
+      \textbf{Rationale: }{To give users a clear and structured system for reporting maintenance-related problems in the house to another user.} \\
+      \textbf{Fit Criterion: }{This feature should show a notifications icon in the top navigation bar with a drop-down showing the notifications in chronological order.} \\ \\
+\textbf{Requirement \#:} 11
+      \tab{\textbf{Event/Use Case: }6
+      \tab{\textbf{Priority:} 5} \\
+      \textbf{Description: }{Landing Page.} \\
+      \textbf{Rationale: }{Information on Quarters and access to login/signup.} \\
+      \textbf{Fit Criterion: }{Buttons to login and signup.} 
         
 \section{Nonfunctional Requirements}
 \subsection{Look and Feel Requirements}
@@ -416,7 +453,7 @@ release will be in April 2016.
 \subsubsection{Maintenance Requirements}
 N/A.
 \subsubsection{Supportability Requirements}
-A user help guide and FAQ section will be made available to all users; new users will be given a tour of the application.
+A user help guide and FAQ section will be made available to all users.
 \subsubsection{Adaptability Requirements}
 The web application is expected to run on web browsers on mobile phones, tablets 
 and desktop computers.
@@ -487,6 +524,7 @@ Old web browsers are not compatible with the web application.
     \item Design back-end of the application.
     \item Split application into different modules and assign one module to each 
 member for completion.
+	\item Begin with account registration and user login, 
 \end{itemize}
 
 \subsection{Migration to New Product}
@@ -509,11 +547,9 @@ N/A.
 \begin{itemize}
   \item A help guide will be included.
   \item FAQ section.
-  \item Tour of the website is shown for first time user.
 \end{itemize}
 \subsubsection{Training Requirements}
-No training is required for the user. When they visit for the first time they 
-will be given a tour. 
+No training is required for the user.
 \subsection{Waiting Room}
 The next release will include the following features:
 \begin{itemize}
