@@ -115,7 +115,7 @@ In this section the test cases carried out on each individual module are describ
 %4.2 User Login 
 \subsection{User Login}
 
-\begin{longtable}{|L{0.5cm}|L{1.5cm}|L{2cm}|L{3.0cm}|L{4cmapplication}|L{2cm}|L{1.5cm}|}
+\begin{longtable}{|L{0.5cm}|L{1.5cm}|L{2cm}|L{3.0cm}|L{4cm}|L{2cm}|L{1.5cm}|}
 \hline
 \textbf{No.} & \textbf{Test Case}  & \textbf{Initial State} & \textbf{Input} & \textbf{Expected Output} & \textbf{Actual Output} & \textbf{Result}\\
 \hline
@@ -256,8 +256,6 @@ In this section the test cases carried out on each individual module are describ
 \hline
 \end{longtable}
 
-\pagebreak
-
 %4.10 Bulletin Board
 \subsection{Bulletin Board}
 \begin{longtable}{|L{1.5cm}|L{2cm}|L{2cm}|L{2.25cm}|L{3cm}|L{1.75cm}|L{1.5cm}|}
@@ -285,15 +283,43 @@ The usability of Quarters was evaluated by asking test participants to complete 
 Figure \ref{fig:participants} shows the participants. This data was collected during Task 1. The task completion rate was 100\% for both tasks 2a and 2b, and the average times were both less than 60 seconds. Therefore the success metric stated in the Test Plan was met for completion rate and completion time, as shown in Figure \ref{fig:task2}. Figure \ref{fig:task3} illustrates the results from Task 3. The average response rating for each question is shown.
 
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{figures/participants.png}
+    \begin{tiny}
+        \renewcommand*{\arraystretch}{1.4}
+        \begin{longtable}{|L{1.5cm}|L{1.15cm}|L{1.15cm}|L{1.15cm}|L{1.15cm}|L{1cm}|L{1cm}|L{1cm}|L{1cm}|L{1.15cm}|L{1.1cm}|}
+            \hline
+            \textbf{Participant} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{D} & \textbf{E} & \textbf{F} & \textbf{G} & \textbf{H} & \textbf{I} & \textbf{J}\\
+            \hline
+            \textbf{Type} & Tenant & Tenant & Tenant & Tenant & Tenant & Tenant & Tenant & Tenant & Landlord & Landlord \\
+            \hline
+            \textbf{Age} & 22 & 18 & 22 & 21 & 20 & 18 & 22 & 22 & 47 & 58 \\
+            \hline
+            \textbf{Age} & Male & Female & Female & Male & Male & Female & Male & Female & Male & Male \\
+            \hline
+            \textbf{Device} & Computer & Computer & Computer & Computer & Mobile & Mobile & Mobile & Mobile & Computer & Mobile \\
+            \hline
+            \textbf{Browser} & Firefox & Opera & Safari & Explorer & Chrome & Chrome & Safari & Safari & Chrome & Safari \\
+            \hline
+            \textbf{Pre Survey} & Weekly & Never & Daily & Weekly & Daily & Never & Weekly & Weekly & Daily & Never \\
+            \hline
+            \textbf{Pre Survey} & Weekly & Never & Daily & Weekly & Daily & Monthly & Weekly & Weekly & Daily & Monthly \\
+            \hline
+        \end{longtable}
+    \end{tiny}
     \caption{Task 1 Pre-Questionnaire Responses.}
     \label{fig:participants}
 \end{figure}
 
+
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{figures/task2.png}
+    \begin{longtable}{|L{5cm}|L{5cm}|L{5cm}|}
+        \hline
+        \textbf{Task} & 2a & 2b \\
+        \hline
+        \textbf{Completion Rate} & 100\% & 100\% \\
+        \hline
+        \textbf{Avg. Time(s)} & 59.02 & 38.81 \\
+        \hline
+    \end{longtable}
     \caption{Average time for Task 2.}
     \label{fig:task2}
 \end{figure}
@@ -309,9 +335,7 @@ Figure \ref{fig:participants} shows the participants. This data was collected du
 
 \subsubsection{Discussion}
 The usability evaluation proved there were many positive aspects of the Quarters user interface. Every participant was able to complete their task, and in an efficient time, regardless of the browser or the device. The straightforward navigation of the application allowed the participants to navigate easily across the web application and communicate quickly, which is a high-level goal of the software. The questionnaire results showed that participants agreed that Quarters was easy and intuitive to use. Based on these usability results, one could infer that the design and implementation support Norman’s Design Principles, as discussed in the Detailed Design document. The participants of the usability test unanimously strongly agreed that they would use the Maintenance Ticketing, File Upload and Notifications features. After testing Quarters, in response to how frequently they would use Quarters, participants either did not change their mind, or said they would use it more frequently relative to what they had stated prior to testing Quarters. Several participants noted during the ‘talk-aloud’ that they could see Quarters solving a lot of issues they experience in their current households. These positive test results prove that Quarters has marketability. \\ \\
-Quarters was not without its weaknesses though. Not every participant saw the value in using Quarters on a daily basis and not every participant would recommend Quarters to a friend. Additionally, Quarters performed poorly on questions 5 and 6, which tested the usability of the Chat feature and the Finances feature, respectively. Participants noted during the ‘talk-aloud’ that they could not see a use for the Chat feature when the Bulletin Board allowed them the same functionality. Additionally, they noted that the purpose of the Finances feature was not initially clear. One landlord noted that they saw value in the File Upload feature, but not so much in the other features. Lastly, some users with a keen eye for design noted some glitches or flaws in our interface. \\ \\
- 
-
+Quarters was not without its weaknesses though. Not every participant saw the value in using Quarters on a daily basis and not every participant would recommend Quarters to a friend. Additionally, Quarters performed poorly on questions 5 and 6, which tested the usability of the Chat feature and the Finances feature, respectively. Participants noted during the ‘talk-aloud’ that they could not see a use for the Chat feature when the Bulletin Board allowed them the same functionality. Additionally, they noted that the purpose of the Finances feature was not initially clear. One landlord noted that they saw value in the File Upload feature, but not so much in the other features. Lastly, some users with a keen eye for design noted some glitches or flaws in our interface. \\
 
 
 \subsection{Performance}
